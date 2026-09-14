@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pilih domain dan paket website Rasio." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Mulai website — Rasio Agency</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="order-page">
+    <a class="skip-link" href="#order-main">Lewati ke formulir pemesanan</a>
+
+    <header class="order-header">
+      <div class="shell order-header-inner">
+        <a class="brand" href="/" aria-label="Kembali ke beranda Rasio Agency">
+          <img src="/assets/rasio-logo.png" alt="Rasio Agency" />
+        </a>
+        <p>Pesan website pre-made</p>
+        <a class="order-close" href="/">Tutup <span aria-hidden="true">×</span></a>
+      </div>
+    </header>
+
+    <div class="order-progress-bar" aria-hidden="true"><span data-progress-bar></span></div>
+
+    <main class="order-main" id="order-main">
+      <div class="shell order-layout" data-order-shell>
+        <aside class="order-aside">
+          <div class="order-summary">
+            <div class="summary-topline"><span>Ringkasan pesanan</span><span>Rasio / 01</span></div>
+            <button class="summary-toggle" type="button" aria-expanded="false" data-summary-toggle>
+              Lihat rincian <span aria-hidden="true">+</span>
+            </button>
+            <div class="summary-body">
+              <dl>
+                <div>
+                  <dt>Template</dt>
+                  <dd data-summary-template>Belum dipilih</dd>
+                </div>
+                <div>
+                  <dt>Paket</dt>
+                  <dd data-summary-package>Rasio Store</dd>
+                </div>
+                <div>
+                  <dt>Domain</dt>
+                  <dd data-summary-domain>Belum dipilih</dd>
+                </div>
+              </dl>
+              <div class="summary-total">
+                <span>Total tahunan</span>
+                <strong>Dihitung setelah domain dipilih</strong>
+              </div>
+              <p>Harga paket, domain, dan add-on akan ditampilkan terpisah sebelum pembayaran.</p>
+            </div>
+          </div>
+
+          <nav class="order-steps" aria-label="Tahapan pemesanan">
+            <button class="order-step is-active" type="button" data-go-step="1" aria-current="step">
+              <span>01</span><span><b>Domain</b><small>Tentukan alamat website</small></span>
+            </button>
+            <button class="order-step" type="button" data-go-step="2">
+              <span>02</span><span><b>Paket</b><small>Pilih kebutuhan website</small></span>
+            </button>
+            <button class="order-step" type="button" data-go-step="3">
+              <span>03</span><span><b>Data bisnis</b><small>Untuk akun dan aktivasi</small></span>
+            </button>
+            <button class="order-step" type="button" data-go-step="4">
+              <span>04</span><span><b>Review</b><small>Periksa sebelum membayar</small></span>
+            </button>
+          </nav>
+        </aside>
+
+        <section class="order-workspace">
+          <div class="order-toolbar">
+            <span data-step-label>Langkah 01 / 04</span>
+            <div>
+              <button class="toolbar-button" type="button" data-previous disabled>← Sebelumnya</button>
+              <button class="toolbar-button toolbar-primary" type="button" data-next>Selanjutnya →</button>
+            </div>
+          </div>
+
+          <div class="order-panel is-active" data-step-panel="1">
+            <p class="eyebrow"><span>01</span> Pilih domain</p>
+            <h1>Cari nama website <em>yang pas.</em></h1>
+            <p class="order-lede">
+              Ketik nama yang Anda inginkan. Pada versi produksi, Rasio akan mengecek ketersediaan dan harga
+              langsung dari API registrar.
+            </p>
+
+            <form class="order-domain-form" data-order-domain-form>
+              <label for="order-domain">Nama domain</label>
+              <div>
+                <input id="order-domain" name="order-domain" type="text" placeholder="contoh: namabisnis" autocomplete="off" />
+                <button type="submit">Cari domain <span aria-hidden="true">→</span></button>
+              </div>
+            </form>
+
+            <div class="domain-results" data-domain-results hidden></div>
+
+            <button class="existing-domain" type="button" data-existing-domain>
+              <span>Saya sudah punya domain</span><span aria-hidden="true">↗</span>
+            </button>
+          </div>
+
+          <div class="order-panel" data-step-panel="2" hidden>
+            <p class="eyebrow"><span>02</span> Pilih paket</p>
+            <h1>Pilih fondasi <em>website Anda.</em></h1>
+            <p class="order-lede">
+              Template dapat diganti warna, logo, teks, foto, dan produknya. Fitur inti mengikuti paket.
+            </p>
+
+            <div class="order-package-grid">
+              <button class="order-package" type="button" data-package="profile">
+                <span>Company profile</span>
+                <strong>Rasio Profile</strong>
+                <small>Profil bisnis, layanan, portofolio, formulir, dan AI chatbot.</small>
+                <i aria-hidden="true"></i>
+              </button>
+              <button class="order-package is-selected" type="button" data-package="store">
+                <span>Toko online</span>
+                <strong>Rasio Store</strong>
+                <small>Produk, checkout, pesanan, payment gateway, Biteship, dan AI chatbot.</small>
+                <i aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="selected-template-panel">
+              <div>
+                <span>Template terpilih</span>
+                <strong data-selected-template>Belum dipilih</strong>
+              </div>
+              <a href="/#template">Ganti template ↗</a>
+            </div>
+          </div>
+
+          <div class="order-panel" data-step-panel="3" hidden>
+            <p class="eyebrow"><span>03</span> Data bisnis</p>
+            <h1>Akses website dikirim <em>ke Anda.</em></h1>
+            <p class="order-lede">
+              Akun dibuat otomatis setelah pembayaran berhasil. Anda tidak perlu registrasi terpisah.
+            </p>
+
+            <form class="business-form" data-business-form>
+              <div class="field-wide">
+                <label for="business-name">Nama bisnis</label>
+                <input id="business-name" name="business-name" type="text" placeholder="Nama bisnis Anda" required />
+              </div>
+              <div>
+                <label for="customer-name">Nama penanggung jawab</label>
+                <input id="customer-name" name="customer-name" type="text" placeholder="Nama lengkap" required />
+              </div>
+              <div>
+                <label for="customer-whatsapp">Nomor WhatsApp</label>
+                <input id="customer-whatsapp" name="customer-whatsapp" type="tel" placeholder="08xxxxxxxxxx" required />
+              </div>
+              <div class="field-wide">
+                <label for="customer-email">Email untuk akses akun</label>
+                <input id="customer-email" name="customer-email" type="email" placeholder="nama@email.com" required />
+                <small>Tautan login dan informasi pesanan akan dikirim ke email ini.</small>
+              </div>
+            </form>
+          </div>
+
+          <div class="order-panel" data-step-panel="4" hidden>
+            <p class="eyebrow"><span>04</span> Review pesanan</p>
+            <h1>Periksa sebelum <em>melanjutkan.</em></h1>
+            <p class="order-lede">
+              Tidak ada pembayaran pada prototipe ini. Tampilan berikut menunjukkan informasi yang akan
+              muncul sebelum checkout produksi.
+            </p>
+
+            <div class="review-sheet">
+              <div><span>Template</span><strong data-review-template>Belum dipilih</strong></div>
+              <div><span>Paket</span><strong data-review-package>Rasio Store</strong></div>
+              <div><span>Domain</span><strong data-review-domain>Belum dipilih</strong></div>
+              <div><span>Tagihan</span><strong>Tahunan</strong></div>
+              <div class="review-total">
+                <span>Total</span>
+                <strong>Harga live ditampilkan di sini</strong>
+              </div>
+            </div>
+
+            <label class="review-consent">
+              <input type="checkbox" data-review-consent />
+              <span>Saya telah memeriksa pilihan paket, domain, dan ketentuan perpanjangan.</span>
+            </label>
+            <button class="button checkout-demo" type="button" data-demo-checkout disabled>
+              Lanjut ke pembayaran <span aria-hidden="true">→</span>
+            </button>
+            <p class="checkout-note" data-checkout-note>
+              Payment gateway akan dihubungkan setelah paket produksi ditetapkan.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/order.js"></script>
+  </body>
+</html>
