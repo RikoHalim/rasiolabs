@@ -41,22 +41,21 @@ const domainStatus = document.querySelector("[data-domain-status]");
 
 domainForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const rawValue = domainInput.value.trim().toLowerCase();
-  const cleanedValue = rawValue
-    .replace(/^https?:\/\//, "")
-    .replace(/^www\./, "")
-    .replace(/\.[a-z]{2,}$/i, "")
-    .replace(/[^a-z0-9-]/g, "")
-    .replace(/^-+|-+$/g, "");
-
-  if (!cleanedValue) {
-    domainStatus.textContent = "Masukkan nama bisnis tanpa spasi, misalnya rasiostore.";
+  const domain = RasioDomain.normalize(domainInput.value);
+  const error = RasioDomain.error(domain);
+  domainInput.setAttribute('aria-invalid', String(Boolean(error)));
+  domainStatus.textContent = error;
+  domainStatus.hidden = !error;
+  if (error) {
     domainInput.focus();
     return;
   }
-
-  domainInput.value = cleanedValue;
-  domainStatus.innerHTML = `<strong>${cleanedValue}.com</strong> siap diperiksa. <a class="inline-order-link" href="/order.html?domain=${encodeURIComponent(cleanedValue)}.com">Lanjutkan pengecekan →</a>`;
+  const type = document.querySelector('[data-product][aria-selected="true"]').dataset.product;
+  window.location.assign(`/order.html?domain=${encodeURIComponent(domain)}&type=${type}`);
+});
+domainInput?.addEventListener('input', () => {
+  domainInput.removeAttribute('aria-invalid');
+  domainStatus.hidden = true;
 });
 
 const filterButtons = document.querySelectorAll("[data-filter]");

@@ -195,3 +195,54 @@
  .hero-product .preview-canvas { min-height:220px; }
 }
 @media(prefers-reduced-motion:reduce) { .site-nav,.menu-toggle span:not(.sr-only) { transition:none; } }
+
+/* Quiet edges keep white surfaces distinct from the page. */
+.site-preview, .domain-checker, .ai-feature-list article, .faq-item, .business-form {
+ border:1px solid #dce3ef;
+ box-shadow:0 5px 18px #172d5910;
+}
+.order-package { border-color:#d8dfeb; box-shadow:0 4px 14px #172d5909; }
+.domain-result, .existing-domain-state { border-color:#dce3ef; box-shadow:0 3px 12px #172d5909; }
+.template-actions .text-link, .selected-template-panel a { border:1px solid #dbe3f2; box-shadow:0 3px 8px #172d5908; }
+.domain-hint { margin:9px 0 0; color:#677187; font-size:11px; line-height:1.6; }
+.domain-error { color:#ad293e; font-size:12px; line-height:1.6; }
+.domain-field:has(input[aria-invalid="true"]) { border-color:#bd2838; }
+.domain-field:focus-within { border-color:#2353e1; box-shadow:0 0 0 3px #2353e114; }
+.domain-email { display:flex; align-items:center; gap:10px; margin-top:14px; padding-top:13px; border-top:1px solid #e5eaf2; }
+.domain-email > span { display:grid; place-items:center; flex-shrink:0; width:27px; height:27px; border-radius:8px; background:#edf2ff; color:#2353e1; font-size:15px; }
+.domain-email strong, .domain-email div > span { display:block; }
+.domain-email strong { color:#20324f; font-size:12px; font-weight:600; }
+.domain-email div > span { margin-top:2px; color:#697388; font-size:10px; }
+.domain-results-note { margin:0 0 4px; color:#677187; font-size:12px; }
+.domain-result > span:first-child { min-width:0; overflow-wrap:anywhere; }
+.benefits-section { padding:76px 0 52px; margin-inline:24px; border-radius:30px; background:#f2f5fc; }
+.benefits-section > .shell { width:min(1120px,calc(100% - 64px)); }
+.benefits-heading { margin-bottom:32px; }
+.benefits-heading .eyebrow { margin-bottom:20px; }
+.benefits-heading h2 { margin:0; font-size:clamp(34px,4vw,54px); font-weight:800; letter-spacing:-.04em; line-height:1.14; }
+.benefits-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+.benefit-card { display:flex; flex-direction:column; padding:32px; border:1px solid #dce3ef; border-radius:24px; background:white; box-shadow:0 6px 24px #172d590b; transition:transform 220ms ease,box-shadow 220ms ease; }
+.benefit-card:hover { transform:translateY(-4px); box-shadow:0 14px 28px #172d5914; }
+.benefit-store { background:#2353e1; border-color:#2353e1; color:white; }
+.benefit-label { font-size:10px; font-weight:600; letter-spacing:.045em; color:#2353e1; }
+.benefit-store .benefit-label { color:#d9e3ff; }
+.benefit-card h3 { margin:22px 0 14px; font-size:clamp(23px,2.5vw,30px); letter-spacing:-.035em; line-height:1.2; font-weight:800; }
+.benefit-card > p { margin:0; font-size:13px; color:#637087; line-height:1.8; }
+.benefit-store > p { color:#dce5ff; }
+.benefit-checklist { padding:0; margin:24px 0 28px; list-style:none; display:grid; gap:13px; }
+.benefit-checklist li { position:relative; padding-left:28px; font-size:13px; line-height:1.65; }
+.benefit-checklist li::before { content:'✓'; position:absolute; top:2px; left:0; display:grid; place-items:center; width:19px; height:19px; border-radius:6px; background:#edf2ff; color:#2353e1; font-size:12px; font-weight:700; }
+.benefit-store .benefit-checklist li::before { background:#ffffff24; color:white; }
+.benefit-action { margin-top:auto; align-self:flex-start; min-height:46px; font-size:13px; }
+.benefit-store .benefit-action { background:white; border-color:white; color:#2353e1; }
+.benefit-store .benefit-action:hover { background:#edf2ff; border-color:#edf2ff; }
+.benefits-included { display:grid; grid-template-columns:230px 1fr; gap:24px; align-items:center; padding:24px 0 0; }
+.benefits-included > strong { color:#465873; font-size:12px; font-weight:500; line-height:1.8; }
+.benefits-included .benefit-checklist { grid-template-columns:repeat(4,auto); gap:12px; margin:0; }
+.benefits-included .benefit-checklist li { font-size:12px; white-space:nowrap; }
+.benefits-included .benefit-checklist li::before { background:white; }
+.benefits-note { margin:16px 0 0; color:#69768c; font-size:10px; }
+@media(max-width:1080px) { .benefits-included { grid-template-columns:1fr; gap:14px; } .benefits-included > strong br { display:none; } }
+@media(max-width:840px) { .benefits-grid { grid-template-columns:1fr; } .benefits-included .benefit-checklist { grid-template-columns:1fr 1fr; } .benefit-card h3 { font-size:30px; } }
+@media(max-width:540px) { .benefits-section { margin-inline:14px; padding:48px 0 32px; border-radius:24px; } .benefits-section > .shell { width:calc(100% - 32px); } .benefit-card { padding:24px 20px; border-radius:20px; } .benefit-card h3 { font-size:25px; } .benefit-label { font-size:9px; } .benefit-action { width:100%; } .benefits-included .benefit-checklist li { font-size:11px; padding-left:24px; } .benefits-included { padding-inline:4px; } .benefits-note { padding-inline:4px; line-height:1.7; } }
+@media(prefers-reduced-motion:reduce) { .benefit-card { transition:none; } .benefit-card:hover { transform:none; } }

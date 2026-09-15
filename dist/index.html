@@ -16,8 +16,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="/refinements.css" />
+    <link rel="stylesheet" href="/styles.css?v=3" />
+    <link rel="stylesheet" href="/refinements.css?v=3" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
@@ -114,16 +114,16 @@
 
               <div class="hero-ai-caption"><span class="ai-caption-symbol" aria-hidden="true">↳</span><div><strong>Rasio AI, di sisi operasional Anda.</strong><span>Chatbot untuk pelanggan. Insight untuk toko.</span></div><a href="#rasio-ai" aria-label="Kenali Rasio AI">↗</a></div>
 
-              <form class="domain-checker" data-domain-form>
+              <form class="domain-checker" data-domain-form novalidate>
                 <label for="domain-name">Cek nama website Anda</label>
                 <div class="domain-field">
-                  <span>www.</span>
-                  <input id="domain-name" name="domain" type="text" placeholder="namabisnis" autocomplete="off" />
+                  <span aria-hidden="true">www.</span>
+                  <input id="domain-name" name="domain" type="text" placeholder="namabisnis.com" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="253" required aria-describedby="domain-hint domain-error" />
                   <button type="submit">Cek domain <span aria-hidden="true">→</span></button>
                 </div>
-                <p class="domain-status" data-domain-status aria-live="polite">
-                  Harga domain ditampilkan setelah API registrar terhubung.
-                </p>
+                <p class="domain-hint" id="domain-hint">Sertakan ekstensi, misalnya .com atau .co.id.</p>
+                <p class="domain-status domain-error" id="domain-error" data-domain-status aria-live="polite" hidden></p>
+                <div class="domain-email"><span aria-hidden="true">✓</span><div><strong>Sudah termasuk 1 email bisnis</strong><span>Lebih profesional dengan halo@namabisnis.com</span></div></div>
               </form>
             </div>
           </div>
@@ -252,38 +252,43 @@
         </div>
       </section>
 
-      <section class="ownership-section" aria-labelledby="ownership-title">
-        <div class="shell ownership-grid">
-          <div>
-            <p class="eyebrow eyebrow-inverse"><span>04</span> Kanal milik sendiri</p>
-            <h2 id="ownership-title">Bawa pelanggan ke toko milik brand Anda.</h2>
-            <p class="ownership-lede">
-              Marketplace tetap dapat membantu Anda menjangkau pembeli. Website memberi kendali atas
-              tampilan, pengalaman belanja, dan hubungan dengan pelanggan.
-            </p>
+      <section class="benefits-section" id="mengapa-rasio" aria-labelledby="benefits-title">
+        <div class="shell">
+          <div class="benefits-heading">
+            <p class="eyebrow"><span>04</span> Mengapa Rasio?</p>
+            <h2 id="benefits-title">Siap berjualan.<br /><mark class="marker">Siap meyakinkan.</mark></h2>
           </div>
-
-          <div class="ownership-ledger" aria-label="Rincian biaya dan kepemilikan">
-            <div class="ledger-row ledger-primary">
-              <span>Komisi transaksi dari Rasio</span>
-              <strong>0%</strong>
-            </div>
-            <div class="ledger-row">
-              <span>Payment gateway</span>
-              <strong>Milik bisnis Anda</strong>
-            </div>
-            <div class="ledger-row">
-              <span>Ongkir, resi, dan tracking</span>
-              <strong>Terhubung ke Biteship</strong>
-            </div>
-            <div class="ledger-row">
-              <span>Domain</span>
-              <strong>Terdaftar atas data Anda</strong>
-            </div>
-            <p>
-              Biaya transaksi dan pengiriman tetap mengikuti ketentuan provider yang dipilih.
-            </p>
+          <div class="benefits-grid">
+            <article class="benefit-card benefit-store">
+              <span class="benefit-label">RASIO STORE / UNTUK BERJUALAN</span>
+              <h3>Mengapa buat toko online<br />sendiri di Rasio?</h3>
+              <p>Brand Anda di depan. Urusan belanja tertata, dari produk dipilih hingga pesanan tiba.</p>
+              <ul class="benefit-checklist">
+                <li>Integrasi payment gateway sudah termasuk</li>
+                <li>Cek ongkir, resi, dan tracking pengiriman</li>
+                <li>Kelola produk dan pesanan di satu dashboard</li>
+                <li>Tanpa komisi penjualan dari Rasio</li>
+              </ul>
+              <a class="button benefit-action" href="/order.html?type=store">Mulai toko online <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="benefit-card benefit-profile">
+              <span class="benefit-label">RASIO PROFILE / UNTUK MEMPERKENALKAN BISNIS</span>
+              <h3>Mengapa buat website<br />bisnis di Rasio?</h3>
+              <p>Beri calon pelanggan alasan untuk percaya, mengenal layanan, lalu menghubungi Anda.</p>
+              <ul class="benefit-checklist">
+                <li>Company profile atau landing page sesuai brand</li>
+                <li>Tampilan rapi di ponsel maupun desktop</li>
+                <li>Formulir untuk menangkap calon pelanggan</li>
+                <li>Edit teks, foto, dan layanan dengan mudah</li>
+              </ul>
+              <a class="button benefit-action" href="/order.html?type=profile">Mulai website bisnis <span aria-hidden="true">↗</span></a>
+            </article>
           </div>
+          <div class="benefits-included">
+            <strong>Di kedua paket pre-made,<br />Anda juga mendapatkan:</strong>
+            <ul class="benefit-checklist"><li>Domain sesuai brand</li><li>1 email bisnis</li><li>Hosting & SSL</li><li>AI chatbot</li></ul>
+          </div>
+          <p class="benefits-note">Pilihan domain mengikuti ketersediaan. Biaya transaksi dan pengiriman mengikuti penggunaan.</p>
         </div>
       </section>
 
@@ -432,7 +437,7 @@
               <p class="price-display">Paket tahunan<br /><strong>Segera tersedia</strong></p>
               <ul>
                 <li>Template toko online dan dashboard pesanan</li>
-                <li>Integrasi satu payment gateway dan Biteship</li>
+                <li>Payment gateway, cek ongkir, dan tracking pengiriman</li>
                 <li>AI chatbot, setup produk awal, dan 1 email bisnis</li>
                 <li>Rasio AI Insight tersedia sebagai add-on</li>
               </ul>
@@ -578,7 +583,8 @@
       </div>
     </footer>
 
-    <script src="/navigation.js"></script>
-    <script src="/app.js"></script>
+    <script src="/navigation.js?v=3"></script>
+    <script src="/domain.js?v=3"></script>
+    <script src="/app.js?v=3"></script>
   </body>
 </html>

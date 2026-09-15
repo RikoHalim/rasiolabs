@@ -13,8 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="/refinements.css" />
+    <link rel="stylesheet" href="/styles.css?v=3" />
+    <link rel="stylesheet" href="/refinements.css?v=3" />
   </head>
   <body class="order-page">
     <a class="skip-link" href="#order-main">Lewati ke formulir pemesanan</a>
@@ -58,7 +58,7 @@
               </dl>
               <div class="summary-total">
                 <span>Total tahunan</span>
-                <strong>Dihitung setelah domain dipilih</strong>
+                <strong>Harga final segera tersedia</strong>
               </div>
               <p>Harga paket, domain, dan add-on akan ditampilkan terpisah sebelum pembayaran.</p>
             </div>
@@ -97,12 +97,14 @@
               langsung dari API registrar.
             </p>
 
-            <form class="order-domain-form" data-order-domain-form>
+            <form class="order-domain-form" data-order-domain-form novalidate>
               <label for="order-domain">Nama domain</label>
               <div>
-                <input id="order-domain" name="order-domain" type="text" placeholder="contoh: namabisnis" autocomplete="off" />
+                <input id="order-domain" name="order-domain" type="text" placeholder="namabisnis.com" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="253" required aria-describedby="order-domain-hint order-domain-error" />
                 <button type="submit">Cari domain <span aria-hidden="true">→</span></button>
               </div>
+              <p class="domain-hint" id="order-domain-hint">Gunakan domain lengkap, seperti namabisnis.com atau namabisnis.co.id.</p>
+              <p class="domain-status domain-error" id="order-domain-error" data-order-domain-status aria-live="polite" hidden></p>
             </form>
 
             <div class="domain-results" data-domain-results hidden></div>
@@ -129,7 +131,7 @@
               <button class="order-package is-selected" type="button" data-package="store">
                 <span>Toko online</span>
                 <strong>Rasio Store</strong>
-                <small>Produk, checkout, pesanan, payment gateway, Biteship, dan AI chatbot.</small>
+                <small>Produk, checkout, pesanan, payment gateway, cek ongkir, tracking, dan AI chatbot.</small>
                 <i aria-hidden="true"></i>
               </button>
             </div>
@@ -205,7 +207,8 @@
       </div>
     </main>
 
-    <script src="/navigation.js"></script>
-    <script src="/order.js"></script>
+    <script src="/navigation.js?v=3"></script>
+    <script src="/domain.js?v=3"></script>
+    <script src="/order.js?v=3"></script>
   </body>
 </html>

@@ -5,12 +5,13 @@ if (orderShell) {
   const initialType = params.get("type") === "profile" ? "profile" : "store";
   const requestedTemplate = params.get("template");
   const initialTemplate = ['Mono', 'Kanasari', 'Sora'].includes(requestedTemplate) ? requestedTemplate : (initialType === "profile" ? "Mono" : "Kanasari");
-  const initialDomain = params.get("domain")?.replace(/[^a-z0-9.-]/gi, "") || "";
+  const requestedDomain = RasioDomain.normalize(params.get('domain') || '');
+  const initialDomain = RasioDomain.error(requestedDomain) ? '' : requestedDomain;
 
   let currentStep = 1;
   let selectedPackage = initialType;
   let selectedTemplate = initialTemplate;
-  let selectedDomain = initialDomain;
+  let selectedDomain = '';
 
   const packageNames = { profile: "Rasio Profile", store: "Rasio Store" };
   const panels = [...document.querySelectorAll("[data-step-panel]")];
@@ -64,8 +65,12 @@ if (orderShell) {
 
   nextButton.addEventListener("click", () => {
     if (currentStep === 1 && !selectedDomain) {
-      document.querySelector("#order-domain").focus();
-      document.querySelector("[data-order-domain-form]").classList.add("needs-input");
+      const error = RasioDomain.error(domainInput.value);
+      if (!error && results.hidden) renderDomainResults();
+      domainStatus.hidden = false;
+      domainStatus.textContent = error || 'Pilih salah satu domain di bawah untuk melanjutkan.';
+      if (error) { domainInput.setAttribute('aria-invalid', 'true'); domainInput.focus(); }
+      else results.querySelector('button')?.focus();
       return;
     }
 
@@ -85,31 +90,46 @@ if (orderShell) {
   const domainForm = document.querySelector("[data-order-domain-form]");
   const domainInput = document.querySelector("#order-domain");
   const results = document.querySelector("[data-domain-results]");
+  const domainStatus = document.querySelector('[data-order-domain-status]');
 
-  if (initialDomain) domainInput.value = initialDomain.split(".")[0];
+  if (initialDomain) domainInput.value = initialDomain;
 
   domainForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = domainInput.value
-      .trim()
-      .toLowerCase()
-      .replace(/^https?:\/\//, "")
-      .replace(/^www\./, "")
-      .replace(/\.[a-z.]{2,}$/i, "")
-      .replace(/[^a-z0-9-]/g, "")
-      .replace(/^-+|-+$/g, "");
+    renderDomainResults();
+  });
 
-    if (!name) {
+  domainInput.addEventListener('input', () => {
+    selectedDomain = '';
+    results.hidden = true;
+    domainStatus.hidden = true;
+    domainInput.removeAttribute('aria-invalid');
+    domainForm.classList.remove('needs-input');
+    updateSummary();
+  });
+
+  function renderDomainResults() {
+    const domain = RasioDomain.normalize(domainInput.value);
+    const error = RasioDomain.error(domain);
+    domainInput.setAttribute('aria-invalid', String(Boolean(error)));
+    domainStatus.textContent = error;
+    domainStatus.hidden = !error;
+    if (error) {
       domainForm.classList.add("needs-input");
       domainInput.focus();
       return;
     }
 
+    domainInput.value = domain;
+    selectedDomain = '';
+    updateSummary();
     domainForm.classList.remove("needs-input");
     results.hidden = false;
-    results.innerHTML = [".com", ".id", ".co.id"].map((extension, index) => `
-      <button class="domain-result${index === 0 ? " is-recommended" : ""}" type="button" data-domain-choice="${name}${extension}">
-        <span><b>${name}${extension}</b><small>${index === 0 ? "Pilihan utama" : "Alternatif domain"}</small></span>
+    const name = domain.split('.')[0];
+    const domains = [...new Set([domain, `${name}.com`, `${name}.id`, `${name}.co.id`])];
+    results.innerHTML = '<p class="domain-results-note">Contoh pilihan domain. Ketersediaan dan harga belum diperiksa pada prototipe ini.</p>' + domains.map((choice, index) => `
+      <button class="domain-result${index === 0 ? " is-recommended" : ""}" type="button" data-domain-choice="${choice}" aria-pressed="false">
+        <span><b>${choice}</b><small>${index === 0 ? "Domain yang Anda cari" : "Alternatif domain"}</small></span>
         <span><small>Harga</small><strong>Dari API registrar</strong></span>
         <i aria-hidden="true">Pilih →</i>
       </button>
@@ -118,14 +138,21 @@ if (orderShell) {
     results.querySelectorAll("[data-domain-choice]").forEach((button) => {
       button.addEventListener("click", () => {
         selectedDomain = button.dataset.domainChoice;
-        results.querySelectorAll(".domain-result").forEach((item) => item.classList.toggle("is-selected", item === button));
+        domainStatus.hidden = true;
+        results.querySelectorAll(".domain-result").forEach((item) => {
+          item.classList.toggle("is-selected", item === button);
+          item.setAttribute('aria-pressed', String(item === button));
+        });
         updateSummary();
       });
     });
-  });
+  }
 
   document.querySelector("[data-existing-domain]").addEventListener("click", () => {
     selectedDomain = "Domain milik sendiri";
+    domainStatus.hidden = true;
+    domainInput.removeAttribute('aria-invalid');
+    domainForm.classList.remove('needs-input');
     results.hidden = false;
     results.innerHTML = '<div class="existing-domain-state"><b>Domain milik sendiri dipilih</b><span>Tim Rasio akan mengirim panduan pengaturan DNS setelah pembayaran.</span></div>';
     updateSummary();
@@ -153,5 +180,6 @@ if (orderShell) {
   });
 
   updateSummary();
+  if (initialDomain) renderDomainResults();
   setStep(1);
 }
