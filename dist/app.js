@@ -105,10 +105,6 @@ document.querySelectorAll('[data-template-detail]').forEach(link => link.addEven
   event.preventDefault();
   const card = link.closest('.template-card');
   showDetail(card.querySelector('h3').textContent,
-    card.dataset.category === 'store' ? 'Konsep template toko online: katalog, detail produk, checkout, pesanan, dan chatbot. Logo, warna, foto, serta produk disesuaikan dengan bisnis Anda.' : 'Konsep template company profile: profil bisnis, layanan, portofolio, formulir kontak, dan chatbot. Konten dapat diedit dari dashboard.',
+    card.dataset.category === 'store' ? 'Konsep template toko online: katalog, detail produk, checkout, pesanan, dan chatbot. Logo, warna, foto, serta produk disesuaikan dengan bisnis Anda.' : 'Konsep template company profile: profil bisnis, layanan, portofolio, formulir kontak, dan chatbot. Seluruh konten disiapkan dan diedit oleh tim Rasio sesuai cakupan paket.',
     card.querySelector('img')?.getAttribute('src'), card.querySelector('.button').getAttribute('href'));
-}));
-document.querySelectorAll('[data-consult]').forEach(link => link.addEventListener('click', event => {
-  event.preventDefault();
-  showDetail('Ceritakan kebutuhan proyek Anda.', 'Jalur Rasio Custom mencakup website, software internal, marketplace multivendor, dan integrasi khusus. Siapkan tujuan proyek, fitur utama, referensi, dan target waktu. Kanal konsultasi akan tersedia saat Rasio diluncurkan.');
 }));
