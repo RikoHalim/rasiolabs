@@ -6,6 +6,9 @@
 .service-card-bottom { flex-wrap:wrap; gap:18px; }
 .service-card-bottom .service-cta { padding:10px 15px; background:white; border:1px solid #d8e2f5; border-radius:11px; color:#2353e1; font-size:13px; font-weight:600; line-height:1.4; }
 .service-item:hover .service-cta { background:#f7f9ff; }
+.hero-domain-offer { display:block; margin-top:24px; color:#56637a; font-size:16px; font-weight:500; line-height:1.6; letter-spacing:0; }
+.hero-domain-offer strong { display:inline-block; margin-left:4px; color:#2353e1; font-size:25px; font-weight:800; letter-spacing:-.025em; }
+.hero-domain-offer strong > span { font-size:16px; font-weight:600; letter-spacing:0; }
 .service-item-featured,.price-featured,.benefit-store { box-shadow:0 10px 26px #2353e12d; }
 .product-frame { box-shadow:0 16px 38px #2353e130; }
 .service-page h1,.service-page h2,.service-page h3 { font-weight:800; }

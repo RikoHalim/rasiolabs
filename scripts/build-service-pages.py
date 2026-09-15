@@ -74,6 +74,6 @@ for kind,p in products.items():
 <section class="problem-section"><div class="shell"><div class="detail-heading"><p class="eyebrow">02 / Masalah & solusi</p><h2>Ada kebutuhan.<br />Ada cara yang lebih baik.</h2></div><div class="problem-list">{problems}</div></div></section>
 <section class="detail-included"><div class="shell detail-included-grid"><div><p class="eyebrow">03 / Cakupan layanan</p><h2>{p['manage_title']}</h2><p>{p['manage']}</p></div><div class="detail-feature-card"><h3>Yang disiapkan untuk Anda</h3><ul class="benefit-checklist">{features}</ul><a class="secondary-button" href="/#harga">Lihat skema harga</a></div></div></section>
 <section class="detail-closing shell"><div><p class="eyebrow">Mulai bersama Rasio</p><h2>Siapkan langkah<br />berikutnya.</h2></div><div><p>Konsultasikan kebutuhan Anda atau mulai dengan mencari nama domain.</p><div class="service-actions">{actions}</div></div></section>
-</main>{footer}<script src="/navigation.js?v=4.1"></script></body></html>'''
+</main>{footer}<script src="/navigation.js?v=5"></script></body></html>'''
     (root / f'dist/layanan-{kind}.html').write_text(html,encoding='utf-8')
 print('Generated three service detail pages.')

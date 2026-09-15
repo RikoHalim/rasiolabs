@@ -61,7 +61,7 @@
 .service-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
 .service-card-bottom > span { color: #65718a; font-size: 11px; line-height: 1.9; }
 .service-card-bottom b { color: #1f2940; font-weight: 600; }
-.service-item-featured .service-card-bottom > span { color: #d0dcff; }
+.service-item-featured .service-card-bottom > span:not(.service-cta) { color: #d0dcff; }
 .service-item-featured .service-card-bottom b { color: white; }
 .service-card-bottom a { display: grid; place-items: center; flex-shrink: 0; width: 46px; height: 46px; border: 0; border-radius: 14px; background: white; color: #2353e1; font-size: 24px; transition: transform 240ms ease; }
 .template-section { background: white; }
