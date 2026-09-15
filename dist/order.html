@@ -14,17 +14,20 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/refinements.css" />
   </head>
   <body class="order-page">
     <a class="skip-link" href="#order-main">Lewati ke formulir pemesanan</a>
 
-    <header class="order-header">
-      <div class="shell order-header-inner">
-        <a class="brand" href="/" aria-label="Kembali ke beranda Rasio Agency">
-          <img src="/assets/rasio-logo.png" alt="Rasio Agency" />
-        </a>
-        <p>Pesan website pre-made</p>
-        <a class="order-close" href="/">Tutup <span aria-hidden="true">×</span></a>
+    <header class="site-header order-site-header" data-header>
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label="Rasio Agency, beranda"><img src="/assets/rasio-logo.png" alt="Rasio Agency" /></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Buka navigasi</span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
+          <a href="/#solusi">Solusi</a><a href="/#template">Template</a><a href="/#cara-kerja">Cara kerja</a><a href="/#rasio-ai">Rasio AI</a><a href="/#harga">Harga</a>
+          <a class="nav-mobile-cta" href="/#template">Jelajahi template ↗</a>
+        </nav>
+        <a class="button button-small header-cta" href="/#template">Lihat template ↗</a>
       </div>
     </header>
 
@@ -202,6 +205,7 @@
       </div>
     </main>
 
+    <script src="/navigation.js"></script>
     <script src="/order.js"></script>
   </body>
 </html>
