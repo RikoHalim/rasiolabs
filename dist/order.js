@@ -20,8 +20,10 @@
   const initialDomain = !RasioDomain.error(requestedDomain) ? requestedDomain : '';
   let domain = '';
   let steps = service === 'custom' || template ? ['domain','business','review'] : ['domain','template','business','review'];
+  if (service === 'store') steps.splice(steps.indexOf('business'),0,'addons');
   let current = 'domain';
-  const titles = {domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
+  const aiAddon = document.querySelector('[data-ai-addon]');
+  const titles = {addons:['Rasio AI','Tambahkan insight toko'],domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
   const input = document.querySelector('#order-domain');
   const form = document.querySelector('[data-order-domain-form]');
   const results = document.querySelector('[data-domain-results]');
@@ -33,9 +35,9 @@
   const checkoutNote = document.querySelector('[data-checkout-note]');
   const customWhatsApp = document.querySelector('[data-custom-whatsapp]');
 
-  const management = service === 'profile' ? 'Konten dikelola tim Rasio' : service === 'store' ? 'Dashboard toko untuk produk dan pesanan' : 'Disepakati sesuai cakupan proyek';
-  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda untuk mengumpulkan materi dan menyiapkan konten website.' : service === 'store' ? 'Konfirmasi dan akses dashboard toko dikirim setelah pembayaran. Tidak perlu membuat akun terpisah.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
-  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Seluruh teks, foto, dan konten company profile atau landing page diedit oleh tim Rasio. Cukup kirim materi dan permintaan revisi sesuai cakupan paket.' : service === 'store' ? 'Anda mengelola produk, stok, dan pesanan melalui dashboard toko. Tim Rasio membantu setup awal dan maintenance teknis.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Memilih domain belum merupakan pembelian.';
+  const management = service === 'profile' ? 'CMS sederhana untuk teks, gambar, dan logo' : service === 'store' ? 'Dashboard toko untuk produk dan pesanan' : 'Disepakati sesuai cakupan proyek';
+  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Akses dashboard dikirim saat toko siap, tanpa membuat akun terpisah.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
+  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Anda dapat mengubah copywriting, gambar, dan logo melalui CMS sederhana. Tim Rasio membantu setup awal, panduan penggunaan, dan maintenance selama langganan aktif.' : service === 'store' ? 'Anda mengelola produk, stok, dan pesanan melalui dashboard toko. Tim Rasio membantu setup awal dan maintenance teknis.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Memilih domain belum merupakan pembelian.';
   document.querySelector('[data-review-management]').textContent = management;
   document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum checkout. Pembayaran dan harga masih berupa simulasi pada prototipe ini.';
   document.querySelector('[data-custom-field]').hidden = service !== 'custom';
@@ -43,7 +45,11 @@
   document.querySelector('[data-template-summary]').hidden = service === 'custom';
   document.querySelector('[data-template-review]').hidden = service === 'custom';
   document.querySelector('[data-edit-template]').hidden = service === 'custom';
+  document.querySelector('[data-addon-summary]').hidden = service !== 'store';
+  document.querySelector('[data-addon-review]').hidden = service !== 'store';
+  aiAddon.addEventListener('change', () => { resetReview(); sync(); });
   if (service === 'custom') {
+    document.querySelector('[data-order-timing]').textContent = 'Jadwal pengerjaan website, ERP, dan software custom disepakati setelah konsultasi.';
     document.querySelector('[data-review-price]').textContent = 'Penawaran setelah konsultasi';
     document.querySelector('[data-consent-copy]').textContent = 'Saya telah memeriksa data bisnis dan domain untuk konsultasi.';
     document.querySelector('.summary-total span').textContent = 'Estimasi proyek';
@@ -51,6 +57,12 @@
     document.querySelector('.summary-body > p').textContent = 'Rasio menyusun harga dan cakupan proyek setelah pembahasan kebutuhan.';
   }
   function sync() {
+    document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = aiAddon.checked && service === 'store' ? 'Rp500.000 / tahun' : 'Tidak ditambahkan');
+    if (service === 'store') {
+      const price = aiAddon.checked ? 'Paket & domain + Rp500.000/tahun untuk AI' : 'Harga paket & domain segera tersedia';
+      document.querySelector('[data-review-price]').textContent = price;
+      document.querySelector('.summary-total strong').textContent = price;
+    }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
     document.querySelectorAll('[data-summary-template]').forEach(e => e.textContent = template || 'Belum dipilih');
     document.querySelectorAll('[data-summary-domain]').forEach(e => e.textContent = domain || 'Belum dipilih');

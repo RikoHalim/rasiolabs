@@ -13,9 +13,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=5" />
-    <link rel="stylesheet" href="/refinements.css?v=5" />
-  <link rel="stylesheet" href="/journey.css?v=5" /></head>
+    <link rel="stylesheet" href="/styles.css?v=6" />
+    <link rel="stylesheet" href="/refinements.css?v=6" />
+  <link rel="stylesheet" href="/journey.css?v=6" /><link rel="stylesheet" href="/polish.css?v=6" /></head>
   <body class="order-page">
     <a class="skip-link" href="#order-main">Lewati ke formulir pemesanan</a>
 
@@ -23,7 +23,11 @@
       <div class="shell header-inner">
         <a class="brand" href="/" aria-label="Rasio Agency, beranda"><img src="/assets/rasio-logo.png" alt="Rasio Agency" /></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Buka navigasi</span></button>
-        <nav class="site-nav" id="site-nav" aria-label="Navigasi utama"><a href="/#template">Template</a><a href="/#solusi">Layanan</a><a href="/#harga">Harga</a><a href="/#cara-kerja">Cara kerja</a><a class="nav-ai" href="/#rasio-ai">Rasio AI</a><a class="nav-mobile-cta" href="/#solusi">Mulai buat website</a></nav>
+        <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
+<a href="/#template">Template</a>
+<div class="nav-dropdown"><button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="service-menu">Layanan <span aria-hidden="true">⌄</span></button><div class="nav-dropdown-menu" id="service-menu" hidden>
+<a href="/layanan-profile.html"><strong>Rasio Profile</strong><small>Company profile & landing page</small></a><a href="/layanan-store.html"><strong>Rasio Store</strong><small>Toko online untuk brand Anda</small></a><a href="/layanan-custom.html"><strong>Rasio Custom</strong><small>Website, ERP & software</small></a></div></div>
+<a href="/#harga">Harga</a><a href="/portofolio.html">Portofolio</a><a href="/tutorial.html">Tutorial</a><a class="nav-ai" href="/#rasio-ai">Rasio AI</a><a class="nav-mobile-cta" href="/#solusi">Mulai buat website</a></nav>
         <a class="button button-small header-cta" href="/#template">Lihat template ↗</a>
       </div>
     </header>
@@ -32,7 +36,7 @@
 
     <main class="order-main" id="order-main">
       <div class="shell order-layout" data-order-shell>
-        <aside class="order-aside">
+        <div class="booking-top"><p class="eyebrow">Mulai bersama Rasio</p><h1>Siapkan website untuk bisnis Anda.</h1><p>Pilih kebutuhan Anda. Kami bantu menyiapkan websitenya.</p><nav class="order-steps" aria-label="Tahapan pemesanan" data-order-steps></nav></div><aside class="order-aside">
           <div class="order-summary">
             <div class="summary-topline"><span>Ringkasan pesanan</span><span>Rasio / 01</span></div>
             <button class="summary-toggle" type="button" aria-expanded="false" data-summary-toggle>
@@ -52,7 +56,7 @@
                   <dt>Domain</dt>
                   <dd data-summary-domain>Belum dipilih</dd>
                 </div>
-              </dl><button class="summary-template-edit" type="button" data-edit-template>Pilih / ubah template</button>
+              <div data-addon-summary hidden><dt>Rasio AI</dt><dd data-summary-addon>Tidak ditambahkan</dd></div></dl><button class="summary-template-edit" type="button" data-edit-template>Pilih / ubah template</button>
               <div class="summary-total">
                 <span>Total tahunan</span>
                 <strong>Harga final segera tersedia</strong>
@@ -61,23 +65,23 @@
             </div>
           </div>
 
-          <nav class="order-steps" aria-label="Tahapan pemesanan" data-order-steps></nav>
-        </aside>
+          
+<div class="booking-help"><strong>Sudah termasuk</strong><p>1 email bisnis · SEO dasar · WhatsApp CTA · CMS · AI chatbot*</p><span data-order-timing>Tim kami menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Website pre-made aktif dalam 1–2 × 24 jam setelah pemesanan.</span><small>*Fitur proyek custom mengikuti cakupan yang disepakati.</small></div></aside>
 
         <section class="order-workspace">
           <div class="order-service-context"><span>Layanan Anda: <strong data-summary-package>Belum dipilih</strong></span><a href="/#solusi">Ubah layanan</a></div>
           <div class="order-panel is-active" data-step-panel="domain">
-            <p class="eyebrow">Domain baru dari Rasio</p><h1>Cari nama website <em>yang pas.</em></h1>
+            <p class="eyebrow">Domain baru dari Rasio</p><h2>Tentukan alamat website Anda.</h2>
             <p class="order-lede">Cukup ketik nama bisnis. Pilih ekstensi dari hasil di bawah; Rasio menangani pendaftaran dan pengaturan domainnya.</p>
             <form class="order-domain-form" data-order-domain-form novalidate><label for="order-domain">Nama website</label><div><input id="order-domain" name="order-domain" type="text" placeholder="contoh: namabisnis" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="253" aria-describedby="order-domain-hint order-domain-error" /><button type="submit">Cari domain →</button></div><p class="domain-hint" id="order-domain-hint">Tidak perlu mengetik .com atau .co.id. Pilihan ekstensi akan muncul otomatis.</p><p class="domain-status domain-error" id="order-domain-error" data-order-domain-status aria-live="polite" hidden></p></form>
             <div class="domain-results" data-domain-results hidden></div>
           </div>
           <div class="order-panel" data-step-panel="template" hidden>
-            <p class="eyebrow">Desain untuk layanan pilihan Anda</p><h1>Pilih tampilan <em>yang cocok.</em></h1><p class="order-lede">Layanan sudah ditentukan. Pilih salah satu template yang tersedia untuk <strong data-summary-package></strong>.</p>
+            <p class="eyebrow">Desain untuk layanan pilihan Anda</p><h2>Pilih desain yang mewakili bisnis Anda.</h2><p class="order-lede">Layanan sudah ditentukan. Pilih salah satu template yang tersedia untuk <strong data-summary-package></strong>.</p>
             <div class="order-template-options" data-template-options></div><p class="domain-error" data-template-error aria-live="polite" hidden>Pilih template untuk melanjutkan.</p>
           </div>
-          <div class="order-panel" data-step-panel="business" hidden>
-            <p class="eyebrow">Data bisnis</p><h1>Mari kenali <em>bisnis Anda.</em></h1><p class="order-lede" data-business-intro></p>
+          <div class="order-panel" data-step-panel="addons" hidden><p class="eyebrow">Opsional / khusus Rasio Store</p><h2>Kenali peluang di balik data toko Anda.</h2><p class="order-lede">Tambahkan Rasio AI untuk membantu memahami performa bisnis dan menentukan perbaikan berikutnya.</p><label class="ai-addon-card"><input type="checkbox" data-ai-addon /><span class="addon-content"><span class="addon-label">RASIO AI INSIGHT</span><strong>Data toko, jadi arahan untuk bisnis.</strong><span>Ringkasan performa, produk yang perlu perhatian, dan rekomendasi perbaikan berdasarkan data toko Anda.</span><span class="addon-price">Rp500.000 <small>/ tahun</small></span><span class="addon-select">Tambahkan Rasio AI ke langganan saya</span></span></label><p class="addon-included">✓ AI chatbot sudah termasuk dalam paket, tanpa perlu memilih add-on ini.</p><p class="addon-footnote">Insight tersedia setelah data mencukupi. Anda tetap menentukan saran mana yang akan diterapkan.</p></div><div class="order-panel" data-step-panel="business" hidden>
+            <p class="eyebrow">Data bisnis</p><h2>Lengkapi informasi bisnis dan kontak.</h2><p class="order-lede" data-business-intro></p>
             <form class="business-form" data-business-form>
               <div class="field-wide"><label for="business-name">Nama bisnis</label><input id="business-name" name="business-name" placeholder="Nama bisnis Anda" required /></div>
               <div><label for="customer-name">Nama penanggung jawab</label><input id="customer-name" name="customer-name" placeholder="Nama lengkap" required /></div>
@@ -87,8 +91,8 @@
             </form><p class="order-profile-note" data-management-note></p>
           </div>
           <div class="order-panel" data-step-panel="review" hidden>
-            <p class="eyebrow">Ringkasan pilihan</p><h1>Periksa sebelum <em>melanjutkan.</em></h1><p class="order-lede" data-review-intro></p>
-            <div class="review-sheet"><div><span>Layanan</span><strong data-summary-package></strong></div><div data-template-review><span>Template</span><strong data-summary-template>Belum dipilih</strong></div><div><span>Domain</span><strong data-summary-domain>Belum dipilih</strong></div><div><span>Pengelolaan</span><strong data-review-management></strong></div><div class="review-total"><span>Biaya</span><strong data-review-price>Harga final segera tersedia</strong></div></div>
+            <p class="eyebrow">Ringkasan pilihan</p><h2>Periksa kembali pesanan Anda.</h2><p class="order-lede" data-review-intro></p>
+            <div class="review-sheet"><div><span>Layanan</span><strong data-summary-package></strong></div><div data-template-review><span>Template</span><strong data-summary-template>Belum dipilih</strong></div><div><span>Domain</span><strong data-summary-domain>Belum dipilih</strong></div><div><span>Pengelolaan</span><strong data-review-management></strong></div><div data-addon-review hidden><span>Rasio AI Insight</span><strong data-summary-addon>Tidak ditambahkan</strong></div><div class="review-total"><span>Biaya</span><strong data-review-price>Harga final segera tersedia</strong></div></div>
             <label class="review-consent"><input type="checkbox" data-review-consent /><span data-consent-copy>Saya telah memeriksa layanan, template, dan domain yang dipilih.</span></label><p class="checkout-note" data-checkout-note aria-live="polite"></p>
             <a class="button" data-custom-whatsapp target="_blank" rel="noopener" hidden>Buka WhatsApp Rasio</a>
           </div>
@@ -98,8 +102,8 @@
       <div class="order-empty shell" data-order-empty hidden><h1>Mulai dari layanan yang sesuai.</h1><p>Pilih layanan Rasio terlebih dahulu untuk melihat pilihan domain dan template yang relevan.</p><a class="button" href="/#solusi">Lihat layanan</a></div>
     </main>
 
-    <script src="/navigation.js?v=5"></script>
-    <script src="/domain.js?v=5"></script>
-    <script src="/order.js?v=5"></script>
+    <script src="/navigation.js?v=6"></script>
+    <script src="/domain.js?v=6"></script>
+    <script src="/order.js?v=6"></script>
   </body>
 </html>

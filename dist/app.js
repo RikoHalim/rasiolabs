@@ -105,6 +105,6 @@ document.querySelectorAll('[data-template-detail]').forEach(link => link.addEven
   event.preventDefault();
   const card = link.closest('.template-card');
   showDetail(card.querySelector('h3').textContent,
-    card.dataset.category === 'store' ? 'Konsep template toko online: katalog, detail produk, checkout, pesanan, dan chatbot. Logo, warna, foto, serta produk disesuaikan dengan bisnis Anda.' : 'Konsep template company profile: profil bisnis, layanan, portofolio, formulir kontak, dan chatbot. Seluruh konten disiapkan dan diedit oleh tim Rasio sesuai cakupan paket.',
+    card.dataset.category === 'store' ? 'Konsep template toko online: katalog, detail produk, checkout, pesanan, dan chatbot. Logo, warna, foto, serta produk disesuaikan dengan bisnis Anda.' : 'Konsep template company profile: profil bisnis, layanan, portofolio, formulir kontak, dan chatbot. Setup awal dibantu tim Rasio. Anda dapat mengubah teks, gambar, dan logo melalui CMS sederhana; SEO dasar dan tombol WhatsApp sudah termasuk.',
     card.querySelector('img')?.getAttribute('src'), card.querySelector('.button').getAttribute('href'));
 }));
