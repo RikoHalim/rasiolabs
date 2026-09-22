@@ -42,3 +42,36 @@ body{font-size:14px} [hidden]{display:none!important} .site-header{z-index:80}.s
 @media(max-width:840px){.hero-grid{padding-top:26px}.hero-slide{min-height:210px}.hero h1{font-size:40px}.hero-product{margin-top:0}}
 @media(max-width:540px){.hero-grid{padding-top:22px;gap:25px}.hero h1{font-size:34px}.hero-slide{min-height:235px}.hero-lede{font-size:12px}.hero-domain-offer{margin-bottom:15px}.hero-copy .proof-line{display:flex;gap:7px 12px}.response-promise{margin-block:11px}.hero-copy>.eyebrow{margin-bottom:15px}}
 @media(prefers-reduced-motion:reduce){.hero-slide,.site-nav,.nav-dropdown-toggle span{transition:none}.service-item:hover,.price-card:hover,.benefit-card:hover{transform:none}}
+
+/* Browse the template collection by business sector. */
+.template-sector-bar{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:16px 20px;background:#fff;border:1px solid #dce5f4;border-radius:16px;box-shadow:0 4px 14px #19336308;margin-bottom:14px}
+.template-sector-label{font-size:14px;font-weight:600;color:#364b6b}
+.sector-filters{display:flex;gap:8px;flex-wrap:wrap}
+.sector-filter{display:inline-flex;align-items:center;gap:10px;min-height:42px;padding:10px 14px;border:1px solid #dfe7f3;border-radius:10px;background:#f6f8fc;color:#425676;font:inherit;font-size:14px;cursor:pointer;transition:background 160ms,border-color 160ms,transform 160ms}
+.sector-filter>span{display:grid;place-items:center;min-width:21px;height:21px;border-radius:6px;background:#e7edf7;color:#61738e;font-size:12px}
+.sector-filter:hover{background:#edf3ff;border-color:#b6c9f3;transform:translateY(-1px)}
+.sector-filter.is-active{background:#edf3ff;border-color:#2353e1;color:#2353e1;font-weight:600}
+.sector-filter.is-active>span{background:#2353e1;color:white}
+.sector-filter:focus-visible,.template-filters button:focus-visible{outline:2px solid #2353e1;outline-offset:3px}
+.template-result-count{font-size:12px;color:#6b7b92;margin:0 0 20px}
+.template-info .template-sector-tag{display:inline-block;font-size:12px;font-weight:500;color:#3b5887;background:#e3ebf9;border:1px solid #d5e1f3;border-radius:6px;padding:5px 9px;margin-bottom:12px}
+.template-info h3{font-size:22px;line-height:1.35;letter-spacing:-.035em;margin:0 0 10px;font-weight:800}
+.template-info p{font-size:13px;line-height:1.7;letter-spacing:0;text-transform:none;margin:0;color:#5e6e85}
+.template-card .template-actions>a{font-size:12px;min-height:42px}
+.mini-nav{align-items:center;gap:12px}
+.mini-nav .template-brand-logo{display:block;width:74px;height:29px;object-fit:contain;border-radius:0}
+.template-ui-mono .mono-copy{padding-top:20px}
+.template-ui-mono .mono-copy strong,.template-ui-sora .sora-copy strong{font-size:clamp(22px,2.1vw,30px);line-height:1.15}
+.template-ui-sora .sora-grid{height:calc(100% - 53px)}
+.template-empty{padding:32px;text-align:center;border:1px solid #dce5f4;border-radius:18px;background:white;color:#243857}
+.template-empty strong{font-size:18px}.template-empty p{font-size:14px;color:#64738a;margin:10px 0 20px}
+.dialog-template-preview{width:100%;aspect-ratio:1.55;border:1px solid #dce5f4;border-radius:14px}
+.dialog-template-preview.template-ui{padding:22px}.dialog-template-preview .mono-copy strong,.dialog-template-preview .sora-copy strong{font-size:clamp(26px,4vw,46px)}
+.dialog-template-preview.image-media img{height:100%;object-fit:cover;border-radius:0}
+.order-template-art.mono,.order-template-art.sora{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:20px;gap:18px}
+.order-template-art .order-preview-logo{width:90px;height:35px;object-fit:contain}
+.order-template-art>span{font-size:25px;line-height:1.18;letter-spacing:-.04em}
+.order-template-card>strong{font-size:15px;line-height:1.5}
+.portfolio-mono .template-brand-logo{width:100px;height:40px;object-fit:contain;margin-bottom:22px}
+@media(max-width:840px){.template-sector-bar{gap:12px}.template-sector-label{width:100%}.template-info h3{font-size:21px}.template-ui-mono .mono-copy strong,.template-ui-sora .sora-copy strong{font-size:29px}}
+@media(max-width:540px){.template-sector-bar{padding:15px}.sector-filters{width:100%;display:grid;grid-template-columns:1fr 1fr}.sector-filter{justify-content:space-between;gap:5px;padding:10px;font-size:12px}.template-info h3{font-size:22px}.template-card .template-actions>a{font-size:12px}.template-empty{padding:24px 18px}.template-ui-sora .sora-copy strong{font-size:20px;line-height:1.12}.template-ui-sora .sora-grid{padding-top:5px}.template-ui-mono .mono-copy strong{font-size:25px}.dialog-template-preview.template-ui-sora .sora-copy strong{font-size:24px}}

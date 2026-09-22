@@ -3,9 +3,9 @@
   if (!shell) return;
   const params = new URLSearchParams(location.search);
   const catalog = {
-    Kanasari: {type:'store', description:'Fashion dan retail', art:'<img src="/assets/kanasari-store.png" alt="Preview Kanasari" />'},
-    Sora: {type:'store', description:'Home dan lifestyle', art:'SORA'},
-    Mono: {type:'profile', description:'Company profile dan jasa', art:'MONO®'}
+    Kanasari: {type:'store', title:'Fashion Boutique — Wear Your Own Story', description:'Fashion & Retail', art:'<img src="/assets/rasio-template-fashion.png" alt="Preview Fashion Boutique — Wear Your Own Story" />'},
+    Sora: {type:'store', title:'Home & Living — Make Room for Comfort', description:'Home & Living', art:'<img class="order-preview-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" /><span>Ruang kecil.<br>Rasa nyaman.</span>'},
+    Mono: {type:'profile', title:'Creative Studio — Where Ideas Take Shape', description:'Kreatif & Jasa', art:'<img class="order-preview-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" /><span>Ide Anda.<br>Karya nyata.</span>'}
   };
   const service = params.get('type');
   const names = {store:'Rasio Store', profile:'Rasio Profile', custom:'Rasio Custom'};
@@ -64,7 +64,7 @@
       document.querySelector('.summary-total strong').textContent = price;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
-    document.querySelectorAll('[data-summary-template]').forEach(e => e.textContent = template || 'Belum dipilih');
+    document.querySelectorAll('[data-summary-template]').forEach(e => e.textContent = catalog[template]?.title || 'Belum dipilih');
     document.querySelectorAll('[data-summary-domain]').forEach(e => e.textContent = domain || 'Belum dipilih');
     document.querySelector('[data-edit-template]').textContent = template ? 'Ubah template' : 'Pilih template';
   }
@@ -133,7 +133,7 @@
     const button = document.createElement('button');
     button.className = 'order-template-card'; button.type = 'button'; button.dataset.templateChoice = name;
     button.setAttribute('aria-pressed',String(template === name));
-    button.innerHTML = `<span class="order-template-art ${name.toLowerCase()}">${item.art}</span><strong>${name}</strong><small>${item.description}</small><span>${template === name ? 'Template dipilih' : 'Pilih template'}</span>`;
+    button.innerHTML = `<span class="order-template-art ${name.toLowerCase()}">${item.art}</span><strong>${item.title}</strong><small>${item.description}</small><span>${template === name ? 'Template dipilih' : 'Pilih template'}</span>`;
     button.addEventListener('click', () => {
       template = name; resetReview(); sync();
       document.querySelector('[data-template-error]').hidden = true;

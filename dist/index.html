@@ -16,9 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=7" />
-    <link rel="stylesheet" href="/refinements.css?v=7" />
-  <link rel="stylesheet" href="/journey.css?v=7" /><link rel="stylesheet" href="/polish.css?v=7" /></head>
+    <link rel="stylesheet" href="/styles.css?v=8" />
+    <link rel="stylesheet" href="/refinements.css?v=8" />
+  <link rel="stylesheet" href="/journey.css?v=8" /><link rel="stylesheet" href="/polish.css?v=8" /></head>
   <body>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
 
@@ -140,28 +140,39 @@
                 Setiap template dapat disesuaikan dengan logo, warna, teks, foto, dan produk milik bisnis
                 Anda.
               </p>
-              <div class="template-filters" role="group" aria-label="Filter template">
-                <button class="filter-button is-active" type="button" data-filter="all">Semua</button>
-                <button class="filter-button" type="button" data-filter="profile">Company profile</button>
-                <button class="filter-button" type="button" data-filter="store">Toko online</button>
+              <div class="template-filters" role="group" aria-label="Jenis website">
+                <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Semua jenis</button>
+                <button class="filter-button" type="button" data-filter="profile" aria-pressed="false">Company profile</button>
+                <button class="filter-button" type="button" data-filter="store" aria-pressed="false">Toko online</button>
               </div>
             </div>
           </div>
 
+          <div class="template-sector-bar">
+            <span class="template-sector-label">Sektor bisnis</span>
+            <div class="sector-filters" role="group" aria-label="Sektor bisnis template">
+              <button type="button" class="sector-filter is-active" data-sector-filter="all" aria-pressed="true">Semua sektor <span>3</span></button>
+              <button type="button" class="sector-filter" data-sector-filter="fashion" aria-pressed="false">Fashion &amp; Retail <span>1</span></button>
+              <button type="button" class="sector-filter" data-sector-filter="creative" aria-pressed="false">Kreatif &amp; Jasa <span>1</span></button>
+              <button type="button" class="sector-filter" data-sector-filter="home" aria-pressed="false">Home &amp; Living <span>1</span></button>
+            </div>
+          </div>
+          <p class="template-result-count" data-template-count role="status" aria-live="polite">3 template untuk bisnis Anda</p>
           <div class="template-grid" data-template-grid>
-            <article class="template-card template-featured" data-category="store">
+            <article class="template-card template-featured" data-category="store" data-sector="fashion">
               <div class="template-media image-media">
                 <img
-                  src="/assets/kanasari-store.png"
-                  alt="Contoh tampilan toko online Kanasari pada laptop, tablet, dan ponsel"
+                  src="/assets/rasio-template-fashion.png"
+                  alt="Preview Fashion Boutique — Wear Your Own Story pada laptop, tablet, dan ponsel"
                   loading="lazy"
                 />
                 <span class="card-index">01</span>
               </div>
               <div class="template-info">
                 <div>
-                  <p>Toko online · Fashion dan retail</p>
-                  <h3>Kanasari</h3>
+                  <span class="template-sector-tag">Fashion &amp; Retail</span>
+                  <h3>Fashion Boutique — Wear Your Own Story</h3>
+                  <p>Toko online untuk label pakaian, butik, dan koleksi aksesori.</p>
                 </div>
                 <div class="template-actions">
                   <a class="text-link" href="#template" data-template-detail>Lihat detail <span aria-hidden="true">↗</span></a>
@@ -170,22 +181,23 @@
               </div>
             </article>
 
-            <article class="template-card" data-category="profile">
-              <div class="template-media template-ui template-ui-mono" aria-label="Preview template Mono">
+            <article class="template-card" data-category="profile" data-sector="creative">
+              <div class="template-media template-ui template-ui-mono" aria-label="Preview Creative Studio — Where Ideas Take Shape">
                 <span class="card-index">02</span>
                 <div class="mini-page mono-page">
-                  <div class="mini-nav"><b>MONO®</b><span>Work&nbsp;&nbsp; About&nbsp;&nbsp; Contact</span></div>
+                  <div class="mini-nav"><img class="template-brand-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" loading="lazy" /><span>Karya&nbsp;&nbsp; Tentang&nbsp;&nbsp; Kontak</span></div>
                   <div class="mono-copy">
-                    <small>Creative company / Jakarta</small>
-                    <strong>Ideas made<br />visible.</strong>
+                    <small>Studio kreatif / Jakarta</small>
+                    <strong>Ide Anda.<br />Karya nyata.</strong>
                   </div>
-                  <div class="mono-foot"><span>Selected work</span><span>Scroll ↓</span></div>
+                  <div class="mono-foot"><span>Jelajahi karya kami</span><span>01 — 03</span></div>
                 </div>
               </div>
               <div class="template-info">
                 <div>
-                  <p>Company profile · Kreatif dan jasa</p>
-                  <h3>Mono</h3>
+                  <span class="template-sector-tag">Kreatif &amp; Jasa</span>
+                  <h3>Creative Studio — Where Ideas Take Shape</h3>
+                  <p>Company profile untuk studio kreatif, konsultan, dan penyedia jasa.</p>
                 </div>
                 <div class="template-actions">
                   <a class="text-link" href="#template" data-template-detail>Lihat detail <span aria-hidden="true">↗</span></a>
@@ -194,21 +206,22 @@
               </div>
             </article>
 
-            <article class="template-card" data-category="store">
-              <div class="template-media template-ui template-ui-sora" aria-label="Preview template Sora">
+            <article class="template-card" data-category="store" data-sector="home">
+              <div class="template-media template-ui template-ui-sora" aria-label="Preview Home &amp; Living — Make Room for Comfort">
                 <span class="card-index">03</span>
                 <div class="mini-page sora-page">
-                  <div class="mini-nav"><b>SORA</b><span>Shop&nbsp;&nbsp; Story&nbsp;&nbsp; Cart (0)</span></div>
+                  <div class="mini-nav"><img class="template-brand-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" loading="lazy" /><span>Koleksi&nbsp;&nbsp; Cerita&nbsp;&nbsp; Tas (0)</span></div>
                   <div class="sora-grid">
-                    <div class="sora-copy"><small>New objects / 2026</small><strong>Made for<br />slow living.</strong></div>
-                    <div class="sora-object"><i></i><span>Object 001</span></div>
+                    <div class="sora-copy"><small>Koleksi untuk rumah</small><strong>Ruang kecil.<br />Rasa nyaman.</strong></div>
+                    <div class="sora-object"><i></i><span>Koleksi 001</span></div>
                   </div>
                 </div>
               </div>
               <div class="template-info">
                 <div>
-                  <p>Toko online · Home dan lifestyle</p>
-                  <h3>Sora</h3>
+                  <span class="template-sector-tag">Home &amp; Living</span>
+                  <h3>Home &amp; Living — Make Room for Comfort</h3>
+                  <p>Toko online untuk dekorasi, furnitur, dan kebutuhan rumah.</p>
                 </div>
                 <div class="template-actions">
                   <a class="text-link" href="#template" data-template-detail>Lihat detail <span aria-hidden="true">↗</span></a>
@@ -217,6 +230,7 @@
               </div>
             </article>
           </div>
+          <div class="template-empty" data-template-empty hidden><strong>Belum ada template untuk kombinasi ini.</strong><p>Coba sektor atau jenis website lain untuk melihat koleksi yang tersedia.</p><button type="button" class="secondary-button" data-reset-templates>Tampilkan semua template</button></div>
         </div>
       </section>
 
@@ -511,8 +525,8 @@
       </div>
     </footer>
 
-    <script src="/navigation.js?v=7"></script>
-    <script src="/domain.js?v=7"></script>
-    <script src="/app.js?v=7"></script><script src="/hero.js?v=7"></script>
+    <script src="/navigation.js?v=8"></script>
+    <script src="/domain.js?v=8"></script>
+    <script src="/app.js?v=8"></script><script src="/hero.js?v=8"></script>
   </body>
 </html>

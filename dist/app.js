@@ -59,18 +59,39 @@ domainInput?.addEventListener('input', () => {
 });
 
 const filterButtons = document.querySelectorAll("[data-filter]");
-const templateCards = document.querySelectorAll("[data-category]");
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const selectedFilter = button.dataset.filter;
-
-    filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
-    templateCards.forEach((card) => {
-      const visible = selectedFilter === "all" || card.dataset.category === selectedFilter;
-      card.classList.toggle("is-hidden", !visible);
+const sectorButtons = document.querySelectorAll('[data-sector-filter]');
+const templateCards = document.querySelectorAll('.template-card[data-category]');
+let selectedType = 'all';
+let selectedSector = 'all';
+function filterTemplates() {
+  let count = 0;
+  templateCards.forEach(card => {
+    const visible = (selectedType === 'all' || card.dataset.category === selectedType) &&
+      (selectedSector === 'all' || card.dataset.sector === selectedSector);
+    card.hidden = !visible;
+    if (visible) count++;
+  });
+  [[filterButtons, 'filter', selectedType], [sectorButtons, 'sectorFilter', selectedSector]].forEach(([buttons, key, selected]) => {
+    buttons.forEach(button => {
+      const active = button.dataset[key] === selected;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
     });
   });
+  document.querySelector('[data-template-count]').textContent = `${count} template untuk bisnis Anda`;
+  document.querySelector('[data-template-empty]').hidden = count > 0;
+}
+filterButtons.forEach(button => button.addEventListener('click', () => {
+  selectedType = button.dataset.filter;
+  filterTemplates();
+}));
+sectorButtons.forEach(button => button.addEventListener('click', () => {
+  selectedSector = button.dataset.sectorFilter;
+  filterTemplates();
+}));
+document.querySelector('[data-reset-templates]')?.addEventListener('click', () => {
+  selectedType = selectedSector = 'all';
+  filterTemplates();
 });
 
 document.querySelectorAll(".faq-item button").forEach((button) => {
@@ -90,13 +111,13 @@ const detailDialog = document.createElement('dialog');
 detailDialog.className = 'dialog';
 detailDialog.setAttribute('aria-label', 'Detail layanan Rasio');
 document.body.append(detailDialog);
-function showDetail(title, copy, imageUrl, orderUrl) {
+function showDetail(title, copy, previewNode, orderUrl) {
   detailDialog.replaceChildren();
   const close = document.createElement('button'); close.className = 'dialog-close'; close.textContent = 'Tutup ×'; close.onclick = () => detailDialog.close();
   const heading = document.createElement('h2'); heading.textContent = title;
   const body = document.createElement('p'); body.textContent = copy;
   detailDialog.append(close, heading);
-  if (imageUrl) { const img = document.createElement('img'); img.src = imageUrl; img.alt = title; detailDialog.append(img); }
+  if (previewNode) { const preview = previewNode.cloneNode(true); preview.classList.add('dialog-template-preview'); detailDialog.append(preview); }
   detailDialog.append(body);
   if (orderUrl) { const link = document.createElement('a'); link.className = 'button'; link.href = orderUrl; link.textContent = 'Pilih template →'; detailDialog.append(link); }
   detailDialog.showModal();
@@ -106,5 +127,5 @@ document.querySelectorAll('[data-template-detail]').forEach(link => link.addEven
   const card = link.closest('.template-card');
   showDetail(card.querySelector('h3').textContent,
     card.dataset.category === 'store' ? 'Konsep template toko online: katalog, detail produk, checkout, pesanan, dan chatbot. Logo, warna, foto, serta produk disesuaikan dengan bisnis Anda.' : 'Konsep template company profile: profil bisnis, layanan, portofolio, formulir kontak, dan chatbot. Setup awal dibantu tim Rasio. Anda dapat mengubah teks, gambar, dan logo melalui CMS sederhana; SEO dasar dan tombol WhatsApp sudah termasuk.',
-    card.querySelector('img')?.getAttribute('src'), card.querySelector('.button').getAttribute('href'));
+    card.querySelector('.template-media'), card.querySelector('.button').getAttribute('href'));
 }));
