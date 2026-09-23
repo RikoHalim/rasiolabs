@@ -3,6 +3,7 @@
   if (!shell) return;
   const params = new URLSearchParams(location.search);
   const catalog = {
+    Architecture: {type:'profile', title:'Architecture Studio — Designed for Better Living', description:'Arsitektur & Interior', art:'<img src="/assets/architecture-exterior.jpg" alt="Preview Architecture Studio" /><img class="order-architecture-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" />'},
     Kanasari: {type:'store', title:'Fashion Boutique — Wear Your Own Story', description:'Fashion & Retail', art:'<img src="/assets/rasio-template-fashion.png" alt="Preview Fashion Boutique — Wear Your Own Story" />'},
     Sora: {type:'store', title:'Home & Living — Make Room for Comfort', description:'Home & Living', art:'<img class="order-preview-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" /><span>Ruang kecil.<br>Rasa nyaman.</span>'},
     Mono: {type:'profile', title:'Creative Studio — Where Ideas Take Shape', description:'Kreatif & Jasa', art:'<img class="order-preview-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" /><span>Ide Anda.<br>Karya nyata.</span>'}

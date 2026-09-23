@@ -7,7 +7,7 @@ header=re.search(r'<header[\s\S]*?</header>',home)[0].replace('href="#','href="/
 footer=re.search(r'<footer[\s\S]*?</footer>',home)[0].replace('href="#','href="/#')
 def write(slug,title,content):
  h=re.sub(r'<title>.*?</title>',f'<title>{title} — Rasio Agency</title>',head)
- (root/f'dist/{slug}.html').write_text(h+'<body class="info-page"><a class="skip-link" href="#main-content">Lewati ke konten utama</a>'+header+'<main id="main-content">'+content+'</main>'+footer+'<script src="/navigation.js?v=8"></script></body></html>',encoding='utf-8')
+ (root/f'dist/{slug}.html').write_text(h+'<body class="info-page"><a class="skip-link" href="#main-content">Lewati ke konten utama</a>'+header+'<main id="main-content">'+content+'</main>'+footer+'<script src="/navigation.js?v=9"></script></body></html>',encoding='utf-8')
 steps=[
  ('Pilih layanan dan desain','Mulai dari Rasio Store atau Rasio Profile. Pilih template langsung dari koleksi, atau tentukan desain setelah memilih domain.'),
  ('Tentukan domain website','Di homepage, ketik nama lengkap seperti bisnisanda.com. Di halaman pemesanan, cukup ketik nama bisnis lalu pilih ekstensi yang tersedia.'),
