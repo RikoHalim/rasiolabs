@@ -120,6 +120,14 @@ function showDetail(title, copy, previewNode, orderUrl) {
   if (previewNode) { const preview = previewNode.cloneNode(true); preview.classList.add('dialog-template-preview'); detailDialog.append(preview); }
   detailDialog.append(body);
   if (orderUrl) { const link = document.createElement('a'); link.className = 'button'; link.href = orderUrl; link.textContent = 'Pilih template →'; detailDialog.append(link); }
+  if (previewNode) {
+    const contact = document.createElement('p');
+    const whatsapp = document.createElement('a');
+    whatsapp.href = 'https://wa.me/60142317052?text=' + encodeURIComponent('Halo Rasio, saya tertarik dengan template ' + title + '.');
+    whatsapp.target = '_blank'; whatsapp.rel = 'noopener';
+    whatsapp.className = 'text-link'; whatsapp.textContent = 'WhatsApp: +60142317052 ↗';
+    contact.append(whatsapp); detailDialog.append(contact);
+  }
   detailDialog.showModal();
 }
 document.querySelectorAll('[data-template-detail]').forEach(link => link.addEventListener('click', event => {
