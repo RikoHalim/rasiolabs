@@ -1,7 +1,7 @@
 const menu = document.querySelector('.studio-menu');
 const navigation = document.querySelector('.studio-nav');
-function closeMenu() { menu.setAttribute('aria-expanded','false'); navigation.classList.remove('is-open'); }
-menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded',String(open)); navigation.classList.toggle('is-open',open); });
+function closeMenu() { menu.setAttribute('aria-label','Open navigation'); menu.setAttribute('aria-expanded','false'); navigation.classList.remove('is-open'); }
+menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded',String(open)); menu.setAttribute('aria-label',open ? 'Close navigation' : 'Open navigation'); navigation.classList.toggle('is-open',open); });
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
 const projectContent = {
