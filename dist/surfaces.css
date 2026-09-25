@@ -1,0 +1,67 @@
+/* Shared depth and checklist treatment for the Rasio Agency interface. */
+:root {
+  --surface-shadow: 0 3px 7px rgba(23, 45, 89, .045), 0 10px 24px rgba(23, 45, 89, .065);
+  --control-shadow: 0 2px 5px rgba(23, 45, 89, .09);
+  --check-green: #15803d;
+  --check-soft: #e9f7ed;
+}
+
+/* Both actions occupy the same box, including the two-column mobile layout. */
+.offer-actions { display:grid; grid-template-columns:1fr; gap:10px; }
+.offer-actions > :is(.offer-details-label, .offer-order) {
+  display:flex; align-items:center; justify-content:center; align-self:stretch;
+  width:100%; min-width:0; height:46px; min-height:46px; margin:0;
+  padding:10px 14px; border:1px solid transparent; border-radius:11px;
+  font-size:12px; font-weight:600; line-height:1.4; text-align:center;
+  box-shadow:var(--control-shadow);
+}
+.offer-actions > .offer-details-label { border-color:#d0ddf4; }
+@media(max-width:840px) {
+  .offer-actions { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .offer-actions > :is(.offer-details-label, .offer-order) {
+    height:48px; min-height:48px; font-size:11px; padding:8px;
+  }
+}
+
+/* Cards and grouped surfaces. Keep existing hover and selected-state feedback. */
+body :is(.offer-card,.offers-included,.template-card,.template-sector-bar,.template-empty,
+  .benefit-card,.benefits-section,.process-list>li,.service-timing,.content-control,
+  .ai-feature-list>article,.faq-item,.testimonial-card,.closing-section,
+  .hero-people-card,.hero-ai-card,.sector-card,.problem-pair,.detail-feature-card,
+  .detail-closing,.service-flow-board,.tutorial-card,.tutorial-notes>article,.portfolio-card,
+  .order-workspace,.order-summary,.booking-help,.order-template-card,.selected-template-panel,
+  .order-service-context,.order-profile-note,.order-empty,.ai-addon-card,.review-sheet,
+  .domain-result,.dialog) { box-shadow:var(--surface-shadow); }
+.hero--people .domain-checker { box-shadow:var(--surface-shadow); }
+
+/* Small rounded controls get a lighter shadow so nested surfaces stay restrained. */
+body :is(.button,.secondary-button,.toolbar-button,.offer-details-label,
+  .template-actions>.text-link,.sector-filter,.template-filters,.product-tabs,.filter-button,
+  .product-tab,.domain-field,.domain-field>button,.slider-pause,.menu-toggle,.summary-toggle,
+  .summary-template-edit,.dialog-close,.service-flow-row,.service-icon,.hero-ai-icon,
+  .hero-photo-label,.step-number,.dummy-badge,.template-sector-tag,.service-features>li,
+  .sector-filter>span,.tutorial-card>span) { box-shadow:var(--control-shadow); }
+.site-nav .nav-ai { box-shadow:inset 0 0 0 1px #cfdbff,var(--control-shadow); }
+.sector-card>.sector-icon { box-shadow:inset 0 0 0 1px #dbe6fa,var(--control-shadow); }
+.template-card .template-media { box-shadow:var(--control-shadow); }
+.domain-field:focus-within { box-shadow:0 0 0 3px #2353e114,var(--control-shadow); }
+.order-template-card[aria-pressed="true"] { box-shadow:0 0 0 3px #2353e115,var(--surface-shadow); }
+.ai-addon-card:has(input:checked) { box-shadow:0 0 0 3px #2353e110,var(--surface-shadow); }
+
+/* Green is reserved for checkmarks and checkboxes; text keeps its original color. */
+.benefit-checklist li::before,
+.benefit-store .benefit-checklist li::before,
+.benefits-included .benefit-checklist li::before {
+  color:var(--check-green); background:var(--check-soft);
+  box-shadow:0 1px 3px #14532d10;
+}
+.offers-included li::before { color:var(--check-green); }
+.domain-email>span { color:var(--check-green); background:var(--check-soft); }
+.addon-included>.check-mark { color:var(--check-green); font-weight:700; }
+.ai-addon-card input,.review-consent input { accent-color:var(--check-green); }
+
+@media(hover:hover) {
+  body :is(.offer-card,.template-card,.benefit-card,.sector-card):hover {
+    box-shadow:0 6px 12px rgba(23,45,89,.06),0 15px 30px rgba(23,45,89,.09);
+  }
+}
