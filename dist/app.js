@@ -81,34 +81,3 @@ document.querySelectorAll(".faq-item button").forEach((button) => {
     symbol.textContent = willOpen ? "−" : "+";
   });
 });
-
-const detailDialog = document.createElement('dialog');
-detailDialog.className = 'dialog';
-detailDialog.setAttribute('aria-label', 'Detail layanan Rasio');
-document.body.append(detailDialog);
-function showDetail(title, copy, previewNode, orderUrl) {
-  detailDialog.replaceChildren();
-  const close = document.createElement('button'); close.className = 'dialog-close'; close.textContent = 'Tutup ×'; close.onclick = () => detailDialog.close();
-  const heading = document.createElement('h2'); heading.textContent = title;
-  const body = document.createElement('p'); body.textContent = copy;
-  detailDialog.append(close, heading);
-  if (previewNode) { const preview = previewNode.cloneNode(true); preview.classList.add('dialog-template-preview'); detailDialog.append(preview); }
-  detailDialog.append(body);
-  if (orderUrl) { const link = document.createElement('a'); link.className = 'button'; link.href = orderUrl; link.textContent = 'Pilih template →'; detailDialog.append(link); }
-  if (previewNode) {
-    const contact = document.createElement('p');
-    const whatsapp = document.createElement('a');
-    whatsapp.href = 'https://wa.me/60142317052?text=' + encodeURIComponent('Halo Rasio, saya tertarik dengan template ' + title + '.');
-    whatsapp.target = '_blank'; whatsapp.rel = 'noopener';
-    whatsapp.className = 'text-link'; whatsapp.textContent = 'Konsultasi template via WhatsApp ↗';
-    contact.append(whatsapp); detailDialog.append(contact);
-  }
-  detailDialog.showModal();
-}
-document.querySelectorAll('[data-template-detail]').forEach(link => link.addEventListener('click', event => {
-  event.preventDefault();
-  const card = link.closest('.template-card');
-  showDetail(card.querySelector('h3').textContent,
-    card.dataset.category === 'store' ? 'Konsep template toko online: katalog, detail produk, checkout, pesanan, dan chatbot. Logo, warna, foto, serta produk disesuaikan dengan bisnis Anda.' : 'Konsep template company profile: profil bisnis, layanan, portofolio, formulir kontak, dan chatbot. Setup awal dibantu tim Rasio. Anda dapat mengubah teks, gambar, dan logo melalui CMS sederhana; SEO dasar dan tombol WhatsApp sudah termasuk.',
-    card.querySelector('.template-media'), card.querySelector('.button').getAttribute('href'));
-}));

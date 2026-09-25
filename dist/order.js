@@ -4,15 +4,25 @@
   const params = new URLSearchParams(location.search);
   const catalog = {
     Architecture: {type:'profile', title:'Architecture Studio — Designed for Better Living', description:'Arsitektur & Interior', art:'<img src="/assets/architecture-exterior.jpg" alt="Preview Architecture Studio" /><img class="order-architecture-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" />'},
-    Kanasari: {type:'store', title:'Fashion Boutique — Wear Your Own Story', description:'Fashion & Retail', art:'<img src="/assets/rasio-template-fashion.png" alt="Preview Fashion Boutique — Wear Your Own Story" />'},
-    Sora: {type:'store', title:'Home & Living — Make Room for Comfort', description:'Home & Living', art:'<img class="order-preview-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" /><span>Ruang kecil.<br>Rasa nyaman.</span>'},
-    Mono: {type:'profile', title:'Creative Studio — Where Ideas Take Shape', description:'Kreatif & Jasa', art:'<img class="order-preview-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" /><span>Ide Anda.<br>Karya nyata.</span>'}
   };
   const service = params.get('type');
   const names = {store:'Rasio Store', profile:'Rasio Profile', custom:'Rasio Custom'};
   if (!Object.hasOwn(names, service)) {
     shell.hidden = true;
     document.querySelector('[data-order-empty]').hidden = false;
+    return;
+  }
+  if (service !== 'custom' && !Object.values(catalog).some(item => item.type === service)) {
+    shell.hidden = true;
+    document.querySelector('.order-progress-bar').hidden = true;
+    const empty = document.querySelector('[data-order-empty]');
+    empty.hidden = false;
+    empty.querySelector('h1').textContent = 'Template toko online belum tersedia.';
+    empty.querySelector('p').textContent = 'Belum ada template Rasio Store yang dapat dipilih saat ini. Hubungi Rasio untuk membahas kebutuhan toko online Anda.';
+    const contact = empty.querySelector('a');
+    contact.href = 'https://wa.me/60142317052?text=' + encodeURIComponent('Halo Rasio, saya ingin konsultasi tentang toko online.');
+    contact.textContent = 'Konsultasi toko online ↗';
+    contact.target = '_blank'; contact.rel = 'noopener';
     return;
   }
   const requestedTemplate = params.get('template');

@@ -4,8 +4,31 @@
   if (!toggle || !nav) return;
   const trigger = nav.querySelector('.nav-dropdown-toggle');
   const menu = nav.querySelector('.nav-dropdown-menu');
-  function setDropdown(open) { if (trigger) { trigger.setAttribute('aria-expanded',String(open)); menu.hidden = !open; } }
-  trigger?.addEventListener('click', () => setDropdown(trigger.getAttribute('aria-expanded') !== 'true'));
+  const dropdown = nav.querySelector('.nav-dropdown');
+  const hoverPointer = matchMedia('(min-width: 1081px) and (hover: hover) and (pointer: fine)');
+  let closeTimer, openedByHover = false;
+  function setDropdown(open) {
+    clearTimeout(closeTimer);
+    if (!open) openedByHover = false;
+    if (trigger) { trigger.setAttribute('aria-expanded',String(open)); menu.hidden = !open; }
+  }
+  dropdown?.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse' && hoverPointer.matches) { setDropdown(true); openedByHover = true; }
+  });
+  dropdown?.addEventListener('pointerleave', event => {
+    if (event.pointerType !== 'mouse' || !hoverPointer.matches) return;
+    closeTimer = setTimeout(() => {
+      if (!dropdown.contains(document.activeElement)) setDropdown(false);
+    }, 160);
+  });
+  dropdown?.addEventListener('focusout', event => {
+    if (!dropdown.contains(event.relatedTarget) && !dropdown.matches(':hover')) setDropdown(false);
+  });
+  trigger?.addEventListener('click', event => {
+    const keepHoverOpen = event.detail > 0 && openedByHover;
+    openedByHover = false;
+    setDropdown(keepHoverOpen || trigger.getAttribute('aria-expanded') !== 'true');
+  });
   document.addEventListener('click', event => { if (!nav.querySelector('.nav-dropdown')?.contains(event.target)) setDropdown(false); });
   function setMenu(open) {
     document.body.classList.toggle('menu-open', open);

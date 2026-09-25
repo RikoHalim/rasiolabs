@@ -1,9 +1,106 @@
 /* Shared depth and checklist treatment for the Rasio Agency interface. */
 :root {
+  --surface-blue: #dce9fb;
+  --surface-blue-hover: #cfdef7;
+  --surface-border: #bbcde5;
+  --text-on-soft: #183c7b;
   --surface-shadow: 0 3px 7px rgba(23, 45, 89, .045), 0 10px 24px rgba(23, 45, 89, .065);
   --control-shadow: 0 2px 5px rgba(23, 45, 89, .09);
   --check-green: #15803d;
   --check-soft: #e9f7ed;
+}
+
+body { font-family:"Poppins","Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+.emoji { font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; font-weight:400; line-height:1; }
+.nav-chevron { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; }
+.nav-chevron svg { display:block; width:16px; height:16px; }
+.nav-dropdown-menu a { display:flex; align-items:center; gap:12px; }
+.nav-service-icon { display:grid; place-items:center; flex:0 0 40px; height:40px; border:1px solid #afc5e7; border-radius:11px; background:#dce9fb; color:#183c7b; box-shadow:var(--control-shadow); }
+.nav-service-icon svg { width:23px; height:23px; }
+.nav-product-copy { min-width:0; }
+.nav-dropdown-toggle .nav-service-icon,.nav-dropdown-menu span { transform:none; }
+.nav-dropdown-menu small { line-height:1.6; }
+.nav-dropdown-menu { width:310px; }
+.offer-audience { margin-top:18px; padding:14px 15px; border:1px solid var(--surface-border); border-radius:12px; background:#f3f7fd; box-shadow:var(--control-shadow); }
+.offer-store .offer-audience { background:#fff; }
+.offer-audience strong { display:block; color:#183c7b; font-size:12px; font-weight:600; margin-bottom:6px; }
+.offer-audience p { color:#445976; font-size:12px; line-height:1.8; margin:0; }
+.offer-description { font-size:13px; color:#445976; }
+.offer-card .benefit-checklist li { color:#304560; line-height:1.8; }
+.offer-card .offer-price { border-color:var(--surface-border); }
+.offers-note { margin:16px 0 0; color:#536780; font-size:12px; line-height:1.9; max-width:1040px; }
+.section-anchor { display:block; scroll-margin-top:105px; }
+@media(min-width:841px){ .offer-description { min-height:120px; } .offer-audience { min-height:128px; } }
+.site-nav { gap:19px; }
+
+/* Deliberately visible pale blue, with white surfaces as a second level. */
+body :is(.offer-card,.offers-included,.template-card,.template-sector-bar,.template-empty,
+ .benefit-card,.process-list>li,.service-timing,.content-control,.ai-feature-list>article,
+ .faq-item,.testimonial-card,.closing-section,.hero-people-card,.hero-ai-card,
+ .sector-card,.problem-pair,.detail-feature-card,.detail-closing,.service-flow-board,
+ .tutorial-card,.tutorial-notes>article,.portfolio-card,.order-workspace,.order-summary,
+ .booking-help,.order-template-card,.selected-template-panel,.order-service-context,
+ .order-profile-note,.order-empty,.ai-addon-card,.review-sheet,.domain-result,.dialog) {
+ border:1px solid var(--surface-border);
+}
+body :is(.offer-store,.benefit-store,.service-timing,.content-control,.closing-section,
+ .hero-ai-card,.service-flow-board,.detail-closing,.tutorial-card,.portfolio-card,
+ .booking-help,.selected-template-panel,.order-profile-note,.ai-addon-card,
+ .order-service-context) { background:var(--surface-blue); color:#172b49; }
+body .template-card:nth-child(n) { background:var(--surface-blue); border-color:var(--surface-border); }
+.template-sector-bar,.offers-included { background:#fff; }
+body .process-list>li:nth-child(n) { border:1px solid var(--surface-border); background:#fff; }
+body .process-list>li:nth-child(even),.ai-feature-list>article:last-child { background:var(--surface-blue); }
+body .problem-pair>div:last-child { background:var(--surface-blue); }
+.hero--people .domain-checker { border-color:var(--surface-border); }
+.hero-ai-card:hover { background:var(--surface-blue-hover); border-color:#93acd3; }
+.hero-people-card figcaption strong { font-size:20px; line-height:1.45; letter-spacing:-.025em; }
+.hero-photo-label { max-width:calc(100% - 38px); }
+.hero--people .product-tabs,.template-filters { background:var(--surface-blue); border:1px solid var(--surface-border); }
+
+/* Explicit foreground/background pairs prevent inherited low-contrast labels. */
+body :is(.secondary-button,.offer-details-label,.template-actions>.text-link,
+ .faq-intro>.text-link,.inverse-link,.summary-template-edit,.selected-template-panel a) {
+ background:var(--surface-blue); color:var(--text-on-soft); border:1px solid #abc1e1;
+}
+body :is(.secondary-button,.offer-details-label,.template-actions>.text-link,
+ .faq-intro>.text-link,.inverse-link,.summary-template-edit):hover {
+ background:var(--surface-blue-hover); color:#12326c;
+}
+body .offer-store .offer-details-label { background:#fff; color:var(--text-on-soft); }
+body :is(.button,.toolbar-primary,.domain-field>button,.order-domain-form button) {
+ color:#fff; background:#2353e1; border:1px solid #2353e1;
+}
+body :is(.button,.toolbar-primary,.domain-field>button,.order-domain-form button):hover {
+ color:#fff; background:#1942bf; border-color:#1942bf;
+}
+.button span,.secondary-button span,.offer-order span { color:inherit; }
+.hero--people .hero-actions .button { color:#fff; }
+body .toolbar-button:not(.toolbar-primary) { color:#183c7b; background:#fff; border:1px solid var(--surface-border); }
+body .template-actions .button-outline { color:#fff; background:#2353e1; border-color:#2353e1; }
+body :is(.product-tab,.filter-button,.sector-filter):not(.is-active) { color:#294b7d; }
+body .product-tab.is-active,.template-section .filter-button.is-active,.template-section .filter-button:hover {
+ color:#fff; background:#2353e1; border-color:#2353e1;
+}
+body .sector-filter.is-active { background:#dce9fb; color:#183c7b; }
+body :is(.service-icon,.sector-card>.sector-icon,.hero-ai-icon,.step-number,
+ .testimonial-person>span,.template-sector-tag,.dummy-badge,.order-template-card>span:last-child) {
+ background:var(--surface-blue); color:var(--text-on-soft); border:1px solid var(--surface-border);
+}
+body :is(.slider-pause,.menu-toggle,.summary-toggle,.dialog-close,.service-flow-row,
+ .template-demo-badge,.service-features>li,.tutorial-card>span,.order-step,
+ .business-form input,.business-form textarea) { border:1px solid var(--surface-border); box-shadow:var(--control-shadow); }
+.site-nav .nav-ai { background:var(--surface-blue); color:var(--text-on-soft); }
+.benefit-checklist li::before,.offers-included li::before,.price-card li::before { color:var(--check-green); }
+.price-card li::before { background:var(--check-soft); }
+.nav-dropdown-menu a:hover { background:var(--surface-blue); }
+.service-flow-board h2 { font-size:25px; line-height:1.4; }
+@media(max-width:1080px){ .site-nav { gap:0; } .nav-dropdown-menu { width:100%; } }
+@media(max-width:540px){
+ .hero-people-card figcaption strong { font-size:18px; }
+ .hero--people h1 { font-size:30px; }
+ .hero--people .hero-slide { min-height:218px; }
+ .service-flow-board h2 { font-size:23px; }
 }
 
 /* Both actions occupy the same box, including the two-column mobile layout. */
