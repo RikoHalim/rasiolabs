@@ -1,37 +1,12 @@
-const productContent = {
-  store: {
-    url: "tokomerekanda.com",
-    brand: "NAMA BRAND",
-    kicker: "KOLEKSI TERBARU",
-    title: "Toko milik brand Anda.",
-    action: "Lihat produk",
-  },
-  profile: {
-    url: "bisnisanda.id",
-    brand: "NAMA BISNIS",
-    kicker: "PROFIL PERUSAHAAN",
-    title: "Jelaskan bisnis Anda dengan ringkas.",
-    action: "Lihat layanan",
-  },
-};
-
 const tabs = document.querySelectorAll("[data-product]");
-const preview = document.querySelector("[data-site-preview]");
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    const selection = productContent[tab.dataset.product];
     tabs.forEach((item) => {
       const active = item === tab;
       item.classList.toggle("is-active", active);
-      item.setAttribute("aria-selected", String(active));
+      item.setAttribute("aria-pressed", String(active));
     });
-
-    preview.querySelector("[data-preview-url]").textContent = selection.url;
-    preview.querySelector("[data-preview-brand]").textContent = selection.brand;
-    preview.querySelector("[data-preview-kicker]").textContent = selection.kicker;
-    preview.querySelector("[data-preview-title]").textContent = selection.title;
-    preview.querySelector(".preview-button").textContent = selection.action;
   });
 });
 
@@ -50,7 +25,7 @@ domainForm?.addEventListener("submit", (event) => {
     domainInput.focus();
     return;
   }
-  const type = document.querySelector('[data-product][aria-selected="true"]').dataset.product;
+  const type = document.querySelector('[data-product][aria-pressed="true"]').dataset.product;
   window.location.assign(`/order.html?domain=${encodeURIComponent(domain)}&type=${type}`);
 });
 domainInput?.addEventListener('input', () => {
@@ -125,7 +100,7 @@ function showDetail(title, copy, previewNode, orderUrl) {
     const whatsapp = document.createElement('a');
     whatsapp.href = 'https://wa.me/60142317052?text=' + encodeURIComponent('Halo Rasio, saya tertarik dengan template ' + title + '.');
     whatsapp.target = '_blank'; whatsapp.rel = 'noopener';
-    whatsapp.className = 'text-link'; whatsapp.textContent = 'WhatsApp: +60142317052 ↗';
+    whatsapp.className = 'text-link'; whatsapp.textContent = 'Konsultasi template via WhatsApp ↗';
     contact.append(whatsapp); detailDialog.append(contact);
   }
   detailDialog.showModal();
