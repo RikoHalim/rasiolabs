@@ -12,6 +12,7 @@
     document.querySelector('[data-order-empty]').hidden = false;
     return;
   }
+  document.body.classList.add(`order-service-${service}`);
   if (service !== 'custom' && !Object.values(catalog).some(item => item.type === service)) {
     shell.hidden = true;
     document.querySelector('.order-progress-bar').hidden = true;
@@ -40,6 +41,7 @@
   const results = document.querySelector('[data-domain-results]');
   const errorNode = document.querySelector('[data-order-domain-status]');
   const next = document.querySelector('[data-next]');
+  const summaryContinue = document.querySelector('[data-summary-continue]');
   const previous = document.querySelector('[data-previous]');
   const businessForm = document.querySelector('[data-business-form]');
   const consent = document.querySelector('[data-review-consent]');
@@ -66,16 +68,29 @@
     document.querySelector('.summary-total span').textContent = 'Estimasi proyek';
     document.querySelector('.summary-total strong').textContent = 'Setelah konsultasi';
     document.querySelector('.summary-body > p').textContent = 'Rasio menyusun harga dan cakupan proyek setelah pembahasan kebutuhan.';
+    document.querySelector('[data-mini-total]').textContent = 'Penawaran proyek';
+    document.querySelector('[data-plan-monthly]').textContent = 'Sesuai penawaran';
+    document.querySelector('[data-summary-package-price]').textContent = 'Setelah konsultasi';
+    document.querySelector('.order-package-details > span').textContent = 'Fitur, domain, dan jadwal mengikuti penawaran proyek.';
   }
   function sync() {
     document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = aiAddon.checked && service === 'store' ? 'Rp500.000/tahun (Rp1.000.000 untuk 24 bulan)' : 'Tidak ditambahkan');
     if (service === 'store' || service === 'profile') {
       const packageTotal = service === 'store' ? 1512000 : 784800;
       const addonTotal = service === 'store' && aiAddon.checked ? 1000000 : 0;
-      const rupiah = new Intl.NumberFormat('id-ID', {style:'currency',currency:'IDR',maximumFractionDigits:0});
-      const price = `${rupiah.format(packageTotal + addonTotal)} untuk 24 bulan, domain termasuk`;
-      document.querySelector('[data-review-price]').textContent = price;
-      document.querySelector('.summary-total strong').textContent = price;
+      const rupiah = amount => `Rp${amount.toLocaleString('id-ID')}`;
+      const normalTotal = service === 'store' ? 5040000 : 2616000;
+      const normalMonthly = service === 'store' ? 210000 : 109000;
+      const monthly = service === 'store' ? 63000 : 32700;
+      document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk 24 bulan, domain termasuk`;
+      document.querySelector('.summary-total strong').textContent = rupiah(packageTotal + addonTotal);
+      document.querySelector('[data-mini-total]').textContent = rupiah(packageTotal + addonTotal);
+      document.querySelector('[data-summary-package-price]').textContent = rupiah(packageTotal);
+      document.querySelector('[data-summary-normal-price]').textContent = rupiah(normalTotal);
+      document.querySelector('[data-plan-saving]').textContent = `Hemat ${rupiah(normalTotal - packageTotal)}`;
+      document.querySelector('[data-plan-monthly]').innerHTML = `${rupiah(monthly)} <small>/bulan</small>`;
+      document.querySelector('[data-plan-normal]').textContent = `${rupiah(normalMonthly)}/bulan`;
+      document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
     document.querySelectorAll('[data-summary-template]').forEach(e => e.textContent = catalog[template]?.title || 'Belum dipilih');
@@ -104,8 +119,10 @@
       panel.classList.toggle('is-active', !panel.hidden);
     });
     previous.disabled = index === 0;
-    next.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Lanjut ke pembayaran →' : 'Selanjutnya →';
+    next.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Tinjau simulasi →' : 'Selanjutnya →';
     next.disabled = step === 'review' && !consent.checked;
+    summaryContinue.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Tinjau simulasi →' : 'Lanjutkan langkah →';
+    summaryContinue.disabled = next.disabled;
     document.querySelector('[data-step-label]').textContent = `Langkah ${String(index+1).padStart(2,'0')} / ${String(steps.length).padStart(2,'0')}`;
     document.querySelector('[data-progress-bar]').style.width = `${(index+1)/steps.length*100}%`;
     drawSteps(); sync();
@@ -182,8 +199,9 @@
     }
     setStep(steps[steps.indexOf(current)+1]);
   });
+  summaryContinue.addEventListener('click', () => next.click());
   previous.addEventListener('click', () => setStep(steps[steps.indexOf(current)-1]));
-  consent.addEventListener('change', () => { next.disabled = !consent.checked; });
+  consent.addEventListener('change', () => { next.disabled = !consent.checked; summaryContinue.disabled = next.disabled; });
   document.querySelector('[data-summary-toggle]').addEventListener('click', event => {
     const button = event.currentTarget;
     const open = button.closest('.order-summary').classList.toggle('is-open');

@@ -2,7 +2,7 @@
  const root = document.querySelector('[data-hero-slider]');
  if (!root) return;
  const slides = [
- ['Website dari template, ', 'cukup berlangganan tahunan.', 'Tidak ada biaya pembuatan website dari nol untuk paket template. Tim Rasio menyiapkan dan membantu mengelola website Anda.'],
+ ['Website bisnis dikelola Rasio, ', 'tanpa biaya pembuatan dari nol.', 'Pilih template dan domain yang sudah termasuk dalam paket langganan. Tim Rasio menangani setup dan maintenance, sementara konten dapat Anda perbarui melalui CMS sederhana.'],
  ['Buka toko online tanpa ', 'membangunnya dari nol.', 'Pilih template Rasio Store, siapkan materi produk, lalu tim kami membantu setup dan mengunggah 50 produk pertama.'],
  ['Perkenalkan bisnis lewat ', 'website yang dikelola bersama Rasio.', 'Tim Rasio mengurus tampilan dan perawatan. Anda bisa memperbarui teks, foto, dan logo melalui CMS sederhana.']];
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'), slide=root.querySelector('[data-hero-slide]'), title=root.querySelector('[data-hero-title]'), copy=root.querySelector('[data-hero-copy]'), dots=[...root.querySelectorAll('[data-slide]')], pause=root.querySelector('[data-slide-pause]');

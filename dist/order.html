@@ -15,7 +15,7 @@
     />
     <link rel="stylesheet" href="/styles.css?v=9" />
     <link rel="stylesheet" href="/refinements.css?v=9" />
-  <link rel="stylesheet" href="/journey.css?v=9" /><link rel="stylesheet" href="/polish.css?v=10" /><link rel="stylesheet" href="/surfaces.css?v=17" /><link rel="stylesheet" href="/managed-offers.css?v=17" /></head>
+  <link rel="stylesheet" href="/journey.css?v=9" /><link rel="stylesheet" href="/polish.css?v=10" /><link rel="stylesheet" href="/surfaces.css?v=17" /><link rel="stylesheet" href="/managed-offers.css?v=18" /><link rel="stylesheet" href="/checkout-v18.css?v=18" /></head>
   <body class="order-page">
     <a class="skip-link" href="#order-main">Lewati ke formulir pemesanan</a>
 
@@ -36,14 +36,14 @@
 
     <main class="order-main" id="order-main">
       <div class="shell order-layout" data-order-shell>
-        <div class="booking-top"><p class="eyebrow">Mulai bersama Rasio</p><h1>Siapkan website untuk bisnis Anda.</h1><p>Lengkapi pilihan website dan informasi bisnis agar tim Rasio dapat menyiapkan layanan yang sesuai dengan kebutuhan Anda.</p><nav class="order-steps" aria-label="Tahapan pemesanan" data-order-steps></nav></div><aside class="order-aside">
+        <div class="booking-top"><p class="eyebrow">Pemesanan website</p><h1>Siapkan website bisnis Anda.</h1><p>Pilih alamat, desain, dan lengkapi data bisnis. Tim Rasio akan membantu menyiapkan website setelah pemesanan.</p><nav class="order-steps" aria-label="Tahapan pemesanan" data-order-steps></nav></div><aside class="order-aside">
           <div class="order-summary">
-            <div class="summary-topline"><span>Ringkasan pesanan</span><span>Rasio / 01</span></div>
+            <div class="summary-topline"><span>Daftar pesanan</span><strong data-mini-total>Rp784.800</strong></div>
             <button class="summary-toggle" type="button" aria-expanded="false" data-summary-toggle>
               Lihat rincian <span aria-hidden="true">+</span>
             </button>
             <div class="summary-body">
-              <dl>
+              <dl class="summary-selections">
                 <div data-template-summary>
                   <dt>Template</dt>
                   <dd data-summary-template>Belum dipilih</dd>
@@ -57,11 +57,14 @@
                   <dd data-summary-domain>Belum dipilih</dd>
                 </div>
               <div data-addon-summary hidden><dt>Rasio AI</dt><dd data-summary-addon>Tidak ditambahkan</dd></div></dl><button class="summary-template-edit" type="button" data-edit-template>Pilih / ubah template</button>
+              <div class="summary-breakdown" aria-label="Rincian biaya"><div><span>Paket website · 24 bulan</span><span><del data-summary-normal-price>Rp2.616.000</del><strong data-summary-package-price>Rp784.800</strong></span></div><div><span>Domain</span><strong>Termasuk</strong></div><div><span>1 email bisnis</span><strong>Termasuk</strong></div><div data-summary-ai-line hidden><span>Rasio AI Insight · 24 bulan</span><strong>Rp1.000.000</strong></div></div>
               <div class="summary-total">
-                <span>Paket 24 bulan</span>
-                <strong>Harga final segera tersedia</strong>
+                <span>Total 24 bulan</span>
+                <strong>Rp784.800</strong>
               </div>
-              <p>Promo paket berlaku untuk pembayaran 24 bulan di muka. Domain termasuk; add-on dihitung untuk 24 bulan. Ringkasan ini masih simulasi.</p>
+              <p>Promo berlaku untuk pembayaran 24 bulan di muka. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.</p>
+              <button class="summary-continue" type="button" data-summary-continue>Lanjutkan langkah →</button>
+              <small class="summary-disclaimer">Pemesanan dan pembayaran di halaman ini masih simulasi.</small>
             </div>
           </div>
 
@@ -69,7 +72,7 @@
 <div class="booking-help"><strong>Sudah termasuk</strong><p>1 email bisnis · SEO · WhatsApp CTA · CMS · AI chatbot*</p><span data-order-timing>Tim kami menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Website pre-made aktif dalam 1–2 × 24 jam setelah pemesanan.</span><small>*Fitur proyek custom mengikuti cakupan yang disepakati.</small></div></aside>
 
         <section class="order-workspace">
-          <div class="order-service-context"><span>Layanan Anda: <strong data-summary-package>Belum dipilih</strong></span><a href="/#solusi">Ubah layanan</a></div>
+          <div class="order-service-context order-package-card"><span class="order-package-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M7 13h5m-5 3h10"/></svg></span><span class="order-package-details"><small>Paket website</small><strong data-summary-package>Belum dipilih</strong><span>Domain, email bisnis, dan maintenance termasuk</span></span><span class="order-package-pricing"><em data-plan-saving>Hemat Rp1.831.200</em><strong data-plan-monthly>Rp32.700 <small>/bulan</small></strong><del data-plan-normal>Rp109.000/bulan</del></span><a href="/#solusi">Ganti layanan</a></div>
           <div class="order-panel is-active" data-step-panel="domain">
             <p class="eyebrow">Domain baru dari Rasio</p><h2>Tentukan alamat website Anda.</h2>
             <p class="order-lede">Cukup ketik nama bisnis. Pilih ekstensi dari hasil di bawah; domain termasuk dalam paket dan Rasio menangani pengaturannya sesuai ketersediaan.</p>
@@ -104,6 +107,6 @@
 
     <script src="/navigation.js?v=15"></script>
     <script src="/domain.js?v=9"></script>
-    <script src="/order.js?v=17"></script>
+    <script src="/order.js?v=18"></script>
   </body>
 </html>
