@@ -18,8 +18,6 @@
     track.after(controls);
     const [previous, next] = controls.querySelectorAll('button');
     const counter = controls.querySelector('span');
-    let visible = false;
-    let paused = false;
 
     const spacing = () => cards[1].offsetLeft - cards[0].offsetLeft;
     const maxIndex = () => Math.max(0, cards.length - Math.max(1, Math.round(track.clientWidth / spacing())));
@@ -39,15 +37,6 @@
     next.addEventListener('click', () => go(currentIndex() + 1));
     track.addEventListener('scroll', () => window.requestAnimationFrame(update), {passive:true});
     window.addEventListener('resize', update, {passive:true});
-    section.addEventListener('pointerenter', () => { paused = true; });
-    section.addEventListener('pointerleave', () => { paused = false; });
-    section.addEventListener('focusin', () => { paused = true; });
-    section.addEventListener('focusout', () => { paused = false; });
-    if ('IntersectionObserver' in window) new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }, {threshold:.25}).observe(section);
     update();
-    if (!reducedMotion) window.setInterval(() => {
-      if (!visible || paused || document.hidden) return;
-      go(currentIndex() >= maxIndex() ? 0 : currentIndex() + 1);
-    }, 6500);
   });
 })();
