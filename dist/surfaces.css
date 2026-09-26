@@ -1,7 +1,7 @@
 /* Shared depth and checklist treatment for the Rasio Agency interface. */
 :root {
-  --surface-blue: #dce9fb;
-  --surface-blue-hover: #cfdef7;
+  --surface-card: #ffffff;
+  --surface-hover: #ffffff;
   --surface-border: #bbcde5;
   --text-on-soft: #183c7b;
   --surface-shadow: 0 3px 7px rgba(23, 45, 89, .045), 0 10px 24px rgba(23, 45, 89, .065);
@@ -15,13 +15,13 @@ body { font-family:"Poppins","Apple Color Emoji","Segoe UI Emoji","Noto Color Em
 .nav-chevron { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; }
 .nav-chevron svg { display:block; width:16px; height:16px; }
 .nav-dropdown-menu a { display:flex; align-items:center; gap:12px; }
-.nav-service-icon { display:grid; place-items:center; flex:0 0 40px; height:40px; border:1px solid #afc5e7; border-radius:11px; background:#dce9fb; color:#183c7b; box-shadow:var(--control-shadow); }
+.nav-service-icon { display:grid; place-items:center; flex:0 0 40px; height:40px; border:1px solid #afc5e7; border-radius:11px; background:#fff; color:#183c7b; box-shadow:var(--control-shadow); }
 .nav-service-icon svg { width:23px; height:23px; }
 .nav-product-copy { min-width:0; }
 .nav-dropdown-toggle .nav-service-icon,.nav-dropdown-menu span { transform:none; }
 .nav-dropdown-menu small { line-height:1.6; }
 .nav-dropdown-menu { width:310px; }
-.offer-audience { margin-top:18px; padding:14px 15px; border:1px solid var(--surface-border); border-radius:12px; background:#f3f7fd; box-shadow:var(--control-shadow); }
+.offer-audience { margin-top:18px; padding:14px 15px; border:1px solid var(--surface-border); border-radius:12px; background:#fff; box-shadow:var(--control-shadow); }
 .offer-store .offer-audience { background:#fff; }
 .offer-audience strong { display:block; color:#183c7b; font-size:12px; font-weight:600; margin-bottom:6px; }
 .offer-audience p { color:#445976; font-size:12px; line-height:1.8; margin:0; }
@@ -33,7 +33,7 @@ body { font-family:"Poppins","Apple Color Emoji","Segoe UI Emoji","Noto Color Em
 @media(min-width:841px){ .offer-description { min-height:120px; } .offer-audience { min-height:128px; } }
 .site-nav { gap:19px; }
 
-/* Deliberately visible pale blue, with white surfaces as a second level. */
+/* White cards and secondary controls remain distinct through borders and depth. */
 body :is(.offer-card,.offers-included,.template-card,.template-sector-bar,.template-empty,
  .benefit-card,.process-list>li,.service-timing,.content-control,.ai-feature-list>article,
  .faq-item,.testimonial-card,.closing-section,.hero-people-card,.hero-ai-card,
@@ -46,26 +46,26 @@ body :is(.offer-card,.offers-included,.template-card,.template-sector-bar,.templ
 body :is(.offer-store,.benefit-store,.service-timing,.content-control,.closing-section,
  .hero-ai-card,.service-flow-board,.detail-closing,.tutorial-card,.portfolio-card,
  .booking-help,.selected-template-panel,.order-profile-note,.ai-addon-card,
- .order-service-context) { background:var(--surface-blue); color:#172b49; }
-body .template-card:nth-child(n) { background:var(--surface-blue); border-color:var(--surface-border); }
+ .order-service-context) { background:var(--surface-card); color:#172b49; }
+body .template-card:nth-child(n) { background:var(--surface-card); border-color:var(--surface-border); }
 .template-sector-bar,.offers-included { background:#fff; }
 body .process-list>li:nth-child(n) { border:1px solid var(--surface-border); background:#fff; }
-body .process-list>li:nth-child(even),.ai-feature-list>article:last-child { background:var(--surface-blue); }
-body .problem-pair>div:last-child { background:var(--surface-blue); }
+body .process-list>li:nth-child(even),.ai-feature-list>article:last-child { background:var(--surface-card); }
+body .problem-pair>div:last-child { background:var(--surface-card); }
 .hero--people .domain-checker { border-color:var(--surface-border); }
-.hero-ai-card:hover { background:var(--surface-blue-hover); border-color:#93acd3; }
+.hero-ai-card:hover { background:var(--surface-hover); border-color:#93acd3; }
 .hero-people-card figcaption strong { font-size:20px; line-height:1.45; letter-spacing:-.025em; }
 .hero-photo-label { max-width:calc(100% - 38px); }
-.hero--people .product-tabs,.template-filters { background:var(--surface-blue); border:1px solid var(--surface-border); }
+.hero--people .product-tabs,.template-filters { background:var(--surface-card); border:1px solid var(--surface-border); }
 
 /* Explicit foreground/background pairs prevent inherited low-contrast labels. */
 body :is(.secondary-button,.offer-details-label,.template-actions>.text-link,
  .faq-intro>.text-link,.inverse-link,.summary-template-edit,.selected-template-panel a) {
- background:var(--surface-blue); color:var(--text-on-soft); border:1px solid #abc1e1;
+ background:var(--surface-card); color:var(--text-on-soft); border:1px solid #abc1e1;
 }
 body :is(.secondary-button,.offer-details-label,.template-actions>.text-link,
  .faq-intro>.text-link,.inverse-link,.summary-template-edit):hover {
- background:var(--surface-blue-hover); color:#12326c;
+ background:var(--surface-hover); color:#12326c;
 }
 body .offer-store .offer-details-label { background:#fff; color:var(--text-on-soft); }
 body :is(.button,.toolbar-primary,.domain-field>button,.order-domain-form button) {
@@ -82,19 +82,47 @@ body :is(.product-tab,.filter-button,.sector-filter):not(.is-active) { color:#29
 body .product-tab.is-active,.template-section .filter-button.is-active,.template-section .filter-button:hover {
  color:#fff; background:#2353e1; border-color:#2353e1;
 }
-body .sector-filter.is-active { background:#dce9fb; color:#183c7b; }
+body .sector-filter.is-active { background:#fff; color:#183c7b; }
 body :is(.service-icon,.sector-card>.sector-icon,.hero-ai-icon,.step-number,
  .testimonial-person>span,.template-sector-tag,.dummy-badge,.order-template-card>span:last-child) {
- background:var(--surface-blue); color:var(--text-on-soft); border:1px solid var(--surface-border);
+ background:var(--surface-card); color:var(--text-on-soft); border:1px solid var(--surface-border);
 }
 body :is(.slider-pause,.menu-toggle,.summary-toggle,.dialog-close,.service-flow-row,
  .template-demo-badge,.service-features>li,.tutorial-card>span,.order-step,
  .business-form input,.business-form textarea) { border:1px solid var(--surface-border); box-shadow:var(--control-shadow); }
-.site-nav .nav-ai { background:var(--surface-blue); color:var(--text-on-soft); }
+.site-nav .nav-ai { background:var(--surface-card); color:var(--text-on-soft); }
 .benefit-checklist li::before,.offers-included li::before,.price-card li::before { color:var(--check-green); }
 .price-card li::before { background:var(--check-soft); }
-.nav-dropdown-menu a:hover { background:var(--surface-blue); }
+.nav-dropdown-menu a:hover { background:var(--surface-card); }
 .service-flow-board h2 { font-size:25px; line-height:1.4; }
+/* Cover nested controls and interaction states inherited from earlier styles. */
+body :is(.offer-card,.offer-audience,.service-item,.price-card,.product-frame,
+ .template-empty,.order-template-art,.order-step,.slider-pause,.menu-toggle,
+ .summary-toggle,.service-flow-row>span,.service-features>li,.sector-filter,
+ .sector-filter>span,.template-sector-tag,.dialog-close,.hero-people-card figcaption>a) {
+ background:#fff;
+}
+body :is(.service-item,.service-item-featured,.service-custom,.price-card,.sector-filter):hover,
+body :is(.service-item,.service-item-featured,.service-custom):focus-within,
+body .sector-card:hover>.sector-icon,
+.hero--people .product-tab:not(.is-active):hover,
+.hero-people-card figcaption>a:hover,
+body .order-step:is(.is-active,.is-complete),
+body .order-step:is(.is-active,.is-complete)>span:first-child {
+ background:#fff; color:#183c7b;
+}
+.hero--people .product-tab:not(.is-active),
+body .sector-filter.is-active,.site-nav>a:not(.nav-mobile-cta):hover { background:#fff; }
+body .domain-result:is(:hover,.is-selected),body .order-package.is-selected { background:#fff; }
+.hero-people-card figcaption>a:hover { border-color:#2353e1; box-shadow:var(--control-shadow); }
+.nav-dropdown-menu a:hover { box-shadow:inset 0 0 0 1px var(--surface-border); }
+.content-control .control-option,
+.content-control .control-option:first-of-type,
+.content-control .control-option:last-child,
+body .portfolio-art,body .faq-item button span,
+body .order-step>span:first-child,
+body .eyebrow>span,.hero--people .hero-copy>.eyebrow>span { background:#fff; }
+.site-nav .nav-ai:hover { background:#fff; color:var(--text-on-soft); }
 @media(max-width:1080px){ .site-nav { gap:0; } .nav-dropdown-menu { width:100%; } }
 @media(max-width:540px){
  .hero-people-card figcaption strong { font-size:18px; }

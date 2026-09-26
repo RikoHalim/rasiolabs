@@ -43,7 +43,7 @@ articles = [
 
 home = (dist/'index.html').read_text(encoding='utf-8')
 if '/blog.css?' not in home:
-    home = home.replace('</head>', '<link rel="stylesheet" href="/blog.css?v=14" /></head>')
+    home = home.replace('</head>', '<link rel="stylesheet" href="/blog.css?v=15" /></head>')
 head = home.split('<body>')[0]
 header = re.search(r'<header[\s\S]*?</header>', home)[0].replace('href="#', 'href="/#')
 footer = re.search(r'<footer[\s\S]*?</footer>', home)[0].replace('href="#', 'href="/#')
