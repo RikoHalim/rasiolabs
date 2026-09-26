@@ -2,9 +2,9 @@
  const root = document.querySelector('[data-hero-slider]');
  if (!root) return;
  const slides = [
- ['Buat website untuk ', 'memperkenalkan bisnis dan menjual produk Anda.', 'Website bisnis, toko online, dan software custom yang membantu Anda bekerja lebih rapi dan melayani pelanggan lebih baik.'],
- ['Kembangkan brand Anda dengan ', 'toko online sendiri.', 'Pelanggan dapat memilih produk, membayar, dan memeriksa pengiriman melalui toko Anda. Rasio AI Insight membantu Anda meninjau data penjualan.'],
- ['Bangun kepercayaan lewat ', 'website company profile.', 'Perkenalkan bisnis dan layanan Anda dengan meyakinkan. Teks, gambar, dan logo mudah diperbarui melalui CMS sederhana.']];
+ ['Website dari template, ', 'cukup berlangganan tahunan.', 'Tidak ada biaya pembuatan website dari nol untuk paket template. Tim Rasio menyiapkan dan membantu mengelola website Anda.'],
+ ['Buka toko online tanpa ', 'membangunnya dari nol.', 'Pilih template Rasio Store, siapkan materi produk, lalu tim kami membantu setup dan mengunggah 50 produk pertama.'],
+ ['Perkenalkan bisnis lewat ', 'website yang dikelola bersama Rasio.', 'Tim Rasio mengurus tampilan dan perawatan. Anda bisa memperbarui teks, foto, dan logo melalui CMS sederhana.']];
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'), slide=root.querySelector('[data-hero-slide]'), title=root.querySelector('[data-hero-title]'), copy=root.querySelector('[data-hero-copy]'), dots=[...root.querySelectorAll('[data-slide]')], pause=root.querySelector('[data-slide-pause]');
  let current=0, paused=reduced.matches, timer, transitionTimer;
  function show(index) {

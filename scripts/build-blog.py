@@ -11,9 +11,9 @@ guides = json.loads((root/'content/blog-guides.json').read_text(encoding='utf-8'
 news.sort(key=lambda a: a['date'], reverse=True)
 articles = news + guides
 home = (dist/'index.html').read_text(encoding='utf-8')
-home = re.sub(r'/blog.css\?v=\d+', '/blog.css?v=16', home)
+home = re.sub(r'/blog.css\?v=\d+', '/blog.css?v=17', home)
 if '/blog.css?' not in home:
-    home = home.replace('</head>', '<link rel="stylesheet" href="/blog.css?v=16" /></head>')
+    home = home.replace('</head>', '<link rel="stylesheet" href="/blog.css?v=17" /></head>')
 head = home.split('<body>')[0]
 header = re.search(r'<header[\s\S]*?</header>', home)[0].replace('href="#', 'href="/#')
 footer = re.search(r'<footer[\s\S]*?</footer>', home)[0].replace('href="#', 'href="/#')
@@ -32,7 +32,7 @@ def page(slug, title, description, body, script=''):
 filters = [('all','Semua artikel'),('website','Website & SEO'),('bisnis','Bisnis & UMKM'),('ai','AI untuk bisnis'),('panduan','Panduan')]
 filter_html = ''.join(f'<button type="button" data-blog-filter="{key}" aria-pressed="{str(key=="all").lower()}">{e(label)}</button>' for key,label in filters)
 cards = ''.join(card(a) for a in articles)
-page('blog', 'Berita dan insight bisnis digital', 'Berita website, e-commerce, dan AI dari sumber resmi, beserta panduan praktis untuk bisnis Anda.', f'''<section class="blog-hero shell"><p class="eyebrow">Jurnal Rasio Agency</p><h1>Ikuti perkembangan digital yang <mark class="marker">relevan untuk bisnis Anda.</mark></h1><p>Berita website, e-commerce, dan AI, dengan penjelasan tentang hal yang perlu diperhatikan pemilik bisnis serta panduan untuk menerapkannya.</p><p class="blog-edition">Pilihan berita diperiksa pada 26 September 2026</p></section><section class="shell blog-library" aria-labelledby="articles-title"><div class="blog-library-heading"><h2 id="articles-title">Berita & panduan bisnis digital</h2><span data-blog-count role="status" aria-live="polite">{len(articles)} artikel</span></div><div class="blog-filters" role="group" aria-label="Filter topik artikel">{filter_html}</div><div class="blog-grid">{cards}</div></section><section class="shell blog-help"><div><h2>Siapkan website untuk kebutuhan bisnis Anda berikutnya.</h2><p>Diskusikan halaman, fitur toko, atau alur kerja yang ingin Anda perbaiki bersama tim Rasio.</p></div><a class="button" href="https://wa.me/60142317052?text=Halo%20Rasio%2C%20saya%20ingin%20konsultasi%20kebutuhan%20website." target="_blank" rel="noopener">Konsultasi Gratis ↗</a></section>''', '<script src="/blog.js?v=16"></script>')
+page('blog', 'Berita dan insight bisnis digital', 'Berita website, e-commerce, dan AI dari sumber resmi, beserta panduan praktis untuk bisnis Anda.', f'''<section class="blog-hero shell"><p class="eyebrow">Jurnal Rasio Agency</p><h1>Ikuti perkembangan digital yang <mark class="marker">relevan untuk bisnis Anda.</mark></h1><p>Berita website, e-commerce, dan AI, dengan penjelasan tentang hal yang perlu diperhatikan pemilik bisnis serta panduan untuk menerapkannya.</p><p class="blog-edition">Pilihan berita diperiksa pada 26 September 2026</p></section><section class="shell blog-library" aria-labelledby="articles-title"><div class="blog-library-heading"><h2 id="articles-title">Berita & panduan bisnis digital</h2><span data-blog-count role="status" aria-live="polite">{len(articles)} artikel</span></div><div class="blog-filters" role="group" aria-label="Filter topik artikel">{filter_html}</div><div class="blog-grid">{cards}</div></section><section class="shell blog-help"><div><h2>Siapkan website untuk kebutuhan bisnis Anda berikutnya.</h2><p>Diskusikan halaman, fitur toko, atau alur kerja yang ingin Anda perbaiki bersama tim Rasio.</p></div><a class="button" href="https://wa.me/60142317052?text=Halo%20Rasio%2C%20saya%20ingin%20konsultasi%20kebutuhan%20website." target="_blank" rel="noopener">Konsultasi Gratis ↗</a></section>''', '<script src="/blog.js?v=17"></script>')
 
 for a in articles:
     toc = ''.join(f'<a href="#bagian-{i}"><span>0{i}</span>{e(title)}</a>' for i,(title,_) in enumerate(a['sections'],1))

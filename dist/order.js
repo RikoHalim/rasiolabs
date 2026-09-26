@@ -47,8 +47,8 @@
   const customWhatsApp = document.querySelector('[data-custom-whatsapp]');
 
   const management = service === 'profile' ? 'CMS sederhana untuk teks, gambar, dan logo' : service === 'store' ? 'Dashboard toko untuk produk dan pesanan' : 'Disepakati sesuai cakupan proyek';
-  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Akses dashboard dikirim saat toko siap, tanpa membuat akun terpisah.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
-  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Anda dapat mengubah copywriting, gambar, dan logo melalui CMS sederhana. Tim Rasio membantu setup awal, panduan penggunaan, dan maintenance selama langganan aktif.' : service === 'store' ? 'Anda mengelola produk, stok, dan pesanan melalui dashboard toko. Tim Rasio membantu setup awal dan maintenance teknis.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Memilih domain belum merupakan pembelian.';
+  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Kami membantu unggah 50 produk pertama; produk berikutnya dapat ditambah melalui dashboard.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
+  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Tim Rasio menyiapkan desain dan menangani maintenance. Anda dapat memperbarui teks, gambar, dan logo melalui CMS sederhana tanpa mengubah tata letak template.' : service === 'store' ? 'Tim Rasio menyiapkan desain, mengunggah 50 produk pertama, dan menangani maintenance. Anda mengelola produk berikutnya, stok, serta pesanan melalui dashboard toko.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Domain masuk dalam cakupan penawaran sesuai kebutuhan proyek.';
   document.querySelector('[data-review-management]').textContent = management;
   document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum checkout. Pembayaran dan harga masih berupa simulasi pada prototipe ini.';
   document.querySelector('[data-custom-field]').hidden = service !== 'custom';
@@ -68,9 +68,12 @@
     document.querySelector('.summary-body > p').textContent = 'Rasio menyusun harga dan cakupan proyek setelah pembahasan kebutuhan.';
   }
   function sync() {
-    document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = aiAddon.checked && service === 'store' ? 'Rp500.000 / tahun' : 'Tidak ditambahkan');
-    if (service === 'store') {
-      const price = aiAddon.checked ? 'Paket & domain + Rp500.000/tahun untuk AI' : 'Harga paket & domain segera tersedia';
+    document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = aiAddon.checked && service === 'store' ? 'Rp500.000/tahun (Rp1.000.000 untuk 24 bulan)' : 'Tidak ditambahkan');
+    if (service === 'store' || service === 'profile') {
+      const packageTotal = service === 'store' ? 1512000 : 784800;
+      const addonTotal = service === 'store' && aiAddon.checked ? 1000000 : 0;
+      const rupiah = new Intl.NumberFormat('id-ID', {style:'currency',currency:'IDR',maximumFractionDigits:0});
+      const price = `${rupiah.format(packageTotal + addonTotal)} untuk 24 bulan, domain termasuk`;
       document.querySelector('[data-review-price]').textContent = price;
       document.querySelector('.summary-total strong').textContent = price;
     }
@@ -127,7 +130,7 @@
     const requested = query.includes('.') ? query : preferred;
     const choices = [...new Set([...(requested ? [requested] : []),`${name}.com`,`${name}.id`,`${name}.co.id`])];
     results.hidden = false;
-    results.innerHTML = '<p class="domain-results-note">Contoh pilihan domain. Harga dan ketersediaan belum diperiksa pada prototipe ini.</p>' + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span><small>Harga tahunan</small><strong>Segera tersedia</strong></span><i aria-hidden="true">Pilih →</i></button>`).join('');
+    results.innerHTML = '<p class="domain-results-note">Domain termasuk dalam paket. Nama dan ketersediaan di sini masih berupa simulasi.</p>' + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span><small>Dalam paket</small><strong>Termasuk</strong></span><i aria-hidden="true">Pilih →</i></button>`).join('');
     results.querySelectorAll('[data-domain-choice]').forEach(button => button.addEventListener('click', () => {
       domain = button.dataset.domainChoice;
       errorNode.hidden = true; resetReview(); sync();
