@@ -35,6 +35,9 @@
   if (service === 'store') steps.splice(steps.indexOf('business'),0,'addons');
   let current = 'domain';
   const aiAddon = document.querySelector('[data-ai-addon]');
+  const durationSelect = document.querySelector('[data-duration-select]');
+  const requestedDuration = Number(params.get('duration'));
+  if ([1, 12, 24].includes(requestedDuration)) durationSelect.value = String(requestedDuration);
   const titles = {addons:['Rasio AI','Tambahkan insight toko'],domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
   const input = document.querySelector('#order-domain');
   const form = document.querySelector('[data-order-domain-form]');
@@ -60,7 +63,9 @@
   document.querySelector('[data-edit-template]').hidden = service === 'custom';
   document.querySelector('[data-addon-summary]').hidden = service !== 'store';
   document.querySelector('[data-addon-review]').hidden = service !== 'store';
+  document.querySelector('[data-duration-field]').hidden = service === 'custom';
   aiAddon.addEventListener('change', () => { resetReview(); sync(); });
+  durationSelect.addEventListener('change', () => { resetReview(); sync(); });
   if (service === 'custom') {
     document.querySelector('[data-order-timing]').textContent = 'Jadwal pengerjaan website, ERP, dan software custom disepakati setelah konsultasi.';
     document.querySelector('[data-review-price]').textContent = 'Penawaran setelah konsultasi';
@@ -74,22 +79,32 @@
     document.querySelector('.order-package-details > span').textContent = 'Fitur, domain, dan jadwal mengikuti penawaran proyek.';
   }
   function sync() {
-    document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = aiAddon.checked && service === 'store' ? 'Rp500.000/tahun (Rp1.000.000 untuk 24 bulan)' : 'Tidak ditambahkan');
+    const duration = Number(durationSelect.value);
+    const rupiah = amount => `Rp${amount.toLocaleString('id-ID')}`;
+    const addonDuration = Math.max(12, duration);
+    const addonTotal = service === 'store' && aiAddon.checked ? 500000 * addonDuration / 12 : 0;
+    document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = addonTotal ? `${rupiah(addonTotal)} untuk ${addonDuration} bulan` : 'Tidak ditambahkan');
     if (service === 'store' || service === 'profile') {
-      const packageTotal = service === 'store' ? 1512000 : 784800;
-      const addonTotal = service === 'store' && aiAddon.checked ? 1000000 : 0;
-      const rupiah = amount => `Rp${amount.toLocaleString('id-ID')}`;
-      const normalTotal = service === 'store' ? 5040000 : 2616000;
       const normalMonthly = service === 'store' ? 210000 : 109000;
-      const monthly = service === 'store' ? 63000 : 32700;
-      document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk 24 bulan, domain termasuk`;
+      const monthly = duration === 24 ? normalMonthly * .3 : normalMonthly;
+      const packageTotal = monthly * duration;
+      const normalTotal = normalMonthly * duration;
+      document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk ${duration} bulan, domain termasuk`;
       document.querySelector('.summary-total strong').textContent = rupiah(packageTotal + addonTotal);
       document.querySelector('[data-mini-total]').textContent = rupiah(packageTotal + addonTotal);
       document.querySelector('[data-summary-package-price]').textContent = rupiah(packageTotal);
       document.querySelector('[data-summary-normal-price]').textContent = rupiah(normalTotal);
+      document.querySelector('[data-summary-normal-price]').hidden = duration !== 24;
       document.querySelector('[data-plan-saving]').textContent = `Hemat ${rupiah(normalTotal - packageTotal)}`;
+      document.querySelector('[data-plan-saving]').hidden = duration !== 24;
       document.querySelector('[data-plan-monthly]').innerHTML = `${rupiah(monthly)} <small>/bulan</small>`;
       document.querySelector('[data-plan-normal]').textContent = `${rupiah(normalMonthly)}/bulan`;
+      document.querySelector('[data-plan-normal]').hidden = duration !== 24;
+      document.querySelector('[data-summary-duration]').textContent = `Paket website · ${duration} bulan`;
+      document.querySelector('[data-summary-total-label]').textContent = `Total ${duration} bulan`;
+      document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
+      document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
+      document.querySelector('[data-summary-terms]').textContent = duration === 24 ? 'Diskon 70% berlaku untuk pembayaran 24 bulan di muka. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.' : `Paket ${duration} bulan dibayar di muka tanpa diskon. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
       document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
