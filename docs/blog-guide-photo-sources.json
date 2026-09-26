@@ -1,0 +1,68 @@
+[
+  {
+    "file": "C:\\Users\\rikoh\\Documents\\Rasio Agency\\blog-assets-new\\website-type.jpg",
+    "photoId": "5648039",
+    "photographer": "Ono Kosuki",
+    "sourcePage": "https://www.pexels.com/photo/black-businessman-writing-on-paper-near-laptop-in-cafe-5648039/",
+    "observedImageUrl": "https://images.pexels.com/photos/5648039/pexels-photo-5648039.jpeg?cs=srgb&dl=pexels-ono-kosuki-5648039.jpg&fm=jpg",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "originalDimensions": [
+      6000,
+      4000
+    ],
+    "dimensions": [
+      1200,
+      800
+    ],
+    "bytes": 131569,
+    "altId": "Pelaku bisnis menyusun rencana dengan laptop dan catatan di meja kafe",
+    "verifiedDate": "2026-09-26",
+    "licenseSummary": "Free personal and commercial use, including websites and blogs; attribution is optional. Do not imply endorsement by photographed people.",
+    "sha256": "d7b7df15f96f01394e2c89de44fbaaa12262e4baf2bc2bb8c6ee8ce1c182b9eb"
+  },
+  {
+    "file": "C:\\Users\\rikoh\\Documents\\Rasio Agency\\blog-assets-new\\content-preparation.jpg",
+    "photoId": "7393948",
+    "photographer": "Sébastien BONNEVAL",
+    "sourcePage": "https://www.pexels.com/photo/women-posting-notes-on-brown-board-7393948/",
+    "observedImageUrl": "https://images.pexels.com/photos/7393948/pexels-photo-7393948.jpeg?cs=srgb&dl=pexels-sebastien-bonneval-193273-7393948.jpg&fm=jpg",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "originalDimensions": [
+      4032,
+      3024
+    ],
+    "dimensions": [
+      1200,
+      800
+    ],
+    "bytes": 226174,
+    "altId": "Dua rekan kerja menyusun materi dan ide pada papan catatan berwarna",
+    "verifiedDate": "2026-09-26",
+    "licenseSummary": "Free personal and commercial use, including websites and blogs; attribution is optional. Do not imply endorsement by photographed people.",
+    "sha256": "1b425228328314ddf464fa6095f29c785697f98209d5069f856dc7bc3291e4cb"
+  },
+  {
+    "file": "C:\\Users\\rikoh\\Documents\\Rasio Agency\\blog-assets-new\\cms-management.jpg",
+    "photoId": "1970801",
+    "photographer": "Malte Luk",
+    "sourcePage": "https://www.pexels.com/photo/man-using-desktop-computer-1970801/",
+    "observedImageUrl": "https://images.pexels.com/photos/1970801/pexels-photo-1970801.jpeg?cs=srgb&dl=pexels-maltelu-1970801.jpg&fm=jpg",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "originalDimensions": [
+      4368,
+      2912
+    ],
+    "dimensions": [
+      1200,
+      800
+    ],
+    "bytes": 154238,
+    "altId": "Pengelola konten meninjau dan menyunting foto melalui komputer desktop",
+    "verifiedDate": "2026-09-26",
+    "licenseSummary": "Free personal and commercial use, including websites and blogs; attribution is optional. Do not imply endorsement by photographed people.",
+    "sha256": "f0ee7be15c56d74af4542427ddcdc92f13ca2a1643d936774e7897b07c43f3e9"
+  }
+]

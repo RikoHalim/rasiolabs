@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "memilih-jenis-website-bisnis",
+    "category": "Perencanaan website",
+    "title": "Cara memilih jenis website yang sesuai dengan kebutuhan bisnis",
+    "excerpt": "Kenali perbedaan company profile, toko online, dan website custom sebelum menentukan fitur dan desain.",
+    "sections": [
+      [
+        "Mulai dari tujuan pengunjung",
+        "Sebelum memilih desain, tentukan tindakan yang ingin Anda bantu pengunjung lakukan. Mereka mungkin perlu memahami layanan, melihat contoh pekerjaan, membeli produk, atau mengakses informasi khusus. Tuliskan satu tujuan utama, lalu catat informasi dan langkah yang diperlukan untuk mencapainya. Daftar ini menjadi dasar ketika membandingkan pilihan website. Pertimbangkan juga siapa yang akan memperbarui isinya setelah website digunakan."
+      ],
+      [
+        "Gunakan company profile untuk menjelaskan bisnis",
+        "Website company profile cocok untuk bisnis yang perlu memperkenalkan perusahaan, menjelaskan layanan, dan menampilkan portofolio. Pengunjung dapat mempelajari penawaran sebelum menghubungi tim. Siapkan profil singkat, uraian layanan, contoh pekerjaan yang boleh dipublikasikan, serta informasi kontak yang akurat. Jika kebutuhan berpusat pada satu penawaran atau kampanye, landing page dapat menyajikan penjelasan secara lebih terarah."
+      ],
+      [
+        "Pertimbangkan toko online untuk proses pembelian",
+        "Toko online sesuai ketika pelanggan perlu memilih produk dan menyelesaikan pembelian melalui website. Kebutuhannya mencakup katalog, variasi produk, stok, keranjang, pembayaran, dan pengiriman. Sebelum menentukan fitur, jelaskan cara bisnis menerima pesanan dan menangani perubahan stok, pembatalan, serta pertanyaan pelanggan. Catat informasi yang diperlukan tim untuk memproses pesanan agar Anda dapat menilai apakah platform mendukung cara kerja toko."
+      ],
+      [
+        "Petakan kebutuhan sebelum memilih pengembangan custom",
+        "Pengembangan custom dapat dipertimbangkan ketika bisnis memerlukan alur kerja, peran pengguna, atau integrasi yang lebih khusus. Contohnya adalah portal pelanggan dengan akses berbeda atau sistem persetujuan internal yang mengikuti struktur tim. Kelompokkan fitur yang wajib tersedia sejak awal dan fitur yang dapat menyusul. Sertakan contoh proses sehari-hari, sistem yang sudah digunakan, serta pihak yang terlibat agar pembahasan cakupan, waktu, dan biaya memiliki dasar yang konkret."
+      ]
+    ],
+    "kind": "guide",
+    "filter": "panduan",
+    "image": "blog-website-type.jpg",
+    "alt": "Pelaku bisnis menyusun rencana dengan laptop dan catatan di meja kafe"
+  },
+  {
+    "slug": "materi-sebelum-membuat-website",
+    "category": "Persiapan konten",
+    "title": "Materi yang perlu disiapkan sebelum membuat website bisnis",
+    "excerpt": "Siapkan teks, logo, foto, dan data produk agar pembuatan website memiliki bahan yang jelas untuk dikerjakan.",
+    "sections": [
+      [
+        "Tentukan tujuan dan susunan informasi",
+        "Mulailah dengan menjelaskan siapa yang akan menggunakan website dan informasi apa yang mereka perlukan. Buat daftar bagian utama, misalnya profil bisnis, layanan, portofolio, dan kontak. Tuliskan tujuan setiap bagian agar materi yang dikumpulkan tetap relevan. Halaman layanan, misalnya, perlu menjelaskan cakupan pekerjaan, siapa yang dilayani, dan cara meminta informasi lebih lanjut. Susunan ini dapat disempurnakan bersama pihak yang membuat website."
+      ],
+      [
+        "Siapkan teks yang menjawab pertanyaan pelanggan",
+        "Kumpulkan nama bisnis, deskripsi usaha, informasi layanan, alamat yang boleh ditampilkan, jam operasional, dan saluran kontak. Gunakan penjelasan spesifik agar pengunjung memahami penawaran Anda. Untuk setiap layanan, jelaskan proses, hasil yang diterima, dan ketentuan yang perlu diketahui pelanggan. Pisahkan informasi yang sudah pasti dari materi yang perlu diperiksa, kemudian tentukan siapa yang memberikan persetujuan sebelum teks digunakan."
+      ],
+      [
+        "Kumpulkan gambar dan data produk",
+        "Siapkan logo serta foto yang jelas dan relevan dengan isi halaman. Beri nama file berdasarkan layanan, proyek, atau produk, lalu pastikan Anda memiliki izin untuk menggunakannya. Untuk toko online, kumpulkan nama produk, deskripsi, harga, variasi, stok, berat atau ukuran untuk pengiriman, serta foto setiap variasi. Simpan data dalam format yang konsisten agar tim dapat memeriksa kelengkapan dan menemukan perbedaan informasi dengan mudah."
+      ],
+      [
+        "Atur pemeriksaan dan penyerahan materi",
+        "Simpan materi dalam satu folder dengan pembagian sesuai susunan halaman. Sediakan dokumen utama untuk teks agar koreksi tidak tersebar di banyak percakapan. Tentukan satu penanggung jawab untuk mengumpulkan masukan dan menyetujui hasil pemeriksaan. Sebelum menyerahkan materi, periksa ejaan, nomor kontak, harga, tautan, dan informasi yang tidak boleh dipublikasikan. Catat materi yang belum tersedia beserta orang yang akan melengkapinya."
+      ]
+    ],
+    "kind": "guide",
+    "filter": "panduan",
+    "image": "blog-content-preparation.jpg",
+    "alt": "Dua rekan kerja menyusun materi dan ide pada papan catatan berwarna"
+  },
+  {
+    "slug": "mengelola-konten-website",
+    "category": "Pengelolaan website",
+    "title": "Cara mengelola konten website setelah website aktif",
+    "excerpt": "Buat kebiasaan memperbarui informasi bisnis, produk, dan kontak agar website tetap relevan bagi pelanggan.",
+    "sections": [
+      [
+        "Kenali bagian yang dapat diperbarui",
+        "CMS atau sistem pengelolaan konten membantu pengguna memperbarui bagian website melalui antarmuka yang disediakan. Bagian yang dapat diubah bergantung pada pengaturan website, misalnya teks, gambar, layanan, produk, atau stok. Pelajari panduan dan fungsi setiap kolom sebelum melakukan perubahan. Tentukan siapa yang boleh mengedit dan siapa yang memeriksa hasilnya, terutama untuk informasi yang berpengaruh pada pembelian atau layanan pelanggan."
+      ],
+      [
+        "Buat daftar pemeriksaan konten",
+        "Susun daftar informasi yang perlu ditinjau sesuai aktivitas bisnis. Periksa nomor kontak, alamat, jam operasional, uraian layanan, tautan, dan foto yang sudah tidak relevan. Untuk toko online, tambahkan harga, variasi produk, stok, serta ketentuan pembelian dan pengiriman. Lakukan pemeriksaan tambahan ketika ada perubahan operasional, peluncuran produk, atau berakhirnya penawaran. Catat penanggung jawab setiap informasi agar koreksi diteruskan kepada orang yang tepat."
+      ],
+      [
+        "Periksa hasil sebelum dan setelah diterbitkan",
+        "Sebelum menerbitkan perubahan, baca kembali teks dan gunakan fitur pratinjau jika tersedia. Periksa apakah judul, gambar, tautan, dan tombol sesuai dengan isi halaman. Setelah diterbitkan, buka halaman yang dilihat pengunjung untuk memastikan hasilnya benar. Cobalah melalui ponsel untuk menilai keterbacaan dan kemudahan penggunaan. Jika tersedia riwayat revisi, pelajari cara memulihkan versi sebelumnya agar kesalahan konten dapat ditangani dengan teratur."
+      ],
+      [
+        "Catat perubahan dan kebutuhan pengembangan",
+        "Simpan catatan perubahan penting, seperti pembaruan layanan, ketentuan pembelian, atau struktur katalog. Catatan membantu tim memahami kapan perubahan dilakukan dan siapa yang menyetujuinya. Saat kebutuhan melibatkan alur baru, fitur tambahan, atau integrasi, jelaskan masalah dan contoh penggunaannya kepada pengelola teknis. Dengan memisahkan pembaruan konten dan kebutuhan pengembangan, tim dapat menentukan tanggung jawab, prioritas, dan proses pemeriksaan yang sesuai."
+      ]
+    ],
+    "kind": "guide",
+    "filter": "panduan",
+    "image": "blog-cms-management.jpg",
+    "alt": "Pengelola konten meninjau dan menyunting foto melalui komputer desktop"
+  }
+]
