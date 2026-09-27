@@ -37,7 +37,7 @@
   const aiAddon = document.querySelector('[data-ai-addon]');
   const durationSelect = document.querySelector('[data-duration-select]');
   const requestedDuration = Number(params.get('duration'));
-  if ([1, 12, 24].includes(requestedDuration)) durationSelect.value = String(requestedDuration);
+  if ([1, 12, 24, 48].includes(requestedDuration)) durationSelect.value = String(requestedDuration);
   const titles = {addons:['Rasio AI','Tambahkan insight toko'],domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
   const input = document.querySelector('#order-domain');
   const form = document.querySelector('[data-order-domain-form]');
@@ -50,10 +50,23 @@
   const consent = document.querySelector('[data-review-consent]');
   const checkoutNote = document.querySelector('[data-checkout-note]');
   const customWhatsApp = document.querySelector('[data-custom-whatsapp]');
+  const couponToggle = document.querySelector('[data-coupon-toggle]');
+  const couponForm = document.querySelector('[data-coupon-form]');
+  couponToggle.addEventListener('click', () => {
+    const open = couponForm.hidden;
+    couponForm.hidden = !open;
+    couponToggle.setAttribute('aria-expanded', String(open));
+    couponToggle.querySelector('span').textContent = open ? '−' : '＋';
+    if (open) couponForm.querySelector('input').focus();
+  });
+  couponForm.addEventListener('submit', event => {
+    event.preventDefault();
+    document.querySelector('[data-coupon-message]').textContent = 'Belum ada kupon aktif saat ini. Harga promo sesuai durasi tetap berlaku.';
+  });
 
   const management = service === 'profile' ? 'CMS sederhana untuk teks, gambar, dan logo' : service === 'store' ? 'Dashboard toko untuk produk dan pesanan' : 'Disepakati sesuai cakupan proyek';
-  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Kami membantu unggah 50 produk pertama; produk berikutnya dapat ditambah melalui dashboard.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
-  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Tim Rasio menyiapkan desain dan menangani maintenance. Anda dapat memperbarui teks, gambar, dan logo melalui CMS sederhana tanpa mengubah tata letak template.' : service === 'store' ? 'Tim Rasio menyiapkan desain, mengunggah 50 produk pertama, dan menangani maintenance. Anda mengelola produk berikutnya, stok, serta pesanan melalui dashboard toko.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Domain masuk dalam cakupan penawaran sesuai kebutuhan proyek.';
+  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Kami membantu unggah 50 produk pertama; selanjutnya Anda dapat mengunggah produk tanpa batas melalui dashboard.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
+  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Tim Rasio menyiapkan desain dan menangani maintenance. Anda dapat memperbarui teks, gambar, dan logo melalui CMS sederhana tanpa mengubah tata letak template.' : service === 'store' ? 'Tim Rasio menyiapkan desain, mengunggah 50 produk pertama, dan menangani maintenance. Anda dapat menambah produk tanpa batas serta mengelola stok dan pesanan melalui dashboard toko.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Domain masuk dalam cakupan penawaran sesuai kebutuhan proyek.';
   document.querySelector('[data-review-management]').textContent = management;
   document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum checkout. Pembayaran dan harga masih berupa simulasi pada prototipe ini.';
   document.querySelector('[data-custom-field]').hidden = service !== 'custom';
@@ -64,6 +77,8 @@
   document.querySelector('[data-addon-summary]').hidden = service !== 'store';
   document.querySelector('[data-addon-review]').hidden = service !== 'store';
   document.querySelector('[data-duration-field]').hidden = service === 'custom';
+  document.querySelector('.coupon-box').hidden = service === 'custom';
+  document.querySelector('.booking-help').hidden = service === 'custom';
   aiAddon.addEventListener('change', () => { resetReview(); sync(); });
   durationSelect.addEventListener('change', () => { resetReview(); sync(); });
   if (service === 'custom') {
@@ -86,7 +101,8 @@
     document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = addonTotal ? `${rupiah(addonTotal)} untuk ${addonDuration} bulan` : 'Tidak ditambahkan');
     if (service === 'store' || service === 'profile') {
       const normalMonthly = service === 'store' ? 210000 : 109000;
-      const monthly = duration === 24 ? normalMonthly * .3 : normalMonthly;
+      const discount = {1: 0, 12: .5, 24: .7, 48: .75}[duration];
+      const monthly = Math.round(normalMonthly * (1 - discount));
       const packageTotal = monthly * duration;
       const normalTotal = normalMonthly * duration;
       document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk ${duration} bulan, domain termasuk`;
@@ -94,17 +110,17 @@
       document.querySelector('[data-mini-total]').textContent = rupiah(packageTotal + addonTotal);
       document.querySelector('[data-summary-package-price]').textContent = rupiah(packageTotal);
       document.querySelector('[data-summary-normal-price]').textContent = rupiah(normalTotal);
-      document.querySelector('[data-summary-normal-price]').hidden = duration !== 24;
+      document.querySelector('[data-summary-normal-price]').hidden = !discount;
       document.querySelector('[data-plan-saving]').textContent = `Hemat ${rupiah(normalTotal - packageTotal)}`;
-      document.querySelector('[data-plan-saving]').hidden = duration !== 24;
+      document.querySelector('[data-plan-saving]').hidden = !discount;
       document.querySelector('[data-plan-monthly]').innerHTML = `${rupiah(monthly)} <small>/bulan</small>`;
       document.querySelector('[data-plan-normal]').textContent = `${rupiah(normalMonthly)}/bulan`;
-      document.querySelector('[data-plan-normal]').hidden = duration !== 24;
+      document.querySelector('[data-plan-normal]').hidden = !discount;
       document.querySelector('[data-summary-duration]').textContent = `Paket website · ${duration} bulan`;
       document.querySelector('[data-summary-total-label]').textContent = `Total ${duration} bulan`;
       document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
       document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
-      document.querySelector('[data-summary-terms]').textContent = duration === 24 ? 'Diskon 70% berlaku untuk pembayaran 24 bulan di muka. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.' : `Paket ${duration} bulan dibayar di muka tanpa diskon. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
+      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
       document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);

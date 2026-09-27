@@ -2,6 +2,7 @@
   const tabs = [...document.querySelectorAll('[data-feature-tab]')];
   const panels = [...document.querySelectorAll('[data-feature-panel]')];
   const detailLink = document.querySelector('[data-feature-link]');
+  const count = document.querySelector('[data-feature-count]');
   const section = document.querySelector('.feature-showcase');
   if (!tabs.length || !panels.length) return;
 
@@ -31,6 +32,7 @@
       detailLink.href = links[key][0];
       detailLink.innerHTML = `${links[key][1]} <span aria-hidden="true">↗</span>`;
     }
+    if (count) count.textContent = `${String(tabs.indexOf(selected) + 1).padStart(2, '0')} / ${String(tabs.length).padStart(2, '0')}`;
     if (focus) selected.focus();
   }
 
@@ -46,6 +48,14 @@
       event.preventDefault();
       selectTab(tabs[nextIndex], true);
     });
+  });
+  document.querySelector('[data-feature-prev]')?.addEventListener('click', () => {
+    const index = tabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
+    selectTab(tabs[(index - 1 + tabs.length) % tabs.length]);
+  });
+  document.querySelector('[data-feature-next]')?.addEventListener('click', () => {
+    const index = tabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
+    selectTab(tabs[(index + 1) % tabs.length]);
   });
 
   if (section && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
