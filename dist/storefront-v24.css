@@ -1,5 +1,12 @@
 /* A compact shop window for the Rasio Store slide. The product list is part of
    the preview, rather than another service illustration. */
+.service-strip .offer-card .offer-top{min-height:40px;gap:10px;margin-bottom:17px}
+.service-strip .offer-card .offer-top>.service-icon{order:1;flex:none}
+.service-strip .offer-card .offer-top>span:last-child{order:2;min-width:0;line-height:1.35}
+.service-strip .offer-card .offer-top>.offer-promo-badge{order:3;align-self:center;flex:none;min-height:27px;margin:0 0 0 auto;padding:4px 9px;border-radius:999px;color:#1743a6;font-size:10px;line-height:1;white-space:nowrap}
+.service-strip .offer-card.offer-store .offer-top>.offer-promo-badge{color:#183c7b}
+@media(max-width:360px){.service-strip .offer-card .offer-top{gap:7px}.service-strip .offer-card .offer-top>.offer-promo-badge{padding-inline:7px;font-size:9px}}
+
 #top .stack-store-body{
   display:grid;
   grid-template-rows:25px minmax(0,1fr) 126px;
