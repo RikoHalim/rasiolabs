@@ -1,0 +1,30 @@
+/* Four useful inclusions and three distinct visual directions, with one live demo. */
+#top .hero-benefits{max-width:615px;margin:2px 0 18px;padding:14px 0;border-top:1px solid #e1e7f0;border-bottom:1px solid #e1e7f0}
+#top .hero-benefit-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 15px;margin:0;padding:0;list-style:none}
+#top .hero-benefit-list li{display:flex;align-items:flex-start;gap:8px;margin:0;padding:0;border:0;color:#334866;font-size:11.5px;line-height:1.45}
+#top .hero-benefit-list li::before{content:'✓';display:grid;place-items:center;flex:none;width:17px;height:17px;margin:0;border-radius:50%;background:#e1f6ea;color:#118550;font:800 11px/1 Arial,sans-serif}
+#top .template-stack{height:456px;animation:stack-arrive .65s cubic-bezier(.2,.7,.2,1) both}
+#top .stack-preview{border-color:#c8d1de;border-radius:18px;box-shadow:0 13px 25px rgba(21,38,72,.16),0 25px 52px rgba(21,38,72,.11)}
+#top .stack-preview--profile{top:8px;left:2%;width:75%;height:220px;transform:rotate(-4deg);pointer-events:none}
+#top .stack-preview--store{top:83px;right:0;width:79%;height:232px;transform:rotate(4deg);pointer-events:none}
+#top .stack-preview--architecture{top:186px;left:5%;width:90%;height:258px;transform:rotate(-1.5deg)}
+#top .stack-preview--architecture:hover,#top .stack-preview--architecture:focus-visible{transform:rotate(0) translateY(-4px);box-shadow:0 18px 35px rgba(21,38,72,.2),0 30px 62px rgba(21,38,72,.13)}
+#top .stack-preview--architecture:focus-visible{outline:3px solid #2353e1;outline-offset:4px}
+@keyframes stack-arrive{from{opacity:.2;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+/* Let each card return to its hover transform after the tab entrance finishes. */
+#fitur-layanan .feature-panel.is-entering .feature-tile{animation-fill-mode:backwards}
+#fitur-layanan .feature-showcase-heading>.eyebrow{display:flex;justify-content:center;text-align:center}
+@media(max-width:840px){
+ #top .hero-grid{grid-template-columns:1fr}
+ #top .template-stack{height:456px;max-width:600px;margin:auto}
+}
+@media(max-width:620px){
+ #top .hero-benefits{margin:0 0 16px;padding:12px 0}
+ #top .hero-benefit-list{grid-template-columns:1fr;gap:7px}
+ #top .hero-benefit-list li{font-size:11px;line-height:1.35}
+ #top .template-stack{height:414px;width:100%}
+ #top .stack-preview--profile{top:5px;left:3%;width:83%;height:187px}
+ #top .stack-preview--store{top:77px;right:0;width:85%;height:205px}
+ #top .stack-preview--architecture{top:179px;left:3%;width:94%;height:229px}
+}
+@media(prefers-reduced-motion:reduce){#top .template-stack{animation:none}#top .stack-preview{transition:none}}

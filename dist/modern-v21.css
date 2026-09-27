@@ -50,10 +50,6 @@ body:not(.architecture-page) .hero--people .hero-actions .button:hover{backgroun
 #fitur-layanan .brand-row{gap:8px}
 #fitur-layanan .brand-logo{display:grid;place-items:center;flex:1;min-width:0;height:49px;padding:8px;border:1px solid #dfe6f1;border-radius:10px;background:#fff;box-shadow:0 5px 14px rgba(25,50,110,.07)}
 #fitur-layanan .brand-logo img{display:block;max-width:100%;max-height:31px;object-fit:contain}
-#fitur-layanan .brand-credits{margin-top:8px;color:#6f7c90;font-size:9px;line-height:1.5}
-#fitur-layanan .brand-credits summary{width:max-content;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
-#fitur-layanan .brand-credits p{font-size:9px;line-height:1.5;margin:5px 0 0}
-#fitur-layanan .brand-credits a{color:#315ac7}
 
 /* A small scale change gives the bento cards depth without rearranging the grid. */
 #fitur-layanan .feature-tile{transform-origin:center center;will-change:transform;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}

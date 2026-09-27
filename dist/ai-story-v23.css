@@ -1,0 +1,325 @@
+/* A concise explanation of Rasio AI, separate from the pricing and service cards. */
+.rasio-ai-story {
+  padding: clamp(60px, 7vw, 92px) 0;
+  background: #111629;
+  color: #f9fbff;
+}
+
+.rasio-ai-story__head {
+  max-width: 780px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.rasio-ai-story__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 15px;
+  color: #aebfff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.rasio-ai-story__eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #79dfad;
+}
+
+.rasio-ai-story h2 {
+  max-width: 750px;
+  margin: 0 auto 11px;
+  color: #fff;
+  font-size: clamp(29px, 3.7vw, 47px);
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -.045em;
+}
+
+.rasio-ai-story__intro {
+  max-width: 610px;
+  margin: 0 auto;
+  color: #c7d0e6;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.rasio-ai-story__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.rasio-ai-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #313b5b;
+  border-radius: 19px;
+  background: #1d2742;
+  box-shadow: 0 15px 36px rgba(2, 6, 22, .18);
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+.rasio-ai-card__art {
+  display: grid;
+  place-items: center;
+  height: clamp(180px, 18vw, 220px);
+  padding: 25px;
+  overflow: hidden;
+}
+
+.rasio-ai-card--context .rasio-ai-card__art { background: #dedbf4; }
+.rasio-ai-card--chat .rasio-ai-card__art { background: #d7e7ff; }
+.rasio-ai-card--insight .rasio-ai-card__art { background: #d8ebe6; }
+
+.rasio-ai-card__copy {
+  padding: 22px 23px 25px;
+}
+
+.rasio-ai-card__copy small {
+  display: block;
+  margin-bottom: 7px;
+  color: #aebfff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.rasio-ai-card h3 {
+  margin: 0 0 7px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -.025em;
+  line-height: 1.35;
+}
+
+.rasio-ai-card p {
+  margin: 0;
+  color: #cbd3e5;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.rasio-ai-mock {
+  width: min(100%, 255px);
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, .75);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .91);
+  box-shadow: 0 15px 29px rgba(33, 38, 83, .13);
+  color: #172340;
+}
+
+.rasio-ai-mock__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.rasio-ai-mock__top i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3bbd8a;
+  box-shadow: 0 0 0 3px #d9f4e9;
+}
+
+.rasio-ai-mock__row {
+  display: flex;
+  gap: 7px;
+  margin-top: 7px;
+}
+
+.rasio-ai-mock__row span {
+  padding: 7px 9px;
+  border: 1px solid #dce2f3;
+  border-radius: 7px;
+  background: #f7f8fc;
+  color: #415174;
+  font-size: 9px;
+  line-height: 1.1;
+}
+
+.rasio-ai-mock__row span:first-child { background: #e7eaff; }
+
+.rasio-ai-chat {
+  width: min(100%, 245px);
+  display: grid;
+  gap: 9px;
+}
+
+.rasio-ai-chat__bubble {
+  width: fit-content;
+  max-width: 90%;
+  padding: 10px 12px;
+  border-radius: 11px 11px 11px 3px;
+  background: #fff;
+  color: #172340;
+  font-size: 10px;
+  line-height: 1.45;
+  box-shadow: 0 7px 17px rgba(31, 65, 125, .11);
+}
+
+.rasio-ai-chat__bubble--question {
+  justify-self: end;
+  border-radius: 11px 11px 3px 11px;
+  background: #2353e1;
+  color: #fff;
+}
+
+.rasio-ai-insight {
+  width: min(100%, 250px);
+  padding: 14px 16px;
+  border: 1px solid #e7eeeb;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 15px 29px rgba(35, 82, 73, .12);
+  color: #172d29;
+}
+
+.rasio-ai-insight__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+}
+
+.rasio-ai-insight__top span {
+  color: #316d60;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.rasio-ai-insight__bars {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  height: 53px;
+  margin: 12px 0;
+  border-bottom: 1px solid #d5e4df;
+}
+
+.rasio-ai-insight__bars i {
+  flex: 1;
+  height: var(--bar-height);
+  border-radius: 4px 4px 0 0;
+  background: #92c8b9;
+}
+
+.rasio-ai-insight__bars i:last-child { background: #2353e1; }
+.rasio-ai-insight__hint { color: #4f665f; font-size: 9px; line-height: 1.35; }
+
+.rasio-advantages {
+  padding: clamp(58px, 6.5vw, 82px) 0;
+  background: #f4f5fc;
+  color: #172037;
+}
+
+.rasio-advantages__head {
+  max-width: 720px;
+  margin: 0 auto 31px;
+  text-align: center;
+}
+
+.rasio-advantages__head h2 {
+  margin: 0 0 9px;
+  font-size: clamp(29px, 3.4vw, 43px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.04em;
+}
+
+.rasio-advantages__head p {
+  margin: 0;
+  color: #52617b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.rasio-advantages__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rasio-advantage {
+  min-width: 0;
+  min-height: 150px;
+  padding: 21px;
+  border: 1px solid #e0e4ef;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(29, 45, 85, .06);
+}
+
+.rasio-advantage__icon {
+  display: grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  margin-bottom: 17px;
+  border-radius: 9px;
+  background: #e9edff;
+  color: #2353e1;
+}
+
+.rasio-advantage__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rasio-advantage h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -.01em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rasio-ai-card:hover {
+    transform: translateY(-5px);
+    border-color: #697bb9;
+    box-shadow: 0 23px 40px rgba(2, 6, 22, .28);
+  }
+}
+
+@media (max-width: 900px) {
+  .rasio-ai-story__grid { grid-template-columns: 1fr; }
+  .rasio-ai-card { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 58%); }
+  .rasio-ai-card__art { height: 205px; }
+  .rasio-ai-card__copy { align-self: center; }
+  .rasio-advantages__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 580px) {
+  .rasio-ai-story__grid { gap: 11px; }
+  .rasio-ai-card { display: block; }
+  .rasio-ai-card__art { height: 155px; }
+  .rasio-ai-card__copy { padding: 17px 18px 20px; }
+  .rasio-ai-card h3 { font-size: 16px; }
+  .rasio-ai-story__head { margin-bottom: 24px; }
+  .rasio-advantages__grid { gap: 9px; }
+  .rasio-advantage { min-height: 139px; padding: 16px; }
+  .rasio-advantage h3 { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rasio-ai-card { transition: none; }
+  .rasio-ai-card:hover { transform: none; }
+}
