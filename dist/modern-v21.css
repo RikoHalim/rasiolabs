@@ -1,0 +1,110 @@
+/* Rasio's own visual rhythm: quiet surfaces, editorial photography, deliberate motion. */
+:root{--rasio-ink:#162037;--rasio-blue:#2353e1;--rasio-border:#dce4f1;--rasio-soft-shadow:0 12px 32px rgba(24,43,84,.08)}
+body:not(.architecture-page){color:var(--rasio-ink)}
+body:not(.architecture-page) .site-header{background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-bottom:1px solid #e7ebf3}
+body:not(.architecture-page) .button,body:not(.architecture-page) .secondary-button,body:not(.architecture-page) .feature-showcase-footer a{transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,border-color .22s ease}
+body:not(.architecture-page) .button:hover,body:not(.architecture-page) .secondary-button:hover,body:not(.architecture-page) .feature-showcase-footer a:hover{transform:translateY(-2px);box-shadow:0 11px 24px rgba(25,50,110,.16)}
+body:not(.architecture-page) .template-section{background:#f8f9fc}
+body:not(.architecture-page) .service-strip{background:#fff}
+body:not(.architecture-page) .process-section{background:#f8f9fc}
+body:not(.architecture-page) .service-hero,body:not(.architecture-page) .info-hero,body:not(.architecture-page) .blog-hero{background:linear-gradient(145deg,#fff 20%,#f1f5fd 100%)}
+body:not(.architecture-page) .detail-included{background:#f8f9fc}
+
+/* The message and photograph change together. The photograph is one complete frame. */
+body:not(.architecture-page) .hero--people{background:linear-gradient(135deg,#fff 38%,#f7f9fe 100%)}
+.hero--people .hero-grid{grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);gap:clamp(32px,4vw,62px);align-items:center;padding-block:26px 42px}
+.hero--people .hero-copy{align-self:center}
+.hero--people .hero-slide{min-height:181px}
+.hero--people .hero-slide-measure{position:absolute!important;visibility:hidden!important;pointer-events:none!important;min-height:0!important;transition:none!important;transform:none!important}
+.hero--people h1{max-width:630px;font-size:clamp(36px,3.45vw,51px);line-height:1.11;letter-spacing:-.053em}
+.hero--people .hero-lede{max-width:570px;font-size:13px;line-height:1.7}
+.hero--people .hero-benefits{max-width:615px;padding:13px 0;margin-bottom:17px}
+.hero--people .hero-benefit-list{gap:0}
+.hero--people .hero-benefit-list li{font-size:11.5px;line-height:1.5}
+.hero--people .hero-actions>a{font-size:12px;min-height:43px}
+body:not(.architecture-page) .hero--people .hero-actions .button{background:var(--rasio-blue);border-color:var(--rasio-blue)}
+body:not(.architecture-page) .hero--people .hero-actions .button:hover{background:#193fc2;border-color:#193fc2}
+.hero--people .hero-visual{gap:11px}
+.hero-gallery{position:relative;height:clamp(345px,33vw,435px);isolation:isolate;border:1px solid #d5def0;border-radius:25px;overflow:hidden;background:#e7edfa;box-shadow:0 24px 54px rgba(24,43,84,.15),0 3px 9px rgba(24,43,84,.05)}
+.hero-gallery-slide{position:absolute;inset:0;margin:0;opacity:0;transform:translateX(26px) scale(.985);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.75,.25,1);pointer-events:none}
+.hero-gallery-slide.is-active{opacity:1;transform:translateX(0) scale(1);pointer-events:auto;z-index:1}
+.hero-gallery-slide>img{display:block;width:100%;height:100%;object-fit:cover;object-position:62% center}
+.hero-gallery-slide[data-hero-visual="2"]>img{object-position:center center}
+.hero-gallery-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(241,245,255,.32),transparent 64%);pointer-events:none}
+.hero-gallery-slide[data-hero-visual="1"]::after{background:linear-gradient(90deg,rgba(255,246,239,.25),transparent 64%)}
+.hero-gallery-slide[data-hero-visual="2"]::after{background:linear-gradient(90deg,rgba(20,34,51,.42),transparent 65%)}
+.hero-gallery-slide figcaption{position:absolute;z-index:2;left:25px;bottom:27px;display:grid;gap:9px;max-width:49%;padding:15px 17px;border:1px solid rgba(255,255,255,.82);border-radius:14px;background:rgba(255,255,255,.88);box-shadow:0 9px 24px rgba(27,46,83,.1);backdrop-filter:blur(10px)}
+.hero-gallery-slide figcaption span{color:#3b5ba1;font-size:9px;font-weight:800;letter-spacing:.12em}
+.hero-gallery-slide figcaption strong{color:#1b2d4c;font-size:clamp(14px,1.25vw,18px);line-height:1.32;letter-spacing:-.025em}
+.hero-gallery-brand{position:absolute;z-index:4;top:17px;left:17px;display:flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid rgba(255,255,255,.84);border-radius:9px;background:rgba(255,255,255,.9);box-shadow:0 5px 16px rgba(27,46,83,.08);backdrop-filter:blur(10px)}
+.hero-gallery-brand img{display:block;max-width:74px;height:19px;object-fit:contain}
+.hero-gallery-brand span{padding-left:9px;border-left:1px solid #dce3ef;color:#526685;font-size:9px;font-weight:700;letter-spacing:.02em}
+.hero-ai-link{display:flex;align-items:center;gap:8px;min-height:43px;padding:10px 14px;border:1px solid #dae3f3;border-radius:12px;background:#fff;color:#405572;text-decoration:none;font-size:11px;line-height:1.4;box-shadow:0 6px 18px rgba(25,50,110,.06);transition:border-color .2s,transform .2s,box-shadow .2s}
+.hero-ai-link strong{color:#1c45c2;white-space:nowrap}
+.hero-ai-link>span:last-child{margin-left:auto;color:#2353e1;font-size:14px}
+.hero-ai-link:hover{transform:translateY(-2px);border-color:#a9bef1;box-shadow:0 11px 23px rgba(25,50,110,.12)}
+.hero-ai-pulse{flex:none;width:8px;height:8px;border-radius:50%;background:#2bba75;box-shadow:0 0 0 4px #def8e9}
+
+/* Real provider marks are shown as integration examples, with their source available. */
+#fitur-layanan .checkout-brands{width:87%;gap:9px;transform:none}
+#fitur-layanan .brand-row{gap:8px}
+#fitur-layanan .brand-logo{display:grid;place-items:center;flex:1;min-width:0;height:49px;padding:8px;border:1px solid #dfe6f1;border-radius:10px;background:#fff;box-shadow:0 5px 14px rgba(25,50,110,.07)}
+#fitur-layanan .brand-logo img{display:block;max-width:100%;max-height:31px;object-fit:contain}
+#fitur-layanan .brand-credits{margin-top:8px;color:#6f7c90;font-size:9px;line-height:1.5}
+#fitur-layanan .brand-credits summary{width:max-content;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+#fitur-layanan .brand-credits p{font-size:9px;line-height:1.5;margin:5px 0 0}
+#fitur-layanan .brand-credits a{color:#315ac7}
+
+/* A small scale change gives the bento cards depth without rearranging the grid. */
+#fitur-layanan .feature-tile{transform-origin:center center;will-change:transform;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}
+#fitur-layanan .feature-tile--photo>img{transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+#fitur-layanan .feature-visual{height:162px;min-height:162px}
+#fitur-layanan .mini-editor,#fitur-layanan .search-mock,#fitur-layanan .chat-mock,#fitur-layanan .catalog-mock,#fitur-layanan .insight-mock,#fitur-layanan .module-mock,#fitur-layanan .integration-mock,#fitur-layanan .workflow-mock{transform:translateY(8px)}
+#fitur-layanan .feature-panel.is-entering .feature-tile{animation:rasio-tile-enter .42s cubic-bezier(.2,.75,.2,1) both}
+#fitur-layanan .feature-panel.is-entering .feature-tile:nth-child(2){animation-delay:.05s}
+#fitur-layanan .feature-panel.is-entering .feature-tile:nth-child(3){animation-delay:.1s}
+#fitur-layanan .feature-panel.is-entering .feature-tile:nth-child(4){animation-delay:.15s}
+@keyframes rasio-tile-enter{from{opacity:.35;transform:translateX(17px)}to{opacity:1;transform:translateX(0)}}
+
+/* Other pages share a restrained card system, not extra decorative elements. */
+body:not(.architecture-page) .template-card,body:not(.architecture-page) .offer-card,body:not(.architecture-page) .sector-card,body:not(.architecture-page) .portfolio-card,body:not(.architecture-page) .blog-card,body:not(.architecture-page) .testimonial-card,body:not(.architecture-page) .problem-pair,body:not(.architecture-page) .detail-feature-card,body:not(.architecture-page) .faq-item{border-color:#dce4ee;box-shadow:var(--rasio-soft-shadow)}
+body:not(.architecture-page) .service-flow-board,body:not(.architecture-page) .order-summary,body:not(.architecture-page) .order-workspace{box-shadow:0 19px 42px rgba(24,43,84,.1)}
+
+@media(hover:hover) and (pointer:fine){
+ #fitur-layanan .feature-tile:hover{z-index:2;transform:translateY(-6px) scale(1.018);border-color:#bdccef;box-shadow:0 24px 47px rgba(24,43,84,.16)}
+ #fitur-layanan .feature-tile--photo:hover>img{transform:scale(1.035)}
+ body:not(.architecture-page) .template-card:hover,body:not(.architecture-page) .offer-card:hover,body:not(.architecture-page) .sector-card:hover,body:not(.architecture-page) .portfolio-card:hover,body:not(.architecture-page) .blog-card:hover,body:not(.architecture-page) .testimonial-card:hover{transform:translateY(-5px) scale(1.008);box-shadow:0 20px 42px rgba(24,43,84,.14)}
+}
+@media(max-width:1050px){
+ .hero--people .hero-grid{grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);gap:22px}
+ .hero--people h1{font-size:clamp(33px,3.5vw,43px)}
+ .hero-gallery{height:360px}
+ .hero-gallery-slide figcaption{max-width:60%}
+}
+@media(max-width:840px){
+ .hero--people .hero-grid{grid-template-columns:1fr;gap:23px;padding-block:25px 39px}
+ .hero--people .hero-slide{min-height:160px}
+ .hero--people .hero-visual{max-width:650px}
+ .hero-gallery{height:clamp(290px,57vw,390px)}
+}
+@media(max-width:620px){
+ .hero--people .hero-grid{padding-block:20px 32px}
+ .hero--people h1{font-size:clamp(31px,8vw,38px)}
+ .hero--people .hero-slide{min-height:202px}
+ .hero--people .hero-benefits{padding:11px 0}
+ .hero--people .hero-benefit-list li{font-size:12px}
+ .hero-gallery{height:300px;border-radius:20px}
+ .hero-gallery-slide>img{object-position:59% center}
+ .hero-gallery-slide figcaption{left:13px;bottom:14px;max-width:66%;padding:11px 12px;gap:5px}
+ .hero-gallery-slide figcaption span{font-size:9px}
+ .hero-gallery-slide figcaption strong{font-size:14px}
+ .hero-gallery-brand{top:11px;left:11px;padding:6px 8px}
+ .hero-gallery-brand span{font-size:9px}
+ .hero-ai-link{font-size:11px}
+ .hero--people .hero-actions>a{font-size:12px}
+ #fitur-layanan .feature-visual{height:158px;min-height:158px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-gallery-slide,#fitur-layanan .feature-tile,#fitur-layanan .feature-tile--photo>img,body:not(.architecture-page) .button,body:not(.architecture-page) .secondary-button,body:not(.architecture-page) .template-card,body:not(.architecture-page) .offer-card,body:not(.architecture-page) .sector-card,body:not(.architecture-page) .portfolio-card,body:not(.architecture-page) .blog-card,body:not(.architecture-page) .testimonial-card{transition:none!important;animation:none!important}
+ #fitur-layanan .feature-tile:hover,#fitur-layanan .feature-tile--photo:hover>img{transform:none!important}
+}

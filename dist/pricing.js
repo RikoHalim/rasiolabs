@@ -23,7 +23,7 @@
       card.querySelector('[data-offer-normal]').textContent = `${rupiah(monthlyNormal)}/bulan`;
       card.querySelector('[data-offer-normal]').hidden = !discount;
       card.querySelector('[data-offer-monthly]').innerHTML = `${rupiah(monthly)}<small>/bulan</small>`;
-      card.querySelector('[data-offer-billing]').textContent = `Bayar ${months} bulan ${rupiah(total)} sekaligus${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. Domain termasuk dalam paket.`;
+      card.querySelector('[data-offer-billing]').textContent = `Bayar ${months} bulan ${rupiah(total)} sekaligus${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. Domain dan 1 email bisnis termasuk selama langganan aktif.`;
       const link = card.querySelector('.offer-order');
       const url = new URL(link.href, location.href);
       url.searchParams.set('duration', String(months));

@@ -87,11 +87,18 @@
     document.querySelector('[data-consent-copy]').textContent = 'Saya telah memeriksa data bisnis dan domain untuk konsultasi.';
     document.querySelector('.summary-total span').textContent = 'Estimasi proyek';
     document.querySelector('.summary-total strong').textContent = 'Setelah konsultasi';
-    document.querySelector('.summary-body > p').textContent = 'Rasio menyusun harga dan cakupan proyek setelah pembahasan kebutuhan.';
+    document.querySelector('[data-summary-terms]').textContent = 'Harga, domain, email bisnis, dan masa dukungan ditentukan dalam penawaran proyek.';
     document.querySelector('[data-mini-total]').textContent = 'Penawaran proyek';
     document.querySelector('[data-plan-monthly]').textContent = 'Sesuai penawaran';
     document.querySelector('[data-summary-package-price]').textContent = 'Setelah konsultasi';
     document.querySelector('.order-package-details > span').textContent = 'Fitur, domain, dan jadwal mengikuti penawaran proyek.';
+    document.querySelector('[data-order-domain-intro]').textContent = 'Ketik nama bisnis dan pilih ekstensi sebagai bahan konsultasi. Ketersediaan, biaya domain, dan email bisnis ditentukan dalam penawaran proyek.';
+    document.querySelector('[data-summary-domain-included]').textContent = 'Sesuai penawaran';
+    document.querySelector('[data-summary-email-included]').textContent = 'Sesuai penawaran';
+    document.querySelector('[data-summary-duration]').textContent = 'Pengembangan custom';
+    document.querySelector('[data-summary-normal-price]').hidden = true;
+    document.querySelector('[data-plan-saving]').hidden = true;
+    document.querySelector('[data-plan-normal]').hidden = true;
   }
   function sync() {
     const duration = Number(durationSelect.value);
@@ -105,7 +112,7 @@
       const monthly = Math.round(normalMonthly * (1 - discount));
       const packageTotal = monthly * duration;
       const normalTotal = normalMonthly * duration;
-      document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk ${duration} bulan, domain termasuk`;
+      document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk ${duration} bulan; domain dan 1 email bisnis termasuk selama langganan aktif`;
       document.querySelector('.summary-total strong').textContent = rupiah(packageTotal + addonTotal);
       document.querySelector('[data-mini-total]').textContent = rupiah(packageTotal + addonTotal);
       document.querySelector('[data-summary-package-price]').textContent = rupiah(packageTotal);
@@ -120,7 +127,7 @@
       document.querySelector('[data-summary-total-label]').textContent = `Total ${duration} bulan`;
       document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
       document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
-      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
+      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Domain yang tersedia dalam paket dan 1 email bisnis termasuk selama langganan aktif. Perpanjangan mengikuti harga yang berlaku saat jatuh tempo.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
       document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
@@ -178,7 +185,13 @@
     const requested = query.includes('.') ? query : preferred;
     const choices = [...new Set([...(requested ? [requested] : []),`${name}.com`,`${name}.id`,`${name}.co.id`])];
     results.hidden = false;
-    results.innerHTML = '<p class="domain-results-note">Domain termasuk dalam paket. Nama dan ketersediaan di sini masih berupa simulasi.</p>' + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span><small>Dalam paket</small><strong>Termasuk</strong></span><i aria-hidden="true">Pilih →</i></button>`).join('');
+    const domainNote = service === 'custom'
+      ? 'Pilihan domain ini untuk konsultasi awal. Ketersediaan dan biayanya ditentukan dalam penawaran proyek.'
+      : 'Domain yang tersedia dalam paket dan 1 email bisnis termasuk selama langganan aktif. Nama dan ketersediaan di sini masih berupa simulasi.';
+    const domainStatus = service === 'custom'
+      ? '<small>Untuk konsultasi</small><strong>Sesuai penawaran</strong>'
+      : '<small>Selama langganan</small><strong>Termasuk</strong>';
+    results.innerHTML = `<p class="domain-results-note">${domainNote}</p>` + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span>${domainStatus}</span><i aria-hidden="true">Pilih →</i></button>`).join('');
     results.querySelectorAll('[data-domain-choice]').forEach(button => button.addEventListener('click', () => {
       domain = button.dataset.domainChoice;
       errorNode.hidden = true; resetReview(); sync();
