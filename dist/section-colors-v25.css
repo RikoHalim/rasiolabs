@@ -1,0 +1,59 @@
+/* Section rhythm stays within Rasio's blue and cool-neutral palette. */
+#main-content > .template-section { background: #f1f5fe; }
+#main-content > .feature-showcase { background: #fff; }
+#main-content > .offers-section { background: #eaf1fb; }
+#main-content > .process-section { background: #eaf6f5; }
+#main-content > .rasio-advantages { background: #f2f4fc; }
+#main-content > .faq-section { background: #fff; }
+#main-content > .testimonial-section { background: #edf3fb; }
+#main-content > .blog-home { background: #fff; }
+
+#main-content .offer-duration-picker { margin-bottom: 14px; }
+#main-content .offer-assurances--shared {
+  justify-content: center;
+  align-items: center;
+  gap: 10px 27px;
+  margin: 0 auto 22px;
+  color: #253a5a;
+  font-size: 13px;
+  font-weight: 600;
+}
+#main-content .offer-assurances--shared span { gap: 8px; }
+#main-content .offer-assurances--shared b { width: 23px; height: 23px; flex: none; }
+#paket-profile, #paket-store { scroll-margin-top: 100px; }
+
+#fitur-layanan .feature-panel--store .feature-visual--checkout .brand-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+}
+#fitur-layanan .feature-panel--store .feature-visual--checkout .checkout-brands {
+  width: min(92%, 276px);
+}
+#fitur-layanan .feature-panel--store .feature-visual--checkout .brand-logo {
+  height: 29px;
+  padding: 4px;
+}
+#fitur-layanan .feature-panel--store .feature-visual--checkout .brand-logo img {
+  max-height: 21px;
+}
+#fitur-layanan .feature-panel--store .feature-visual--checkout .checkout-brands {
+  gap: 5px;
+}
+
+@media (max-width: 620px) {
+  #main-content .offer-assurances--shared {
+    display: grid;
+    justify-content: start;
+    gap: 10px;
+    margin: 0 0 18px;
+    font-size: 12px;
+  }
+  #fitur-layanan .feature-panel--store .feature-visual--checkout .brand-logo {
+    height: 38px;
+    padding: 5px;
+  }
+  #fitur-layanan .feature-panel--store .feature-visual--checkout .brand-logo img {
+    max-height: 27px;
+  }
+}

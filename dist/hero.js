@@ -56,8 +56,8 @@
   const visuals = [...document.querySelectorAll('[data-hero-visual]')];
   const whatsapp = 'https://wa.me/60142317052?text=Halo%20Rasio%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20website%20bisnis.';
   const actions = [
-    {primary: ['Lihat template website ↓', '#template'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
-    {primary: ['Lihat paket Rasio Store ↓', '#harga'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
+    {primary: ['Lihat paket Rasio Profile ↓', '#paket-profile'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
+    {primary: ['Lihat paket Rasio Store ↓', '#paket-store'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
     {primary: ['Diskusikan proyek custom ↗', whatsapp], secondary: ['Lihat layanan Custom ↗', '/layanan-custom.html']},
   ];
   const originalTabIndex = new WeakMap();
@@ -203,6 +203,11 @@
     userPaused = !userPaused;
     updatePauseButton();
     schedule();
+  });
+  primary?.addEventListener('click', () => {
+    if (primary.hash === '#paket-profile' || primary.hash === '#paket-store') {
+      document.querySelector('[data-offer-duration="48"]')?.click();
+    }
   });
   document.addEventListener('visibilitychange', schedule);
   reducedMotion.addEventListener('change', () => {
