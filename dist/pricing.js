@@ -24,7 +24,7 @@
       card.querySelector('[data-offer-normal]').hidden = !discount;
       card.querySelector('[data-offer-monthly]').innerHTML = `${rupiah(monthly)}<small>/bulan</small>`;
       card.querySelector('[data-offer-billing]').textContent = `Bayar ${months} bulan ${rupiah(total)} sekaligus${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. Domain dan 1 email bisnis termasuk selama langganan aktif.`;
-      card.querySelector('.offer-renewal').textContent = `Tarif perpanjangan saat ini ${rupiah(monthlyNormal * .8)}/bulan (20% di bawah harga normal). Total periode berikutnya mengikuti durasi perpanjangan.`;
+      card.querySelector('.offer-renewal').textContent = `Tarif perpanjangan ${rupiah(monthlyNormal * .8)}/bulan.`;
       const link = card.querySelector('.offer-order');
       const url = new URL(link.href, location.href);
       url.searchParams.set('duration', String(months));

@@ -128,7 +128,7 @@
       document.querySelector('[data-summary-total-label]').textContent = `Total ${duration} bulan`;
       document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
       document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
-      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan saat ini ${rupiah(renewalMonthly)}/bulan (20% di bawah harga normal); total periode berikutnya mengikuti durasi perpanjangan yang disepakati. Domain dan 1 email bisnis termasuk selama langganan aktif.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
+      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan ${rupiah(renewalMonthly)}/bulan. Domain dan 1 email bisnis termasuk selama langganan aktif.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
       document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
