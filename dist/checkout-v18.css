@@ -7,9 +7,10 @@ body.order-page .booking-top .eyebrow{color:#2353e1;font-size:11px;letter-spacin
 body.order-page .booking-top h1{margin:9px 0 8px;font-size:clamp(29px,3vw,38px);line-height:1.2;letter-spacing:-.045em}
 body.order-page .booking-top>p:last-of-type{font-size:13px;line-height:1.7;color:#60708a;max-width:690px}
 body.order-page .order-steps{margin:25px 0 6px;gap:8px}
-body.order-page .order-step{min-height:61px;padding:11px 12px;border-radius:13px;border-color:#e2e6ef;background:#fff;box-shadow:0 3px 11px #172c4b08;color:#6b7b91}
+body.order-page .order-step{min-height:61px;padding:11px 12px;border-radius:13px;border-color:#e2e6ef;background:#fff;box-shadow:0 3px 11px #172c4b08;color:#51637d}
 body.order-page .order-step.is-active{background:#ecf2ff;border-color:#a9c1f6;color:#1846b8;box-shadow:0 4px 14px #2353e112}
 body.order-page .order-step.is-complete{border-color:#c6d5ef;color:#264e9e}
+body.order-page .order-step.is-complete:hover{border-color:#91afe7;background:#edf3ff;color:#173d92;box-shadow:0 5px 14px #2353e116}
 body.order-page .order-step>span:first-child{border-radius:8px;background:#eef2f8;color:#566983}
 body.order-page .order-step.is-active>span:first-child,body.order-page .order-step.is-complete>span:first-child{background:#2353e1;color:#fff}
 body.order-page .order-workspace,body.order-page .order-summary{border:1px solid #dfe4ed;border-radius:22px;background:#fff;box-shadow:0 10px 34px #192f530d}

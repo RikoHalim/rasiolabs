@@ -146,7 +146,7 @@ body.service-page .service-template-link:hover {
 body.service-page .service-template-link:focus-visible {
   outline: 3px solid #8eaaff;
   outline-offset: 4px;
-  border-radius: 3px;
+  border-radius: 12px;
 }
 body.service-page .service-template-link span { font-size: 18px; line-height: 1; }
 
@@ -350,6 +350,94 @@ body.service-page .detail-closing .secondary-button:hover {
   color: #fff;
 }
 
+/* Service CTAs share one size; foregrounds stay legible on light and dark panels. */
+body.service-page {
+  --service-action-width: 214px;
+  --service-action-height: 50px;
+}
+body.service-page .service-actions > a,
+body.service-page .service-template-link,
+body.service-page .detail-feature-card > a.secondary-button {
+  box-sizing: border-box;
+  width: var(--service-action-width);
+  min-height: var(--service-action-height);
+  padding: 11px 18px;
+  border-radius: 12px;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+body.service-page .service-actions > a { flex: 0 0 var(--service-action-width); }
+
+body.service-page .service-hero .service-actions > a.button {
+  border-color: #2353e1;
+  background: #2353e1;
+  color: #fff;
+}
+body.service-page .service-hero .service-actions > a.button:is(:hover, :focus-visible) {
+  border-color: #173ba9;
+  background: #173ba9;
+  color: #fff;
+}
+body.service-page .service-hero .service-actions > a.secondary-button,
+body.service-page .service-template-link {
+  border-color: #9fb7ec;
+  background: #fff;
+  color: #173f9e;
+}
+body.service-page .service-hero .service-actions > a.secondary-button:is(:hover, :focus-visible),
+body.service-page .service-template-link:is(:hover, :focus-visible) {
+  border-color: #5983de;
+  background: #e4edff;
+  color: #12377f;
+}
+body.service-page .detail-feature-card > a.secondary-button {
+  border-color: #2353e1;
+  background: #2353e1;
+  color: #fff;
+}
+body.service-page .detail-feature-card > a.secondary-button:is(:hover, :focus-visible) {
+  border-color: #173ba9;
+  background: #173ba9;
+  color: #fff;
+}
+body.service-page .detail-closing .service-actions > a.button {
+  border-color: #fff;
+  background: #fff;
+  color: #1745a7;
+}
+body.service-page .detail-closing .service-actions > a.button:is(:hover, :focus-visible) {
+  border-color: #dbe7ff;
+  background: #dbe7ff;
+  color: #12377f;
+}
+body.service-page .detail-closing .service-actions > a.secondary-button {
+  border-color: #c4d5ff;
+  background: #143c91;
+  color: #fff;
+}
+body.service-page .detail-closing .service-actions > a.secondary-button:is(:hover, :focus-visible) {
+  border-color: #fff;
+  background: #244caa;
+  color: #fff;
+}
+body.service-page .site-nav .nav-mobile-cta:is(:hover, :focus-visible) {
+  background: #173ba9;
+  color: #fff;
+}
+body.service-page .nav-dropdown-toggle:is(:hover, :focus-visible),
+body.service-page .menu-toggle:is(:hover, :focus-visible) {
+  border-color: #9fb7ec;
+  background: #e4edff;
+  color: #12377f;
+}
+body.service-page :is(.service-actions > a, .service-template-link, .detail-feature-card > a.secondary-button, .header-cta, .nav-mobile-cta):focus-visible {
+  outline: 3px solid #91b6ff;
+  outline-offset: 3px;
+}
+
 @media (max-width: 840px) {
   body.service-page .service-hero { padding-bottom: 62px; }
   body.service-page .service-flow-board { max-width: 650px; }
@@ -369,6 +457,12 @@ body.service-page .detail-closing .secondary-button:hover {
   body.service-page .sector-card p { font-size: 14px; }
   body.service-page .problem-pair > div { padding: 20px; }
   body.service-page .detail-closing { padding: 29px; }
+  body.service-page .service-actions > a,
+  body.service-page .service-template-link,
+  body.service-page .detail-feature-card > a.secondary-button {
+    width: 100%;
+  }
+  body.service-page .service-actions > a { flex-basis: 100%; }
 }
 
 @media (max-width: 400px) {

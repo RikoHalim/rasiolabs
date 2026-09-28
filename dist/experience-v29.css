@@ -1,0 +1,135 @@
+/* Rasio's quieter visual system: product previews, clear offers, deliberate motion. */
+body:not(.architecture-page) {
+  --experience-ink: #17223d;
+  --experience-line: #dae3f2;
+  --experience-shadow: 0 10px 28px rgba(20, 40, 86, .065), 0 2px 7px rgba(20, 40, 86, .035);
+}
+
+/* Solid bands let the products and photography carry the visual weight. */
+#main-content > .template-section { background: #f1f4ff; }
+#main-content > .feature-showcase { background: #fff; }
+#main-content > .offers-section { background: #f5f7fc; }
+#main-content > .process-section { background: #fff; }
+#main-content > .rasio-advantages { background: #edf2ff; }
+#main-content > .testimonial-section { background: #f5f7fc; }
+#main-content > .blog-home { background: #fff; }
+#main-content > :is(.template-section, .feature-showcase, .offers-section, .process-section,
+  .rasio-ai-story, .rasio-advantages, .faq-section, .testimonial-section, .blog-home) {
+  padding-block: clamp(54px, 5.3vw, 82px);
+}
+
+/* Pricing responds to intent, but every plan remains readable and clickable. */
+#main-content .offers-grid .offer-card {
+  border: 1px solid var(--experience-line);
+  box-shadow: var(--experience-shadow);
+}
+#main-content .offers-grid .offer-store {
+  border-color: #334d9d;
+  box-shadow: 0 14px 38px rgba(27, 51, 123, .16);
+}
+#main-content .offer-card:focus-within { outline-color: #5679d8; }
+#main-content .offer-card .offer-detail:focus-visible { outline: none; }
+#main-content .offer-card .offer-description,
+#main-content .offer-card .benefit-checklist li { font-size: 12px; line-height: 1.65; }
+#main-content .offer-card .offer-price .offer-billing,
+#main-content .offer-card .offer-price .offer-renewal { font-size: 12px; line-height: 1.55; }
+#main-content .offers-note { font-size: 12px; line-height: 1.6; }
+
+@media (min-width: 1120px) and (hover: hover) and (pointer: fine) {
+  #main-content .offers-grid { display: flex; align-items: stretch; }
+  #main-content .offers-grid > .offer-card {
+    flex: 1 1 0;
+    min-width: 0;
+    transform: none;
+    transition: flex-grow .38s cubic-bezier(.2, .72, .2, 1),
+      border-color .25s ease, box-shadow .3s ease;
+  }
+  #main-content .offers-grid > .offer-store { flex-grow: 1.04; }
+  #main-content .offers-grid > .offer-card:is(:hover, :focus-within) {
+    z-index: 2;
+    flex-grow: 1.24;
+    border-color: #93acec;
+    box-shadow: 0 22px 48px rgba(26, 49, 106, .16);
+  }
+  #main-content .offers-grid > .offer-store:is(:hover, :focus-within) {
+    border-color: #a8baff;
+    box-shadow: 0 23px 50px rgba(24, 48, 121, .25);
+  }
+}
+
+/* The service pages lead with what is included; the long industry list is optional. */
+body.service-page .detail-included {
+  background: #f1f5ff;
+  padding-block: clamp(54px, 5.3vw, 82px);
+}
+body.service-page .sector-section {
+  background: #fff;
+  padding-block: clamp(54px, 5.3vw, 82px);
+}
+body.service-page .problem-section { padding-block: clamp(54px, 5.3vw, 82px); }
+body.service-page .detail-feature-card,
+body.service-page .feature-showcase > article,
+body.service-page .sector-card {
+  box-shadow: var(--experience-shadow);
+}
+body.service-page .feature-showcase > article {
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+body.service-page .feature-showcase > article:hover {
+  transform: translateY(-4px);
+  border-color: #b6c8ed;
+  box-shadow: 0 20px 38px rgba(24, 46, 95, .12);
+}
+body.service-page .sector-compact:not(.is-expanded) .sector-card:nth-child(n+9) { display: none; }
+body.service-page .sector-toggle {
+  display: block;
+  min-height: 46px;
+  margin: 25px auto 0;
+  padding: 10px 22px;
+  border: 1px solid #9fb8eb;
+  border-radius: 11px;
+  background: #fff;
+  color: #173f9e;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--experience-shadow);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+body.service-page .sector-toggle:hover,
+body.service-page .sector-toggle:focus-visible {
+  border-color: #5e82d4;
+  background: #eaf0ff;
+  color: #12377f;
+  transform: translateY(-2px);
+}
+body.service-page .sector-toggle:focus-visible { outline: 3px solid #9ab8ff; outline-offset: 3px; }
+
+/* Supporting pages share the same card depth and stronger text legibility. */
+body:not(.architecture-page) :is(.portfolio-card, .blog-card, .faq-item, .testimonial-card,
+  .order-workspace, .order-summary) {
+  border-color: var(--experience-line);
+  box-shadow: var(--experience-shadow);
+}
+body.order-page .summary-selections :is(dt, dd),
+body.order-page .summary-breakdown :is(span, strong),
+body.order-page .summary-body > p,
+body.order-page .summary-disclaimer { font-size: 12px; }
+body.order-page .order-package-details > :is(small, span),
+body.order-page .order-package-card > a { font-size: 12px; }
+body.order-page .order-lede { font-size: 13px; }
+body.order-page .summary-continue { font-size: 14px; }
+
+@media (max-width: 620px) {
+  body.service-page .sector-compact:not(.is-expanded) .sector-card:nth-child(n+5) { display: none; }
+  body.order-page .summary-selections > div { grid-template-columns: 82px minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-content .offers-grid > .offer-card,
+  body.service-page .feature-showcase > article,
+  body.service-page .sector-toggle { transition: none !important; }
+  body.service-page .feature-showcase > article:hover,
+  body.service-page .sector-toggle:hover { transform: none; }
+}
