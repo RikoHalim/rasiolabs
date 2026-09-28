@@ -1,0 +1,253 @@
+/* Homepage palette: ink blue, clear white, cool lavender and restrained cobalt. */
+#main-content {
+  --home-ink: #172240;
+  --home-blue: #3659d9;
+  --home-lavender: #7771e9;
+  --home-line: #dce3f3;
+}
+
+/* A calm progression from the hero through the product story. */
+#main-content > .hero--people {
+  border-bottom: 1px solid #e2e8f6;
+  background:
+    radial-gradient(ellipse at 86% 42%, rgba(122, 125, 244, .19), transparent 38%),
+    radial-gradient(ellipse at 29% 105%, rgba(207, 221, 255, .3), transparent 42%),
+    linear-gradient(120deg, #fff 34%, #f7f8ff 100%);
+}
+
+#main-content > .template-section {
+  border-top: 0;
+  background:
+    radial-gradient(circle at 11% 2%, rgba(169, 178, 255, .23), transparent 35%),
+    linear-gradient(180deg, #f0f3ff 0%, #f8faff 100%);
+}
+
+#main-content > .feature-showcase {
+  border-top: 1px solid #e5e9f5;
+  background:
+    radial-gradient(circle at 93% 0%, rgba(204, 214, 255, .18), transparent 30%),
+    #fff;
+}
+
+#main-content > .offers-section {
+  border-top: 1px solid #e6eaf4;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200, 207, 255, .22), transparent 33%),
+    linear-gradient(180deg, #f5f6fb 0%, #f0f3fa 100%);
+}
+
+#main-content > .process-section {
+  border-top: 1px solid #e5eaf5;
+  background:
+    radial-gradient(circle at 94% 89%, rgba(178, 194, 255, .18), transparent 38%),
+    linear-gradient(180deg, #fff 0%, #f8faff 100%);
+}
+
+#main-content > .rasio-ai-story {
+  background:
+    radial-gradient(circle at 89% 0%, rgba(87, 90, 206, .32), transparent 37%),
+    radial-gradient(circle at 5% 100%, rgba(38, 79, 162, .23), transparent 38%),
+    linear-gradient(135deg, #111a36 0%, #172858 100%);
+}
+
+#main-content > .rasio-advantages {
+  background:
+    radial-gradient(circle at 88% 15%, rgba(189, 196, 255, .25), transparent 32%),
+    linear-gradient(180deg, #edf2ff 0%, #f7f9ff 100%);
+}
+
+#main-content > .faq-section { background: #fff; }
+
+#main-content > .testimonial-section {
+  border-top: 1px solid #e5eaf4;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(202, 210, 255, .18), transparent 32%),
+    #f4f6fb;
+}
+
+#main-content > .blog-home {
+  border-top: 1px solid #e5eaf4;
+  background: #fff;
+}
+
+#main-content > .closing-section {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(128, 120, 255, .36), transparent 33%),
+    linear-gradient(115deg, #17244d 0%, #23449a 68%, #3d56bd 100%);
+  box-shadow: 0 24px 56px rgba(27, 43, 101, .19);
+}
+
+/* Clear cards and finer surface depth, without thick outlines. */
+#main-content .template-card,
+#main-content .feature-tile,
+#main-content .rasio-advantage,
+#main-content .testimonial-card,
+#main-content .blog-card {
+  border-color: #dfe5f3;
+  box-shadow: 0 5px 13px rgba(27, 42, 84, .035),
+    0 17px 34px rgba(27, 42, 84, .055);
+}
+
+#main-content .feature-tab.is-active,
+#main-content .offer-duration-picker button.is-active {
+  border-color: #304fc4;
+  background: linear-gradient(135deg, #243a91 0%, #3d5dde 100%);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(43, 68, 162, .19);
+}
+
+#main-content .offer-duration-picker {
+  border-color: #e1e6f2;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 9px 24px rgba(33, 50, 95, .07);
+}
+
+/* The Store plan is the visual focus; the other plans stay clean and light. */
+#main-content .offers-grid .offer-card {
+  border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(27, 42, 84, .055),
+    0 22px 48px rgba(27, 42, 84, .085);
+}
+
+#main-content .offers-grid .offer-card:not(.offer-store) {
+  border-color: #dce3f1;
+  background: linear-gradient(180deg, #fff 0%, #fff 73%, #f9faff 100%);
+}
+
+#main-content .offers-grid .offer-card:not(.offer-store)::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 24px;
+  left: 24px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, #5c78e4, #a39bf5);
+  opacity: .8;
+}
+
+#main-content .offers-grid .offer-store {
+  border-color: #2e458f;
+  background:
+    radial-gradient(circle at 91% 0%, rgba(151, 159, 255, .36), transparent 38%),
+    linear-gradient(150deg, #151e42 0%, #1a2e68 52%, #2e4ab5 100%);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(24, 43, 107, .17),
+    0 28px 55px rgba(24, 43, 107, .13);
+}
+
+#main-content .offer-card:not(.offer-store) .offer-audience {
+  border-color: #dce4f6;
+  background: #f2f5ff;
+  box-shadow: none;
+}
+
+#main-content .offer-store .offer-audience {
+  border-color: rgba(235, 240, 255, .27);
+  background: rgba(245, 247, 255, .11);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+#main-content .offer-store .offer-audience strong,
+#main-content .offer-store .offer-audience p { color: #f2f5ff; }
+
+#main-content .offer-card:not(.offer-store) .offer-promo-badge {
+  border-color: #d4ddf9;
+  background: #edf0ff;
+  color: #314aa8;
+}
+
+#main-content .offer-store .offer-promo-badge {
+  border-color: #e8eaff;
+  background: #e8eaff;
+  color: #202e69;
+}
+
+#main-content .offer-store .offer-price { border-color: rgba(238, 242, 255, .34); }
+#main-content .offer-store .offer-price del,
+#main-content .offer-store .offer-price .offer-billing,
+#main-content .offer-store .offer-price .offer-renewal { color: #dce5ff; }
+
+#main-content .offer-store .service-icon {
+  border-color: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+}
+
+#main-content .offer-card:not(.offer-store) .offer-order {
+  border-color: #2d4ecc;
+  background: linear-gradient(135deg, #2c48b8, #4264e3);
+  color: #fff;
+}
+
+#main-content .offer-card:not(.offer-store) .offer-order:hover {
+  border-color: #233c9e;
+  background: linear-gradient(135deg, #243c9d, #3654c7);
+  color: #fff;
+}
+
+#main-content .offer-store .offer-order,
+#main-content .offer-store .offer-order:hover {
+  border-color: #fff;
+  background: #fff;
+  color: #203c91;
+}
+
+#main-content .offer-store .offer-details-label {
+  border-color: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+}
+
+#main-content .offer-store .offer-details-label:hover {
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+}
+
+/* Supporting UI accents follow the blue and lavender palette throughout. */
+#main-content .offer-assurances--shared b {
+  background: #e6ebff;
+  color: #3652c2;
+}
+
+#main-content #top .hero-ai-pulse,
+#main-content .rasio-ai-story__eyebrow::before,
+#main-content .rasio-ai-mock__top i {
+  background: #9da4ff;
+  box-shadow: 0 0 0 3px rgba(199, 204, 255, .28);
+}
+
+#main-content #top .stack-erp-top small,
+#main-content #top .stack-erp-stats span { color: #5165c2; }
+#main-content #top .stack-erp-chart i { background: #a2b3e9; }
+#main-content #top .stack-erp-chart i:nth-child(4) { background: #5d74cb; }
+
+#main-content .feature-visual--search,
+#main-content .feature-visual--logistics,
+#main-content .feature-visual--integrations { background: #eaf0ff; }
+#main-content .search-mock small { color: #4961ae; }
+#main-content .search-mock-tag,
+#main-content .chat-mock em,
+#main-content .integration-mock strong { background: #3859c3; color: #fff; }
+#main-content .feature-float--order > span,
+#main-content .checkout-mock i { background: #e4eaff; color: #3658bf; }
+#main-content .integration-mock span { color: #284879; }
+#main-content .integration-mock i { color: #647bc9; }
+#main-content .shipping-track { border-color: #c9d5f3; color: #314e98; }
+#main-content .shipping-track i,
+#main-content .shipping-track i:not(:first-child)::before { background: #607dd8; }
+
+#main-content .rasio-ai-card--insight .rasio-ai-card__art { background: #dedfff; }
+#main-content .rasio-ai-insight { border-color: #d8ddf4; color: #23345e; }
+#main-content .rasio-ai-insight__top span,
+#main-content .rasio-ai-insight__hint { color: #5366a2; }
+#main-content .rasio-ai-insight__bars i { background: #a6afea; }
+
+@media (max-width: 620px) {
+  #main-content > .hero--people {
+    background: radial-gradient(circle at 86% 64%, rgba(149, 157, 250, .2), transparent 44%), #fbfcff;
+  }
+
+  #main-content .offers-grid .offer-card { border-radius: 21px; }
+  #main-content .offers-grid .offer-card:not(.offer-store)::before { left: 21px; right: 21px; }
+}

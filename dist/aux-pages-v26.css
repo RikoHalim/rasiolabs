@@ -1,0 +1,539 @@
+/* Shared finish for the journal, tutorial, and portfolio pages. */
+body:is(.blog-page, .tutorial-page, .portfolio-page) {
+  --aux-navy: #081a3a;
+  --aux-blue: #2353e1;
+  --aux-ice: #eff5ff;
+  --aux-border: #dbe5f3;
+  --aux-muted: #52637c;
+  color: var(--aux-navy);
+  background: #fff;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) :is(.blog-hero, .info-hero) {
+  position: relative;
+  padding-block: clamp(52px, 6vw, 86px);
+  border-bottom: 1px solid #dce8f8;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(79, 129, 255, .16), transparent 30%),
+    linear-gradient(110deg, #fff 4%, #f5f9ff 60%, #edf4ff 100%);
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
+  gap: clamp(35px, 5.5vw, 80px);
+  align-items: center;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy {
+  min-width: 0;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy .eyebrow {
+  display: inline-flex;
+  gap: 11px;
+  align-items: center;
+  margin: 0 0 19px;
+  color: #1945c3;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy .eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--aux-blue);
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy h1 {
+  max-width: 690px;
+  margin: 0 0 20px;
+  color: var(--aux-navy);
+  font-size: clamp(38px, 4.05vw, 58px);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.09;
+  text-wrap: balance;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy .marker {
+  color: #2353e1;
+  background: none;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy > p:not(.eyebrow, .blog-edition) {
+  max-width: 620px;
+  margin: 0;
+  color: #445875;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media {
+  position: relative;
+  height: clamp(270px, 27vw, 360px);
+  min-width: 0;
+  isolation: isolate;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 18px -14px -16px 24px;
+  border-radius: 28px;
+  background: #2353e1;
+}
+
+body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 7px solid #fff;
+  border-radius: 26px;
+  box-shadow: 0 24px 55px rgba(8, 26, 58, .15);
+}
+
+body.blog-page .blog-hero .blog-edition {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  margin: 25px 0 0;
+  padding: 6px 12px;
+  border: 1px solid #d4e2f6;
+  border-radius: 999px;
+  background: #fff;
+  color: #4a607e;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Journal cards and filters. */
+body.blog-page .blog-library {
+  padding-block: clamp(48px, 5vw, 72px) clamp(62px, 6vw, 88px);
+}
+
+body.blog-page .blog-library-heading {
+  align-items: end;
+  margin-bottom: 24px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid var(--aux-border);
+}
+
+body.blog-page .blog-library-heading h2 {
+  color: var(--aux-navy);
+  font-size: clamp(25px, 2.3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.2;
+}
+
+body.blog-page .blog-library-heading > span {
+  color: #506480;
+  font-size: 13px;
+}
+
+body.blog-page .blog-filters {
+  gap: 9px;
+  margin-bottom: 30px;
+}
+
+body.blog-page .blog-filters button {
+  min-height: 40px;
+  padding: 9px 16px;
+  border-color: #dbe5f3;
+  border-radius: 999px;
+  background: #fff;
+  color: #304867;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.blog-page .blog-filters button[aria-pressed="true"] {
+  border-color: var(--aux-blue);
+  background: var(--aux-blue);
+  color: #fff;
+}
+
+body.blog-page .blog-grid {
+  gap: 20px;
+}
+
+body.blog-page .blog-card {
+  border: 1px solid var(--aux-border);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(8, 26, 58, .055);
+}
+
+body.blog-page .blog-card-photo {
+  aspect-ratio: 1.6;
+  border-bottom: 1px solid var(--aux-border);
+}
+
+body.blog-page .blog-kind {
+  top: 14px;
+  left: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #1745bd;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+body.blog-page .blog-card-content {
+  padding: 25px;
+}
+
+body.blog-page .blog-card-top {
+  margin-bottom: 15px;
+}
+
+body.blog-page .blog-card-top > span:first-child {
+  color: #1947c2;
+  font-weight: 800;
+}
+
+body.blog-page .blog-card h3 {
+  margin-bottom: 12px;
+  color: var(--aux-navy);
+  font-size: clamp(18px, 1.5vw, 21px);
+  letter-spacing: -.035em;
+  line-height: 1.35;
+}
+
+body.blog-page .blog-card p {
+  margin-bottom: 22px;
+  color: var(--aux-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+body.blog-page .blog-read {
+  border-top-color: #e2eaf5;
+  color: #1947c2;
+  font-weight: 800;
+}
+
+body.blog-page .blog-help {
+  gap: 36px;
+  margin-bottom: 70px;
+  padding: clamp(29px, 4vw, 46px);
+  border: 1px solid #17346c;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(81, 120, 255, .24), transparent 34%),
+    #081a3a;
+  box-shadow: 0 20px 42px rgba(8, 26, 58, .15);
+}
+
+body.blog-page .blog-help h2 {
+  max-width: 600px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: clamp(25px, 2.3vw, 32px);
+  letter-spacing: -.04em;
+  line-height: 1.25;
+}
+
+body.blog-page .blog-help p {
+  color: #d9e4fa;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+body.blog-page .blog-help .button:not(.button-white):not(.offer-order) {
+  flex-shrink: 0;
+  border-color: #fff;
+  background: #fff;
+  color: #1947c2;
+  box-shadow: none;
+}
+
+/* Tutorial steps and the two follow-up panels. */
+body.tutorial-page .tutorial-grid {
+  gap: 18px;
+  padding-block: clamp(32px, 4vw, 54px) 38px;
+}
+
+body.tutorial-page .tutorial-card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid var(--aux-border);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(8, 26, 58, .055);
+}
+
+body.tutorial-page .tutorial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 46px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: var(--aux-blue);
+}
+
+body.tutorial-page .tutorial-card > span {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--aux-ice);
+  color: #1947c2;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+body.tutorial-page .tutorial-card h2 {
+  margin: 20px 0 10px;
+  color: var(--aux-navy);
+  font-size: 19px;
+  letter-spacing: -.025em;
+  line-height: 1.3;
+}
+
+body.tutorial-page .tutorial-card p {
+  color: var(--aux-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+body.tutorial-page .tutorial-notes {
+  gap: 18px;
+  padding-bottom: 76px;
+}
+
+body.tutorial-page .tutorial-notes > article {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(26px, 3vw, 36px);
+  border: 1px solid #d8e5f8;
+  border-radius: 22px;
+  background: var(--aux-ice);
+  box-shadow: none;
+}
+
+body.tutorial-page .tutorial-notes > article:nth-child(2) {
+  border-color: #17346c;
+  background: #081a3a;
+}
+
+body.tutorial-page .tutorial-notes .eyebrow {
+  margin-bottom: 12px;
+  color: #1947c2;
+  font-size: 11px;
+}
+
+body.tutorial-page .tutorial-notes h2 {
+  margin: 0 0 11px;
+  color: var(--aux-navy);
+  font-size: clamp(21px, 2vw, 25px);
+  letter-spacing: -.035em;
+  line-height: 1.28;
+}
+
+body.tutorial-page .tutorial-notes p:not(.eyebrow) {
+  margin: 0 0 23px;
+  color: #435875;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+body.tutorial-page .tutorial-notes .secondary-button {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+body.tutorial-page .tutorial-notes > article:nth-child(2) :is(.eyebrow, h2) {
+  color: #fff;
+}
+
+body.tutorial-page .tutorial-notes > article:nth-child(2) p:not(.eyebrow) {
+  color: #d9e4fa;
+}
+
+body.tutorial-page .tutorial-notes > article:nth-child(2) .secondary-button {
+  border-color: #fff;
+  background: #fff;
+  color: #1947c2;
+  box-shadow: none;
+}
+
+/* Portfolio previews retain a clear distinction between a design and a prototype. */
+body.portfolio-page .portfolio-grid {
+  gap: 24px;
+  padding-block: clamp(32px, 4vw, 54px) 80px;
+}
+
+body.portfolio-page .portfolio-card {
+  border: 1px solid var(--aux-border);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(8, 26, 58, .065);
+}
+
+body.portfolio-page .portfolio-art {
+  aspect-ratio: 1.62;
+  border-bottom: 1px solid var(--aux-border);
+  background: var(--aux-ice);
+}
+
+body.portfolio-page .portfolio-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.portfolio-page .portfolio-card:nth-child(2) .portfolio-art img {
+  padding: clamp(18px, 3vw, 36px);
+  object-fit: contain;
+}
+
+body.portfolio-page .portfolio-card .dummy-badge {
+  margin: 25px 28px 0;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--aux-ice);
+  color: #1947c2;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+body.portfolio-page .portfolio-card h2 {
+  margin: 17px 28px 9px;
+  color: var(--aux-navy);
+  font-size: clamp(21px, 2vw, 25px);
+  letter-spacing: -.035em;
+  line-height: 1.28;
+}
+
+body.portfolio-page .portfolio-card p {
+  margin: 0 28px 24px;
+  color: var(--aux-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+body.portfolio-page .portfolio-card .secondary-button {
+  margin: auto 28px 29px;
+}
+
+body:is(.tutorial-page, .portfolio-page) .site-nav > a[aria-current="page"] {
+  color: #1947c2;
+  font-weight: 800;
+}
+
+@media (max-width: 1050px) {
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+    gap: 32px;
+  }
+
+  body.blog-page .blog-library .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 840px) {
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy h1 {
+    max-width: 700px;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media {
+    width: min(100%, 650px);
+    height: 250px;
+  }
+
+  body.tutorial-page .tutorial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  body:is(.blog-page, .tutorial-page, .portfolio-page) :is(.blog-hero, .info-hero) {
+    padding-block: 42px 49px;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-inner {
+    gap: 27px;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy h1 {
+    font-size: clamp(34px, 8.5vw, 44px);
+    line-height: 1.1;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media {
+    height: 195px;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media::before {
+    inset: 12px -8px -9px 15px;
+    border-radius: 20px;
+  }
+
+  body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media img {
+    border-width: 5px;
+    border-radius: 19px;
+  }
+
+  body.blog-page .blog-library-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  body.blog-page .blog-library .blog-grid,
+  body.tutorial-page .tutorial-grid,
+  body.portfolio-page .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.blog-page .blog-card h3 {
+    font-size: 20px;
+  }
+
+  body.blog-page .blog-help {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  body.tutorial-page .tutorial-grid {
+    padding-bottom: 24px;
+  }
+
+  body.tutorial-page .tutorial-card {
+    padding: 24px;
+  }
+
+  body.tutorial-page .tutorial-notes {
+    grid-template-columns: 1fr;
+    padding-bottom: 58px;
+  }
+
+  body.portfolio-page .portfolio-grid {
+    padding-bottom: 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:is(.blog-page, .portfolio-page) :is(.blog-card, .portfolio-card, .blog-card-photo img, .portfolio-art img) {
+    transition: none;
+  }
+}
