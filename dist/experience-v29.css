@@ -18,44 +18,59 @@ body:not(.architecture-page) {
   padding-block: clamp(54px, 5.3vw, 82px);
 }
 
-/* Pricing responds to intent, but every plan remains readable and clickable. */
+/* Pricing cards stay still; only their visible actions are interactive. */
 #main-content .offers-grid .offer-card {
   border: 1px solid var(--experience-line);
   box-shadow: var(--experience-shadow);
+  transform: none;
+  transition: none;
+  cursor: default;
 }
 #main-content .offers-grid .offer-store {
   border-color: #334d9d;
   box-shadow: 0 14px 38px rgba(27, 51, 123, .16);
 }
-#main-content .offer-card:focus-within { outline-color: #5679d8; }
-#main-content .offer-card .offer-detail:focus-visible { outline: none; }
+#main-content .offers-grid .offer-card:hover {
+  border-color: var(--experience-line);
+  box-shadow: var(--experience-shadow);
+  transform: none;
+}
+#main-content .offers-grid .offer-store:hover {
+  border-color: #334d9d;
+  box-shadow: 0 14px 38px rgba(27, 51, 123, .16);
+}
+#main-content .offer-card:focus-within { outline: none; }
+#main-content .offer-card h3 > span { color: #2353e1; }
+#main-content .offer-store h3 > span { color: #a8c8ff; }
+#main-content .offer-actions > a.offer-details-label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+#main-content .offer-actions > a.offer-details-label:hover {
+  border-color: #8fa9e6;
+  background: #e1eaff;
+  color: #173b9c;
+}
+#main-content .offer-store .offer-actions > a.offer-details-label:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, .24);
+  color: #fff;
+}
+#main-content .offer-actions > a:focus-visible {
+  outline: 3px solid #8fb1ff;
+  outline-offset: 3px;
+}
 #main-content .offer-card .offer-description,
 #main-content .offer-card .benefit-checklist li { font-size: 12px; line-height: 1.65; }
 #main-content .offer-card .offer-price .offer-billing,
 #main-content .offer-card .offer-price .offer-renewal { font-size: 12px; line-height: 1.55; }
 #main-content .offers-note { font-size: 12px; line-height: 1.6; }
-
-@media (min-width: 1120px) and (hover: hover) and (pointer: fine) {
-  #main-content .offers-grid { display: flex; align-items: stretch; }
-  #main-content .offers-grid > .offer-card {
-    flex: 1 1 0;
-    min-width: 0;
-    transform: none;
-    transition: flex-grow .38s cubic-bezier(.2, .72, .2, 1),
-      border-color .25s ease, box-shadow .3s ease;
-  }
-  #main-content .offers-grid > .offer-store { flex-grow: 1.04; }
-  #main-content .offers-grid > .offer-card:is(:hover, :focus-within) {
-    z-index: 2;
-    flex-grow: 1.24;
-    border-color: #93acec;
-    box-shadow: 0 22px 48px rgba(26, 49, 106, .16);
-  }
-  #main-content .offers-grid > .offer-store:is(:hover, :focus-within) {
-    border-color: #a8baff;
-    box-shadow: 0 23px 50px rgba(24, 48, 121, .25);
-  }
-}
 
 /* The service pages lead with what is included; the long industry list is optional. */
 body.service-page .detail-included {

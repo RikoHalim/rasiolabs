@@ -1,0 +1,321 @@
+/* Distinct editorial, guide, portfolio, and checkout surfaces for Rasio. */
+body:is(.blog-page, .tutorial-page, .portfolio-page, .order-page) {
+  --secondary-ink: #0d1c3d;
+  --secondary-blue: #2353e1;
+  --secondary-border: #d9e3f2;
+}
+
+/* The journal opens on a deliberately quieter, deep-blue editorial cover. */
+body.blog-page .blog-hero {
+  border-bottom: 0;
+  background: linear-gradient(112deg, #0b1738 0%, #132b66 69%, #214fba 100%);
+}
+body.blog-page .blog-hero .aux-hero-copy .eyebrow,
+body.blog-page .blog-hero .aux-hero-copy h1 {
+  color: #fff;
+}
+body.blog-page .blog-hero .aux-hero-copy .eyebrow::before {
+  background: #8cb3ff;
+}
+body.blog-page .blog-hero .aux-hero-copy .marker {
+  color: #a9c7ff;
+}
+body.blog-page .blog-hero .aux-hero-copy > p:not(.eyebrow, .blog-edition) {
+  color: #d7e4ff;
+}
+body.blog-page .blog-hero .blog-edition {
+  border-color: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .12);
+  color: #eaf1ff;
+}
+body.blog-page .blog-hero .aux-hero-media::before {
+  background: #769dff;
+}
+body.blog-page .blog-hero .aux-hero-media img {
+  border-color: rgba(255, 255, 255, .95);
+  box-shadow: 0 22px 48px rgba(0, 9, 35, .32);
+}
+body.blog-page .blog-library {
+  margin-block: 28px 32px;
+  padding: clamp(28px, 3.4vw, 44px);
+  border: 1px solid #e4ebf6;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #f4f7fd 0%, #fafcff 100%);
+}
+body.blog-page .blog-library-heading {
+  border-bottom-color: #d8e3f1;
+}
+body.blog-page .blog-card {
+  border-color: #dce5f2;
+  box-shadow: 0 9px 25px rgba(11, 33, 74, .065);
+}
+body.blog-page .blog-card h3 a:hover {
+  color: #1747c5;
+}
+body.blog-page .blog-filters button:hover:not([aria-pressed="true"]) {
+  border-color: #a9bfec;
+  background: #edf3ff;
+  color: #193d96;
+}
+body.blog-page .blog-filters button:focus-visible,
+body.blog-page .blog-card h3 a:focus-visible {
+  outline: 3px solid #5d86ef;
+  outline-offset: 3px;
+}
+body.blog-page .blog-help {
+  background: linear-gradient(115deg, #0c1b3e 5%, #1d3d87 100%);
+}
+
+/* Article pages stay airy while the reading rail and next step have definition. */
+body.blog-page .article-header {
+  padding-block: clamp(42px, 5vw, 70px) 30px;
+}
+body.blog-page .article-header h1 {
+  max-width: 940px;
+  color: var(--secondary-ink);
+  letter-spacing: -.045em;
+}
+body.blog-page .article-cover > img {
+  box-shadow: 0 17px 42px rgba(13, 35, 78, .12);
+}
+body.blog-page .article-toc {
+  border: 1px solid #dce6f5;
+  background: #f4f7fd;
+  box-shadow: 0 10px 26px rgba(10, 32, 74, .045);
+}
+body.blog-page .article-next {
+  border-color: #cbdcf6;
+  background: #eaf1ff;
+}
+body.blog-page .blog-related {
+  border-top-color: #dce6f3;
+}
+
+/* Portfolio: restrained gallery framing with an alternate software surface. */
+body.portfolio-page .info-hero {
+  border-bottom-color: #d8e4f5;
+  background: linear-gradient(115deg, #f8faff 5%, #e5edfc 100%);
+}
+body.portfolio-page .aux-hero-media::before {
+  background: #90aef3;
+}
+body.portfolio-page .portfolio-grid {
+  gap: 22px;
+  margin-block: 32px 76px;
+  padding: clamp(20px, 2.5vw, 32px);
+  border: 1px solid #e0e8f5;
+  border-radius: 28px;
+  background: #f5f8fd;
+}
+body.portfolio-page .portfolio-card {
+  overflow: hidden;
+  border-color: #d7e2f1;
+  box-shadow: 0 13px 30px rgba(12, 36, 78, .07);
+}
+body.portfolio-page .portfolio-card:nth-child(2) {
+  border-color: #18356f;
+  background: #11264f;
+}
+body.portfolio-page .portfolio-card:nth-child(2) :is(h2, p) {
+  color: #fff;
+}
+body.portfolio-page .portfolio-card:nth-child(2) p {
+  color: #d2def5;
+}
+body.portfolio-page .portfolio-card:nth-child(2) .dummy-badge {
+  background: #2a4784;
+  color: #e9f0ff;
+}
+body.portfolio-page .portfolio-card:nth-child(2) .secondary-button {
+  border-color: #fff;
+  background: #fff;
+  color: #163983;
+}
+body.portfolio-page .portfolio-card:nth-child(2) .secondary-button:hover {
+  border-color: #d6e4ff;
+  background: #d6e4ff;
+  color: #102f72;
+}
+
+/* Tutorial: the six steps read as one compact journey, not isolated boxes. */
+body.tutorial-page .info-hero {
+  border-bottom-color: #dce5f6;
+  background: linear-gradient(115deg, #fff 0%, #e9f0ff 100%);
+}
+body.tutorial-page .aux-hero-media::before {
+  display: none;
+}
+body.tutorial-page .aux-hero-media img {
+  border: 0;
+  border-radius: 24px;
+  box-shadow: 0 20px 48px rgba(18, 45, 94, .16);
+}
+body.tutorial-page .tutorial-grid {
+  gap: 15px;
+  margin-block: 30px 0;
+  padding: clamp(20px, 2.5vw, 30px);
+  border: 1px solid #e0e9f5;
+  border-radius: 28px;
+  background: #f5f8fd;
+}
+body.tutorial-page .tutorial-card {
+  border-color: #dce5f2;
+  box-shadow: 0 8px 22px rgba(13, 35, 76, .055);
+}
+body.tutorial-page .tutorial-card::before {
+  display: none;
+}
+body.tutorial-page .tutorial-card > span {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #2353e1;
+  color: #fff;
+}
+body.tutorial-page .tutorial-card:nth-child(3n + 2) > span {
+  background: #15397f;
+}
+body.tutorial-page .tutorial-notes {
+  gap: 15px;
+  padding-top: 15px;
+}
+body.tutorial-page .tutorial-notes > article:first-child {
+  border-color: #c9d9f4;
+  background: #e8f0ff;
+}
+body.tutorial-page .tutorial-notes > article:nth-child(2) {
+  background: #122750;
+}
+
+/* Only genuinely interactive cards respond to hover. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  body.blog-page .blog-card:hover,
+  body.portfolio-page .portfolio-card:hover,
+  body.tutorial-page .tutorial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 17px 36px rgba(13, 35, 76, .11);
+  }
+}
+body.tutorial-page .tutorial-card {
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+/* Checkout keeps the same fields and pricing, with clearer visual hierarchy. */
+body.order-page {
+  background: linear-gradient(180deg, #eaf1ff 0, #f5f7fc 370px, #f8f9fc 100%);
+}
+body.order-page .order-main {
+  padding-top: clamp(30px, 3.4vw, 49px);
+}
+body.order-page .booking-top h1 {
+  color: #0d1d40;
+}
+body.order-page .order-step,
+body.order-page .order-workspace,
+body.order-page .order-summary,
+body.order-page .booking-help {
+  border-color: #d5dfed;
+  box-shadow: 0 10px 30px rgba(17, 43, 88, .07);
+}
+body.order-page .order-step.is-active {
+  border-color: #2353e1;
+  background: #2353e1;
+  color: #fff;
+  box-shadow: 0 9px 23px rgba(35, 83, 225, .19);
+}
+body.order-page .order-step.is-active > span:first-child {
+  background: #fff;
+  color: #2353e1;
+}
+body.order-page .order-step.is-active :is(b, small) {
+  color: #fff;
+}
+body.order-page .order-workspace {
+  border-radius: 22px;
+}
+body.order-page .order-summary {
+  border-radius: 22px;
+}
+body.order-page .order-service-context.order-package-card {
+  border-color: #cad9f2;
+  background: linear-gradient(108deg, #f6f9ff, #e8f0ff);
+  box-shadow: none;
+}
+body.order-page .order-duration {
+  border-color: #cad9f2;
+  background: #f3f7ff;
+  box-shadow: none;
+}
+body.order-page .summary-total {
+  margin: 13px -6px 8px;
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: #edf3ff;
+}
+body.order-page .summary-total strong {
+  color: #153d9d;
+}
+body.order-page .booking-help {
+  background: #fff;
+}
+body.order-page .booking-included li {
+  color: #334967;
+  font-size: 12px;
+}
+body.order-page .order-template-card,
+body.order-page .domain-result,
+body.order-page .ai-addon-card {
+  border-color: #d5dfed;
+  box-shadow: 0 6px 18px rgba(14, 39, 81, .055);
+}
+body.order-page .order-template-card:hover,
+body.order-page .domain-result:hover,
+body.order-page .ai-addon-card:hover {
+  border-color: #8eaaf0;
+  box-shadow: 0 11px 27px rgba(25, 66, 147, .10);
+}
+body.order-page :is(input, select, textarea):focus-visible {
+  outline: 3px solid rgba(35, 83, 225, .28);
+  outline-offset: 2px;
+}
+body.order-page .summary-continue:hover,
+body.order-page .toolbar-primary:hover,
+body.order-page .order-domain-form button:hover {
+  border-color: #153ba8;
+  background: #153ba8;
+  color: #fff;
+}
+
+@media (max-width: 840px) {
+  body.blog-page .blog-library,
+  body.portfolio-page .portfolio-grid,
+  body.tutorial-page .tutorial-grid {
+    margin-inline: auto;
+  }
+  body.order-page .summary-total {
+    margin-inline: 0;
+  }
+}
+@media (max-width: 620px) {
+  body.blog-page .blog-library,
+  body.portfolio-page .portfolio-grid,
+  body.tutorial-page .tutorial-grid {
+    margin-block: 17px 34px;
+    padding: 16px;
+    border-radius: 22px;
+  }
+  body.tutorial-page .tutorial-notes {
+    padding-top: 0;
+  }
+  body.blog-page .blog-hero .aux-hero-copy h1 {
+    font-size: clamp(34px, 8vw, 43px);
+  }
+  body.order-page .order-step.is-active {
+    box-shadow: 0 5px 15px rgba(35, 83, 225, .18);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.tutorial-page .tutorial-card {
+    transition: none;
+  }
+}

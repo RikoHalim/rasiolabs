@@ -423,6 +423,34 @@ body.service-page .detail-closing .service-actions > a.secondary-button:is(:hove
   background: #244caa;
   color: #fff;
 }
+body.service-page .service-hero .service-actions > a.whatsapp-cta,
+body.service-page .detail-closing .service-actions > a.whatsapp-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-color: #087b43;
+  background: #087b43;
+  color: #fff;
+  box-shadow: 0 9px 22px rgba(8, 123, 67, .19);
+}
+body.service-page .service-hero .service-actions > a.whatsapp-cta:is(:hover, :focus-visible),
+body.service-page .detail-closing .service-actions > a.whatsapp-cta:is(:hover, :focus-visible) {
+  border-color: #056235;
+  background: #056235;
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(5, 98, 53, .26);
+}
+body.service-page .service-actions .whatsapp-cta svg {
+  display: block;
+  flex: none;
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 body.service-page .site-nav .nav-mobile-cta:is(:hover, :focus-visible) {
   background: #173ba9;
   color: #fff;
@@ -435,6 +463,10 @@ body.service-page .menu-toggle:is(:hover, :focus-visible) {
 }
 body.service-page :is(.service-actions > a, .service-template-link, .detail-feature-card > a.secondary-button, .header-cta, .nav-mobile-cta):focus-visible {
   outline: 3px solid #91b6ff;
+  outline-offset: 3px;
+}
+body.service-page .service-actions > a.whatsapp-cta:focus-visible {
+  outline: 3px solid #85e4ad;
   outline-offset: 3px;
 }
 

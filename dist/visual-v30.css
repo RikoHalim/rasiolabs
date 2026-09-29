@@ -1,0 +1,129 @@
+/* Rasio's section rhythm: quiet surfaces around the work, stronger color at key moments. */
+#main-content > .template-section {
+  border-top: 0;
+  background: #fff;
+}
+
+#main-content .template-grid:has(> .template-card:only-child) {
+  display: flex;
+  justify-content: center;
+}
+
+#main-content .template-grid > .template-card:only-child {
+  width: min(100%, 420px);
+}
+
+#main-content > .feature-showcase {
+  border-top: 0;
+  background: #e6ebff;
+}
+
+#main-content > .offers-section {
+  border-top: 0;
+  background: #f6f7fb;
+}
+
+#main-content > .process-section {
+  border-top: 0;
+  background: #fff;
+}
+
+#main-content > .rasio-advantages {
+  background: #e8edff;
+}
+
+#main-content > .faq-section {
+  background: #fbfcff;
+}
+
+#main-content > .testimonial-section {
+  border-top: 0;
+  background: #eaf0fb;
+}
+
+#main-content > .blog-home {
+  border-top: 0;
+  background: #fff;
+}
+
+/* The three actual website previews remain the hero's focal point. */
+#main-content #top .hero-visual {
+  position: relative;
+  isolation: isolate;
+}
+
+#main-content #top .hero-visual::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 38px 2% 76px 7%;
+  border: 1px solid #d4dfff;
+  border-radius: 30px;
+  background: linear-gradient(150deg, #eef1ff 4%, #dce4ff 54%, #bdcffb 100%);
+  box-shadow: 0 24px 54px rgba(30, 58, 132, .09);
+}
+
+/* Let the imagery sit on a distinct field without adding more copy or ornaments. */
+#fitur-layanan .feature-showcase-heading h2,
+#fitur-layanan .feature-showcase-heading > p:last-child { color: #1a294b; }
+
+#fitur-layanan .feature-panel > :is(article, div),
+#fitur-layanan .feature-tile {
+  border-color: rgba(80, 104, 172, .15);
+  box-shadow: 0 15px 34px rgba(31, 53, 112, .09);
+}
+
+#main-content .process-list {
+  gap: 14px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#main-content .process-list li:nth-child(n) {
+  border: 1px solid #dce5f5;
+  border-radius: 20px;
+  background: #f8faff;
+  box-shadow: 0 12px 28px rgba(28, 49, 102, .055);
+}
+
+#main-content .process-list li:nth-child(2) { background: #f0f2ff; }
+#main-content .process-list li:nth-child(3) { background: #ebf2ff; }
+
+#main-content .process-list .step-number {
+  border-color: #bfcdf2;
+  background: #fff;
+  box-shadow: 0 5px 12px rgba(39, 74, 158, .08);
+}
+
+#main-content .rasio-advantage {
+  border-color: #cdd9f4;
+  box-shadow: 0 13px 30px rgba(30, 55, 116, .075);
+}
+
+#main-content .testimonial-card {
+  border-color: #d4dff1;
+  box-shadow: 0 12px 29px rgba(30, 52, 100, .075);
+}
+
+/* A less dense heading weight suits Rasio's broad section titles. */
+#main-content > section h2 { font-weight: 700; }
+
+@media (max-width: 840px) {
+  #main-content #top .hero-visual::before { inset: 30px 1% 65px 6%; }
+}
+
+@media (max-width: 620px) {
+  #main-content #top .hero-visual::before {
+    inset: 25px 0 57px 4%;
+    border-radius: 22px;
+  }
+
+  #main-content .process-list { gap: 10px; }
+  #main-content .process-list li:nth-child(n) { border-radius: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-content #top .hero-visual::before { transition: none; }
+}
