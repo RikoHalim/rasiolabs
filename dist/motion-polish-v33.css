@@ -1,0 +1,127 @@
+/* One motion rhythm across the site. Keep layout dimensions fixed on hover. */
+:root {
+  --rasio-hover-time: 260ms;
+  --rasio-hover-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+body:not(.architecture-page) button,
+body:not(.architecture-page) :is(
+  a.button, button.button, a.secondary-button, button.secondary-button,
+  a.button-outline, a.button-outline-dark, a.button-white,
+  .header-cta, .nav-mobile-cta, .offer-order, .offer-details-label,
+  .feature-showcase-footer a, .service-template-link, .sector-toggle,
+  .filter-button, .sector-filter, .feature-tab,
+  .feature-slide-controls button, .motion-carousel-nav button,
+  .blog-filters button, .offer-duration-picker button,
+  .summary-continue, .toolbar-button, .domain-field button,
+  .order-domain-form button, .benefit-action, .template-actions a
+) {
+  transition-property: transform, box-shadow, background-color, border-color, color;
+  transition-duration: var(--rasio-hover-time);
+  transition-timing-function: var(--rasio-hover-ease);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  body:not(.architecture-page) button:hover:not(:disabled),
+  body:not(.architecture-page) :is(
+    a.button, button.button, a.secondary-button, button.secondary-button,
+    a.button-outline, a.button-outline-dark, a.button-white,
+    .header-cta, .nav-mobile-cta, .offer-order, .offer-details-label,
+    .feature-showcase-footer a, .service-template-link, .sector-toggle,
+    .filter-button, .sector-filter, .feature-tab,
+    .feature-slide-controls button, .motion-carousel-nav button,
+    .blog-filters button, .offer-duration-picker button,
+    .summary-continue, .toolbar-button, .domain-field button,
+    .order-domain-form button, .benefit-action, .template-actions a
+  ):hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+}
+
+/* Card surfaces lift consistently; only their actual links and buttons click. */
+#main-content :is(
+  .template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+  .testimonial-card, .blog-card, .sector-card, .problem-pair,
+  .detail-feature-card, .portfolio-card, .tutorial-card,
+  .process-list > li, .offer-card, .faq-item, .order-package-card
+),
+body.order-page :is(.order-template-card, .domain-result, .ai-addon-card) {
+  transition-property: transform, box-shadow, border-color;
+  transition-duration: var(--rasio-hover-time);
+  transition-timing-function: var(--rasio-hover-ease);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  #main-content :is(
+    .template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+    .testimonial-card, .blog-card, .sector-card, .problem-pair,
+    .detail-feature-card, .portfolio-card, .tutorial-card,
+    .process-list > li, .offer-card, .faq-item, .order-package-card
+  ):hover,
+  body.order-page :is(.order-template-card, .domain-result, .ai-addon-card):hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* The old slide-in keyframe also animated transform, interrupting hover lift. */
+#fitur-layanan .feature-panel.is-entering .feature-tile {
+  animation-name: rasio-tile-fade;
+}
+
+#fitur-layanan .feature-panel.is-entering .feature-tile:first-child > img {
+  animation-name: rasio-tile-fade;
+}
+
+@keyframes rasio-tile-fade {
+  from { opacity: .35; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.architecture-page) button,
+  body:not(.architecture-page) :is(
+    a.button, button.button, a.secondary-button, button.secondary-button,
+    a.button-outline, a.button-outline-dark, a.button-white,
+    .header-cta, .nav-mobile-cta, .offer-order, .offer-details-label,
+    .feature-showcase-footer a, .service-template-link, .sector-toggle,
+    .filter-button, .sector-filter, .feature-tab,
+    .feature-slide-controls button, .motion-carousel-nav button,
+    .blog-filters button, .offer-duration-picker button,
+    .summary-continue, .toolbar-button, .domain-field button,
+    .order-domain-form button, .benefit-action, .template-actions a
+  ),
+  #main-content :is(
+    .template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+    .testimonial-card, .blog-card, .sector-card, .problem-pair,
+    .detail-feature-card, .portfolio-card, .tutorial-card,
+    .process-list > li, .offer-card, .faq-item, .order-package-card
+  ),
+  body.order-page :is(.order-template-card, .domain-result, .ai-addon-card) {
+    transition: none !important;
+  }
+
+  body:not(.architecture-page) button:hover,
+  body:not(.architecture-page) :is(
+    a.button, button.button, a.secondary-button, button.secondary-button,
+    a.button-outline, a.button-outline-dark, a.button-white,
+    .header-cta, .nav-mobile-cta, .offer-order, .offer-details-label,
+    .feature-showcase-footer a, .service-template-link, .sector-toggle,
+    .filter-button, .sector-filter, .feature-tab,
+    .feature-slide-controls button, .motion-carousel-nav button,
+    .blog-filters button, .offer-duration-picker button,
+    .summary-continue, .toolbar-button, .domain-field button,
+    .order-domain-form button, .benefit-action, .template-actions a
+  ):hover {
+    transform: none !important;
+  }
+
+  #main-content :is(
+    .template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+    .testimonial-card, .blog-card, .sector-card, .problem-pair,
+    .detail-feature-card, .portfolio-card, .tutorial-card,
+    .process-list > li, .offer-card, .faq-item, .order-package-card
+  ):hover,
+  body.order-page :is(.order-template-card, .domain-result, .ai-addon-card):hover {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,43 @@
+/* Preserve the studio template's editorial look while smoothing its hover states. */
+.work-card,
+.process-grid li,
+.studio-nav > a,
+.link-button,
+.contact-button,
+.project-close,
+.studio-menu,
+.work-image,
+.image-action {
+  transition-property: transform, box-shadow, background-color, border-color, color;
+  transition-duration: 260ms;
+  transition-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .work-card:hover,
+  .process-grid li:hover {
+    transform: translateY(-4px);
+  }
+
+  .studio-nav > a:hover,
+  .link-button:hover,
+  .contact-button:hover,
+  .project-close:hover,
+  .studio-menu:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card,
+  .process-grid li,
+  .studio-nav > a,
+  .link-button,
+  .contact-button,
+  .project-close,
+  .studio-menu,
+  .work-image,
+  .image-action {
+    transition: none !important;
+  }
+}

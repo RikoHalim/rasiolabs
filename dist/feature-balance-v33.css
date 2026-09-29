@@ -1,0 +1,169 @@
+/* Keep every service tab at one stable height without adding empty space. */
+@media (min-width: 1051px) {
+  #fitur-layanan .feature-panel--profile,
+  #fitur-layanan .feature-panel--custom {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 138px));
+    gap: 14px;
+  }
+
+  #fitur-layanan .feature-panel--profile > .feature-tile:nth-child(n),
+  #fitur-layanan .feature-panel--custom > .feature-tile:nth-child(n) {
+    grid-column: span 6;
+    grid-row: span 1;
+    min-height: 0;
+    height: 100%;
+  }
+
+  #fitur-layanan .feature-panel--profile > .feature-tile:first-child,
+  #fitur-layanan .feature-panel--custom > .feature-tile:first-child {
+    grid-row: span 3;
+  }
+
+  #fitur-layanan .feature-panel--profile > .feature-tile:not(:first-child),
+  #fitur-layanan .feature-panel--custom > .feature-tile:not(:first-child) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-visual,
+  #fitur-layanan .feature-panel--custom .feature-visual {
+    flex: 0 0 37%;
+    width: 37%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-tile-copy,
+  #fitur-layanan .feature-panel--custom .feature-tile-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 63%;
+    margin: 0;
+    padding: 12px 17px;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-tile-copy h3,
+  #fitur-layanan .feature-panel--custom .feature-tile-copy h3 {
+    margin-bottom: 4px;
+    font-size: 15px;
+    line-height: 1.22;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-tile-copy p,
+  #fitur-layanan .feature-panel--custom .feature-tile-copy p {
+    font-size: 10.5px;
+    line-height: 1.4;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-photo-copy,
+  #fitur-layanan .feature-panel--custom .feature-photo-copy {
+    width: 83%;
+    padding: 27px 30px;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-photo-copy h3,
+  #fitur-layanan .feature-panel--custom .feature-photo-copy h3 {
+    font-size: clamp(23px, 2.1vw, 31px);
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-photo-copy p,
+  #fitur-layanan .feature-panel--custom .feature-photo-copy p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  #fitur-layanan .feature-panel--profile .mini-editor {
+    transform: rotate(-3deg) scale(.74);
+  }
+}
+
+@media (max-width: 1050px) {
+  #fitur-layanan .feature-panel:not([hidden]) {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 336px;
+    padding: 9px 18px 17px 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #b9c7e5 transparent;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) > .feature-tile:nth-child(n) {
+    flex: 0 0 min(47vw, 318px);
+    grid-column: auto;
+    grid-row: auto;
+    height: 310px;
+    min-height: 0;
+    scroll-snap-align: start;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo {
+    justify-content: flex-end;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img {
+    height: 56%;
+    object-position: center 40%;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy {
+    width: 100%;
+    max-width: none;
+    padding: 15px 17px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy h3 {
+    margin: 7px 0 6px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy p {
+    font-size: 10px;
+    line-height: 1.42;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-visual {
+    height: 166px;
+    min-height: 166px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile-copy {
+    padding: 13px 15px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile-copy h3 {
+    font-size: 16px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile-copy p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 620px) {
+  #fitur-layanan .feature-panel:not([hidden]) {
+    height: 320px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) > .feature-tile:nth-child(n) {
+    flex-basis: min(76vw, 292px);
+    height: 294px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-visual {
+    height: 160px;
+    min-height: 160px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy h3 {
+    font-size: 19px;
+  }
+}
