@@ -4,15 +4,6 @@
   background: #fff;
 }
 
-#main-content .template-grid:has(> .template-card:only-child) {
-  display: flex;
-  justify-content: center;
-}
-
-#main-content .template-grid > .template-card:only-child {
-  width: min(100%, 420px);
-}
-
 #main-content > .feature-showcase {
   border-top: 0;
   background: #e6ebff;

@@ -18,12 +18,12 @@ body:not(.architecture-page) {
   padding-block: clamp(54px, 5.3vw, 82px);
 }
 
-/* Pricing cards stay still; only their visible actions are interactive. */
+/* Pricing cards lift without scaling or turning the whole card into a link. */
 #main-content .offers-grid .offer-card {
   border: 1px solid var(--experience-line);
   box-shadow: var(--experience-shadow);
   transform: none;
-  transition: none;
+  transition: transform .24s ease, box-shadow .24s ease;
   cursor: default;
 }
 #main-content .offers-grid .offer-store {
@@ -32,12 +32,12 @@ body:not(.architecture-page) {
 }
 #main-content .offers-grid .offer-card:hover {
   border-color: var(--experience-line);
-  box-shadow: var(--experience-shadow);
-  transform: none;
+  box-shadow: 0 19px 38px rgba(20, 40, 86, .12);
+  transform: translateY(-4px);
 }
 #main-content .offers-grid .offer-store:hover {
   border-color: #334d9d;
-  box-shadow: 0 14px 38px rgba(27, 51, 123, .16);
+  box-shadow: 0 23px 47px rgba(27, 51, 123, .23);
 }
 #main-content .offer-card:focus-within { outline: none; }
 #main-content .offer-card h3 > span { color: #2353e1; }
@@ -136,6 +136,28 @@ body.order-page .order-package-card > a { font-size: 12px; }
 body.order-page .order-lede { font-size: 13px; }
 body.order-page .summary-continue { font-size: 14px; }
 
+/* A consistent, restrained floating response across content cards. */
+#main-content :is(.template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+  .testimonial-card, .blog-card, .sector-card, .problem-pair,
+  .detail-feature-card, .portfolio-card, .tutorial-card, .process-list > li),
+body.order-page :is(.order-template-card, .domain-result, .ai-addon-card) {
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  #main-content :is(.template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+    .testimonial-card, .blog-card, .sector-card, .problem-pair,
+    .detail-feature-card, .portfolio-card, .tutorial-card, .process-list > li):hover,
+  body.order-page :is(.order-template-card, .domain-result, .ai-addon-card):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 19px 39px rgba(22, 47, 101, .14);
+  }
+
+  #main-content :is(.rasio-ai-card, .problem-pair):hover {
+    box-shadow: 0 20px 42px rgba(3, 13, 41, .25);
+  }
+}
+
 @media (max-width: 620px) {
   body.service-page .sector-compact:not(.is-expanded) .sector-card:nth-child(n+5) { display: none; }
   body.order-page .summary-selections > div { grid-template-columns: 82px minmax(0, 1fr); }
@@ -144,7 +166,16 @@ body.order-page .summary-continue { font-size: 14px; }
 @media (prefers-reduced-motion: reduce) {
   #main-content .offers-grid > .offer-card,
   body.service-page .feature-showcase > article,
-  body.service-page .sector-toggle { transition: none !important; }
+  body.service-page .sector-toggle,
+  #main-content :is(.template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+    .testimonial-card, .blog-card, .sector-card, .problem-pair,
+    .detail-feature-card, .portfolio-card, .tutorial-card, .process-list > li),
+  body.order-page :is(.order-template-card, .domain-result, .ai-addon-card) { transition: none !important; }
+  #main-content .offers-grid > .offer-card:hover,
+  #main-content :is(.template-card, .feature-tile, .rasio-ai-card, .rasio-advantage,
+    .testimonial-card, .blog-card, .sector-card, .problem-pair,
+    .detail-feature-card, .portfolio-card, .tutorial-card, .process-list > li):hover,
+  body.order-page :is(.order-template-card, .domain-result, .ai-addon-card):hover { transform: none; }
   body.service-page .feature-showcase > article:hover,
   body.service-page .sector-toggle:hover { transform: none; }
 }

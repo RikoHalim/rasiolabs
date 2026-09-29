@@ -53,7 +53,6 @@ function filterTemplates() {
       button.setAttribute('aria-pressed', String(active));
     });
   });
-  document.querySelector('[data-template-count]').textContent = `${count} template untuk bisnis Anda`;
   document.querySelector('[data-template-empty]').hidden = count > 0;
 }
 filterButtons.forEach(button => button.addEventListener('click', () => {
