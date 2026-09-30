@@ -7,6 +7,7 @@ for (const entry of await readdir('dist',{withFileTypes:true})) {
 await mkdir('dist/server',{recursive:true});
 await cp('server/worker.mjs','dist/server/index.js');
 await cp('server/model.mjs','dist/server/model.mjs');
+await cp('server/client-auth.mjs','dist/server/client-auth.mjs');
 await mkdir('dist/.openai',{recursive:true});
 await cp('.openai/hosting.json','dist/.openai/hosting.json');
 await cp('drizzle','dist/.openai/drizzle',{recursive:true});

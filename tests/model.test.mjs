@@ -5,7 +5,7 @@ import { defaults, pricing, validateOrder, validateContent, imageMime } from '..
 const checkout = {
   service: 'profile', template: 'Architecture', duration: 24, consent: true,
   businessName: 'Studio Contoh', customerName: 'Pemilik Studio',
-  whatsapp: '+62 812-3456-7890', email: '', domain: 'studio-contoh.co.id'
+  whatsapp: '+62 812-3456-7890', email: 'owner@example.test', domain: 'studio-contoh.co.id'
 };
 
 test('harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan', () => {
@@ -20,11 +20,12 @@ test('harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan',
   }
 });
 
-test('checkout menerima email kosong dan menormalkan data tanpa menerima harga dari klien', () => {
+test('checkout mewajibkan email akses login dan menormalkan data tanpa menerima harga dari klien', () => {
   const result = validateOrder({ ...checkout, businessName: '  Studio Contoh  ', domain: 'STUDIO-CONTOH.CO.ID', total: 1, monthly: 1, paymentStatus: 'verified' });
   assert.equal(result.businessName, 'Studio Contoh');
   assert.equal(result.domain, 'studio-contoh.co.id');
-  assert.equal(result.email, '');
+  assert.equal(result.email, 'owner@example.test');
+  assert.throws(()=>validateOrder({...checkout,email:''}));
   assert.equal(Object.hasOwn(result, 'total'), false);
   assert.equal(Object.hasOwn(result, 'paymentStatus'), false);
 });

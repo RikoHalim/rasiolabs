@@ -9,7 +9,7 @@ const tick = () => new Promise(resolve => setImmediate(resolve));
 async function portal({ mode, sessionRole, accessRole, search = '', hash = '', invalidCode = false }) {
   let submit;
   const redirects = [], requests = [], cleared = [];
-  const button = { disabled: false };
+  const button = { disabled: false,addEventListener(){} };
   const toast = { hidden: true, textContent: '', classList: { toggle() {} } };
   const form = { addEventListener(name, handler) { if (name === 'submit') submit = handler; } };
   const app = { innerHTML: '', querySelector(selector) { return selector === 'form' ? form : button; } };
@@ -19,6 +19,8 @@ async function portal({ mode, sessionRole, accessRole, search = '', hash = '', i
     document: { body: { dataset: { portal: mode } }, querySelector(selector) {
       if (selector === '#app') return app;
       if (selector === '#toast') return toast;
+      if (selector === '#client-username') return {value:'client-test'};
+      if (selector === '#client-password') return {value:'Password-test-2026!'};
       if (selector === '#access-code') return { value: 'A'.repeat(43) };
       throw new Error(`Unexpected selector: ${selector}`);
     } },
@@ -27,7 +29,7 @@ async function portal({ mode, sessionRole, accessRole, search = '', hash = '', i
     setTimeout() { return 1; }, clearTimeout() {},
     fetch: async path => {
       requests.push(path);
-      const isAccess = path === '/api/access';
+      const isAccess = path === '/api/access'||path === '/api/auth/login';
       const role = isAccess ? accessRole : sessionRole;
       return { ok: Boolean(role) && !(isAccess && invalidCode), status: role && !(isAccess && invalidCode) ? 200 : 401,
         json: async () => role && !(isAccess && invalidCode) ? { role, csrf: 'test-csrf' } : { error: 'Kode akses tidak valid.' } };
@@ -41,11 +43,11 @@ async function portal({ mode, sessionRole, accessRole, search = '', hash = '', i
   } };
 }
 
-test('kode admin pada halaman CMS mengarahkan ke admin tanpa pesan salah halaman', async () => {
-  const p = await portal({ mode: 'client', accessRole: 'admin' });
+test('login klien menggunakan endpoint username dan password', async () => {
+  const p = await portal({ mode: 'client', accessRole: 'client' });
   await p.login();
-  assert.deepEqual(p.redirects, ['/admin']);
-  assert.equal(p.toast.hidden, true);
+  assert.ok(p.requests.includes('/api/auth/login'));
+  assert.deepEqual(p.redirects, []);
 });
 
 test('sesi tersimpan diarahkan sesuai peran pada kedua halaman', async () => {

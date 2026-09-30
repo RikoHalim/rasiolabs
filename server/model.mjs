@@ -31,7 +31,7 @@ export function validateOrder(b) {
   const whatsapp=clean('whatsapp',8,30);
   if(!/^[+\d\s().-]+$/.test(whatsapp)||whatsapp.replace(/\D/g,'').length<8||whatsapp.replace(/\D/g,'').length>15)throw new Error('Nomor WhatsApp tidak valid.');
   const email=typeof b.email==='string'?b.email.trim().toLowerCase():'';
-  if(email&&(email.length>150||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)))throw new Error('Email tidak valid.');
+  if(!email||email.length>150||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw new Error('Isi email kontak yang valid untuk menerima akses login.');
   const domain=clean('domain',3,253).toLowerCase();
   if(!/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.(com|id|co\.id)$/.test(domain))throw new Error('Pilih nama domain .com, .id, atau .co.id yang valid.');
   const duration=Number(b.duration);pricing(duration);

@@ -1,0 +1,1 @@
+ALTER TABLE `password_resets` ADD `claim_id` text;

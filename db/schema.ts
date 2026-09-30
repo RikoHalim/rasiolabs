@@ -38,3 +38,20 @@ export const audit = sqliteTable('audit', {
 export const rateLimits = sqliteTable('rate_limits', {
   key:text('key').primaryKey(), count:integer('count').notNull(), expiresAt:integer('expires_at').notNull()
 });
+export const clientAccounts = sqliteTable('client_accounts', {
+  id:text('id').primaryKey(), orderId:text('order_id').notNull().references(()=>orders.id),
+  username:text('username').notNull(), email:text('email').notNull(),
+  passwordHash:text('password_hash'), passwordSalt:text('password_salt'),
+  version:integer('version').notNull().default(1), enabled:integer('enabled').notNull().default(1),
+  activatedAt:integer('activated_at'), createdAt:integer('created_at').notNull()
+},t=>[uniqueIndex('client_accounts_order_unique').on(t.orderId),uniqueIndex('client_accounts_username_unique').on(t.username)]);
+export const passwordResets = sqliteTable('password_resets', {
+  tokenHash:text('token_hash').primaryKey(), accountId:text('account_id').notNull().references(()=>clientAccounts.id),
+  purpose:text('purpose').notNull(), expiresAt:integer('expires_at').notNull(), usedAt:integer('used_at'), claimId:text('claim_id'), createdAt:integer('created_at').notNull()
+},t=>[index('password_resets_account').on(t.accountId)]);
+export const emailOutbox = sqliteTable('email_outbox', {
+  id:text('id').primaryKey(), accountId:text('account_id').notNull().references(()=>clientAccounts.id),
+  tokenHash:text('token_hash').notNull(), payload:text('payload').notNull(),
+  status:text('status').notNull().default('pending'), attempts:integer('attempts').notNull().default(0),
+  providerId:text('provider_id'), error:text('error').notNull().default(''), createdAt:integer('created_at').notNull(), sentAt:integer('sent_at')
+},t=>[uniqueIndex('email_outbox_token_unique').on(t.tokenHash),index('email_outbox_account').on(t.accountId)]);

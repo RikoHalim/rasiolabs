@@ -5,9 +5,12 @@ import { readFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { Miniflare, Log, LogLevel, convertV4MiniflareOptions } from 'miniflare';
+import { dispatchEmail, resendActivation } from '../server/client-auth.mjs';
 
 const repo = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'http://localhost';
+const clientSecret = 'S'.repeat(43);
+const fixturePassword = 'Local-client-password-2026!';
 const adminCode = 'A'.repeat(43); // Isolated local fixture; never an environment credential.
 const previewCode = 'B'.repeat(43); // Separate isolated client trial fixture.
 const hash = value => createHash('sha256').update(value).digest('hex');
@@ -18,10 +21,11 @@ before(async () => {
     name: 'rasio-tests',
     modules: [
       { type: 'ESModule', path: path.join(repo, 'server/worker.mjs') },
-      { type: 'ESModule', path: path.join(repo, 'server/model.mjs') }
+      { type: 'ESModule', path: path.join(repo, 'server/model.mjs') },
+      { type: 'ESModule', path: path.join(repo, 'server/client-auth.mjs') }
     ], modulesRoot: repo,
     compatibilityDate: '2026-09-01',
-    bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode) },
+    bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode), CLIENT_AUTH_SECRET: clientSecret },
     d1Databases: ['DB'], r2Buckets: ['BUCKET'],
     assets: { directory: path.join(repo, 'dist'), binding: 'ASSETS', run_worker_first: true, routerConfig: { has_user_worker: true } },
   }], log: new Log(LogLevel.ERROR) }));
@@ -37,6 +41,84 @@ before(async () => {
 });
 
 after(async () => { if (mf) await mf.dispose(); });
+
+test('verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama',async()=>{
+  const admin=await login(),a=await createOrder();
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM client_accounts WHERE order_id = ?').bind(a.order.id).first()).n,0);
+  const patch={status:'review',paymentStatus:'verified',paymentReference:'LOCAL-TEST',domainStatus:'confirmed'};
+  const results=await Promise.all([0,1].map(()=>request(`/api/admin/orders/${a.order.id}`,{method:'PATCH',session:admin,json:patch})));
+  for(const r of results){const data=await jsonResponse(r,200);assert.ok(data.account.username);assert.equal(data.account.emailStatus,'waiting_setup');assert.equal(data.account.activated,false);}
+  const account=await db.prepare('SELECT * FROM client_accounts WHERE order_id = ?').bind(a.order.id).first();
+  assert.equal(account.password_hash,null);
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM client_accounts WHERE order_id = ?').bind(a.order.id).first()).n,1);
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM email_outbox WHERE account_id = ?').bind(account.id).first()).n,1);
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM password_resets WHERE account_id = ?').bind(account.id).first()).n,1);
+  const locked=await clientContent(a);assert.equal(locked.activationRequired,true);assert.equal(locked.content,null);
+  assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:1,content:{}}})).status,403);
+  await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`,{method:'POST',session:admin,json:{revision:1}}),200);
+  assert.equal((await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:1}})).status,403);
+  assert.equal((await request(`/preview/${a.order.slug}`,{session:a.session})).status,403);
+  const png=Uint8Array.from([137,80,78,71,13,10,26,10,...new Array(24).fill(0)]);
+  const upload=await jsonResponse(await request(`/api/admin/orders/${a.order.id}/media`,{method:'POST',session:admin,body:png,headers:{'Content-Type':'image/png'}}),201);
+  assert.equal((await request(upload.url,{session:a.session})).status,403);
+  const info=await jsonResponse(await request(`/api/admin/orders/${a.order.id}/activation-link`,{session:admin}),200);
+  const token=new URLSearchParams(new URL(info.url).hash.slice(1)).get('reset');
+  const outbox=await db.prepare('SELECT payload FROM email_outbox WHERE account_id = ?').bind(account.id).first();
+  assert.ok(!outbox.payload.includes(token),'Activation link encrypted at rest');
+  assert.equal((await request('/api/access',{method:'POST',json:{code:token}})).status,401,'Activation is not a CMS session shortcut');
+  const r=await jsonResponse(await request('/api/auth/reset-info',{method:'POST',json:{token}}),200);assert.equal(r.username,account.username);
+  assert.equal((await request('/api/auth/reset',{method:'POST',json:{token,password:'short',confirmPassword:'short'}})).status,400);
+  const resets=await Promise.all([0,1].map(()=>request('/api/auth/reset',{method:'POST',json:{token,password:fixturePassword,confirmPassword:fixturePassword}})));
+  assert.deepEqual(resets.map(r=>r.status).sort(),[200,400]);
+  const stored=await db.prepare('SELECT * FROM client_accounts WHERE id = ?').bind(account.id).first();assert.equal(stored.version,2);assert.ok(stored.password_hash);assert.notEqual(stored.password_hash,fixturePassword);
+  a.session=await passwordLogin(account.username.toUpperCase());assert.ok((await clientContent(a)).content);
+  assert.equal((await request('/api/auth/reset-info',{method:'POST',json:{token}})).status,400);
+  assert.equal((await request('/api/auth/login',{method:'POST',json:{username:account.username,password:'incorrect-password'}})).status,401);
+});
+
+test('lupa password memakai respons generik dan reset membatalkan password serta sesi lama',async()=>{
+  const admin=await login(),a=await createOrder();await verify(a,admin);const account=(await clientContent(a)).account;
+  await db.prepare('UPDATE password_resets SET created_at = 0 WHERE account_id = (SELECT id FROM client_accounts WHERE order_id = ?)').bind(a.order.id).run();
+  const known=await jsonResponse(await request('/api/auth/forgot',{method:'POST',json:{username:account.username}}),200);
+  const unknown=await jsonResponse(await request('/api/auth/forgot',{method:'POST',json:{username:'unknown-client'}}),200);
+  assert.deepEqual(known,unknown);assert.equal(Object.hasOwn(known,'jobId'),false);
+  assert.equal((await request('/api/client/order',{session:a.session})).status,200,'Request alone does not invalidate login');
+  const link=await jsonResponse(await request(`/api/admin/orders/${a.order.id}/activation-link`,{session:admin}),200),token=new URLSearchParams(new URL(link.url).hash.slice(1)).get('reset'),nextPassword='Replacement-password-2026!';
+  await jsonResponse(await request('/api/auth/reset',{method:'POST',json:{token,password:nextPassword,confirmPassword:nextPassword}}),200);
+  assert.equal((await request('/api/client/order',{session:a.session})).status,401);
+  assert.equal((await request('/api/auth/login',{method:'POST',json:{username:account.username,password:fixturePassword}})).status,401);
+  a.session=await passwordLogin(account.username,nextPassword);assert.equal((await request('/api/client/order',{session:a.session})).status,200);
+  for(let n=0;n<5;n++)assert.equal((await request('/api/auth/forgot',{method:'POST',json:{username:'unknown'},ip:'192.0.2.252'})).status,200);
+  assert.equal((await request('/api/auth/forgot',{method:'POST',json:{username:'unknown'},ip:'192.0.2.252'})).status,429);
+});
+
+test('email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran',async()=>{
+  const admin=await login(),a=await createOrder();const result=await verify(a,admin,false);assert.equal(result.account.emailStatus,'waiting_setup');
+  const job=await db.prepare('SELECT email_outbox.* FROM email_outbox JOIN client_accounts ON client_accounts.id = email_outbox.account_id WHERE order_id = ?').bind(a.order.id).first();
+  const savedFetch=globalThis.fetch;let calls=0;
+  try{
+    globalThis.fetch=async (url,options)=>{calls++;assert.equal(url,'https://api.resend.com/emails');assert.equal(options.headers['Idempotency-Key'],'rasio-'+job.id);const mail=JSON.parse(options.body);assert.deepEqual(mail.to,['owner@example.test']);assert.match(mail.text,/Username:/);assert.match(mail.text,/#reset=/);assert.ok(!mail.text.includes(fixturePassword));return calls===1?Response.json({error:'failure'},{status:503}):Response.json({id:'fixture-mail-accepted'});};
+    const env={DB:db,CLIENT_AUTH_SECRET:clientSecret,RESEND_API_KEY:'test-only',EMAIL_FROM:'Rasio <no-reply@example.test>'};
+    await dispatchEmail(env,job.id);assert.equal((await db.prepare('SELECT status FROM email_outbox WHERE id = ?').bind(job.id).first()).status,'failed');
+    await dispatchEmail(env,job.id);await dispatchEmail(env,job.id);assert.equal(calls,2);
+    const sent=await db.prepare('SELECT * FROM email_outbox WHERE id = ?').bind(job.id).first();assert.equal(sent.status,'sent');assert.equal(sent.payload,'');assert.equal(sent.provider_id,'fixture-mail-accepted');
+    assert.equal((await clientContent(a)).order.paymentStatus,'verified');
+  }finally{globalThis.fetch=savedFetch;}
+});
+
+test('aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku',async()=>{
+  const a=await createOrder();
+  await db.prepare("UPDATE orders SET payment_status = 'verified' WHERE id = ?").bind(a.order.id).run();
+  const order=await db.prepare('SELECT * FROM orders WHERE id = ?').bind(a.order.id).first();
+  const savedFetch=globalThis.fetch;let calls=0,mail;
+  try{
+    globalThis.fetch=async(url,options)=>{calls++;mail=JSON.parse(options.body);return Response.json({id:'legacy-fixture-mail'});};
+    const result=await resendActivation({DB:db,CLIENT_AUTH_SECRET:clientSecret,PUBLIC_ORIGIN:origin,RESEND_API_KEY:'test-only',EMAIL_FROM:'Rasio <no-reply@example.test>'},order);
+    assert.equal(calls,1);assert.ok(mail.text.includes(result.url));assert.equal(result.account.emailStatus,'sent');
+    const active=await db.prepare('SELECT COUNT(*) AS n FROM password_resets WHERE account_id = (SELECT id FROM client_accounts WHERE order_id = ?) AND used_at IS NULL').bind(order.id).first();
+    assert.equal(active.n,1);
+  }finally{globalThis.fetch=savedFetch;}
+});
 
 async function request(url, options = {}) {
   const method = options.method || 'GET';
@@ -71,7 +153,7 @@ async function login(code = adminCode) {
 const orderBody = () => ({
   service: 'profile', template: 'Architecture', duration: 24, consent: true,
   businessName: `Studio Test ${randomUUID().slice(0, 8)}`, customerName: 'Pemilik Test',
-  whatsapp: '+6281234567890', email: '', domain: `studio-${randomUUID().slice(0, 8)}.com`
+  whatsapp: '+6281234567890', email: 'owner@example.test', domain: `studio-${randomUUID().slice(0, 8)}.com`
 });
 
 async function createOrder(body = orderBody(), key = randomUUID(), status = 201) {
@@ -85,11 +167,23 @@ async function clientContent(order) {
   return jsonResponse(await request('/api/client/order', { session: order.session }), 200);
 }
 
-async function verify(order, admin) {
-  return jsonResponse(await request(`/api/admin/orders/${order.order.id}`, {
-    method: 'PATCH', session: admin,
-    json: { status: 'review', paymentStatus: 'verified', paymentReference: 'LOCAL-TEST-RECEIPT', domainStatus: 'confirmed' }
-  }), 200);
+async function passwordLogin(username,password=fixturePassword) {
+  const response=await request('/api/auth/login',{method:'POST',json:{username,password}});
+  const payload=await jsonResponse(response,200);
+  return {...payload,cookie:response.headers.get('set-cookie').split(';')[0]};
+}
+async function activation(order,admin) {
+  const info=await jsonResponse(await request(`/api/admin/orders/${order.order.id}/activation-link`,{session:admin}),200);
+  const token=new URLSearchParams(new URL(info.url).hash.slice(1)).get('reset');
+  const ready=await jsonResponse(await request('/api/auth/reset',{method:'POST',json:{token,password:fixturePassword,confirmPassword:fixturePassword}}),200);
+  order.session=await passwordLogin(ready.username);return ready;
+}
+async function verify(order,admin,activate=true) {
+  const result=await jsonResponse(await request(`/api/admin/orders/${order.order.id}`,{
+    method:'PATCH',session:admin,json:{status:'review',paymentStatus:'verified',paymentReference:'LOCAL-TEST-RECEIPT',domainStatus:'confirmed'}
+  }),200);
+  if(activate)await activation(order,admin);
+  return result;
 }
 
 test('database dan storage lokal tersedia tanpa gateway pembayaran palsu', async () => {
@@ -139,7 +233,8 @@ test('pesanan persisten, harga dihitung server dan retry tidak menciptakan pesan
   assert.equal(client.content, null, 'CMS belum tersedia sebelum pembayaran diperiksa.');
   const admin = await login();
   await verify(first, admin);
-  assert.equal((await clientContent(again)).content.draft.businessName, first.body.businessName);
+  assert.equal((await clientContent(first)).content.draft.businessName, first.body.businessName);
+  assert.equal((await request('/api/client/order',{session:again.session})).status,401,'Session checkout lama berakhir setelah password dibuat.');
 });
 
 test('dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan', async () => {
@@ -227,33 +322,31 @@ test('pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape', a
   assert.match(await (await request(published.url)).text(), /Draft belum diterbitkan/);
 });
 
-test('tautan CMS sekali pakai dan pencabutan memutus akses lama', async () => {
-  const admin = await login(), a = await createOrder();
-  await verify(a, admin);
-  const invite = await jsonResponse(await request(`/api/admin/orders/${a.order.id}/invite`, { method: 'POST', session: admin }), 200);
-  const url = new URL(invite.url);
-  assert.equal(url.search, '');
-  const code = new URLSearchParams(url.hash.slice(1)).get('akses');
-  const invited = await login(code);
-  assert.equal(invited.role, 'client');
-  assert.equal((await jsonResponse(await request('/api/session', { session: invited }), 200)).orderId, a.order.id);
-  assert.equal((await request('/api/access', { method: 'POST', json: { code } })).status, 401);
-  await jsonResponse(await request(`/api/admin/orders/${a.order.id}/revoke`, { method: 'POST', session: admin }), 200);
-  assert.equal((await request('/api/client/order', { session: invited })).status, 401);
-  assert.equal((await request('/api/client/order', { session: a.session })).status, 401);
-  assert.equal((await request('/api/session', { session: admin })).status, 200);
-  assert.equal((await request('/api/orders', { method: 'POST', json: a.body, headers: { 'Idempotency-Key': a.key } })).status, 401, 'Retry pesanan tidak boleh memulihkan akses yang telah dicabut.');
+test('password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru',async()=>{
+  const admin=await login(),a=await createOrder();await verify(a,admin);
+  const account=(await clientContent(a)).account;
+  const other=await passwordLogin(account.username);
+  await jsonResponse(await request('/api/logout',{method:'POST',session:other}),200);
+  assert.equal((await request('/api/session',{session:other})).status,401);
+  await passwordLogin(account.username);
+  await jsonResponse(await request(`/api/admin/orders/${a.order.id}/revoke`,{method:'POST',session:admin}),200);
+  assert.equal((await request('/api/client/order',{session:a.session})).status,401);
+  assert.equal((await request('/api/auth/login',{method:'POST',json:{username:account.username,password:fixturePassword}})).status,401);
+  await jsonResponse(await request(`/api/admin/orders/${a.order.id}/activation`,{method:'POST',session:admin}),200);
+  assert.equal((await request('/api/auth/login',{method:'POST',json:{username:account.username,password:fixturePassword}})).status,401,'Password lama tidak hidup lagi saat akses dipulihkan.');
+  await activation(a,admin);
+  assert.equal((await request('/api/client/order',{session:a.session})).status,200);
+  assert.equal((await request('/api/orders',{method:'POST',json:a.body,headers:{'Idempotency-Key':a.key}})).status,401);
 });
-
-test('sesi dan undangan yang kedaluwarsa tidak dapat digunakan', async () => {
-  const admin = await login(), a = await createOrder();
-  await verify(a, admin);
+test('sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai',async()=>{
+  const admin=await login(),a=await createOrder();await verify(a,admin);
   await db.prepare('UPDATE sessions SET expires_at = 0 WHERE token_hash = ?').bind(hash(a.session.cookie.split('=')[1])).run();
-  assert.equal((await request('/api/session', { session: a.session })).status, 401);
-  const invite = await jsonResponse(await request(`/api/admin/orders/${a.order.id}/invite`, { method: 'POST', session: admin }), 200);
-  const code = new URLSearchParams(new URL(invite.url).hash.slice(1)).get('akses');
-  await db.prepare('UPDATE invites SET expires_at = 0 WHERE token_hash = ?').bind(hash(code)).run();
-  assert.equal((await request('/api/access', { method: 'POST', json: { code } })).status, 401);
+  assert.equal((await request('/api/session',{session:a.session})).status,401);
+  const invite=await jsonResponse(await request(`/api/admin/orders/${a.order.id}/activation`,{method:'POST',session:admin}),200);
+  const token=new URLSearchParams(new URL(invite.url).hash.slice(1)).get('reset');
+  await db.prepare('UPDATE password_resets SET expires_at = 0 WHERE account_id = (SELECT id FROM client_accounts WHERE order_id = ?)').bind(a.order.id).run();
+  assert.equal((await request('/api/auth/reset-info',{method:'POST',json:{token}})).status,400);
+  assert.equal((await request('/api/auth/reset',{method:'POST',json:{token,password:fixturePassword,confirmPassword:fixturePassword}})).status,400);
 });
 
 test('D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal', async () => {

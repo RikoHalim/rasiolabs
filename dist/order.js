@@ -75,7 +75,7 @@
   if (service === 'profile') {
     document.querySelector('[data-order-domain-intro]').textContent = 'Pilih nama domain untuk website Anda. Tim Rasio memastikan ketersediaannya sebelum pembayaran.';
     form.querySelector('button').textContent = 'Lihat pilihan domain →';
-    document.querySelector('#customer-email').required = false;
+    document.querySelector('#customer-email').required = true;
   }
   document.querySelector('[data-custom-field]').hidden = service !== 'custom';
   document.querySelector('#project-brief').required = service === 'custom';
