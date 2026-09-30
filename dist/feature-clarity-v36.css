@@ -1,0 +1,136 @@
+/* Keep copy readable against all three portrait photos. */
+@media (min-width: 1051px) {
+  #fitur-layanan .feature-panel .feature-photo-copy {
+    width: min(63%, 360px);
+    max-width: none;
+    margin: 0 0 18px 18px;
+    padding: 19px 21px;
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .93);
+    box-shadow: 0 15px 35px rgba(23, 42, 84, .15);
+    backdrop-filter: blur(8px);
+  }
+
+  #fitur-layanan .feature-panel .feature-photo-copy h3 {
+    margin: 10px 0 8px;
+    color: #14233e;
+    font-size: clamp(22px, 1.95vw, 27px);
+    line-height: 1.17;
+  }
+
+  #fitur-layanan .feature-panel .feature-photo-copy p {
+    color: #34435e;
+    font-size: 11.5px;
+    line-height: 1.48;
+  }
+
+  #fitur-layanan .feature-panel .feature-photo-copy > span {
+    padding: 6px 9px;
+    border: 1px solid #d5e1ff;
+    background: #eaf0ff;
+    color: #2348ab;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-tile--search .feature-visual {
+    flex-basis: 43%;
+    width: 43%;
+  }
+
+  #fitur-layanan .feature-panel--profile .feature-tile--search .feature-tile-copy {
+    width: 57%;
+  }
+}
+
+#fitur-layanan .feature-visual--search {
+  background: linear-gradient(145deg, #e7efff, #dce7ff);
+}
+
+#fitur-layanan .serp-preview {
+  width: calc(100% - 22px);
+  max-width: 220px;
+  padding: 8px 10px 9px;
+  border: 1px solid #d6dfef;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 9px 22px rgba(20, 49, 109, .16);
+  transform: translateY(5px);
+}
+
+#fitur-layanan .serp-heading {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #203355;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+#fitur-layanan .serp-heading span { margin-right: auto; }
+#fitur-layanan .serp-heading i { width: 4px; height: 4px; border-radius: 50%; background: #a7b5d0; }
+#fitur-layanan .serp-heading i:nth-child(2) { background: #2353e1; }
+
+#fitur-layanan .serp-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  margin: 6px 0 5px;
+  padding: 5px 7px;
+  border: 1px solid #d6deed;
+  border-radius: 20px;
+  color: #32425f;
+  box-shadow: 0 2px 5px rgba(24, 49, 93, .04);
+}
+
+#fitur-layanan .serp-input svg { width: 11px; height: 11px; flex: none; color: #2353e1; }
+#fitur-layanan .serp-input span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 8px; }
+
+#fitur-layanan .serp-tabs {
+  display: flex;
+  gap: 9px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e4e9f3;
+  color: #8190aa;
+  font-size: 7px;
+}
+
+#fitur-layanan .serp-tabs b { color: #2353e1; }
+#fitur-layanan .serp-result { display: flex; flex-direction: column; gap: 2px; padding-top: 5px; }
+#fitur-layanan .serp-result small { color: #4c6a5c; font-size: 7px; }
+#fitur-layanan .serp-result strong { color: #2451cb; font-size: 9px; line-height: 1.2; }
+#fitur-layanan .serp-result span { color: #63718b; font-size: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@media (max-width: 1050px) {
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo {
+    background: #fff;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo::after {
+    display: none;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img {
+    height: 46%;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 13px 16px;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy h3 { color: #14233e; }
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy p { color: #45536d; }
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy > span { color: #2450b6; }
+}
+
+@media (max-width: 620px) {
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img { height: 43%; }
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy { padding: 12px 15px; }
+}
