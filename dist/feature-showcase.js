@@ -3,7 +3,6 @@
   const panels = [...document.querySelectorAll('[data-feature-panel]')];
   const detailLink = document.querySelector('[data-feature-link]');
   const count = document.querySelector('[data-feature-count]');
-  const section = document.querySelector('.feature-showcase');
   if (!tabs.length || !panels.length) return;
 
   const links = {
@@ -58,18 +57,4 @@
     selectTab(tabs[(index + 1) % tabs.length]);
   });
 
-  if (section && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let visible = false;
-    let paused = false;
-    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }, {threshold:.3}).observe(section);
-    section.addEventListener('pointerenter', () => { paused = true; });
-    section.addEventListener('pointerleave', () => { paused = false; });
-    section.addEventListener('focusin', () => { paused = true; });
-    section.addEventListener('focusout', () => { paused = false; });
-    window.setInterval(() => {
-      if (!visible || paused || document.hidden) return;
-      const activeIndex = tabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
-      selectTab(tabs[(activeIndex + 1) % tabs.length]);
-    }, 8500);
-  }
 })();

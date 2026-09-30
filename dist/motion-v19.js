@@ -1,7 +1,6 @@
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const setups = [
-    ['.testimonial-section', '.testimonial-grid', 'testimoni'],
     ['.blog-home', '.blog-grid', 'artikel'],
     ['.service-page .problem-section', '.problem-list', 'masalah dan solusi']
   ];
