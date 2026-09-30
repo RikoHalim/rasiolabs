@@ -28,10 +28,6 @@
   will-change: transform;
 }
 
-.testimonial-loop-viewport:hover .testimonial-loop-track,
-.testimonial-loop-viewport:focus-within .testimonial-loop-track {
-  animation-play-state: paused;
-}
 
 .testimonial-loop-group {
   gap: 18px;

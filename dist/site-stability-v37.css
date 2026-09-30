@@ -1,0 +1,11 @@
+/* Hero previews are decoration, never an interactive template picker. */
+.template-stack, .template-stack * { pointer-events: none !important; }
+.template-stack .stack-preview { cursor: default; }
+#top .hero-start-price { align-content: start; }
+.service-page .detail-included-grid > *, .service-visual-grid > * { min-width: 0; }
+.service-order-heading h2 { scroll-margin-top: 100px; }
+@media (max-width: 840px) {
+  body.order-page .order-aside { display: contents; }
+  body.order-page .order-summary { grid-column: 1; grid-row: 2; }
+  body.order-page .booking-help:not([hidden]) { grid-column: 1; grid-row: 4; margin-top: 0; }
+}

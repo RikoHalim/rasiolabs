@@ -167,7 +167,12 @@
     drawSteps(); sync();
     window.scrollTo({top:0,behavior:'smooth'});
   }
-  function resetReview() { consent.checked = false; checkoutNote.textContent = ''; customWhatsApp.hidden = true; }
+  function resetReview() {
+    consent.checked = false;
+    checkoutNote.textContent = '';
+    customWhatsApp.hidden = true;
+    if (current === 'review') { next.disabled = true; summaryContinue.disabled = true; }
+  }
   function searchError(value) {
     if (value.includes('.')) return RasioDomain.error(value);
     if (!/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(value)) return 'Masukkan nama bisnis tanpa spasi, misalnya namabisnis.';
@@ -202,7 +207,27 @@
   }
   form.addEventListener('submit', event => { event.preventDefault(); searchDomain(); });
   input.addEventListener('input', () => { domain = ''; results.hidden = true; errorNode.hidden = true; input.removeAttribute('aria-invalid'); resetReview(); sync(); });
-  businessForm.addEventListener('input', resetReview);
+  businessForm.addEventListener('input', event => {
+    event.target.setCustomValidity?.('');
+    event.target.removeAttribute('aria-invalid');
+    resetReview();
+  });
+  function validateBusiness() {
+    businessForm.querySelectorAll('input, textarea').forEach(field => {
+      field.value = field.value.trim();
+      field.setCustomValidity('');
+      if (field.required && !field.value) field.setCustomValidity('Lengkapi informasi ini.');
+    });
+    const phone = document.querySelector('#customer-whatsapp');
+    const digits = phone.value.replace(/\D/g, '');
+    if (phone.value && (!/^[+\d\s().-]+$/.test(phone.value) || digits.length < 8 || digits.length > 15)) {
+      phone.setCustomValidity('Masukkan nomor WhatsApp yang valid, termasuk kode negara.');
+    }
+    businessForm.querySelectorAll('input, textarea').forEach(field => {
+      field.setAttribute('aria-invalid', String(!field.validity.valid));
+    });
+    return businessForm.reportValidity();
+  }
   businessForm.addEventListener('submit', event => { event.preventDefault(); next.click(); });
   const options = document.querySelector('[data-template-options]');
   Object.entries(catalog).filter(([,item]) => item.type === service).forEach(([name,item]) => {
@@ -231,7 +256,7 @@
       results.querySelector('button')?.focus(); return;
     }
     if (current === 'template' && !template) { document.querySelector('[data-template-error]').hidden = false; options.querySelector('button')?.focus(); return; }
-    if (current === 'business' && !businessForm.reportValidity()) return;
+    if (current === 'business' && !validateBusiness()) return;
     if (current === 'review') {
       if (!consent.checked) return;
       if (service === 'custom') {

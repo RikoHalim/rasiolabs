@@ -109,6 +109,55 @@
     });
     measure.remove();
     slide.style.minHeight = Math.max(baseMinHeight, Math.ceil(tallest) + 8) + 'px';
+    reserveHeight(root.querySelector('.hero-benefits'), (clone, index) => {
+      clone.querySelectorAll('li').forEach((item, i) => { item.textContent = slides[index].benefits[i]; });
+    });
+    reserveHeight(root.querySelector('.hero-start-price'), (clone, index) => {
+      clone.querySelector('[data-hero-price-label]').textContent = index === 2 ? 'Harga' : 'Mulai dari';
+      fillPrice(clone.querySelector('[data-hero-price]'), index);
+      clone.querySelector('[data-hero-price-note]').textContent = slides[index].priceNote;
+    });
+    reserveHeight(root.querySelector('.hero-actions'), (clone, index) => {
+      clone.querySelector('[data-hero-primary]').textContent = actions[index].primary[0];
+      clone.querySelector('[data-hero-secondary]').textContent = actions[index].secondary[0];
+    });
+    reserveHeight(note?.parentElement, (clone, index) => {
+      clone.querySelector('[data-hero-note]').textContent = slides[index].note;
+    });
+  }
+
+  function fillPrice(element, index) {
+    element.replaceChildren(document.createTextNode(slides[index].price));
+    if (slides[index].suffix) {
+      const suffix = document.createElement('small');
+      suffix.textContent = slides[index].suffix;
+      element.append(suffix);
+    }
+  }
+
+  function reserveHeight(element, update) {
+    if (!element) return;
+    element.style.minHeight = '';
+    const width = element.getBoundingClientRect().width;
+    if (!width) return;
+    const baseHeight = parseFloat(getComputedStyle(element).minHeight) || 0;
+    const clone = element.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.setAttribute('aria-hidden', 'true');
+    clone.inert = true;
+    Object.assign(clone.style, {
+      position: 'fixed', left: '-9999px', top: '0', width: width + 'px',
+      height: 'auto', minHeight: '0', visibility: 'hidden', pointerEvents: 'none',
+      transform: 'none', transition: 'none',
+    });
+    element.parentElement.append(clone);
+    let tallest = baseHeight;
+    slides.forEach((_, index) => {
+      update(clone, index);
+      tallest = Math.max(tallest, clone.getBoundingClientRect().height);
+    });
+    clone.remove();
+    element.style.minHeight = Math.ceil(tallest) + 'px';
   }
 
   function setVisualFocus(visual, active) {
@@ -141,14 +190,7 @@
     if (note) note.textContent = slides[index].note;
     benefits.forEach((benefit, i) => { if (slides[index].benefits[i]) benefit.textContent = slides[index].benefits[i]; });
     if (priceLabel) priceLabel.textContent = index === 2 ? 'Harga' : 'Mulai dari';
-    if (price) {
-      price.replaceChildren(document.createTextNode(slides[index].price));
-      if (slides[index].suffix) {
-        const suffix = document.createElement('small');
-        suffix.textContent = slides[index].suffix;
-        price.append(suffix);
-      }
-    }
+    if (price) fillPrice(price, index);
     if (priceNote) priceNote.textContent = slides[index].priceNote;
     [[primary, actions[index].primary], [secondary, actions[index].secondary]].forEach(([link, action]) => {
       if (!link) return;
