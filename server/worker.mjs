@@ -1,0 +1,134 @@
+import {pricing,validateOrder,validateContent,defaults,fields,statuses,statusLabels,imageMime} from './model.mjs';
+const HOUR=3600000, DAY=24*HOUR;
+class ApiError extends Error { constructor(status,message){super(message);this.status=status;} }
+const random=()=>{const a=crypto.getRandomValues(new Uint8Array(32));return btoa(String.fromCharCode(...a)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');};
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(v=>v.toString(16).padStart(2,'0')).join('');
+const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
+const json=(data,status=200,headers={})=>Response.json(data,{status,headers:{'Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff',...headers}});
+function origin(request,env){if(!env.PUBLIC_ORIGIN||request.headers.get('Origin')!==env.PUBLIC_ORIGIN||request.headers.get('Sec-Fetch-Site')==='cross-site')throw new ApiError(403,'Verifikasi keamanan gagal. Muat ulang halaman.');}
+async function body(request){if(!request.headers.get('Content-Type')?.startsWith('application/json'))throw new ApiError(415,'Format permintaan tidak valid.');const text=await request.text();if(text.length>32000)throw new ApiError(413,'Data terlalu besar.');try{return JSON.parse(text);}catch{throw new ApiError(400,'Data tidak valid.');}}
+function cookie(env,token,ttl){const secure=env.PUBLIC_ORIGIN?.startsWith('https:');return `${secure?'__Host-rasio_session':'rasio_local_session'}=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${ttl}${secure?'; Secure':''}`;}
+async function auth(request,env,role){
+  const name=env.PUBLIC_ORIGIN?.startsWith('https:')?'__Host-rasio_session':'rasio_local_session';
+  const raw=request.headers.get('Cookie')?.split(';').map(s=>s.trim()).find(s=>s.startsWith(name+'='))?.slice(name.length+1);
+  if(!raw||!/^[\w-]{43}$/.test(raw))throw new ApiError(401,'Masuk untuk melanjutkan.');
+  const session=await q(env,'SELECT * FROM sessions WHERE token_hash = ? AND expires_at > ?',await sha(raw),Date.now()).first();
+  if(!session||(session.role==='admin'&&session.generation!==env.ADMIN_ACCESS_HASH))throw new ApiError(401,'Akses berakhir. Silakan masuk kembali.');
+  if(role&&session.role!==role)throw new ApiError(403,'Akses tidak diizinkan.');
+  if(request.method!=='GET'&&request.method!=='HEAD'&&request.headers.get('X-CSRF-Token')!==session.csrf)throw new ApiError(403,'Verifikasi keamanan gagal. Muat ulang halaman.');
+  return session;
+}
+async function sessionData(env,role,orderId=null){const token=random(),csrf=random(),ttl=role==='admin'?8*3600:7*86400;return {token,csrf,ttl,hash:await sha(token),sql:q(env,'INSERT INTO sessions (token_hash,role,order_id,csrf,generation,expires_at,created_at) VALUES (?,?,?,?,?,?,?)',await sha(token),role,orderId,csrf,role==='admin'?env.ADMIN_ACCESS_HASH:'',Date.now()+ttl*1000,Date.now())};}
+async function retryOrder(request,env,o,payloadHash){
+  if(o.payload_hash!==payloadHash)throw new ApiError(409,'Pilihan pesanan berubah. Muat ulang untuk membuat pesanan baru.');
+  await limit(request,env,'order-retry',12);const s=await sessionData(env,'client',o.id);
+  const result=await q(env,"INSERT INTO sessions (token_hash,role,order_id,csrf,generation,expires_at,created_at) SELECT ?,?,?,?,?,?,? WHERE EXISTS (SELECT 1 FROM orders WHERE id = ? AND status <> 'cancelled') AND NOT EXISTS (SELECT 1 FROM audit WHERE order_id = ? AND action = 'access_revoked')",s.hash,'client',o.id,s.csrf,'',Date.now()+s.ttl*1000,Date.now(),o.id,o.id).run();
+  if(!result.meta.changes)throw new ApiError(401,'Akses pesanan sudah dicabut. Hubungi tim Rasio untuk tautan baru.');
+  return json({order:publicOrder(o),csrf:s.csrf},200,{'Set-Cookie':cookie(env,s.token,s.ttl)});
+}
+async function limit(request,env,action,max,window=HOUR){
+  const now=Date.now(), key=await sha(`${env.ADMIN_ACCESS_HASH}:${action}:${request.headers.get('CF-Connecting-IP')||'local'}:${Math.floor(now/window)}`);
+  const row=await q(env,'INSERT INTO rate_limits (key,count,expires_at) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count = count + 1 RETURNING count',key,now+window).first();
+  if(row.count>max)throw new ApiError(429,'Terlalu banyak percobaan. Coba lagi nanti.');
+}
+function log(env,id,actor,action,detail){return q(env,'INSERT INTO audit (id,order_id,actor,action,detail,created_at) VALUES (?,?,?,?,?,?)',crypto.randomUUID(),id,actor,action,detail,Date.now());}
+async function order(env,id){const row=await q(env,'SELECT * FROM orders WHERE id = ?',id).first();if(!row)throw new ApiError(404,'Pesanan tidak ditemukan.');return row;}
+function publicOrder(o){return {id:o.id,reference:o.reference,businessName:o.business_name,customerName:o.customer_name,whatsapp:o.whatsapp,email:o.email,domain:o.domain,domainStatus:o.domain_status,duration:o.duration,total:o.total,monthly:o.monthly,renewalMonthly:o.renewal_monthly,status:o.status,statusLabel:statusLabels[o.status],paymentStatus:o.payment_status,slug:o.slug,createdAt:o.created_at,updatedAt:o.updated_at};}
+async function getContent(env,id){const c=await q(env,'SELECT * FROM contents WHERE order_id = ?',id).first();return {draft:JSON.parse(c.draft),revision:c.revision,publishedRevision:c.published_revision,updatedAt:c.updated_at};}
+async function validateMedia(env,id,content){for(const f of fields.flatMap(g=>g.items).filter(f=>f.type==='image')){const path=content[f.key];if(path.startsWith('/media/')){const item=await q(env,'SELECT id FROM media WHERE id = ? AND order_id = ?',path.slice(7),id).first();if(!item)throw new ApiError(400,'Foto tidak ditemukan atau bukan milik website ini.');}}}
+async function editable(env,s,id){const o=await order(env,id);if(s.role==='client'&&(o.payment_status!=='verified'||o.status==='cancelled'))throw new ApiError(403,'Akses CMS dibuka setelah pembayaran diverifikasi.');return o;}
+async function saveContent(request,env,s,id){await editable(env,s,id);const b=await body(request);if(!Number.isInteger(b.revision)||b.revision<1)throw new ApiError(400,'Versi konten tidak valid.');let content;try{content=validateContent(b.content);}catch(e){throw new ApiError(400,e.message);}await validateMedia(env,id,content);
+  const result=await q(env,'UPDATE contents SET draft = ?, revision = revision + 1, updated_at = ? WHERE order_id = ? AND revision = ?',JSON.stringify(content),Date.now(),id,b.revision).run();
+  if(!result.meta.changes)throw new ApiError(409,'Konten berubah di sesi lain. Salin perubahan Anda, lalu muat versi terbaru.');
+  await log(env,id,s.role,'content_saved',`Revisi ${b.revision+1}`).run();return json({content,revision:b.revision+1});
+}
+async function publish(request,env,s,id){const o=await order(env,id);const b=await body(request);if(o.payment_status!=='verified'||o.status==='cancelled')throw new ApiError(409,'Pembayaran perlu diverifikasi sebelum website diterbitkan.');if(o.domain_status!=='confirmed')throw new ApiError(409,'Konfirmasikan pengaturan domain sebelum menerbitkan website.');if(s.role==='client'&&o.status!=='active')throw new ApiError(409,'Tim Rasio akan menerbitkan website setelah setup selesai.');
+  const c=await getContent(env,id);if(b.revision!==c.revision)throw new ApiError(409,'Simpan dan periksa versi konten terbaru dahulu.');
+  const eligible="EXISTS (SELECT 1 FROM orders WHERE id = contents.order_id AND payment_status = 'verified' AND domain_status = 'confirmed' AND status <> 'cancelled' AND (? = 'admin' OR status = 'active'))";
+  const published=`EXISTS (SELECT 1 FROM contents WHERE order_id = ? AND revision = ? AND published_revision = ? AND ${eligible})`;
+  const statements=[q(env,`UPDATE contents SET published = draft, published_revision = revision WHERE order_id = ? AND revision = ? AND ${eligible}`,id,b.revision,s.role),q(env,`UPDATE media SET is_public = CASE WHEN EXISTS (SELECT 1 FROM contents WHERE order_id = ? AND instr(published,'/media/' || media.id) > 0) THEN 1 ELSE 0 END WHERE order_id = ? AND ${published}`,id,id,id,b.revision,b.revision,s.role),q(env,`INSERT INTO audit (id,order_id,actor,action,detail,created_at) SELECT ?,?,?,?,?,? WHERE ${published}`,crypto.randomUUID(),id,s.role,'published',`Revisi ${b.revision}`,Date.now(),id,b.revision,b.revision,s.role)];
+  if(s.role==='admin')statements.push(q(env,`UPDATE orders SET status = 'active', updated_at = ? WHERE id = ? AND ${published}`,Date.now(),id,id,b.revision,b.revision,s.role));
+  const r=await env.DB.batch(statements);if(!r[0].meta.changes)throw new ApiError(409,'Konten berubah. Muat versi terbaru.');return json({url:`/website/${o.slug}`,publishedRevision:b.revision});
+}
+async function upload(request,env,s,id){await editable(env,s,id);if(!env.BUCKET)throw new ApiError(503,'Unggahan belum tersedia.');const mime=request.headers.get('Content-Type');if(!['image/jpeg','image/png','image/webp'].includes(mime))throw new ApiError(415,'Gunakan foto JPG, PNG, atau WebP.');
+  const size=Number(request.headers.get('Content-Length'));if(size>4*1024*1024)throw new ApiError(413,'Ukuran foto maksimal 4 MB.');
+  const reader=request.body?.getReader();if(!reader)throw new ApiError(400,'Pilih foto untuk diunggah.');let length=0,chunks=[];for(;;){const {done,value}=await reader.read();if(done)break;length+=value.length;if(length>4*1024*1024){await reader.cancel();throw new ApiError(413,'Ukuran foto maksimal 4 MB.');}chunks.push(value);}if(length<16)throw new ApiError(400,'File gambar tidak valid.');
+  const bytes=new Uint8Array(length);let offset=0;for(const c of chunks){bytes.set(c,offset);offset+=c.length;}if(imageMime(bytes)!==mime)throw new ApiError(415,'Isi file tidak sesuai format gambar.');
+  const usage=await q(env,'SELECT COUNT(*) AS count, COALESCE(SUM(size),0) AS total FROM media WHERE order_id = ?',id).first();if(usage.count>=40||usage.total+length>50*1024*1024)throw new ApiError(409,'Penyimpanan gambar penuh. Hubungi tim Rasio.');
+  const mediaId=crypto.randomUUID(),key=`orders/${id}/${mediaId}`;await env.BUCKET.put(key,bytes,{httpMetadata:{contentType:mime}});
+  try{await q(env,'INSERT INTO media (id,order_id,key,mime,size,is_public,created_at) VALUES (?,?,?,?,?,0,?)',mediaId,id,key,mime,length,Date.now()).run();}catch(e){await env.BUCKET.delete(key);throw e;}
+  return json({url:`/media/${mediaId}`},201);
+}
+async function mediaResponse(request,env,id){const m=await q(env,'SELECT media.*, orders.status, orders.payment_status FROM media JOIN orders ON orders.id = media.order_id WHERE media.id = ?',id).first();if(!m)throw new ApiError(404,'Gambar tidak ditemukan.');
+  let isPublic=m.is_public===1&&m.status==='active'&&m.payment_status==='verified';if(!isPublic){const s=await auth(request,env);if(s.role!=='admin'&&s.order_id!==m.order_id)throw new ApiError(404,'Gambar tidak ditemukan.');}
+  const obj=await env.BUCKET.get(m.key);if(!obj)throw new ApiError(404,'Gambar tidak ditemukan.');return new Response(obj.body,{headers:{'Content-Type':m.mime,'X-Content-Type-Options':'nosniff','Cache-Control':isPublic?'public, max-age=3600':'private, no-store'}});
+}
+async function renderSite(request,env,slug,preview){const o=await q(env,'SELECT orders.*,contents.draft,contents.published FROM orders JOIN contents ON orders.id = contents.order_id WHERE slug = ?',slug).first();if(!o)throw new ApiError(404,'Website tidak ditemukan.');
+  if(preview){const s=await auth(request,env);if(s.role!=='admin'&&s.order_id!==o.id)throw new ApiError(404,'Website tidak ditemukan.');await editable(env,s,o.id);}else if(o.status!=='active'||o.payment_status!=='verified'||!o.published)throw new ApiError(404,'Website belum terbit.');
+  const data=JSON.parse(preview?o.draft:o.published);
+  const assetUrl=new URL('/template-architecture.html',request.url);const source=await env.ASSETS.fetch(new Request(assetUrl));
+  const selectors={businessName:'.footer-top > p',tagline:'.hero-top .overline',heroTitle:'#hero-title',heroDescription:'.hero-aside > p',heroNote:'.hero-photo-note > span:first-child',aboutTitle:'#studio-title',aboutLead:'.intro-copy > p:first-child',aboutBody:'.intro-copy > p:nth-child(2)',workTitle:'#work-title',workDescription:'.work-section .section-title > p',work1Title:'.work-card:first-child .work-caption h3',work1Category:'.work-card:first-child .work-caption p',work2Title:'.work-card:nth-child(2) .work-caption h3',work2Category:'.work-card:nth-child(2) .work-caption p',servicesTitle:'#services-title',servicesDescription:'.services-heading > p:nth-child(3)',processTitle:'#process-title',processDescription:'.process-section .section-title > p',contactTitle:'#contact-title'};
+  let html=new HTMLRewriter().on('.demo-bar',{element:e=>e.remove()}).on('title',{element:e=>e.setInnerContent(data.businessName)}).on('meta[name="description"]',{element:e=>e.setAttribute('content',data.heroDescription)}).on('.footer-top > a[href^="/order"]',{element:e=>e.remove()});
+  for(const [key,selector]of Object.entries(selectors))html=html.on(selector,{element:e=>{e.setInnerContent(data[key]);if(key.endsWith('Title'))e.setAttribute('style','white-space:pre-line');}});
+  for(let n=1;n<=3;n++)for(const [key,selector]of [[`service${n}Title`,`.service-accordion details:nth-child(${n}) h3`],[`service${n}Description`,`.service-accordion details:nth-child(${n}) > div > p`],[`service${n}Detail`,`.service-accordion details:nth-child(${n}) > div > span`],[`process${n}Title`,`.process-grid li:nth-child(${n}) h3`],[`process${n}Description`,`.process-grid li:nth-child(${n}) p`]])html=html.on(selector,{element:e=>e.setInnerContent(data[key])});
+  const images={'.studio-logo img':'logo','.footer-top > a img':'logo','.hero-photo img':'heroImage','.work-card:first-child img':'work1Image','.work-card:nth-child(2) img':'work2Image'};
+  for(const [selector,key]of Object.entries(images))html=html.on(selector,{element:e=>{e.setAttribute('src',data[key]);e.setAttribute('alt',key==='logo'?data.businessName:data[key==='heroImage'?'heroTitle':key==='work1Image'?'work1Title':'work2Title']);}});
+  for(const [n,project]of [[1,'living'],[2,'detail']])html=html.on(`[data-project="${project}"]`,{element:e=>{e.setAttribute('data-title',data[`work${n}Title`]);e.setAttribute('data-description',data[`work${n}Description`]);e.setAttribute('data-image',data[`work${n}Image`]);e.setAttribute('aria-label',data[`work${n}Title`]);}});
+  const number=data.whatsapp.replace(/\D/g,'');
+  html=html.on('.contact-button',{element:e=>{e.setInnerContent(data.contactLabel||'Hubungi kami');e.setAttribute('href',number?`https://wa.me/${number}`:data.email?`mailto:${data.email}`:'#contact');}}).on('.footer-whatsapp',{element:e=>{if(!number&&!data.email)e.remove();else{e.setInnerContent(number?data.whatsapp:data.email);e.setAttribute('href',number?`https://wa.me/${number}`:`mailto:${data.email}`);}}}).on('.footer-bottom > span',{element:e=>e.setInnerContent(`© ${new Date().getUTCFullYear()} ${data.businessName}`)}).on('head',{element:e=>e.append('<style>.studio-header{top:0}.studio-hero{padding-top:0}</style>',{html:true})});
+  const rendered=html.transform(source);const headers=new Headers(rendered.headers);headers.set('Cache-Control','private, no-store');if(preview)headers.set('X-Robots-Tag','noindex, nofollow');return new Response(rendered.body,{headers});
+}
+async function api(request,env,url){
+  const path=url.pathname;
+  if(!env.DB)throw new ApiError(503,'Layanan sedang disiapkan. Coba lagi nanti.');
+  if(!['GET','HEAD'].includes(request.method))origin(request,env);
+  if(path==='/api/health'&&request.method==='GET'){await q(env,'SELECT 1 FROM orders LIMIT 1').first();return json({ok:true,database:true,storage:Boolean(env.BUCKET),paymentGateway:false});}
+  if(path==='/api/access'&&request.method==='POST'){
+    await limit(request,env,'access',12,15*60000);const b=await body(request);if(typeof b.code!=='string'||!/^[\w-]{43}$/.test(b.code))throw new ApiError(401,'Kode akses tidak valid.');const hash=await sha(b.code);
+    if(hash===env.ADMIN_ACCESS_HASH){const s=await sessionData(env,'admin');await s.sql.run();return json({role:'admin',csrf:s.csrf},200,{'Set-Cookie':cookie(env,s.token,s.ttl)});}
+    const invite=await q(env,'SELECT order_id FROM invites WHERE token_hash = ? AND used_at IS NULL AND expires_at > ?',hash,Date.now()).first();if(!invite)throw new ApiError(401,'Kode akses tidak valid atau telah digunakan. Minta tautan baru dari tim Rasio.');
+    const s=await sessionData(env,'client',invite.order_id);const r=await env.DB.batch([q(env,'INSERT INTO sessions (token_hash,role,order_id,csrf,generation,expires_at,created_at) SELECT ?,?,?,?,?,?,? FROM invites WHERE token_hash = ? AND used_at IS NULL AND expires_at > ?',s.hash,'client',invite.order_id,s.csrf,'',Date.now()+s.ttl*1000,Date.now(),hash,Date.now()),q(env,'UPDATE invites SET used_at = ? WHERE token_hash = ? AND used_at IS NULL',Date.now(),hash)]);if(!r[0].meta.changes)throw new ApiError(401,'Tautan sudah digunakan. Minta tautan baru.');return json({role:'client',csrf:s.csrf},200,{'Set-Cookie':cookie(env,s.token,s.ttl)});
+  }
+  if(path==='/api/session'&&request.method==='GET'){const s=await auth(request,env);return json({role:s.role,csrf:s.csrf,orderId:s.order_id});}
+  if(path==='/api/logout'&&request.method==='POST'){const s=await auth(request,env);await q(env,'DELETE FROM sessions WHERE token_hash = ?',s.token_hash).run();return json({ok:true},200,{'Set-Cookie':cookie(env,'',0)});}
+  if(path==='/api/orders'&&request.method==='POST'){
+    const key=request.headers.get('Idempotency-Key');if(!key||!/^[\w-]{36,64}$/.test(key))throw new ApiError(400,'Permintaan pesanan tidak valid.');const b=await body(request);let data;try{data=validateOrder(b);}catch(e){throw new ApiError(400,e.message);}const idHash=await sha(key),payloadHash=await sha(JSON.stringify(data));
+    const existing=await q(env,'SELECT * FROM orders WHERE idempotency_hash = ?',idHash).first();if(existing)return retryOrder(request,env,existing,payloadHash);
+    await limit(request,env,'orders',5);const id=crypto.randomUUID(),ref=`RAS-${new Date().getUTCFullYear()}-${id.slice(0,8).toUpperCase()}`,slug=`${data.domain.split('.')[0]}-${id.slice(0,8)}`,now=Date.now();const cost=pricing(data.duration),s=await sessionData(env,'client',id);const content={...defaults,businessName:data.businessName,whatsapp:data.whatsapp,email:data.email};
+    try{await env.DB.batch([q(env,'INSERT INTO orders (id,reference,idempotency_hash,payload_hash,business_name,customer_name,whatsapp,email,domain,template,duration,monthly,total,renewal_monthly,slug,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',id,ref,idHash,payloadHash,data.businessName,data.customerName,data.whatsapp,data.email,data.domain,data.template,data.duration,cost.monthly,cost.total,cost.renewalMonthly,slug,now,now),q(env,'INSERT INTO contents (order_id,draft,revision,updated_at) VALUES (?,?,1,?)',id,JSON.stringify(content),now),s.sql,log(env,id,'client','order_created',`${data.duration} bulan; Rp${cost.total}`)]);}catch(e){
+      const duplicate=await q(env,'SELECT * FROM orders WHERE idempotency_hash = ?',idHash).first();if(!duplicate)throw e;return retryOrder(request,env,duplicate,payloadHash);
+    }
+    return json({order:publicOrder(await order(env,id)),csrf:s.csrf},201,{'Set-Cookie':cookie(env,s.token,s.ttl)});
+  }
+  if(path.startsWith('/api/client/')){const s=await auth(request,env,'client'),id=s.order_id;
+    if(path==='/api/client/order'&&request.method==='GET'){const o=await order(env,id),open=o.payment_status==='verified'&&o.status!=='cancelled';return json({order:publicOrder(o),content:open?await getContent(env,id):null,fields:open?fields:[]});}
+    if(path==='/api/client/content'&&request.method==='PUT')return saveContent(request,env,s,id);
+    if(path==='/api/client/publish'&&request.method==='POST')return publish(request,env,s,id);
+    if(path==='/api/client/media'&&request.method==='POST')return upload(request,env,s,id);
+  }
+  if(path.startsWith('/api/admin/')){const s=await auth(request,env,'admin');
+    if(path==='/api/admin/orders'&&request.method==='GET'){
+      const filter=url.searchParams.get('status')||'',term=(url.searchParams.get('q')||'').slice(0,100),offset=Math.min(Math.max(Number(url.searchParams.get('offset'))||0,0),10000);if(filter&&!statuses.includes(filter))throw new ApiError(400,'Status tidak valid.');
+      const rows=await q(env,"SELECT * FROM orders WHERE (? = '' OR status = ?) AND (? = '' OR business_name LIKE ? OR reference LIKE ?) ORDER BY created_at DESC LIMIT 50 OFFSET ?",filter,filter,term,`%${term}%`,`%${term}%`,offset).all();
+      const stats=await q(env,"SELECT COUNT(*) AS total, SUM(CASE WHEN status = 'new' THEN 1 ELSE 0 END) AS new, SUM(CASE WHEN status = 'active' THEN 1 ELSE 0 END) AS active, SUM(CASE WHEN payment_status = 'pending' AND status <> 'cancelled' THEN 1 ELSE 0 END) AS pending FROM orders").first();return json({orders:rows.results.map(publicOrder),stats,hasMore:rows.results.length===50});
+    }
+    const match=path.match(/^\/api\/admin\/orders\/([0-9a-f-]{36})(?:\/(content|publish|media|invite|revoke))?$/);if(match){const id=match[1],action=match[2],o=await order(env,id);
+      if(!action&&request.method==='GET'){const logs=await q(env,'SELECT actor,action,detail,created_at FROM audit WHERE order_id = ? ORDER BY created_at DESC LIMIT 30',id).all();return json({order:{...publicOrder(o),notes:o.notes,paymentReference:o.payment_reference},content:await getContent(env,id),fields,audit:logs.results});}
+      if(!action&&request.method==='PATCH'){const b=await body(request);const status=b.status??o.status;if(!statuses.includes(status)||(status==='active'&&o.status!=='active'))throw new ApiError(400,'Gunakan tombol Terbitkan untuk mengaktifkan website.');const pay=b.paymentStatus??o.payment_status;if(!['pending','verified'].includes(pay))throw new ApiError(400,'Status pembayaran tidak valid.');const reference=String(b.paymentReference??o.payment_reference).trim().slice(0,200);if(pay==='verified'&&reference.length<4)throw new ApiError(400,'Isi referensi pembayaran yang sudah diperiksa.');const notes=String(b.notes??o.notes).slice(0,3000);const domainStatus=b.domainStatus??o.domain_status;if(!['pending','confirmed'].includes(domainStatus))throw new ApiError(400,'Status domain tidak valid.');await env.DB.batch([q(env,'UPDATE orders SET status = ?, payment_status = ?, payment_reference = ?, notes = ?, domain_status = ?, updated_at = ? WHERE id = ?',status,pay,reference,notes,domainStatus,Date.now(),id),log(env,id,'admin','order_updated',`${o.status} → ${status}; pembayaran ${pay}; domain ${domainStatus}`)]);return json({order:publicOrder(await order(env,id))});}
+      if(action==='content'&&request.method==='PUT')return saveContent(request,env,s,id);
+      if(action==='publish'&&request.method==='POST')return publish(request,env,s,id);
+      if(action==='media'&&request.method==='POST')return upload(request,env,s,id);
+      if(action==='invite'&&request.method==='POST'){if(o.payment_status!=='verified'||o.status==='cancelled')throw new ApiError(409,'Verifikasi pembayaran sebelum memberi akses CMS.');const token=random();await env.DB.batch([q(env,'DELETE FROM invites WHERE order_id = ?',id),q(env,'INSERT INTO invites (token_hash,order_id,expires_at,created_at) VALUES (?,?,?,?)',await sha(token),id,Date.now()+7*DAY,Date.now()),log(env,id,'admin','invite_created','Tautan akses CMS baru')]);return json({url:`${env.PUBLIC_ORIGIN}/cms#akses=${token}`,expiresAt:Date.now()+7*DAY});}
+      if(action==='revoke'&&request.method==='POST'){await env.DB.batch([q(env,'DELETE FROM sessions WHERE order_id = ?',id),q(env,'DELETE FROM invites WHERE order_id = ?',id),log(env,id,'admin','access_revoked','Akses klien dicabut')]);return json({ok:true});}
+    }
+  }
+  throw new ApiError(404,'Halaman tidak ditemukan.');
+}
+export default {async fetch(request,env,ctx){const url=new URL(request.url);try{
+  if(url.pathname.startsWith('/api/'))return await api(request,env,url);
+  if(url.pathname.startsWith('/media/'))return await mediaResponse(request,env,url.pathname.slice(7));
+  const site=url.pathname.match(/^\/(website|preview)\/([a-z0-9-]+)$/);if(site)return await renderSite(request,env,site[2],site[1]==='preview');
+  if(!['GET','HEAD'].includes(request.method))return json({error:'Metode tidak diizinkan.'},405);
+  let pathname=url.pathname;if(['/admin','/cms'].includes(pathname))pathname+='.html';else if(pathname==='/'||pathname==='')pathname='/index.html';else if(!pathname.split('/').at(-1).includes('.'))pathname+='.html';
+  const target=new URL(pathname,url.origin);target.search=url.search;const response=await env.ASSETS.fetch(new Request(target,{method:request.method,headers:request.headers}));const h=new Headers(response.headers);h.set('X-Content-Type-Options','nosniff');h.set('Referrer-Policy','strict-origin-when-cross-origin');if(['/admin.html','/cms.html'].includes(pathname)){h.set('Cache-Control','private, no-store');h.set('X-Robots-Tag','noindex, nofollow');h.set('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self'; frame-src 'self'; frame-ancestors 'self'; base-uri 'none'; form-action 'self'");}return new Response(response.body,{status:response.status,headers:h});
+ }catch(e){if(!(e instanceof ApiError))console.error('Rasio request failed:',e.name,e.message?.slice(0,160));return json({error:e instanceof ApiError?e.message:'Layanan sedang bermasalah. Data Anda belum diubah. Coba lagi.'},e instanceof ApiError?e.status:503);}}};

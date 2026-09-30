@@ -10,7 +10,14 @@ const projectContent = {
 };
 const dialog=document.querySelector('.project-dialog');
 document.querySelectorAll('[data-project]').forEach(button=>button.addEventListener('click',()=>{
-  const project=projectContent[button.dataset.project];
+  const original=projectContent[button.dataset.project];
+  const project=button.dataset.title ? {
+    title:button.dataset.title,
+    image:button.dataset.image || original.image,
+    alt:button.dataset.title,
+    description:button.dataset.description || '',
+  } : original;
+  if (!project) return;
   document.querySelector('#project-title').textContent=project.title;
   const image=dialog.querySelector('[data-project-image]'); image.src=project.image; image.alt=project.alt;
   dialog.querySelector('[data-project-description]').textContent=project.description;

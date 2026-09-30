@@ -49,6 +49,9 @@
   const businessForm = document.querySelector('[data-business-form]');
   const consent = document.querySelector('[data-review-consent]');
   const checkoutNote = document.querySelector('[data-checkout-note]');
+  let submitting = false;
+  let requestIdentity = null;
+  const requestStorageKey = 'rasio-profile-order-request';
   const customWhatsApp = document.querySelector('[data-custom-whatsapp]');
   const couponToggle = document.querySelector('[data-coupon-toggle]');
   const couponForm = document.querySelector('[data-coupon-form]');
@@ -68,7 +71,12 @@
   document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Kami membantu unggah 50 produk pertama; selanjutnya Anda dapat mengunggah produk tanpa batas melalui dashboard.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
   document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Tim Rasio menyiapkan desain dan menangani maintenance. Anda dapat memperbarui teks, gambar, dan logo melalui CMS sederhana tanpa mengubah tata letak template.' : service === 'store' ? 'Tim Rasio menyiapkan desain, mengunggah 50 produk pertama, dan menangani maintenance. Anda dapat menambah produk tanpa batas serta mengelola stok dan pesanan melalui dashboard toko.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Domain masuk dalam cakupan penawaran sesuai kebutuhan proyek.';
   document.querySelector('[data-review-management]').textContent = management;
-  document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum checkout. Pembayaran dan harga masih berupa simulasi pada prototipe ini.';
+  document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum membuat pesanan. Pembayaran dikonfirmasi oleh tim Rasio.';
+  if (service === 'profile') {
+    document.querySelector('[data-order-domain-intro]').textContent = 'Pilih nama domain untuk website Anda. Tim Rasio memastikan ketersediaannya sebelum pembayaran.';
+    form.querySelector('button').textContent = 'Lihat pilihan domain →';
+    document.querySelector('#customer-email').required = false;
+  }
   document.querySelector('[data-custom-field]').hidden = service !== 'custom';
   document.querySelector('#project-brief').required = service === 'custom';
   document.querySelector('[data-template-summary]').hidden = service === 'custom';
@@ -82,6 +90,7 @@
   aiAddon.addEventListener('change', () => { resetReview(); sync(); });
   durationSelect.addEventListener('change', () => { resetReview(); sync(); });
   if (service === 'custom') {
+    document.querySelector('.summary-disclaimer').hidden = true;
     document.querySelector('[data-order-timing]').textContent = 'Jadwal pengerjaan website, ERP, dan software custom disepakati setelah konsultasi.';
     document.querySelector('[data-review-price]').textContent = 'Penawaran setelah konsultasi';
     document.querySelector('[data-consent-copy]').textContent = 'Saya telah memeriksa data bisnis dan domain untuk konsultasi.';
@@ -158,9 +167,9 @@
       panel.classList.toggle('is-active', !panel.hidden);
     });
     previous.disabled = index === 0;
-    next.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Tinjau simulasi →' : 'Selanjutnya →';
+    next.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Buat pesanan →' : 'Selanjutnya →';
     next.disabled = step === 'review' && !consent.checked;
-    summaryContinue.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Tinjau simulasi →' : 'Lanjutkan langkah →';
+    summaryContinue.textContent = step === 'review' ? service === 'custom' ? 'Siapkan konsultasi →' : 'Buat pesanan →' : 'Lanjutkan langkah →';
     summaryContinue.disabled = next.disabled;
     document.querySelector('[data-step-label]').textContent = `Langkah ${String(index+1).padStart(2,'0')} / ${String(steps.length).padStart(2,'0')}`;
     document.querySelector('[data-progress-bar]').style.width = `${(index+1)/steps.length*100}%`;
@@ -174,7 +183,12 @@
     if (current === 'review') { next.disabled = true; summaryContinue.disabled = true; }
   }
   function searchError(value) {
-    if (value.includes('.')) return RasioDomain.error(value);
+    if (value.includes('.')) {
+      const error = RasioDomain.error(value);
+      if (error) return error;
+      if (service === 'profile' && !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.(com|id|co\.id)$/.test(value)) return 'Pilih ekstensi .com, .id, atau .co.id untuk Rasio Profile.';
+      return '';
+    }
     if (!/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(value)) return 'Masukkan nama bisnis tanpa spasi, misalnya namabisnis.';
     return '';
   }
@@ -193,10 +207,10 @@
     results.hidden = false;
     const domainNote = service === 'custom'
       ? 'Pilihan domain ini untuk konsultasi awal. Ketersediaan dan biayanya ditentukan dalam penawaran proyek.'
-      : 'Domain yang tersedia dalam paket dan 1 email bisnis termasuk selama langganan aktif. Nama dan ketersediaan di sini masih berupa simulasi.';
+      : 'Pilih domain yang Anda inginkan. Ketersediaannya akan dikonfirmasi oleh tim Rasio.';
     const domainStatus = service === 'custom'
       ? '<small>Untuk konsultasi</small><strong>Sesuai penawaran</strong>'
-      : '<small>Selama langganan</small><strong>Termasuk</strong>';
+      : '<small>Termasuk dalam paket</small><strong>Menunggu konfirmasi</strong>';
     results.innerHTML = `<p class="domain-results-note">${domainNote}</p>` + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span>${domainStatus}</span><i aria-hidden="true">Pilih →</i></button>`).join('');
     results.querySelectorAll('[data-domain-choice]').forEach(button => button.addEventListener('click', () => {
       domain = button.dataset.domainChoice;
@@ -249,7 +263,61 @@
     if (!steps.includes('template')) steps.splice(1,0,'template');
     setStep('template');
   });
-  next.addEventListener('click', () => {
+  async function createProfileOrder() {
+    if (submitting) return;
+    if (!validateBusiness()) { setStep('business'); return; }
+    const payload = {
+      service:'profile', template, domain, duration:Number(durationSelect.value),
+      businessName:document.querySelector('#business-name').value,
+      customerName:document.querySelector('#customer-name').value,
+      whatsapp:document.querySelector('#customer-whatsapp').value,
+      email:document.querySelector('#customer-email').value, consent:consent.checked,
+    };
+    submitting = true;
+    checkoutNote.textContent = 'Menyimpan pesanan…';
+    checkoutNote.setAttribute('role','status');
+    shell.setAttribute('aria-busy','true');
+    const controls = [...shell.querySelectorAll('input, select, textarea, button')].map(control => [control,control.disabled]);
+    controls.forEach(([control]) => control.disabled = true);
+    next.textContent = 'Menyimpan pesanan…';
+    summaryContinue.textContent = 'Menyimpan pesanan…';
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(),45000);
+    try {
+      const digest = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(payload)));
+      const signature = [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2,'0')).join('');
+      if (!requestIdentity) {
+        try { requestIdentity = JSON.parse(sessionStorage.getItem(requestStorageKey) || 'null'); } catch { requestIdentity = null; }
+      }
+      if (!requestIdentity || requestIdentity.signature !== signature || !/^[\w-]{36,64}$/.test(requestIdentity.key)) {
+        requestIdentity = {key:crypto.randomUUID(),signature};
+        try { sessionStorage.setItem(requestStorageKey,JSON.stringify(requestIdentity)); } catch { /* Retain the key in memory when storage is unavailable. */ }
+      }
+      const response = await fetch('/api/orders', {
+        method:'POST', credentials:'same-origin', signal:controller.signal,
+        headers:{'Content-Type':'application/json','Idempotency-Key':requestIdentity.key},
+        body:JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => null);
+      if (!response.ok) throw new Error(result?.error || 'Pesanan belum dapat disimpan. Coba lagi.');
+      if (!result?.order?.id || !result.order.reference) throw new Error('Konfirmasi pesanan belum diterima. Coba lagi.');
+      checkoutNote.textContent = `Pesanan ${result.order.reference} tersimpan.`;
+      try { sessionStorage.removeItem(requestStorageKey); } catch { /* The saved request can safely be retried. */ }
+      location.assign('/cms');
+    } catch (error) {
+      checkoutNote.textContent = error.name === 'AbortError' ? 'Koneksi terputus. Coba lagi; pesanan yang sudah tersimpan tidak akan dibuat dua kali.' : error instanceof TypeError ? 'Koneksi bermasalah. Coba lagi; pilihan Anda tetap tersimpan di halaman ini.' : error.message;
+      checkoutNote.setAttribute('role','alert');
+      controls.forEach(([control,disabled]) => control.disabled = disabled);
+      next.textContent = 'Coba lagi →';
+      summaryContinue.textContent = 'Coba lagi →';
+      submitting = false;
+    } finally {
+      clearTimeout(timeout);
+      shell.removeAttribute('aria-busy');
+    }
+  }
+  next.addEventListener('click', async () => {
+    if (submitting) return;
     if (current === 'domain' && !domain) {
       if (results.hidden && !searchDomain()) return;
       errorNode.hidden = false; errorNode.textContent = 'Pilih salah satu domain di atas untuk melanjutkan.';
@@ -264,14 +332,14 @@
         customWhatsApp.href = 'https://wa.me/60142317052?text=' + encodeURIComponent(brief);
         customWhatsApp.hidden = false;
         checkoutNote.textContent = 'Ringkasan siap dibuka di WhatsApp. Anda dapat meninjau pesan sebelum mengirimkannya.';
-      } else checkoutNote.textContent = 'Simulasi selesai. Pembayaran asli belum diaktifkan; tidak ada tagihan atau data yang dikirim.';
+      } else if (service === 'profile') await createProfileOrder();
       return;
     }
     setStep(steps[steps.indexOf(current)+1]);
   });
   summaryContinue.addEventListener('click', () => next.click());
   previous.addEventListener('click', () => setStep(steps[steps.indexOf(current)-1]));
-  consent.addEventListener('change', () => { next.disabled = !consent.checked; summaryContinue.disabled = next.disabled; });
+  consent.addEventListener('change', () => { next.disabled = submitting || !consent.checked; summaryContinue.disabled = next.disabled; });
   document.querySelector('[data-summary-toggle]').addEventListener('click', event => {
     const button = event.currentTarget;
     const open = button.closest('.order-summary').classList.toggle('is-open');
