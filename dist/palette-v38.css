@@ -1,0 +1,210 @@
+/* A clearer blue section rhythm, shared by the homepage and service pages. */
+#main-content > .offers-section {
+  background: linear-gradient(135deg, #e1e8fb 0%, #dce8ff 55%, #e8e5fb 100%);
+}
+#main-content > .process-section {
+  background: linear-gradient(120deg, #d6e5ff, #e8e9ff);
+}
+#main-content .process-list li:nth-child(n) {
+  background: #fff;
+  border-color: #c5d5f0;
+  box-shadow: 0 10px 25px rgb(27 55 110 / 8%);
+}
+#main-content > .rasio-advantages {
+  background: linear-gradient(115deg, #244797, #355bcc 60%, #5169d7);
+}
+#main-content .rasio-advantages__head h2 { color: #fff; }
+#main-content .rasio-advantages__head p,
+#main-content .rasio-advantages__note { color: #e1eaff; }
+#main-content .rasio-advantage {
+  border-color: rgb(230 239 255 / 32%);
+  background: rgb(255 255 255 / 10%);
+  box-shadow: 0 9px 24px rgb(10 30 87 / 13%);
+}
+#main-content .rasio-advantage h3 { color: #fff; }
+#main-content .rasio-advantage__icon { background: #edf2ff; color: #244ba7; }
+#main-content > .faq-section { background: #edf2fc; }
+#main-content .faq-intro {
+  padding: 30px;
+  border: 1px solid #324c85;
+  border-radius: 24px;
+  background: linear-gradient(140deg, #172745, #274783);
+  box-shadow: 0 14px 35px rgb(24 45 89 / 12%);
+}
+#main-content .faq-intro .eyebrow { color: #bfd1ff; }
+#main-content .faq-intro h2 {
+  color: #fff;
+  font-size: clamp(30px, 2.8vw, 38px);
+  line-height: 1.18;
+}
+#main-content .faq-intro .text-link {
+  border-color: #fff;
+  background: #fff;
+  color: #244487;
+}
+#main-content .faq-intro .text-link:is(:hover, :focus-visible) {
+  border-color: #d7e3ff;
+  background: #d7e3ff;
+  color: #172e61;
+}
+#main-content .faq-list { gap: 10px; border-top: 0; }
+#main-content .faq-item {
+  padding: 0 22px;
+  border: 1px solid #d5def1;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgb(25 47 92 / 5%);
+}
+#main-content > .testimonial-section {
+  background: linear-gradient(125deg, #111f3c, #243b6d);
+}
+#main-content .testimonial-section .eyebrow { color: #b9ceff; }
+#main-content .testimonial-section h2 { color: #fff; }
+#main-content .testimonial-section .marker {
+  color: #c8d9ff;
+  background: none;
+  -webkit-text-fill-color: #c8d9ff;
+}
+#main-content .testimonial-card {
+  border-color: #d9e1f2;
+  background: #fff;
+  box-shadow: 0 12px 28px rgb(7 18 46 / 18%);
+}
+#main-content > .blog-home {
+  background: linear-gradient(130deg, #e3edff, #edf0fb);
+}
+#main-content .blog-card { background: #fff; border-color: #cfdcf1; }
+
+/* Service pages share blue foundations, with different tones for each offer. */
+body.service-page-profile {
+  --service-light-a: #e5e8ff;
+  --service-light-b: #d8e5ff;
+  --service-dark-a: #18264e;
+  --service-dark-b: #354f9c;
+}
+body.service-page-store {
+  --service-light-a: #ddecff;
+  --service-light-b: #d5e3ff;
+  --service-dark-a: #122b53;
+  --service-dark-b: #2557a8;
+}
+body.service-page-custom {
+  --service-light-a: #e0e7ff;
+  --service-light-b: #d7e2f8;
+  --service-dark-a: #15243e;
+  --service-dark-b: #334d82;
+}
+body.service-page .service-hero {
+  border-bottom-color: #cbd8ee;
+  background: linear-gradient(125deg, #f5f8ff 5%, var(--service-light-a) 62%, var(--service-light-b));
+}
+body.service-page .detail-included {
+  background: linear-gradient(125deg, var(--service-dark-a), var(--service-dark-b));
+}
+body.service-page .detail-included-grid > div:first-child .eyebrow { color: #bfd3ff; }
+body.service-page .detail-included-grid > div:first-child h2 { color: #fff; }
+body.service-page .detail-included-grid > div:first-child > p:not(.eyebrow) { color: #e0eaff; }
+body.service-page .detail-feature-card {
+  background: #fff;
+  border-color: #d7e3ff;
+  box-shadow: 0 12px 30px rgb(6 18 47 / 16%);
+}
+body.service-page .benefit-checklist li::before { background: #e4f6eb; color: #158143; }
+body.service-page .service-visual-card {
+  border-color: rgb(224 235 255 / 72%);
+  box-shadow: 0 10px 25px rgb(5 18 49 / 18%);
+}
+body.service-page .service-visual-card--person > img { object-position: center; }
+body.service-page .service-visual-card--person::after {
+  content: '';
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgb(6 18 40 / 35%));
+  pointer-events: none;
+}
+body.service-page .service-visual-caption { z-index: 1; }
+body.service-page .service-order-section {
+  border-color: #cfdbf1;
+  background: linear-gradient(130deg, var(--service-light-a), #edf3ff);
+}
+body.service-page .service-order-step { border-color: #c8d7f1; }
+body.service-page .sector-section { background: #edf1f9; }
+body.service-page .sector-card {
+  border-color: #cedaee;
+  background: #fff;
+  box-shadow: 0 7px 20px rgb(29 51 96 / 7%);
+}
+body.service-page .problem-section {
+  background: linear-gradient(125deg, #d9e5fd, #e4e8ff);
+}
+body.service-page .problem-section .eyebrow { color: #355ab4; }
+body.service-page .problem-section .detail-heading h2 { color: #172b52; }
+body.service-page .problem-pair {
+  border-color: #c1d0ed;
+  background: #fff;
+  box-shadow: 0 8px 20px rgb(25 47 92 / 7%);
+}
+body.service-page .problem-pair > div:last-child { background: #edf3ff; }
+body.service-page .problem-pair span { color: #6a7893; }
+body.service-page .problem-pair > div:last-child span { color: #2652b5; }
+body.service-page .problem-pair h3 { color: #172b52; }
+body.service-page .problem-pair p { color: #475d80; }
+body.service-page .problem-section .motion-carousel-nav button {
+  border-color: #a8bce6;
+  background: #fff;
+  color: #264e9c;
+}
+body.service-page .problem-section .motion-carousel-nav button:is(:hover, :focus-visible) {
+  border-color: #3155b1;
+  background: #3155b1;
+  color: #fff;
+}
+body.service-page .problem-section .motion-carousel-nav button:disabled { opacity: .45; }
+body.service-page .detail-closing {
+  border-color: #355693;
+  background: linear-gradient(120deg, var(--service-dark-a), var(--service-dark-b));
+  box-shadow: 0 18px 40px rgb(17 39 85 / 16%);
+}
+body.service-page .detail-closing .eyebrow { color: #bbd0ff; }
+body.service-page .detail-closing h2 { color: #fff; }
+body.service-page .detail-closing p { color: #e0eaff; }
+body.service-page .detail-closing .service-actions > a:is(.button, .secondary-button):not(.whatsapp-cta) {
+  border-color: #fff;
+  background: #fff;
+  color: #254690;
+}
+body.service-page .detail-closing .service-actions > a:is(.button, .secondary-button):not(.whatsapp-cta):is(:hover, :focus-visible) {
+  border-color: #d8e5ff;
+  background: #d8e5ff;
+  color: #19326b;
+}
+body.service-page .detail-feature-card > a.whatsapp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: #137641;
+  border-color: #137641;
+  color: #fff;
+}
+body.service-page .detail-feature-card > a.whatsapp-cta:is(:hover, :focus-visible) {
+  background: #0c5d32;
+  border-color: #0c5d32;
+  color: #fff;
+}
+body.service-page .detail-feature-card > a.whatsapp-cta svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+body.service-page .detail-feature-card > a.whatsapp-cta:focus-visible {
+  outline: 3px solid #8ce3b2;
+  outline-offset: 4px;
+}
+@media (max-width: 620px) {
+  #main-content .faq-intro { padding: 24px; border-radius: 20px; }
+}
