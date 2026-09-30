@@ -1,0 +1,1 @@
+ALTER TABLE `orders` ADD `is_preview` integer DEFAULT 0 NOT NULL;

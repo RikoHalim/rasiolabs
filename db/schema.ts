@@ -1,6 +1,7 @@
 import { sqliteTable, text, integer, index, uniqueIndex } from 'drizzle-orm/sqlite-core';
 export const orders = sqliteTable('orders', {
   id: text('id').primaryKey(), reference: text('reference').notNull(),
+  isPreview: integer('is_preview').notNull().default(0),
   idempotencyHash: text('idempotency_hash').notNull(), payloadHash: text('payload_hash').notNull(),
   businessName: text('business_name').notNull(), customerName: text('customer_name').notNull(),
   whatsapp: text('whatsapp').notNull(), email: text('email').notNull().default(''),

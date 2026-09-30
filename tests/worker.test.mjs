@@ -9,6 +9,7 @@ import { Miniflare, Log, LogLevel, convertV4MiniflareOptions } from 'miniflare';
 const repo = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'http://localhost';
 const adminCode = 'A'.repeat(43); // Isolated local fixture; never an environment credential.
+const previewCode = 'B'.repeat(43); // Separate isolated client trial fixture.
 const hash = value => createHash('sha256').update(value).digest('hex');
 let mf, db, ipCounter = 1;
 
@@ -20,7 +21,7 @@ before(async () => {
       { type: 'ESModule', path: path.join(repo, 'server/model.mjs') }
     ], modulesRoot: repo,
     compatibilityDate: '2026-09-01',
-    bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode) },
+    bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode) },
     d1Databases: ['DB'], r2Buckets: ['BUCKET'],
     assets: { directory: path.join(repo, 'dist'), binding: 'ASSETS', run_worker_first: true, routerConfig: { has_user_worker: true } },
   }], log: new Log(LogLevel.ERROR) }));
@@ -262,4 +263,148 @@ test('D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan ga
     db.prepare('INSERT INTO orders (id) VALUES (?)').bind(randomUUID())
   ]));
   assert.equal((await db.prepare('SELECT notes FROM orders WHERE id = ?').bind(a.order.id).first()).notes, '');
+});
+
+test('akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin', async () => {
+  const admin = await login();
+  const before = await jsonResponse(await request('/api/admin/orders', { session: admin }), 200);
+  const sessions = await Promise.all([0, 1, 2].map(() => login(previewCode)));
+  const clients = await Promise.all(sessions.map(async session => jsonResponse(await request('/api/client/order', { session }), 200)));
+  const id = clients[0].order.id;
+  for (const client of clients) {
+    assert.equal(client.order.id, id);
+    assert.equal(client.order.isPreview, true);
+    assert.equal(client.order.status, 'preview');
+    assert.equal(client.order.paymentStatus, 'not_required');
+    assert.ok(client.fields.length, 'Form CMS langsung tersedia untuk percobaan.');
+    assert.equal(client.content.draft.businessName, 'Rasio Agency');
+  }
+  const count = await db.prepare('SELECT COUNT(*) AS count FROM orders WHERE is_preview = 1').first();
+  assert.equal(count.count, 1);
+  const current = clients[0].content;
+  const title = `Konten percobaan tersimpan ${randomUUID().slice(0, 8)}`;
+  const saved = await jsonResponse(await request('/api/client/content', {
+    method: 'PUT', session: sessions[0], json: { revision: current.revision, content: { ...current.draft, heroTitle: title } }
+  }), 200);
+  await jsonResponse(await request('/api/logout', { method: 'POST', session: sessions[0] }), 200);
+  const reopened = await jsonResponse(await request('/api/client/order', { session: await login(previewCode) }), 200);
+  assert.equal(reopened.order.id, id);
+  assert.equal(reopened.content.revision, saved.revision);
+  assert.equal(reopened.content.draft.heroTitle, title);
+  const after = await jsonResponse(await request('/api/admin/orders', { session: admin }), 200);
+  assert.deepEqual(after.stats, before.stats);
+  assert.deepEqual(after.orders, before.orders);
+  assert.ok(after.orders.every(order => !order.isPreview));
+});
+
+test('pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya', async () => {
+  const admin = await login(), ordinary = await createOrder();
+  await verify(ordinary, admin);
+  const trial = await login(previewCode);
+  const current = await jsonResponse(await request('/api/client/order', { session: trial }), 200);
+  const png = Uint8Array.from([137, 80, 78, 71, 13, 10, 26, 10, ...new Array(24).fill(0)]);
+  const uploaded = await jsonResponse(await request('/api/client/media', {
+    method: 'POST', session: trial, body: png, headers: { 'Content-Type': 'image/png' }
+  }), 201);
+  assert.equal((await request(uploaded.url)).status, 401);
+  assert.equal((await request(uploaded.url, { session: ordinary.session })).status, 404);
+  assert.equal((await request(uploaded.url, { session: trial })).status, 200);
+  const saved = await jsonResponse(await request('/api/client/content', {
+    method: 'PUT', session: trial,
+    json: { revision: current.content.revision, content: { ...current.content.draft, heroImage: uploaded.url } }
+  }), 200);
+  assert.equal(saved.revision, current.content.revision + 1);
+  const previewUrl = `/preview/${current.order.slug}`;
+  assert.equal((await request(previewUrl)).status, 401);
+  assert.equal((await request(previewUrl, { session: ordinary.session })).status, 404);
+  const preview = await request(previewUrl, { session: trial });
+  assert.equal(preview.status, 200);
+  assert.equal(preview.headers.get('X-Robots-Tag'), 'noindex, nofollow');
+  assert.match(await preview.text(), new RegExp(uploaded.url));
+  assert.equal((await request(`/website/${current.order.slug}`)).status, 404);
+  const otherContent = await clientContent(ordinary);
+  assert.equal((await request('/api/client/content', {
+    method: 'PUT', session: ordinary.session,
+    json: { revision: otherContent.content.revision, content: { ...otherContent.content.draft, heroImage: uploaded.url } }
+  })).status, 400);
+  assert.equal((await request(`/preview/${ordinary.order.slug}`, { session: trial })).status, 404);
+  assert.equal((await request(`/api/admin/orders/${ordinary.order.id}`, { session: trial })).status, 403);
+});
+
+test('percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa', async () => {
+  const admin = await login(), trial = await login(previewCode);
+  const current = await jsonResponse(await request('/api/client/order', { session: trial }), 200);
+  const id = current.order.id;
+  assert.equal((await request('/api/client/publish', {
+    method: 'POST', session: trial, json: { revision: current.content.revision }
+  })).status, 409);
+  assert.equal((await request(`/api/admin/orders/${id}/publish`, {
+    method: 'POST', session: admin, json: { revision: current.content.revision }
+  })).status, 409);
+  assert.equal((await request(`/api/admin/orders/${id}`, {
+    method: 'PATCH', session: admin,
+    json: { paymentStatus: 'verified', paymentReference: 'NOT-A-REAL-PAYMENT', status: 'review', isPreview: false }
+  })).status, 409);
+  for (const action of ['invite', 'revoke']) {
+    assert.equal((await request(`/api/admin/orders/${id}/${action}`, { method: 'POST', session: admin })).status, 409, action);
+  }
+  const unchanged = await jsonResponse(await request('/api/client/order', { session: trial }), 200);
+  assert.equal(unchanged.order.isPreview, true);
+  assert.equal(unchanged.order.paymentStatus, 'not_required');
+  assert.equal(unchanged.order.status, 'preview');
+});
+
+test('flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah', async () => {
+  const trial = await login(previewCode);
+  const current = await jsonResponse(await request('/api/client/order', { session: trial }), 200);
+  const id = current.order.id;
+  const png = Uint8Array.from([137, 80, 78, 71, 13, 10, 26, 10, ...new Array(24).fill(0)]);
+  const uploaded = await jsonResponse(await request('/api/client/media', {
+    method: 'POST', session: trial, body: png, headers: { 'Content-Type': 'image/png' }
+  }), 201);
+  try {
+    await db.batch([
+      db.prepare("UPDATE orders SET status = 'active', payment_status = 'verified', domain_status = 'confirmed' WHERE id = ?").bind(id),
+      db.prepare('UPDATE contents SET published = draft, published_revision = revision WHERE order_id = ?').bind(id),
+      db.prepare('UPDATE media SET is_public = 1 WHERE order_id = ?').bind(id)
+    ]);
+    assert.equal((await request(`/website/${current.order.slug}`)).status, 404);
+    assert.equal((await request(uploaded.url)).status, 401);
+    const admin = await login();
+    for (const action of ['invite', 'revoke', 'publish']) {
+      assert.equal((await request(`/api/admin/orders/${id}/${action}`, {
+        method: 'POST', session: admin, json: { revision: current.content.revision }
+      })).status, 409, action);
+    }
+  } finally {
+    await db.batch([
+      db.prepare("UPDATE orders SET status = 'preview', payment_status = 'not_required', domain_status = 'pending' WHERE id = ?").bind(id),
+      db.prepare('UPDATE contents SET published = NULL, published_revision = NULL WHERE order_id = ?').bind(id),
+      db.prepare('UPDATE media SET is_public = 0 WHERE order_id = ?').bind(id)
+    ]);
+  }
+});
+
+test('sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan', async () => {
+  for (const invalidGeneration of ['', hash('old-preview-code')]) {
+    const trial = await login(previewCode);
+    const token = trial.cookie.slice(trial.cookie.indexOf('=') + 1);
+    await db.prepare('UPDATE sessions SET generation = ? WHERE token_hash = ?').bind(invalidGeneration, hash(token)).run();
+    assert.equal((await request('/api/session', { session: trial })).status, 401);
+    assert.equal((await request('/api/client/order', { session: trial })).status, 401);
+    assert.equal((await request('/api/client/content', {
+      method: 'PUT', session: trial, json: { revision: 1, content: {} }
+    })).status, 401);
+  }
+  const ordinary = await createOrder({ ...orderBody(), is_preview: 1, isPreview: true, status: 'preview', paymentStatus: 'not_required' });
+  assert.equal(ordinary.order.isPreview, false);
+  assert.equal(ordinary.order.paymentStatus, 'pending');
+  assert.equal((await clientContent(ordinary)).content, null);
+  const row = await db.prepare('SELECT is_preview FROM orders WHERE id = ?').bind(ordinary.order.id).first();
+  assert.equal(row.is_preview, 0);
+  const token = ordinary.session.cookie.slice(ordinary.session.cookie.indexOf('=') + 1);
+  await db.prepare('UPDATE sessions SET generation = ? WHERE token_hash = ?').bind(hash(previewCode), hash(token)).run();
+  assert.equal((await request('/api/session', { session: ordinary.session })).status, 401);
+  const restored = await login(previewCode);
+  assert.equal((await request('/api/session', { session: restored })).status, 200);
 });
