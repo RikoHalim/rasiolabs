@@ -80,7 +80,7 @@
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1050.99px) {
   #fitur-layanan .feature-panel:not([hidden]) {
     display: flex;
     flex-direction: row;

@@ -101,9 +101,18 @@
 #fitur-layanan .serp-result strong { color: #2451cb; font-size: 9px; line-height: 1.2; }
 #fitur-layanan .serp-result span { color: #63718b; font-size: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-@media (max-width: 1050px) {
+@media (max-width: 1050.99px) {
+  #fitur-layanan .feature-panel:not([hidden]) {
+    height: 402px;
+  }
+
+  #fitur-layanan .feature-panel:not([hidden]) > .feature-tile:nth-child(n) {
+    height: 376px;
+  }
+
   #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo {
     background: #fff;
+    justify-content: flex-start;
   }
 
   #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo::after {
@@ -111,14 +120,20 @@
   }
 
   #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img {
-    height: 46%;
+    position: static;
+    inset: auto;
+    display: block;
+    flex: 0 0 148px;
+    height: 148px;
+    width: 100%;
   }
 
   #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy {
+    flex: none;
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 13px 16px;
+    padding: 14px 16px;
     border: 0;
     border-radius: 0;
     background: #fff;
@@ -126,11 +141,25 @@
   }
 
   #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy h3 { color: #14233e; }
-  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy p { color: #45536d; }
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy p {
+    color: #45536d;
+    font-size: 12.5px;
+    line-height: 1.48;
+  }
   #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy > span { color: #2450b6; }
 }
 
 @media (max-width: 620px) {
-  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img { height: 43%; }
-  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy { padding: 12px 15px; }
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img {
+    flex-basis: 128px;
+    height: 128px;
+  }
+  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy { padding: 14px 15px; }
+}
+
+@media (max-width: 360px) {
+  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo > img {
+    flex-basis: 112px;
+    height: 112px;
+  }
 }
