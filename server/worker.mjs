@@ -101,7 +101,14 @@ async function api(request,env,url,ctx){
     if(env.CMS_PREVIEW_ACCESS_HASH&&hash===env.CMS_PREVIEW_ACCESS_HASH)return previewSession(env);
     throw new ApiError(401,'Masuk dengan username dan password klien.');
   }
-  if(path==='/api/auth/login'&&request.method==='POST'){await limit(request,env,'client-login',12,900000);const a=await clientLogin(env,await body(request)),s=await sessionData(env,'client',a.order_id,`account:${a.version}`);await s.sql.run();return json({role:'client',csrf:s.csrf},200,{'Set-Cookie':cookie(env,s.token,s.ttl)});}
+  if(path==='/api/auth/login'&&request.method==='POST'){
+    await limit(request,env,'client-login',12,900000);const b=await body(request);
+    if(typeof b?.username==='string'&&b.username.trim().toLowerCase()==='rasio-preview'){
+      if(!env.CMS_PREVIEW_ACCESS_HASH||typeof b.password!=='string'||!/^[\w-]{43}$/.test(b.password)||await sha(b.password)!==env.CMS_PREVIEW_ACCESS_HASH)throw new ApiError(401,'Username atau password tidak sesuai.');
+      return previewSession(env);
+    }
+    const a=await clientLogin(env,b||{}),s=await sessionData(env,'client',a.order_id,`account:${a.version}`);await s.sql.run();return json({role:'client',csrf:s.csrf},200,{'Set-Cookie':cookie(env,s.token,s.ttl)});
+  }
   if(path==='/api/auth/reset-info'&&request.method==='POST'){await limit(request,env,'reset-info',30,900000);const b=await body(request);return json(await resetInfo(env,b.token));}
   if(path==='/api/auth/reset'&&request.method==='POST'){await limit(request,env,'reset-password',12,900000);return json(await completeReset(env,await body(request)),200,{'Set-Cookie':cookie(env,'',0)});}
   if(path==='/api/auth/forgot'&&request.method==='POST'){await limit(request,env,'forgot-password',5,900000);const {jobId,...result}=await forgotPassword(env,await body(request));if(jobId)ctx.waitUntil(dispatchEmail(env,jobId));return json(result);}

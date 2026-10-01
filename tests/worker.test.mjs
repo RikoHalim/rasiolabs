@@ -145,6 +145,21 @@ test('navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman unt
   assert.match(hidden,/<button class="studio-menu"[^>]*hidden/);assert.match(hidden,/<nav id="studio-nav"[^>]*hidden/);assert.doesNotMatch(hidden,/data-cms-menu=/);assert.doesNotMatch(hidden,/data-cms-nav-cta/);
 });
 
+test('username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin',async()=>{
+  const before=await db.prepare('SELECT COUNT(*) AS n FROM client_accounts').first();
+  const byCode=await login(previewCode),existing=await jsonResponse(await request('/api/client/order',{session:byCode}),200);
+  const session=await passwordLogin(' RASIO-PREVIEW ',previewCode);
+  const current=await jsonResponse(await request('/api/client/order',{session}),200);
+  assert.equal(current.order.id,existing.order.id);assert.equal(current.order.isPreview,true);assert.deepEqual(current.content,existing.content);
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM client_accounts').first()).n,before.n);
+  assert.equal((await request('/api/admin/orders',{session})).status,403);
+  assert.equal((await request('/api/client/publish',{method:'POST',session,json:{revision:current.content.revision}})).status,409);
+  for(const password of [adminCode,'wrong-password',null,123])assert.equal((await request('/api/auth/login',{method:'POST',json:{username:'rasio-preview',password}})).status,401);
+  assert.equal((await request('/api/auth/login',{method:'POST',json:null})).status,401);
+  const ip='192.0.2.253';for(let n=0;n<12;n++)assert.equal((await request('/api/auth/login',{method:'POST',ip,json:{username:'rasio-preview',password:'wrong'}})).status,401);
+  assert.equal((await request('/api/auth/login',{method:'POST',ip,json:{username:'rasio-preview',password:previewCode}})).status,429);
+});
+
 async function request(url, options = {}) {
   const method = options.method || 'GET';
   const headers = new Headers(options.headers);
