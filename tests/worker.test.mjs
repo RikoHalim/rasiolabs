@@ -120,6 +120,31 @@ test('aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berl
   }finally{globalThis.fetch=savedFetch;}
 });
 
+test('navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama',async()=>{
+  const admin=await login(),a=await createOrder();await verify(a,admin);
+  const initial=await clientContent(a),legacy={...initial.content.draft};
+  for(const key of Object.keys(legacy))if(key.startsWith('nav'))delete legacy[key];
+  await db.prepare('UPDATE contents SET draft = ? WHERE order_id = ?').bind(JSON.stringify(legacy),a.order.id).run();
+  const restored=await clientContent(a);assert.equal(restored.content.draft.nav2Visible,true);assert.equal(restored.content.draft.nav1Target,'work');
+  await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`,{method:'POST',session:admin,json:{revision:restored.content.revision}}),200);
+  const publicUrl=`/website/${a.order.slug}`;
+  assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="#work">Our work/);
+  const content={...restored.content.draft,nav1Label:'<b>Portfolio</b>',nav1Target:'studio',nav2Visible:false,navCtaLabel:'Chat WhatsApp',whatsapp:'+60142317052'};
+  assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...content,nav1Target:'javascript:alert(1)'}}})).status,400);
+  const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content}}),200);
+  const reopened=await clientContent(a);assert.equal(reopened.content.draft.nav2Visible,false);assert.equal(reopened.content.draft.nav1Target,'studio');
+  const preview=await (await request(`/preview/${a.order.slug}`,{session:a.session})).text();
+  assert.match(preview,/data-cms-menu="1" href="#studio">&lt;b&gt;Portfolio&lt;\/b&gt;/);assert.doesNotMatch(preview,/data-cms-menu="2"/);assert.match(preview,/id="studio"/);
+  assert.match(preview,/data-cms-nav-cta[^>]*href="https:\/\/wa.me\/60142317052"/);assert.match(preview,/Chat WhatsApp <span aria-hidden="true">↗<\/span>/);
+  assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="#work">Our work/);
+  await jsonResponse(await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:saved.revision}}),200);
+  assert.doesNotMatch(await (await request(publicUrl)).text(),/data-cms-menu="2"/);
+  const empty={...reopened.content.draft,navCtaVisible:false};for(const n of [1,2,3,4])empty[`nav${n}Visible`]=false;
+  await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:saved.revision,content:empty}}),200);
+  const hidden=await (await request(`/preview/${a.order.slug}`,{session:a.session})).text();
+  assert.match(hidden,/<button class="studio-menu"[^>]*hidden/);assert.match(hidden,/<nav id="studio-nav"[^>]*hidden/);assert.doesNotMatch(hidden,/data-cms-menu=/);assert.doesNotMatch(hidden,/data-cms-nav-cta/);
+});
+
 async function request(url, options = {}) {
   const method = options.method || 'GET';
   const headers = new Headers(options.headers);

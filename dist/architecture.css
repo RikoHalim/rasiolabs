@@ -24,3 +24,5 @@
 @media(prefers-reduced-motion:reduce){.hero-aside .link-button,.nav-contact span{transition:none}}
 
 .footer-whatsapp{color:#ecebdf;text-underline-offset:5px}.footer-whatsapp:hover{text-decoration:underline}
+
+.studio-menu[hidden],.studio-nav[hidden]{display:none!important}

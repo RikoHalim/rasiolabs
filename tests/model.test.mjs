@@ -58,3 +58,13 @@ test('unggahan memakai tanda tangan file, bukan nama ekstensi', () => {
   assert.equal(imageMime(new TextEncoder().encode('<svg onload="alert(1)">')), null);
   assert.equal(imageMime(new Uint8Array(0)), null);
 });
+
+test('navbar lama mendapatkan default dan hanya menerima menu dari bagian yang tersedia',()=>{
+  const legacy={...defaults};for(const key of Object.keys(legacy))if(key.startsWith('nav'))delete legacy[key];
+  const restored=validateContent(legacy);
+  assert.equal(restored.nav1Label,'Our work');assert.equal(restored.nav1Target,'work');assert.equal(restored.navCtaVisible,true);
+  const edited=validateContent({...defaults,nav1Label:'Tentang Kami',nav1Target:'studio',nav2Visible:false,navCtaLabel:'Chat WhatsApp',whatsapp:'+60 142317052'});
+  assert.equal(edited.nav1Target,'studio');assert.equal(edited.nav2Visible,false);assert.equal(edited.navCtaLabel,'Chat WhatsApp');
+  for(const change of [{nav1Target:'https://example.com'},{nav1Target:'javascript:alert(1)'},{nav1Target:'missing'},{nav2Visible:'false'},{navCtaVisible:0},{nav1Label:''},{nav1Label:'x'.repeat(25)},{navCtaLabel:''}])assert.throws(()=>validateContent({...defaults,...change}));
+  assert.equal(validateContent({...defaults,nav1Visible:false,nav1Label:''}).nav1Label,'');
+});
