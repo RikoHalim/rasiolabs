@@ -6,6 +6,7 @@ export const orders = sqliteTable('orders', {
   businessName: text('business_name').notNull(), customerName: text('customer_name').notNull(),
   whatsapp: text('whatsapp').notNull(), email: text('email').notNull().default(''),
   domain: text('domain').notNull(), domainStatus: text('domain_status').notNull().default('pending'),
+  domainIncluded: integer('domain_included').notNull().default(1), domainFee: integer('domain_fee').default(0),
   template: text('template').notNull(), duration: integer('duration').notNull(),
   monthly: integer('monthly').notNull(), total: integer('total').notNull(), renewalMonthly: integer('renewal_monthly').notNull(),
   status: text('status').notNull().default('new'), paymentStatus: text('payment_status').notNull().default('pending'),

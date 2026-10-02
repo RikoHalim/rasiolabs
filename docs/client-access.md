@@ -22,3 +22,13 @@ Email awal dikirim saat verifikasi pembayaran. Tombol admin dapat membuat tautan
 Password menggunakan salt acak, pepper dari secret runtime, dan PBKDF2 SHA-256 100.000 iterasi sesuai batas native Workers. Secret dan hash tidak dikirim ke browser. Reset memakai token acak 32 byte, hash di database, payload email terenkripsi, serta klaim transaksi sekali pakai. Sesi memakai cookie HttpOnly, SameSite Strict, token CSRF, pemeriksaan origin dan versi akun. Login/reset dibatasi frekuensinya. Admin tidak ditautkan dari halaman publik dan tetap memerlukan autentikasi.
 
 Payment gateway belum terhubung. Trigger akun saat ini adalah verifikasi pembayaran oleh admin. Pengujian email memakai penyedia tiruan yang hanya ada dalam tes; tidak ada pengiriman email pelanggan selama pengujian.
+
+## Domain dan durasi layanan
+
+Pesanan baru 1 bulan membayar registrasi domain untuk 1 tahun secara terpisah. Paket 12, 24, dan 48 bulan termasuk domain selama langganan. Satu email bisnis gratis pada semua durasi; email tidak menjadi add-on berbayar. Migrasi mempertahankan manfaat domain pesanan lama.
+
+Checkout mengambil tarif tahunan dari `/api/domains/prices`. Runtime `DOMAIN_PRICES_IDR` dapat berisi objek JSON harga Rasio untuk `com`, `id`, dan `co.id` dalam rupiah. Gunakan harga yang benar-benar sudah dikonfirmasi; nilai ini bukan harga langsung dari registrar. Tidak ada tarif bawaan atau harga perkiraan. API registrar belum dihubungkan.
+
+Jika tarif belum tersedia, domain tetap bisa dipilih dan pesanan dicatat dengan subtotal paket. Total akhir menunggu harga domain. Admin memasukkan **Harga domain / tahun** sebelum verifikasi pembayaran; sistem menolak verifikasi tanpa harga dan mengunci tarif setelah pembayaran terverifikasi. Informasikan harga akhir kepada klien sebelum menerima pembayaran. Jangan menetapkan harga hanya dari input pelanggan.
+
+Penawaran 48 bulan hanya tampil saat memilih 1 bulan. Tombol **Klaim penawaran** mengganti durasi, mempertahankan pilihan domain/template serta data pelanggan, dan menghitung ulang ringkasan.

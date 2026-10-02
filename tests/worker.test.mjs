@@ -22,7 +22,8 @@ before(async () => {
     modules: [
       { type: 'ESModule', path: path.join(repo, 'server/worker.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/model.mjs') },
-      { type: 'ESModule', path: path.join(repo, 'server/client-auth.mjs') }
+      { type: 'ESModule', path: path.join(repo, 'server/client-auth.mjs') },
+      { type: 'ESModule', path: path.join(repo, 'server/domains.mjs') }
     ], modulesRoot: repo,
     compatibilityDate: '2026-09-01',
     bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode), CLIENT_AUTH_SECRET: clientSecret },
@@ -288,6 +289,62 @@ test('dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesan
   assert.equal(payloads[0].order.id, payloads[1].order.id);
   const count = await db.prepare('SELECT COUNT(*) AS count FROM orders WHERE idempotency_hash = ?').bind(hash(key)).first();
   assert.equal(count.count, 1);
+});
+
+test('domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga',async()=>{
+  const prices=await jsonResponse(await request('/api/domains/prices'),200);
+  assert.deepEqual(prices,{prices:{},currency:'IDR',periodMonths:12});
+  const a=await createOrder({...orderBody(),duration:1,total:1,domainFee:1,domainFeeExpected:null});
+  assert.equal(a.order.domainIncluded,false);assert.equal(a.order.domainFee,null);
+  assert.equal(a.order.total,null);assert.equal(a.order.packageTotal,109000);
+  const admin=await login(),url=`/api/admin/orders/${a.order.id}`;
+  const payment={paymentStatus:'verified',paymentReference:'LOCAL-DOMAIN-TEST',domainStatus:'confirmed'};
+  assert.equal((await request(url,{method:'PATCH',session:admin,json:payment})).status,400);
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM client_accounts WHERE order_id = ?').bind(a.order.id).first()).n,0);
+  for(const domainFee of [0,-1,1.25,'180000'])assert.equal((await request(url,{method:'PATCH',session:admin,json:{domainFee}})).status,400);
+  const quote=await jsonResponse(await request(url,{method:'PATCH',session:admin,json:{domainFee:180000}}),200);
+  assert.equal(quote.order.total,289000);assert.equal(quote.order.packageTotal,109000);
+  assert.equal((await clientContent(a)).order.domainFee,180000);
+  const logsBefore=(await db.prepare('SELECT COUNT(*) AS n FROM audit WHERE order_id = ?').bind(a.order.id).first()).n;
+  assert.equal((await request(url,{method:'PATCH',session:admin,json:{domainFeePrevious:null,domainFee:150000,...payment}})).status,409);
+  assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM audit WHERE order_id = ?').bind(a.order.id).first()).n,logsBefore);
+  const retry=await createOrder(a.body,a.key,200);assert.equal(retry.order.total,289000);
+  const confirmed=await jsonResponse(await request(url,{method:'PATCH',session:admin,json:payment}),200);
+  assert.ok(confirmed.account.username);assert.equal(confirmed.order.total,289000);
+  assert.equal((await request(url,{method:'PATCH',session:admin,json:{domainFee:200000}})).status,400);
+  assert.equal((await request(url,{method:'PATCH',session:admin,json:{paymentStatus:'pending'}})).status,400);
+  assert.equal((await db.prepare('SELECT total FROM orders WHERE id = ?').bind(a.order.id).first()).total,289000);
+});
+
+test('domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang',async()=>{
+  const admin=await login();
+  for(const duration of [12,24,48]){
+    const a=await createOrder({...orderBody(),duration,domainFeeExpected:0});
+    assert.equal(a.order.domainIncluded,true);assert.equal(a.order.domainFee,0);assert.equal(a.order.total,a.order.packageTotal);
+    assert.equal((await request(`/api/admin/orders/${a.order.id}`,{method:'PATCH',session:admin,json:{domainFee:180000}})).status,400);
+  }
+  assert.equal((await request('/api/orders',{method:'POST',json:{...orderBody(),duration:1,domainFeeExpected:180000},headers:{'Idempotency-Key':randomUUID()}})).status,409);
+});
+
+test('tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry',async()=>{
+  const priced=new Miniflare(convertV4MiniflareOptions({workers:[{
+    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
+    compatibilityDate:'2026-09-01',bindings:{PUBLIC_ORIGIN:origin,CLIENT_AUTH_SECRET:clientSecret,DOMAIN_PRICES_IDR:JSON.stringify({com:150000,'co.id':310000})},d1Databases:['DB'],r2Buckets:['BUCKET'],
+  }],log:new Log(LogLevel.ERROR)}));
+  try{
+    const pricedDb=await priced.getD1Database('DB');
+    for(const file of (await readdir(path.join(repo,'drizzle'))).filter(file=>file.endsWith('.sql')).sort()){
+      for(const sql of (await readFile(path.join(repo,'drizzle',file),'utf8')).split('--> statement-breakpoint'))if(sql.trim())await pricedDb.exec(sql.replace(/\r?\n/g,' ').trim());
+    }
+    const rates=await jsonResponse(await priced.dispatchFetch(`${origin}/api/domains/prices`),200);
+    assert.deepEqual(rates.prices,{com:150000,'co.id':310000});
+    const key=randomUUID(),body={...orderBody(),duration:1,domain:'priced-studio.co.id',domainFee:1,total:1,domainFeeExpected:310000};
+    const send=payload=>priced.dispatchFetch(`${origin}/api/orders`,{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','Idempotency-Key':key,'CF-Connecting-IP':'192.0.2.44'},body:JSON.stringify(payload)});
+    const first=await jsonResponse(await send(body),201);
+    assert.equal(first.order.domainFee,310000);assert.equal(first.order.packageTotal,109000);assert.equal(first.order.total,419000);
+    const retry=await jsonResponse(await send({...body,domainFeeExpected:450000}),200);
+    assert.equal(retry.order.id,first.order.id);assert.equal(retry.order.total,419000);
+  }finally{await priced.dispose();}
 });
 
 test('draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru', async () => {

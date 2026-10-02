@@ -8,6 +8,7 @@ await mkdir('dist/server',{recursive:true});
 await cp('server/worker.mjs','dist/server/index.js');
 await cp('server/model.mjs','dist/server/model.mjs');
 await cp('server/client-auth.mjs','dist/server/client-auth.mjs');
+await cp('server/domains.mjs','dist/server/domains.mjs');
 await mkdir('dist/.openai',{recursive:true});
 await cp('.openai/hosting.json','dist/.openai/hosting.json');
 await cp('drizzle','dist/.openai/drizzle',{recursive:true});

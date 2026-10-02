@@ -36,6 +36,10 @@
   let current = 'domain';
   const aiAddon = document.querySelector('[data-ai-addon]');
   const durationSelect = document.querySelector('[data-duration-select]');
+  const durationOffer = document.querySelector('[data-duration-offer]');
+  const rupiah = amount => `Rp${amount.toLocaleString('id-ID')}`;
+  let domainPrices = {};
+  const feeFor = choice => Number(durationSelect.value) === 1 ? domainPrices[choice.slice(choice.indexOf('.') + 1)] ?? null : 0;
   const requestedDuration = Number(params.get('duration'));
   if ([1, 12, 24, 48].includes(requestedDuration)) durationSelect.value = String(requestedDuration);
   const titles = {addons:['Rasio AI','Tambahkan insight toko'],domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
@@ -89,6 +93,11 @@
   document.querySelector('.booking-help').hidden = service === 'custom';
   aiAddon.addEventListener('change', () => { resetReview(); sync(); });
   durationSelect.addEventListener('change', () => { resetReview(); sync(); });
+  document.querySelector('[data-claim-offer]').addEventListener('click', () => {
+    durationSelect.value = '48';
+    durationSelect.dispatchEvent(new Event('change'));
+    durationSelect.focus({preventScroll:true});
+  });
   if (service === 'custom') {
     document.querySelector('.summary-disclaimer').hidden = true;
     document.querySelector('[data-order-timing]').textContent = 'Jadwal pengerjaan website, ERP, dan software custom disepakati setelah konsultasi.';
@@ -96,14 +105,14 @@
     document.querySelector('[data-consent-copy]').textContent = 'Saya telah memeriksa data bisnis dan domain untuk konsultasi.';
     document.querySelector('.summary-total span').textContent = 'Estimasi proyek';
     document.querySelector('.summary-total strong').textContent = 'Setelah konsultasi';
-    document.querySelector('[data-summary-terms]').textContent = 'Harga, domain, email bisnis, dan masa dukungan ditentukan dalam penawaran proyek.';
+    document.querySelector('[data-summary-terms]').textContent = '1 email bisnis gratis. Harga proyek dan domain mengikuti penawaran.';
     document.querySelector('[data-mini-total]').textContent = 'Penawaran proyek';
     document.querySelector('[data-plan-monthly]').textContent = 'Sesuai penawaran';
     document.querySelector('[data-summary-package-price]').textContent = 'Setelah konsultasi';
     document.querySelector('.order-package-details > span').textContent = 'Fitur, domain, dan jadwal mengikuti penawaran proyek.';
-    document.querySelector('[data-order-domain-intro]').textContent = 'Ketik nama bisnis dan pilih ekstensi sebagai bahan konsultasi. Ketersediaan, biaya domain, dan email bisnis ditentukan dalam penawaran proyek.';
+    document.querySelector('[data-order-domain-intro]').textContent = 'Ketik nama bisnis dan pilih ekstensi sebagai bahan konsultasi. Domain mengikuti penawaran; 1 email bisnis gratis.';
     document.querySelector('[data-summary-domain-included]').textContent = 'Sesuai penawaran';
-    document.querySelector('[data-summary-email-included]').textContent = 'Sesuai penawaran';
+    document.querySelector('[data-summary-email-included]').textContent = 'Gratis selama langganan';
     document.querySelector('[data-summary-duration]').textContent = 'Pengembangan custom';
     document.querySelector('[data-summary-normal-price]').hidden = true;
     document.querySelector('[data-plan-saving]').hidden = true;
@@ -111,7 +120,6 @@
   }
   function sync() {
     const duration = Number(durationSelect.value);
-    const rupiah = amount => `Rp${amount.toLocaleString('id-ID')}`;
     const addonDuration = Math.max(12, duration);
     const addonTotal = service === 'store' && aiAddon.checked ? 500000 * addonDuration / 12 : 0;
     document.querySelectorAll('[data-summary-addon]').forEach(e => e.textContent = addonTotal ? `${rupiah(addonTotal)} untuk ${addonDuration} bulan` : 'Tidak ditambahkan');
@@ -122,9 +130,13 @@
       const monthly = Math.round(normalMonthly * (1 - discount));
       const packageTotal = monthly * duration;
       const normalTotal = normalMonthly * duration;
-      document.querySelector('[data-review-price]').textContent = `${rupiah(packageTotal + addonTotal)} untuk ${duration} bulan; domain dan 1 email bisnis termasuk selama langganan aktif`;
-      document.querySelector('.summary-total strong').textContent = rupiah(packageTotal + addonTotal);
-      document.querySelector('[data-mini-total]').textContent = rupiah(packageTotal + addonTotal);
+      const domainFee = feeFor(domain);
+      const unquoted = duration === 1 && domainFee === null;
+      const total = packageTotal + addonTotal + (domainFee ?? 0);
+      const domainTerms = duration === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama langganan.';
+      document.querySelector('[data-review-price]').textContent = `${rupiah(total)}${unquoted ? ' + biaya domain tahunan' : ''} untuk ${duration} bulan. ${domainTerms} 1 email bisnis gratis.`;
+      document.querySelector('.summary-total strong').textContent = `${rupiah(total)}${unquoted ? ' + domain' : ''}`;
+      document.querySelector('[data-mini-total]').textContent = `${rupiah(total)}${unquoted ? ' + domain' : ''}`;
       document.querySelector('[data-summary-package-price]').textContent = rupiah(packageTotal);
       document.querySelector('[data-summary-normal-price]').textContent = rupiah(normalTotal);
       document.querySelector('[data-summary-normal-price]').hidden = !discount;
@@ -134,16 +146,47 @@
       document.querySelector('[data-plan-normal]').textContent = `${rupiah(normalMonthly)}/bulan`;
       document.querySelector('[data-plan-normal]').hidden = !discount;
       document.querySelector('[data-summary-duration]').textContent = `Paket website · ${duration} bulan`;
-      document.querySelector('[data-summary-total-label]').textContent = `Total ${duration} bulan`;
+      document.querySelector('[data-summary-total-label]').textContent = unquoted ? 'Subtotal paket' : `Total ${duration} bulan`;
+      document.querySelector('[data-summary-domain-label]').textContent = duration === 1 ? 'Domain · 1 tahun' : 'Domain';
+      document.querySelector('[data-summary-domain-included]').textContent = duration !== 1 ? 'Gratis selama langganan' : !domain ? 'Pilih domain' : unquoted ? 'Tarif belum tersedia' : rupiah(domainFee);
+      document.querySelector('[data-summary-email-included]').textContent = 'Gratis selama langganan';
+      document.querySelector('[data-booking-domain]').classList.toggle('domain-not-included',duration === 1);
+      document.querySelector('[data-booking-domain]').setAttribute('aria-label',duration === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis: termasuk dalam paket');
+      document.querySelector('[data-order-domain-intro]').textContent = duration === 1 ? 'Cari domain untuk website Anda. Domain dibayar untuk 1 tahun; 1 email bisnis gratis selama langganan.' : 'Cari domain untuk website Anda. Domain dan 1 email bisnis gratis selama langganan.';
+      durationOffer.hidden = duration !== 1;
+      document.querySelector('[data-upgrade-monthly]').textContent = `${rupiah(Math.round(normalMonthly * .25))}/bulan`;
+      document.querySelector('[data-upgrade-total]').textContent = `Bayar ${rupiah(Math.round(normalMonthly * .25) * 48)} untuk 48 bulan. Domain gratis.`;
       document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
       document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
-      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan ${rupiah(renewalMonthly)}/bulan. Domain dan 1 email bisnis termasuk selama langganan aktif.${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
+      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan ${rupiah(renewalMonthly)}/bulan. ${domainTerms} 1 email bisnis gratis.${unquoted ? ' Harga domain dikonfirmasi sebelum pembayaran.' : ''}${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
       document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
     document.querySelectorAll('[data-summary-template]').forEach(e => e.textContent = catalog[template]?.title || 'Belum dipilih');
     document.querySelectorAll('[data-summary-domain]').forEach(e => e.textContent = domain || 'Belum dipilih');
     document.querySelector('[data-edit-template]').textContent = template ? 'Ubah template' : 'Pilih template';
+    refreshDomainPrices();
+  }
+  function refreshDomainPrices() {
+    results.querySelectorAll('[data-domain-choice]').forEach(button => {
+      const fee = feeFor(button.dataset.domainChoice);
+      const status = button.querySelector('[data-domain-price]');
+      status.querySelector('small').textContent = service === 'custom' ? 'Untuk konsultasi' : Number(durationSelect.value) === 1 ? 'Registrasi 1 tahun' : 'Termasuk dalam paket';
+      status.querySelector('strong').textContent = service === 'custom' ? 'Sesuai penawaran' : Number(durationSelect.value) !== 1 ? 'Gratis' : fee === null ? 'Tarif belum tersedia' : `${rupiah(fee)}/tahun`;
+    });
+  }
+  async function loadDomainPrices() {
+    try {
+      const response = await fetch('/api/domains/prices',{credentials:'same-origin'});
+      if (!response.ok) return;
+      const data = await response.json();
+      for (const extension of ['com','id','co.id']) {
+        const fee = data.prices?.[extension];
+        if (Number.isSafeInteger(fee) && fee > 0 && fee <= 100000000) domainPrices[extension] = fee;
+      }
+      // A newly available quote must be reviewed before the customer submits it.
+      if (!submitting) { resetReview(); sync(); }
+    } catch { /* Keep an unquoted domain explicit rather than inventing a tariff. */ }
   }
   function drawSteps() {
     const nav = document.querySelector('[data-order-steps]');
@@ -208,10 +251,8 @@
     const domainNote = service === 'custom'
       ? 'Pilihan domain ini untuk konsultasi awal. Ketersediaan dan biayanya ditentukan dalam penawaran proyek.'
       : 'Pilih domain yang Anda inginkan. Ketersediaannya akan dikonfirmasi oleh tim Rasio.';
-    const domainStatus = service === 'custom'
-      ? '<small>Untuk konsultasi</small><strong>Sesuai penawaran</strong>'
-      : '<small>Termasuk dalam paket</small><strong>Menunggu konfirmasi</strong>';
-    results.innerHTML = `<p class="domain-results-note">${domainNote}</p>` + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span>${domainStatus}</span><i aria-hidden="true">Pilih →</i></button>`).join('');
+    results.innerHTML = `<p class="domain-results-note">${domainNote}</p>` + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span data-domain-price><small></small><strong></strong></span><i aria-hidden="true">Pilih →</i></button>`).join('');
+    refreshDomainPrices();
     results.querySelectorAll('[data-domain-choice]').forEach(button => button.addEventListener('click', () => {
       domain = button.dataset.domainChoice;
       errorNode.hidden = true; resetReview(); sync();
@@ -272,6 +313,7 @@
       customerName:document.querySelector('#customer-name').value,
       whatsapp:document.querySelector('#customer-whatsapp').value,
       email:document.querySelector('#customer-email').value, consent:consent.checked,
+      domainFeeExpected:feeFor(domain),
     };
     submitting = true;
     checkoutNote.textContent = 'Menyimpan pesanan…';
@@ -284,7 +326,8 @@
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(),45000);
     try {
-      const digest = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(payload)));
+      const {domainFeeExpected,...orderChoices} = payload;
+      const digest = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(orderChoices)));
       const signature = [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2,'0')).join('');
       if (!requestIdentity) {
         try { requestIdentity = JSON.parse(sessionStorage.getItem(requestStorageKey) || 'null'); } catch { requestIdentity = null; }
@@ -349,4 +392,5 @@
   });
   if (initialDomain) { input.value = initialDomain.split('.')[0]; searchDomain(initialDomain); }
   sync(); setStep('domain');
+  if (service !== 'custom') loadDomainPrices();
 })();

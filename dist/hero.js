@@ -12,7 +12,7 @@
       price: 'Rp27.250',
       suffix: '/bln',
       priceNote: 'Paket 48 bulan, dibayar di muka',
-      benefits: ['Domain & 1 email bisnis selama langganan', 'Setup & maintenance oleh tim Rasio', 'CMS sederhana untuk ubah konten', 'SEO, WhatsApp CTA & AI chatbot 24/7'],
+      benefits: ['1 email bisnis gratis; domain gratis untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio', 'CMS sederhana untuk ubah konten', 'SEO, WhatsApp CTA & AI chatbot 24/7'],
     },
     {
       label: 'Rasio Store',
@@ -23,7 +23,7 @@
       price: 'Rp52.500',
       suffix: '/bln',
       priceNote: 'Paket 48 bulan, dibayar di muka',
-      benefits: ['Domain & 1 email bisnis selama langganan', 'Setup & maintenance oleh tim Rasio', '50 produk awal dibantu, berikutnya tanpa batas', 'Checkout, pengiriman & AI chatbot 24/7'],
+      benefits: ['1 email bisnis gratis; domain gratis untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio', '50 produk awal dibantu, berikutnya tanpa batas', 'Checkout, pengiriman & AI chatbot 24/7'],
     },
     {
       label: 'Rasio Custom',
@@ -34,7 +34,7 @@
       price: 'Sesuai cakupan proyek',
       suffix: '',
       priceNote: 'Konsultasi untuk penawaran proyek',
-      benefits: ['Website, ERP, atau software sesuai kebutuhan', 'Integrasi dan akses tim sesuai cakupan', 'Fitur & jadwal disepakati bersama', 'Rasio menangani implementasi proyek'],
+      benefits: ['Website, ERP, atau software sesuai kebutuhan', 'Integrasi dan akses tim sesuai cakupan', 'Fitur & jadwal disepakati bersama', '1 email bisnis gratis'],
     },
   ];
 

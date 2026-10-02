@@ -97,3 +97,17 @@ body.order-page.order-service-custom .summary-breakdown{display:none}
  body.order-page .summary-total strong{font-size:18px}
 }
 @media(prefers-reduced-motion:reduce){body.order-page .summary-continue{transition:none}}
+
+body.order-page .duration-offer{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:15px;margin:0 0 28px;padding:19px 20px;border:1px solid #294b92;border-radius:15px;background:linear-gradient(115deg,#122b5e,#1c3d81);color:#fff;box-shadow:0 7px 20px #173a7618}
+body.order-page .duration-offer[hidden]{display:none}
+body.order-page .duration-offer-icon{display:grid;place-items:center;width:42px;height:42px;border:1px solid #a0d8ff;border-radius:12px;background:#d9edff;color:#173f91;font-size:24px;font-weight:700}
+body.order-page .duration-offer strong{display:block;color:#fff;font-size:11px;letter-spacing:.025em;line-height:1.5}
+body.order-page .duration-offer p{margin:5px 0;color:#e2ecff;font-size:12px;line-height:1.5}
+body.order-page .duration-offer small{display:block;color:#c7d9fa;font-size:10px;line-height:1.6}
+body.order-page .duration-offer button{display:flex;align-items:center;justify-content:center;gap:12px;min-height:43px;padding:10px 14px;border:1px solid #c2d5fc;border-radius:9px;background:#fff;color:#183b7b;font:inherit;font-size:11px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px #07173422;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+body.order-page .duration-offer button:hover{background:#e9f1ff;color:#122b5e;transform:translateY(-2px);box-shadow:0 6px 15px #07173435}
+body.order-page .duration-offer button:focus-visible{outline:3px solid #a9d6ff;outline-offset:4px}
+body.order-page .summary-breakdown strong{white-space:normal;text-align:right;max-width:180px}
+body.order-page .summary-total strong{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:600px){body.order-page .duration-offer{grid-template-columns:35px minmax(0,1fr);gap:12px;padding:16px}body.order-page .duration-offer-icon{width:35px;height:35px;font-size:21px}body.order-page .duration-offer button{grid-column:2;justify-self:start;margin-top:2px}body.order-page .duration-offer strong{font-size:10px}}
+@media(prefers-reduced-motion:reduce){body.order-page .duration-offer button{transition:none;transform:none}}

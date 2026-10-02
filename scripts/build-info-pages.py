@@ -10,7 +10,7 @@ def write(slug,title,content):
  (root/f'dist/{slug}.html').write_text(h+'<body class="info-page"><a class="skip-link" href="#main-content">Lewati ke konten utama</a>'+header+'<main id="main-content">'+content+'</main>'+footer+'<script src="/navigation.js?v=15"></script></body></html>',encoding='utf-8')
 steps=[
  ('Pilih layanan dan desain','Mulai dari Rasio Store atau Rasio Profile. Pilih template langsung dari koleksi, atau tentukan desain setelah memilih domain.'),
- ('Tentukan domain website','Di homepage, ketik nama lengkap seperti bisnisanda.com. Di halaman pemesanan, cukup ketik nama bisnis lalu pilih ekstensi yang tersedia.'),
+ ('Tentukan domain website','Di halaman pemesanan, cukup ketik nama bisnis lalu pilih ekstensi. Domain gratis untuk paket 12 bulan atau lebih; paket 1 bulan memakai domain berbayar untuk 1 tahun. 1 email bisnis gratis selama langganan aktif.'),
  ('Sesuaikan kebutuhan toko','Untuk Rasio Store, Anda dapat menambahkan Rasio AI Insight seharga Rp500.000/tahun. AI chatbot sudah termasuk dalam paket pre-made.'),
  ('Isi data dan lakukan pembayaran','Lengkapi nama bisnis, penanggung jawab, WhatsApp, dan email. Periksa pilihan serta biaya sebelum membayar. Tidak perlu membuat akun manual.'),
  ('Kirim materi dan review website','Tim menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Siapkan logo, copywriting, foto, dan produk agar setup serta review berjalan lancar.'),
