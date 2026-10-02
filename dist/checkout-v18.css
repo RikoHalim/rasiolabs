@@ -117,5 +117,10 @@ body.order-page .duration-benefits{grid-column:1/-1;display:grid;gap:11px;list-s
 body.order-page .duration-benefits li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start}
 body.order-page .duration-benefits li[hidden]{display:none}
 body.order-page .duration-benefits svg{width:19px;height:19px;margin-top:1px;color:#13834b}
+body.order-page .duration-benefits .duration-domain-x{display:none}
+body.order-page .duration-benefits .domain-not-included>svg:first-child{display:none}
+body.order-page .duration-benefits .domain-not-included>.duration-domain-x{display:block}
+body.order-page .order-summary .summary-total strong{font-size:18px;font-weight:700;line-height:1.4}
+@media(max-width:540px){body.order-page .order-summary .summary-total strong{font-size:16px}}
 @media(max-width:760px){body.order-page .order-workspace .order-duration{grid-template-columns:minmax(0,1fr);gap:12px}}
 @media(max-width:540px){body.order-page .duration-benefits{font-size:11px;gap:10px;margin-top:16px;padding-top:16px}}

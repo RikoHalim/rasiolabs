@@ -155,7 +155,10 @@
       document.querySelector('[data-booking-domain]').setAttribute('aria-label',duration === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis selama 1 tahun: termasuk dalam paket');
       document.querySelector('[data-order-domain-intro]').textContent = duration === 1 ? 'Cari domain untuk website Anda. Domain dibayar untuk 1 tahun; 1 email bisnis gratis selama langganan.' : 'Cari domain untuk website Anda. Domain gratis selama 1 tahun; 1 email bisnis gratis selama langganan.';
       durationOffer.hidden = duration !== 1;
-      document.querySelector('[data-duration-domain-benefit]').hidden = duration === 1;
+      const durationDomainBenefit = document.querySelector('[data-duration-domain-benefit]');
+      durationDomainBenefit.classList.toggle('domain-not-included', duration === 1);
+      durationDomainBenefit.querySelector('span').textContent = duration === 1 ? 'Domain gratis' : 'Domain gratis selama 1 tahun';
+      durationDomainBenefit.setAttribute('aria-label', duration === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis selama 1 tahun: termasuk dalam paket');
       document.querySelector('[data-upgrade-monthly]').textContent = `${rupiah(Math.round(normalMonthly * .25))}/bulan`;
       document.querySelector('[data-upgrade-total]').textContent = `Bayar ${rupiah(Math.round(normalMonthly * .25) * 48)} untuk 48 bulan. Domain gratis selama 1 tahun.`;
       document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
