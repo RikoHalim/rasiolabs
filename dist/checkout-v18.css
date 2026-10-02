@@ -111,3 +111,11 @@ body.order-page .summary-breakdown strong{white-space:normal;text-align:right;ma
 body.order-page .summary-total strong{white-space:normal;overflow-wrap:anywhere}
 @media(max-width:600px){body.order-page .duration-offer{grid-template-columns:35px minmax(0,1fr);gap:12px;padding:16px}body.order-page .duration-offer-icon{width:35px;height:35px;font-size:21px}body.order-page .duration-offer button{grid-column:2;justify-self:start;margin-top:2px}body.order-page .duration-offer strong{font-size:10px}}
 @media(prefers-reduced-motion:reduce){body.order-page .duration-offer button{transition:none;transform:none}}
+
+body.order-page .order-workspace .order-duration{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,265px);gap:0 24px;background:#fff}
+body.order-page .duration-benefits{grid-column:1/-1;display:grid;gap:11px;list-style:none;width:100%;margin:18px 0 0;padding:18px 0 0;border-top:1px solid #e0e5ed;color:#27374f;font-size:12px;line-height:1.6}
+body.order-page .duration-benefits li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start}
+body.order-page .duration-benefits li[hidden]{display:none}
+body.order-page .duration-benefits svg{width:19px;height:19px;margin-top:1px;color:#13834b}
+@media(max-width:760px){body.order-page .order-workspace .order-duration{grid-template-columns:minmax(0,1fr);gap:12px}}
+@media(max-width:540px){body.order-page .duration-benefits{font-size:11px;gap:10px;margin-top:16px;padding-top:16px}}

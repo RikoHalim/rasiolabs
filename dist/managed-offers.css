@@ -67,11 +67,10 @@ body .offer-store .benefit-checklist li::before{background:#e7f7ed;color:#15803d
 
 #solusi .benefit-checklist li.domain-not-included::before,
 .order-page .booking-included li.domain-not-included::before {
-  content: "\00d7";
-  background: #fff0f0;
+  content: "";
+  background: #fff0f0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m3 3 6 6m0-6-6 6' fill='none' stroke='%23b42318' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
   color: #b42318;
-  font-size: 17px;
-  font-weight: 700;
+  line-height: 1;
 }
 
 .feature-showcase{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:29px}

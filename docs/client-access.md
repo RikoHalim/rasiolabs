@@ -25,7 +25,7 @@ Payment gateway belum terhubung. Trigger akun saat ini adalah verifikasi pembaya
 
 ## Domain dan durasi layanan
 
-Pesanan baru 1 bulan membayar registrasi domain untuk 1 tahun secara terpisah. Paket 12, 24, dan 48 bulan termasuk domain selama langganan. Satu email bisnis gratis pada semua durasi; email tidak menjadi add-on berbayar. Migrasi mempertahankan manfaat domain pesanan lama.
+Pesanan baru 1 bulan membayar registrasi domain untuk 1 tahun secara terpisah. Paket 12, 24, dan 48 bulan termasuk domain gratis selama 1 tahun. Satu email bisnis gratis pada semua durasi; email tidak menjadi add-on berbayar. Migrasi mempertahankan manfaat domain pesanan lama.
 
 Checkout mengambil tarif tahunan dari `/api/domains/prices`. Runtime `DOMAIN_PRICES_IDR` dapat berisi objek JSON harga Rasio untuk `com`, `id`, dan `co.id` dalam rupiah. Gunakan harga yang benar-benar sudah dikonfirmasi; nilai ini bukan harga langsung dari registrar. Tidak ada tarif bawaan atau harga perkiraan. API registrar belum dihubungkan.
 

@@ -133,7 +133,7 @@
       const domainFee = feeFor(domain);
       const unquoted = duration === 1 && domainFee === null;
       const total = packageTotal + addonTotal + (domainFee ?? 0);
-      const domainTerms = duration === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama langganan.';
+      const domainTerms = duration === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama 1 tahun.';
       document.querySelector('[data-review-price]').textContent = `${rupiah(total)}${unquoted ? ' + biaya domain tahunan' : ''} untuk ${duration} bulan. ${domainTerms} 1 email bisnis gratis.`;
       document.querySelector('.summary-total strong').textContent = `${rupiah(total)}${unquoted ? ' + domain' : ''}`;
       document.querySelector('[data-mini-total]').textContent = `${rupiah(total)}${unquoted ? ' + domain' : ''}`;
@@ -148,14 +148,16 @@
       document.querySelector('[data-summary-duration]').textContent = `Paket website · ${duration} bulan`;
       document.querySelector('[data-summary-total-label]').textContent = unquoted ? 'Subtotal paket' : `Total ${duration} bulan`;
       document.querySelector('[data-summary-domain-label]').textContent = duration === 1 ? 'Domain · 1 tahun' : 'Domain';
-      document.querySelector('[data-summary-domain-included]').textContent = duration !== 1 ? 'Gratis selama langganan' : !domain ? 'Pilih domain' : unquoted ? 'Tarif belum tersedia' : rupiah(domainFee);
+      document.querySelector('[data-summary-domain-included]').textContent = duration !== 1 ? 'Gratis selama 1 tahun' : !domain ? 'Pilih domain' : unquoted ? 'Tarif belum tersedia' : rupiah(domainFee);
       document.querySelector('[data-summary-email-included]').textContent = 'Gratis selama langganan';
       document.querySelector('[data-booking-domain]').classList.toggle('domain-not-included',duration === 1);
-      document.querySelector('[data-booking-domain]').setAttribute('aria-label',duration === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis: termasuk dalam paket');
-      document.querySelector('[data-order-domain-intro]').textContent = duration === 1 ? 'Cari domain untuk website Anda. Domain dibayar untuk 1 tahun; 1 email bisnis gratis selama langganan.' : 'Cari domain untuk website Anda. Domain dan 1 email bisnis gratis selama langganan.';
+      document.querySelector('[data-booking-domain]').textContent = duration === 1 ? 'Domain gratis' : 'Domain gratis selama 1 tahun';
+      document.querySelector('[data-booking-domain]').setAttribute('aria-label',duration === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis selama 1 tahun: termasuk dalam paket');
+      document.querySelector('[data-order-domain-intro]').textContent = duration === 1 ? 'Cari domain untuk website Anda. Domain dibayar untuk 1 tahun; 1 email bisnis gratis selama langganan.' : 'Cari domain untuk website Anda. Domain gratis selama 1 tahun; 1 email bisnis gratis selama langganan.';
       durationOffer.hidden = duration !== 1;
+      document.querySelector('[data-duration-domain-benefit]').hidden = duration === 1;
       document.querySelector('[data-upgrade-monthly]').textContent = `${rupiah(Math.round(normalMonthly * .25))}/bulan`;
-      document.querySelector('[data-upgrade-total]').textContent = `Bayar ${rupiah(Math.round(normalMonthly * .25) * 48)} untuk 48 bulan. Domain gratis.`;
+      document.querySelector('[data-upgrade-total]').textContent = `Bayar ${rupiah(Math.round(normalMonthly * .25) * 48)} untuk 48 bulan. Domain gratis selama 1 tahun.`;
       document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
       document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
       document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan ${rupiah(renewalMonthly)}/bulan. ${domainTerms} 1 email bisnis gratis.${unquoted ? ' Harga domain dikonfirmasi sebelum pembayaran.' : ''}${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
@@ -172,7 +174,7 @@
       const fee = feeFor(button.dataset.domainChoice);
       const status = button.querySelector('[data-domain-price]');
       status.querySelector('small').textContent = service === 'custom' ? 'Untuk konsultasi' : Number(durationSelect.value) === 1 ? 'Registrasi 1 tahun' : 'Termasuk dalam paket';
-      status.querySelector('strong').textContent = service === 'custom' ? 'Sesuai penawaran' : Number(durationSelect.value) !== 1 ? 'Gratis' : fee === null ? 'Tarif belum tersedia' : `${rupiah(fee)}/tahun`;
+      status.querySelector('strong').textContent = service === 'custom' ? 'Sesuai penawaran' : Number(durationSelect.value) !== 1 ? 'Gratis selama 1 tahun' : fee === null ? 'Tarif belum tersedia' : `${rupiah(fee)}/tahun`;
     });
   }
   async function loadDomainPrices() {

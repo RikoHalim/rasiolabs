@@ -21,7 +21,7 @@ products = {
         'board_note': 'Dashboard toko untuk produk, stok, dan pesanan.',
         'sectors': [('Fashion & aksesori','Koleksi, ukuran, dan variasi produk.'),('Beauty & skincare','Katalog dan informasi tiap produk.'),('Home & living','Furniture, dekorasi, dan peralatan.'),('Makanan kemasan','Produk siap kirim dan paket bundling.'),('Hobi & lifestyle','Koleksi khusus dengan pelanggan loyal.')],
         'problems': [('Pesanan tersebar di banyak chat.','Checkout menyatukan detail belanja, pembayaran, dan pesanan.'),('Pertanyaan ongkir datang berulang.','Pembeli dapat melihat ongkir dan mengikuti status pengiriman.'),('Brand sulit dikenali saat berbelanja.','Domain dan tampilan toko membawa identitas bisnis Anda sendiri.')],
-        'features': ['Template dengan logo, warna, dan produk Anda','Payment gateway, cek ongkir, resi, dan tracking','Dashboard produk, stok, dan pesanan','AI chatbot untuk pertanyaan pelanggan','Domain gratis untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Rasio AI Insight tersedia sebagai add-on'],
+        'features': ['Template dengan logo, warna, dan produk Anda','Payment gateway, cek ongkir, resi, dan tracking','Dashboard produk, stok, dan pesanan','AI chatbot untuk pertanyaan pelanggan','Domain gratis selama 1 tahun untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Rasio AI Insight tersedia sebagai add-on'],
         'manage_title':'Kelola produk, stok, dan pesanan melalui dashboard toko Anda.',
         'manage':'Tim Rasio membantu setup awal. Setelah aktif, Anda mengelola produk dan pesanan melalui dashboard toko. Rasio menangani maintenance teknis sesuai paket.',
         'note':'Berlangganan tahunan. Rasio tidak mengambil komisi penjualan; biaya transaksi dan pengiriman tetap berlaku sesuai penggunaan.',
@@ -35,7 +35,7 @@ products = {
         'board_note':'Anda kirim materi. Tim Rasio merapikan kontennya.',
         'sectors':[('Konsultan & jasa','Layanan, keahlian, dan cara menghubungi.'),('Properti & konstruksi','Portofolio proyek dan profil tim.'),('Pendidikan & kursus','Program, fasilitas, dan pendaftaran.'),('Manufaktur & B2B','Kapabilitas, katalog, dan profil perusahaan.'),('Hospitality & kreatif','Pengalaman, karya, dan identitas bisnis.')],
         'problems':[('Calon pelanggan sulit memahami layanan.','Susun profil, layanan, dan portofolio dalam halaman yang jelas.'),('Materi bisnis tersebar di banyak dokumen.','Satukan informasi penting di satu alamat yang mudah dibagikan.'),('Tim tidak punya waktu mengedit website.','Kirim materi atau revisi. Seluruh pengeditan konten ditangani Rasio.')],
-        'features':['Template company profile atau landing page','Logo, warna, teks, dan foto sesuai bisnis','Formulir calon pelanggan dan tautan kontak','AI chatbot berdasarkan informasi bisnis','Domain gratis untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Setup dan perubahan konten oleh tim Rasio'],
+        'features':['Template company profile atau landing page','Logo, warna, teks, dan foto sesuai bisnis','Formulir calon pelanggan dan tautan kontak','AI chatbot berdasarkan informasi bisnis','Domain gratis selama 1 tahun untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Setup dan perubahan konten oleh tim Rasio'],
         'manage_title':'Fokus pada bisnis. Kontennya kami urus.',
         'manage':'Anda mengirim logo, teks, foto, dan permintaan perubahan melalui kanal Rasio. Tim kami mengedit konten, menyiapkan preview, lalu meminta review Anda. Cakupan revisi mengikuti paket yang disepakati.',
         'note':'Berlangganan tahunan dengan pengelolaan konten oleh Rasio.',
@@ -59,7 +59,7 @@ products = {
 products['store'].update({
  'title':'Kembangkan penjualan dengan<br /><mark class="marker">toko online milik brand Anda.</mark>',
  'note':'Berlangganan tahunan. Website pre-made aktif dalam 1–2 × 24 jam setelah pemesanan. Tim menghubungi Anda dalam 1 × 24 jam setelah pembayaran.',
- 'features':['Template dengan logo, warna, dan produk Anda','Payment gateway, cek ongkir, resi, dan tracking','CMS toko untuk produk, stok, dan pesanan','SEO dasar dan tombol WhatsApp','AI chatbot untuk pertanyaan pelanggan','Domain gratis untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Maintenance selama langganan aktif','Opsional: Rasio AI Insight Rp500.000/tahun'],
+ 'features':['Template dengan logo, warna, dan produk Anda','Payment gateway, cek ongkir, resi, dan tracking','CMS toko untuk produk, stok, dan pesanan','SEO dasar dan tombol WhatsApp','AI chatbot untuk pertanyaan pelanggan','Domain gratis selama 1 tahun untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Maintenance selama langganan aktif','Opsional: Rasio AI Insight Rp500.000/tahun'],
  'manage':'Tim Rasio membantu setup awal dan panduan penggunaan. Setelah aktif, Anda mengelola produk, stok, dan pesanan melalui CMS toko. Maintenance teknis sudah termasuk selama langganan berlangsung.'
 })
 products['profile'].update({
@@ -69,7 +69,7 @@ products['profile'].update({
  'manage_title':'Perbarui informasi bisnis tanpa mengedit kode.',
  'manage':'Pilih template, kirim logo, teks, dan foto, lalu review hasil setup dari tim Rasio. Setelah website aktif, gunakan CMS sederhana untuk mengubah copywriting, gambar, dan logo. Kami memberikan panduan serta maintenance selama langganan aktif.',
  'note':'Berlangganan tahunan. Website pre-made aktif dalam 1–2 × 24 jam setelah pemesanan. Tim menghubungi Anda dalam 1 × 24 jam setelah pembayaran.',
- 'features':['Template company profile yang dapat disesuaikan dengan identitas bisnis','Logo, warna, teks, dan foto sesuai bisnis','CMS sederhana untuk copywriting, gambar, dan logo','SEO dasar dan WhatsApp CTA','AI chatbot berdasarkan informasi bisnis','Domain gratis untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Setup awal dan panduan CMS','Maintenance selama langganan berlangsung']
+ 'features':['Template company profile yang dapat disesuaikan dengan identitas bisnis','Logo, warna, teks, dan foto sesuai bisnis','CMS sederhana untuk copywriting, gambar, dan logo','SEO dasar dan WhatsApp CTA','AI chatbot berdasarkan informasi bisnis','Domain gratis selama 1 tahun untuk paket 12 bulan atau lebih','1 email bisnis gratis, hosting, dan SSL','Setup awal dan panduan CMS','Maintenance selama langganan berlangsung']
 })
 products['profile']['problems'][2]=('Informasi website cepat ketinggalan.','Perbarui teks, foto, dan logo sendiri melalui CMS sederhana, tanpa menyentuh kode.')
 products['custom'].update({

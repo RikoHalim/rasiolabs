@@ -3,7 +3,7 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const rupiah=n=>'Rp'+Number(n||0).toLocaleString('id-ID');
   const orderTotal=o=>o.total===null?'Menunggu harga domain':rupiah(o.total);
-  const domainAmount=o=>o.domainIncluded?'Gratis selama langganan':o.domainFee===null?'Menunggu harga':rupiah(o.domainFee)+' /tahun';
+  const domainAmount=o=>o.domainIncluded?'Gratis selama 1 tahun':o.domainFee===null?'Menunggu harga':rupiah(o.domainFee)+' /tahun';
   const date=n=>new Date(n).toLocaleString('id-ID',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
   const svg=(name)=>{const paths={orders:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>',edit:'<path d="m14 4 6 6M4 20l5-1 12-12-5-5L4 14Z"/>',out:'<path d="M10 4H4v16h6M10 12h11m-4-4 4 4-4 4"/>',save:'<path d="M4 3h14l3 3v15H3V3Z"/><path d="M7 3v6h10V3M7 21v-8h10v8"/>',preview:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',publish:'<path d="M12 16V3m-5 5 5-5 5 5M4 14v7h16v-7"/>',wa:'<path d="M12 2.5a9.5 9.5 0 0 0-8.3 14.2L2.5 21.5l4.8-1.2A9.5 9.5 0 1 0 12 2.5Z"/><path d="m8 8 2 3-1 1a10 10 0 0 0 4 4l1-1 3 2"/>'};return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.orders}</svg>`;};
   function notify(message,error=false){const t=document.querySelector('#toast');t.textContent=message;t.classList.toggle('error',error);t.hidden=false;clearTimeout(notify.timer);notify.timer=setTimeout(()=>t.hidden=true,error?9500:4000);}

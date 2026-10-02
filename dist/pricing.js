@@ -23,10 +23,11 @@
       card.querySelector('[data-offer-normal]').textContent = `${rupiah(monthlyNormal)}/bulan`;
       card.querySelector('[data-offer-normal]').hidden = !discount;
       card.querySelector('[data-offer-monthly]').innerHTML = `${rupiah(monthly)}<small>/bulan</small>`;
-      card.querySelector('[data-offer-billing]').textContent = `Bayar ${months} bulan ${rupiah(total)} sekaligus${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. ${months === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama langganan.'} 1 email bisnis gratis selama langganan aktif.`;
+      card.querySelector('[data-offer-billing]').textContent = `Bayar ${months} bulan ${rupiah(total)} sekaligus${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. ${months === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama 1 tahun.'} 1 email bisnis gratis selama langganan aktif.`;
       const domainBenefit = card.querySelector('[data-domain-benefit]');
       domainBenefit.classList.toggle('domain-not-included', months === 1);
-      domainBenefit.setAttribute('aria-label', months === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis: termasuk dalam paket');
+      domainBenefit.textContent = months === 1 ? 'Domain gratis' : 'Domain gratis selama 1 tahun';
+      domainBenefit.setAttribute('aria-label', months === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis selama 1 tahun: termasuk dalam paket');
       card.querySelector('.offer-renewal').textContent = `Tarif perpanjangan ${rupiah(monthlyNormal * .8)}/bulan.`;
       const link = card.querySelector('.offer-order');
       const url = new URL(link.href, location.href);
