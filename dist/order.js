@@ -3,7 +3,10 @@
   if (!shell) return;
   const params = new URLSearchParams(location.search);
   const catalog = {
-    Architecture: {type:'profile', title:'Architecture Studio — Designed for Better Living', description:'Arsitektur & Interior', art:'<img src="/assets/architecture-exterior.jpg" alt="Preview Architecture Studio" /><img class="order-architecture-logo" src="/assets/rasio-logo.png" alt="Rasio Agency" />'},
+    Architecture: {type:'profile', title:'Architecture Studio — Designed for Better Living', description:'Arsitektur & Interior', art:'<img src="/assets/template-architecture-preview.png" alt="Architecture Studio — Designed for Better Living" />'},
+    Padel: {type:'profile', title:'Padel Club — More Than a Match', description:'Olahraga & Rekreasi', art:'<img src="/assets/template-padel-preview.png" alt="Padel Club — More Than a Match" />'},
+    Creative: {type:'profile', title:'Creative Studio — Ideas Made Visible', description:'Studio Kreatif & Branding', art:'<img src="/assets/template-creative-preview.png" alt="Creative Studio — Ideas Made Visible" />'},
+    Consulting: {type:'profile', title:'Business Consulting — Clarity for What’s Next', description:'Konsultan & Jasa Profesional', art:'<img src="/assets/template-consulting-preview.png" alt="Business Consulting — Clarity for What’s Next" />'},
   };
   const service = params.get('type');
   const names = {store:'Rasio Store', profile:'Rasio Profile', custom:'Rasio Custom'};

@@ -1,3 +1,4 @@
+import {profileTemplates,isProfileTemplate,templateAssets} from './profile-templates.mjs';
 export const durations = [1,12,24,48];
 export const statuses = ['new','materials','building','review','active','cancelled'];
 export const statusLabels = {new:'Pesanan baru',materials:'Menunggu materi',building:'Sedang disiapkan',review:'Siap ditinjau',active:'Website aktif',cancelled:'Dibatalkan'};
@@ -35,10 +36,14 @@ export const defaults={
   service1Title:'Architecture',service1Description:'Buildings shaped around people, place, and the way they connect.',service1Detail:'Concept design · Space planning · Design development',service2Title:'Interior design',service2Description:'Interiors that feel comfortable from the first day and continue to work over time.',service2Detail:'Residential · Hospitality · Workspaces',service3Title:'Renovation & renewal',service3Description:'A new chapter for an existing space. We identify what deserves to stay and where thoughtful changes can make room for better everyday use.',service3Detail:'Spatial review · Adaptive layouts · Material selection',
   processTitle:'An open conversation.\nA clear way forward.',processDescription:'Space to explore the possibilities, with a shared understanding at every stage.',process1Title:'First, we listen.',process1Description:'We talk about your routines, priorities, site, and budget to understand what your space needs to do.',process2Title:'Then, we explore.',process2Description:'Layouts, materials, and visual concepts help you see the possibilities and shape the direction together.',process3Title:'Make every detail count.',process3Description:'We develop the agreed design into a coordinated plan, ready for the next stage of your project.',contactTitle:"Let's make room\nfor your next chapter.",contactLabel:'Start a conversation',whatsapp:'',email:''
 };
-export const contentWithDefaults=content=>({...defaults,...content});
+export function defaultsFor(template='Architecture') {
+  if (!isProfileTemplate(template)) throw new Error('Template tidak tersedia.');
+  return {...defaults,...profileTemplates[template].content};
+}
+export const contentWithDefaults=(content,template='Architecture')=>({...defaultsFor(template),...content});
 export function validateOrder(b) {
   const clean=(key,min,max)=>{const s=typeof b[key]==='string'?b[key].trim():'';if(s.length<min||s.length>max)throw new Error(`Lengkapi ${key==='businessName'?'nama bisnis':key==='customerName'?'nama penanggung jawab':key}.`);return s;};
-  if (b.consent!==true || b.service!=='profile' || b.template!=='Architecture') throw new Error('Periksa layanan dan template yang dipilih.');
+  if (b.consent!==true || b.service!=='profile' || !isProfileTemplate(b.template)) throw new Error('Periksa layanan dan template yang dipilih.');
   const whatsapp=clean('whatsapp',8,30);
   if(!/^[+\d\s().-]+$/.test(whatsapp)||whatsapp.replace(/\D/g,'').length<8||whatsapp.replace(/\D/g,'').length>15)throw new Error('Nomor WhatsApp tidak valid.');
   const email=typeof b.email==='string'?b.email.trim().toLowerCase():'';
@@ -46,18 +51,19 @@ export function validateOrder(b) {
   const domain=clean('domain',3,253).toLowerCase();
   if(!/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.(com|id|co\.id)$/.test(domain))throw new Error('Pilih nama domain .com, .id, atau .co.id yang valid.');
   const duration=Number(b.duration);pricing(duration);
-  return {businessName:clean('businessName',2,90),customerName:clean('customerName',2,100),whatsapp,email,domain,duration,template:'Architecture'};
+  return {businessName:clean('businessName',2,90),customerName:clean('customerName',2,100),whatsapp,email,domain,duration,template:b.template};
 }
-export function validateContent(input) {
+export function validateContent(input,template='Architecture') {
   if (!input || typeof input!=='object' || Array.isArray(input)) throw new Error('Konten tidak valid.');
   const result={};
+  const templateDefaults=defaultsFor(template);
   for(const group of fields)for(const f of group.items){
-    const raw=input[f.key]===undefined&&Object.hasOwn(navigationDefaults,f.key)?navigationDefaults[f.key]:input[f.key];
+    const raw=input[f.key]===undefined&&Object.hasOwn(navigationDefaults,f.key)?templateDefaults[f.key]:input[f.key];
     if(f.type==='boolean'){if(typeof raw!=='boolean')throw new Error(`${f.label} tidak valid.`);result[f.key]=raw;continue;}
     if(f.type==='select'){if(!f.options.some(option=>option.value===raw))throw new Error(`${f.label} tidak valid.`);result[f.key]=raw;continue;}
     const value=typeof raw==='string'?raw.trim():'';
     if(value.length>f.max)throw new Error(`${f.label} terlalu panjang.`);
-    if(f.type==='image'&&!/^\/assets\/(architecture-(exterior|living|detail)\.jpg|rasio-logo\.png)$|^\/media\/[0-9a-f-]{36}$/.test(value))throw new Error(`Unggah ${f.label.toLowerCase()} yang valid.`);
+    if(f.type==='image'&&!templateAssets.has(value)&&!/^\/media\/[0-9a-f-]{36}$/.test(value))throw new Error(`Unggah ${f.label.toLowerCase()} yang valid.`);
     result[f.key]=value;
   }
   for(const n of [1,2,3,4])if(result[`nav${n}Visible`]&&!result[`nav${n}Label`])throw new Error(`Isi nama menu ${n}.`);

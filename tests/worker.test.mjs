@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { Miniflare, Log, LogLevel, convertV4MiniflareOptions } from 'miniflare';
 import { dispatchEmail, resendActivation } from '../server/client-auth.mjs';
+import { defaultsFor } from '../server/model.mjs';
 
 const repo = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'http://localhost';
@@ -23,7 +24,9 @@ before(async () => {
       { type: 'ESModule', path: path.join(repo, 'server/worker.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/model.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/client-auth.mjs') },
-      { type: 'ESModule', path: path.join(repo, 'server/domains.mjs') }
+      { type: 'ESModule', path: path.join(repo, 'server/domains.mjs') },
+      { type: 'ESModule', path: path.join(repo, 'server/profile-templates.mjs') },
+      { type: 'ESModule', path: path.join(repo, 'server/profile-renderer.mjs') }
     ], modulesRoot: repo,
     compatibilityDate: '2026-09-01',
     bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode), CLIENT_AUTH_SECRET: clientSecret },
@@ -227,13 +230,51 @@ async function verify(order,admin,activate=true) {
   return result;
 }
 
+test('template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih', async () => {
+  const admin = await login();
+  for (const template of ['Padel', 'Creative', 'Consulting']) {
+    const a = await createOrder({ ...orderBody(), template });
+    assert.equal(a.order.template, template);
+    assert.equal((await request(`/api/orders`, { method:'POST', json:{ ...a.body, template:'Architecture' }, headers:{ 'Idempotency-Key':a.key } })).status, 409);
+    assert.equal((await request(`/preview/${a.order.slug}`)).status, 401);
+    await verify(a, admin);
+    const initial = await clientContent(a);
+    const expected = defaultsFor(template);
+    assert.equal(initial.order.template, template);
+    assert.equal(initial.content.draft.heroTitle, expected.heroTitle);
+    assert.equal(initial.content.draft.heroImage, expected.heroImage);
+    assert.equal(initial.content.draft.nav1Label, expected.nav1Label);
+    const content = { ...initial.content.draft, heroTitle:'<strong>Konten klien</strong>', nav1Label:'Our business', nav1Target:'studio', whatsapp:'+6281234567890', contactLabel:'Talk to us', navCtaVisible:false };
+    for (const n of [1,2,3,4]) content[`nav${n}Visible`] = false;
+    const saved = await jsonResponse(await request('/api/client/content', { method:'PUT', session:a.session, json:{ revision:initial.content.revision, content } }), 200);
+    const preview = await request(`/preview/${a.order.slug}`, { session:a.session });
+    assert.match(preview.headers.get('x-robots-tag'), /noindex/);
+    const html = await preview.text();
+    assert.match(html, new RegExp(`theme-${template.toLowerCase()}`));
+    assert.match(html, /&lt;strong&gt;Konten klien&lt;\/strong&gt;/);
+    assert.doesNotMatch(html, /template-access|data-cms-menu="[1-4]"|data-cms-nav-cta/);
+    assert.match(html, /class="studio-menu"[^>]*hidden/);
+    assert.match(html, /class="studio-nav"[^>]*hidden/);
+    assert.match(html, /href="https:\/\/wa.me\/6281234567890"/);
+    assert.doesNotMatch(html, /wa.me\/60142317052/);
+    assert.match(html, /data-cms-image="heroImage"/);
+    assert.equal((html.match(/data-cms-image="logo"/g) || []).length, 2);
+    assert.equal((await request(`/website/${a.order.slug}`)).status, 404);
+    const published = await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`, { method:'POST', session:admin, json:{ revision:saved.revision } }), 200);
+    assert.match(await (await request(published.url)).text(), /&lt;strong&gt;Konten klien&lt;\/strong&gt;/);
+    await jsonResponse(await request('/api/client/content', { method:'PUT', session:a.session, json:{ revision:saved.revision, content:{ ...content, heroTitle:'Draft terpisah' } } }), 200);
+    assert.doesNotMatch(await (await request(published.url)).text(), /Draft terpisah/);
+    assert.match(await (await request(`/preview/${a.order.slug}`, { session:a.session })).text(), /Draft terpisah/);
+  }
+});
+
 test('database dan storage lokal tersedia tanpa gateway pembayaran palsu', async () => {
   const data = await jsonResponse(await request('/api/health'), 200);
   assert.deepEqual(data, { ok: true, database: true, storage: true, paymentGateway: false });
 });
 
 test('portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html', async () => {
-  for (const url of ['/admin', '/cms', '/template-architecture']) {
+  for (const url of ['/admin', '/cms', '/template-architecture', '/template-padel', '/template-creative', '/template-consulting']) {
     const response = await request(url);
     assert.equal(response.status, 200, `${url}: ${response.headers.get('location')}`);
     assert.match(response.headers.get('content-type'), /text\/html/);
@@ -328,7 +369,7 @@ test('domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu diti
 
 test('tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry',async()=>{
   const priced=new Miniflare(convertV4MiniflareOptions({workers:[{
-    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
+    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs','profile-templates.mjs','profile-renderer.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
     compatibilityDate:'2026-09-01',bindings:{PUBLIC_ORIGIN:origin,CLIENT_AUTH_SECRET:clientSecret,DOMAIN_PRICES_IDR:JSON.stringify({com:150000,'co.id':310000})},d1Databases:['DB'],r2Buckets:['BUCKET'],
   }],log:new Log(LogLevel.ERROR)}));
   try{

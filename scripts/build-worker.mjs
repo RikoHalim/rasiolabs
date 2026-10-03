@@ -1,4 +1,5 @@
 import { cp, mkdir, readdir } from 'node:fs/promises';
+import './build-profile-templates.mjs';
 await mkdir('dist/client',{recursive:true});
 for (const entry of await readdir('dist',{withFileTypes:true})) {
   if (['client','server','.openai'].includes(entry.name)) continue;
@@ -9,6 +10,8 @@ await cp('server/worker.mjs','dist/server/index.js');
 await cp('server/model.mjs','dist/server/model.mjs');
 await cp('server/client-auth.mjs','dist/server/client-auth.mjs');
 await cp('server/domains.mjs','dist/server/domains.mjs');
+await cp('server/profile-templates.mjs','dist/server/profile-templates.mjs');
+await cp('server/profile-renderer.mjs','dist/server/profile-renderer.mjs');
 await mkdir('dist/.openai',{recursive:true});
 await cp('.openai/hosting.json','dist/.openai/hosting.json');
 await cp('drizzle','dist/.openai/drizzle',{recursive:true});

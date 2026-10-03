@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { defaults, pricing, validateOrder, validateContent, imageMime } from '../server/model.mjs';
+import { defaults, defaultsFor, contentWithDefaults, pricing, validateOrder, validateContent, imageMime } from '../server/model.mjs';
+import { profileTemplates } from '../server/profile-templates.mjs';
 
 const checkout = {
   service: 'profile', template: 'Architecture', duration: 24, consent: true,
@@ -49,6 +50,26 @@ test('CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tid
   }
   assert.throws(() => validateContent({ ...defaults, heroTitle: '' }));
   assert.throws(() => validateContent({ ...defaults, aboutLead: 'x'.repeat(801) }));
+});
+
+test('template Profile memakai konten dan menu sendiri tanpa mengubah harga', () => {
+  assert.deepEqual(Object.keys(profileTemplates), ['Architecture', 'Padel', 'Creative', 'Consulting']);
+  for (const template of Object.keys(profileTemplates)) {
+    const order = validateOrder({ ...checkout, template });
+    assert.equal(order.template, template);
+    assert.deepEqual(pricing(order.duration), pricing(checkout.duration));
+    const content = defaultsFor(template);
+    assert.deepEqual(validateContent(content, template), content);
+    const legacy = { ...content, heroTitle: 'Konten milik klien' };
+    for (const key of Object.keys(legacy)) if (key.startsWith('nav')) delete legacy[key];
+    assert.equal(contentWithDefaults(legacy, template).nav1Label, content.nav1Label);
+    assert.equal(validateContent(legacy, template).nav1Target, content.nav1Target);
+    assert.equal(contentWithDefaults(legacy, template).heroTitle, 'Konten milik klien');
+  }
+  for (const template of [null, {}, ['Padel'], '__proto__', 'Padel ']) {
+    assert.throws(() => validateOrder({ ...checkout, template }));
+    assert.throws(() => defaultsFor(template));
+  }
 });
 
 test('unggahan memakai tanda tangan file, bukan nama ekstensi', () => {
