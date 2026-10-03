@@ -7,6 +7,7 @@ import path from 'node:path';
 import { Miniflare, Log, LogLevel, convertV4MiniflareOptions } from 'miniflare';
 import { dispatchEmail, resendActivation } from '../server/client-auth.mjs';
 import { defaultsFor } from '../server/model.mjs';
+import {profilePages,profileBase,profileAsset} from '../server/profile-pages.mjs';
 
 const repo = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'http://localhost';
@@ -26,7 +27,8 @@ before(async () => {
       { type: 'ESModule', path: path.join(repo, 'server/client-auth.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/domains.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/profile-templates.mjs') },
-      { type: 'ESModule', path: path.join(repo, 'server/profile-renderer.mjs') }
+      { type: 'ESModule', path: path.join(repo, 'server/profile-renderer.mjs') },
+      { type: 'ESModule', path: path.join(repo, 'server/profile-pages.mjs') }
     ], modulesRoot: repo,
     compatibilityDate: '2026-09-01',
     bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode), CLIENT_AUTH_SECRET: clientSecret },
@@ -132,15 +134,15 @@ test('navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman unt
   const restored=await clientContent(a);assert.equal(restored.content.draft.nav2Visible,true);assert.equal(restored.content.draft.nav1Target,'work');
   await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`,{method:'POST',session:admin,json:{revision:restored.content.revision}}),200);
   const publicUrl=`/website/${a.order.slug}`;
-  assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="#work">Our work/);
+  assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="[^"]+\/projects">Our work/);
   const content={...restored.content.draft,nav1Label:'<b>Portfolio</b>',nav1Target:'studio',nav2Visible:false,navCtaLabel:'Chat WhatsApp',whatsapp:'+60142317052'};
   assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...content,nav1Target:'javascript:alert(1)'}}})).status,400);
   const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content}}),200);
   const reopened=await clientContent(a);assert.equal(reopened.content.draft.nav2Visible,false);assert.equal(reopened.content.draft.nav1Target,'studio');
   const preview=await (await request(`/preview/${a.order.slug}`,{session:a.session})).text();
-  assert.match(preview,/data-cms-menu="1" href="#studio">&lt;b&gt;Portfolio&lt;\/b&gt;/);assert.doesNotMatch(preview,/data-cms-menu="2"/);assert.match(preview,/id="studio"/);
+  assert.match(preview,/data-cms-menu="1" href="[^"]+\/studio">&lt;b&gt;Portfolio&lt;\/b&gt;/);assert.doesNotMatch(preview,/data-cms-menu="2"/);assert.match(preview,/id="studio"/);
   assert.match(preview,/data-cms-nav-cta[^>]*href="https:\/\/wa.me\/60142317052"/);assert.match(preview,/Chat WhatsApp <span aria-hidden="true">↗<\/span>/);
-  assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="#work">Our work/);
+  assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="[^"]+\/projects">Our work/);
   await jsonResponse(await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:saved.revision}}),200);
   assert.doesNotMatch(await (await request(publicUrl)).text(),/data-cms-menu="2"/);
   const empty={...reopened.content.draft,navCtaVisible:false};for(const n of [1,2,3,4])empty[`nav${n}Visible`]=false;
@@ -332,6 +334,65 @@ test('dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesan
   assert.equal(count.count, 1);
 });
 
+test('halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat',async()=>{
+  const admin=await login(),other=await createOrder();await verify(other,admin);
+  for(const template of Object.keys(profilePages)){
+    const a=await createOrder({...orderBody(),template});await verify(a,admin);
+    const initial=await clientContent(a);
+    assert.deepEqual(initial.pages,profilePages[template]);
+    for(const page of Object.keys(profilePages[template]).filter(Boolean)){
+      const demo=await request(profileBase(template)+'/'+page);assert.equal(demo.status,200,template+'/'+page);
+      assert.match(await demo.text(),/profile-pages.js/);
+      assert.equal((await request('/preview/'+a.order.slug+'/'+page)).status,401);
+      assert.equal((await request('/preview/'+a.order.slug+'/'+page,{session:other.session})).status,404);
+      assert.equal((await request('/website/'+a.order.slug+'/'+page)).status,404);
+      const preview=await request('/preview/'+a.order.slug+'/'+page,{session:a.session});
+      assert.equal(preview.status,200);assert.match(preview.headers.get('x-robots-tag'),/noindex/);
+      const html=await preview.text();
+      assert.doesNotMatch(html,/template-access|href="\/template-/);
+      assert.match(html,new RegExp('href="/preview/'+a.order.slug));
+    }
+    assert.equal((await request('/preview/'+a.order.slug+'/not-a-page',{session:a.session})).status,404);
+    await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:initial.content.revision}}),200);
+    for(const page of Object.keys(profilePages[template]).filter(Boolean)){
+      const response=await request('/website/'+a.order.slug+'/'+page);assert.equal(response.status,200);
+      const html=await response.text();assert.doesNotMatch(html,/href="\/preview\/|href="\/template-/);
+      assert.match(html,new RegExp('href="/website/'+a.order.slug));
+    }
+    assert.equal((await request('/website/'+a.order.slug+'/not-a-page')).status,404);
+  }
+  assert.equal((await request('/template-padel/not-a-page')).status,404);
+});
+
+test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',async()=>{
+  const admin=await login(),a=await createOrder({...orderBody(),template:'Padel'});await verify(a,admin);
+  const initial=await clientContent(a);
+  assert.ok(initial.fields.some(g=>g.items.some(f=>f.key==='founder1Bio')));
+  const legacy={...initial.content.draft};for(const key of ['founder1Bio','communityImage','locationLat'])delete legacy[key];
+  await db.prepare('UPDATE contents SET draft = ? WHERE order_id = ?').bind(JSON.stringify(legacy),a.order.id).run();
+  const restored=await clientContent(a);assert.ok(restored.content.draft.founder1Bio);assert.equal(restored.content.draft.locationLat,'-6.2088');
+  await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:restored.content.revision}}),200);
+  const next={...restored.content.draft,founder1Bio:'<script>Edited founder</script>',founder2Bio:'/media/ is ordinary text in this biography.',locationName:'Our new venue',locationLat:'-6.3',locationLon:'106.8'};
+  assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...next,locationLat:'javascript:alert(1)'}}})).status,400);
+  const stranger=await createOrder();await verify(stranger,admin);
+  const png=Uint8Array.from([137,80,78,71,13,10,26,10,...new Array(24).fill(0)]);
+  const foreign=await jsonResponse(await request('/api/client/media',{method:'POST',session:stranger.session,body:png,headers:{'Content-Type':'image/png'}}),201);
+  assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...next,communityImage:foreign.url}}})).status,400);
+  const own=await jsonResponse(await request('/api/client/media',{method:'POST',session:a.session,body:png,headers:{'Content-Type':'image/png'}}),201);
+  next.communityImage=own.url;next.whatsapp='+6281234567890';
+  const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:next}}),200);
+  const draft=await (await request('/preview/'+a.order.slug+'/club',{session:a.session})).text();
+  assert.match(draft,/&lt;script&gt;Edited founder&lt;\/script&gt;/);assert.ok(draft.includes(own.url));
+  assert.match(draft,/\/media\/ is ordinary text in this biography\./);
+  assert.doesNotMatch(await (await request('/website/'+a.order.slug+'/club')).text(),/Edited founder/);
+  const visit=await (await request('/preview/'+a.order.slug+'/visit',{session:a.session})).text();
+  assert.match(visit,/data-whatsapp="6281234567890"/);assert.match(visit,/marker=-6.3%2C106.8/);assert.match(visit,/Our new venue/);
+  assert.equal((await request(own.url)).status,401);
+  await jsonResponse(await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:saved.revision}}),200);
+  assert.match(await (await request('/website/'+a.order.slug+'/club')).text(),/Edited founder/);
+  assert.equal((await request(own.url)).status,200);
+});
+
 test('domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga',async()=>{
   const prices=await jsonResponse(await request('/api/domains/prices'),200);
   assert.deepEqual(prices,{prices:{},currency:'IDR',periodMonths:12});
@@ -369,7 +430,7 @@ test('domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu diti
 
 test('tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry',async()=>{
   const priced=new Miniflare(convertV4MiniflareOptions({workers:[{
-    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs','profile-templates.mjs','profile-renderer.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
+    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs','profile-templates.mjs','profile-renderer.mjs','profile-pages.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
     compatibilityDate:'2026-09-01',bindings:{PUBLIC_ORIGIN:origin,CLIENT_AUTH_SECRET:clientSecret,DOMAIN_PRICES_IDR:JSON.stringify({com:150000,'co.id':310000})},d1Databases:['DB'],r2Buckets:['BUCKET'],
   }],log:new Log(LogLevel.ERROR)}));
   try{

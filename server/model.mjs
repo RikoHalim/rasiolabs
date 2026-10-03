@@ -1,4 +1,5 @@
 import {profileTemplates,isProfileTemplate,templateAssets} from './profile-templates.mjs';
+import {pageDefaults,pageFields,pageAssetPaths,mapLinks} from './profile-pages.mjs';
 export const durations = [1,12,24,48];
 export const statuses = ['new','materials','building','review','active','cancelled'];
 export const statusLabels = {new:'Pesanan baru',materials:'Menunggu materi',building:'Sedang disiapkan',review:'Siap ditinjau',active:'Website aktif',cancelled:'Dibatalkan'};
@@ -38,7 +39,12 @@ export const defaults={
 };
 export function defaultsFor(template='Architecture') {
   if (!isProfileTemplate(template)) throw new Error('Template tidak tersedia.');
-  return {...defaults,...profileTemplates[template].content};
+  return {...defaults,...profileTemplates[template].content,...pageDefaults[template]};
+}
+export function fieldsFor(template) {
+  const labels={Padel:{about:'Tentang klub',work:'Lapangan & klub',services:'Program bermain',process:'Persiapan bermain'},Creative:{work:'Karya studio'},Consulting:{work:'Bidang fokus'}};
+  const destinations={Padel:{studio:'Klub',work:'Lokasi klub',services:'Program bermain',process:'Founders',contact:'Kontak klub'},Creative:{work:'Karya studio',services:'Keahlian studio',process:'Project brief',contact:'Project brief'},Consulting:{studio:'Pendekatan',work:'Perspektif',services:'Keahlian',process:'Cara kerja'}};
+  return [...fields.map(g=>({...g,label:labels[template]?.[g.id]||g.label,items:g.items.map(f=>f.type==='select'?{...f,options:f.options.map(option=>({...option,label:destinations[template]?.[option.value]||option.label}))}:f)})),...(pageFields[template]||[])];
 }
 export const contentWithDefaults=(content,template='Architecture')=>({...defaultsFor(template),...content});
 export function validateOrder(b) {
@@ -57,13 +63,14 @@ export function validateContent(input,template='Architecture') {
   if (!input || typeof input!=='object' || Array.isArray(input)) throw new Error('Konten tidak valid.');
   const result={};
   const templateDefaults=defaultsFor(template);
-  for(const group of fields)for(const f of group.items){
-    const raw=input[f.key]===undefined&&Object.hasOwn(navigationDefaults,f.key)?templateDefaults[f.key]:input[f.key];
+  for(const group of fieldsFor(template))for(const f of group.items){
+    const legacyDefault=Object.hasOwn(navigationDefaults,f.key)||Object.hasOwn(pageDefaults[template],f.key);
+    const raw=input[f.key]===undefined&&legacyDefault?templateDefaults[f.key]:input[f.key];
     if(f.type==='boolean'){if(typeof raw!=='boolean')throw new Error(`${f.label} tidak valid.`);result[f.key]=raw;continue;}
     if(f.type==='select'){if(!f.options.some(option=>option.value===raw))throw new Error(`${f.label} tidak valid.`);result[f.key]=raw;continue;}
     const value=typeof raw==='string'?raw.trim():'';
     if(value.length>f.max)throw new Error(`${f.label} terlalu panjang.`);
-    if(f.type==='image'&&!templateAssets.has(value)&&!/^\/media\/[0-9a-f-]{36}$/.test(value))throw new Error(`Unggah ${f.label.toLowerCase()} yang valid.`);
+    if(f.type==='image'&&!templateAssets.has(value)&&!pageAssetPaths.includes(value)&&!/^\/media\/[0-9a-f-]{36}$/.test(value))throw new Error(`Unggah ${f.label.toLowerCase()} yang valid.`);
     result[f.key]=value;
   }
   for(const n of [1,2,3,4])if(result[`nav${n}Visible`]&&!result[`nav${n}Label`])throw new Error(`Isi nama menu ${n}.`);
@@ -71,6 +78,7 @@ export function validateContent(input,template='Architecture') {
   if(!result.businessName||!result.heroTitle)throw new Error('Nama bisnis dan judul utama wajib diisi.');
   if(result.whatsapp&&(!/^[+\d\s().-]+$/.test(result.whatsapp)||!/^\d{8,15}$/.test(result.whatsapp.replace(/\D/g,''))))throw new Error('Nomor WhatsApp tidak valid.');
   if(result.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result.email))throw new Error('Email tidak valid.');
+  if(template==='Padel'&&(!result.locationLat||!result.locationLon||!mapLinks(result)))throw new Error('Koordinat lokasi tidak valid.');
   return result;
 }
 export function imageMime(bytes) {

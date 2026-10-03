@@ -11,7 +11,7 @@
       note: 'Company profile yang disiapkan dan dikelola Rasio',
       price: 'Rp27.250',
       suffix: '/bln',
-      priceNote: 'Paket 48 bulan, dibayar di muka',
+      priceNote: 'Untuk berlangganan 48 bulan',
       benefits: ['1 email bisnis gratis; domain gratis selama 1 tahun untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio', 'CMS sederhana untuk ubah konten', 'SEO, WhatsApp CTA & AI chatbot 24/7'],
     },
     {
@@ -22,7 +22,7 @@
       note: 'Toko online dengan pengelolaan teknis dari Rasio',
       price: 'Rp52.500',
       suffix: '/bln',
-      priceNote: 'Paket 48 bulan, dibayar di muka',
+      priceNote: 'Untuk berlangganan 48 bulan',
       benefits: ['1 email bisnis gratis; domain gratis selama 1 tahun untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio', '50 produk awal dibantu, berikutnya tanpa batas', 'Checkout, pengiriman & AI chatbot 24/7'],
     },
     {
