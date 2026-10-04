@@ -12,7 +12,7 @@
       price: 'Rp27.250',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['Domain gratis 1 tahun untuk paket 12–48 bulan', 'Email bisnis, hosting & SSL', 'Setup & maintenance oleh Rasio Labs', 'CMS, SEO & chatbot 24/7'],
+      benefits: ['Domain gratis 1 tahun (12–48 bulan)', 'Email bisnis, hosting & SSL', 'Setup & maintenance oleh Rasio Labs', 'CMS, SEO & chatbot 24/7'],
     },
     {
       label: 'RasioLabs Store',
@@ -23,7 +23,7 @@
       price: 'Rp52.500',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['Domain gratis 1 tahun untuk paket 12–48 bulan', 'Email bisnis, hosting & SSL', 'Produk tanpa batas & 50 produk awal dibantu', 'Checkout, pengiriman & chatbot 24/7'],
+      benefits: ['Domain gratis 1 tahun (12–48 bulan)', 'Email bisnis, hosting & SSL', 'Produk tanpa batas, 50 awal dibantu', 'Checkout, pengiriman & chatbot 24/7'],
     },
     {
       label: 'RasioLabs Custom',
@@ -99,16 +99,16 @@
       transition: 'none',
     });
     measure.setAttribute('aria-hidden', 'true');
-    root.append(measure);
+    slide.parentElement.append(measure);
     const measureTitle = measure.querySelector('[data-hero-title]');
     const measureCopy = measure.querySelector('[data-hero-copy]');
     let tallest = 0;
     slides.forEach((_, index) => {
       fill(measureTitle, measureCopy, index);
-      tallest = Math.max(tallest, measure.scrollHeight);
+      tallest = Math.max(tallest, measure.getBoundingClientRect().height);
     });
     measure.remove();
-    slide.style.minHeight = Math.max(baseMinHeight, Math.ceil(tallest) + 8) + 'px';
+    slide.style.minHeight = Math.max(baseMinHeight, Math.ceil(tallest)) + 'px';
     reserveHeight(root.querySelector('.hero-benefits'), (clone, index) => {
       clone.querySelectorAll('li').forEach((item, i) => { item.textContent = slides[index].benefits[i]; });
     });
