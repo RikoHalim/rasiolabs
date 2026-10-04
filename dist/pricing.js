@@ -23,7 +23,7 @@
       card.querySelector('[data-offer-normal]').textContent = `${rupiah(monthlyNormal)}/bulan`;
       card.querySelector('[data-offer-normal]').hidden = !discount;
       card.querySelector('[data-offer-monthly]').innerHTML = `${rupiah(monthly)}<small>/bulan</small>`;
-      card.querySelector('[data-offer-billing]').textContent = `Bayar ${months} bulan ${rupiah(total)} sekaligus${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. ${months === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama 1 tahun.'} 1 email bisnis gratis selama langganan aktif.`;
+      card.querySelector('[data-offer-billing]').textContent = `${rupiah(total)} untuk ${months} bulan${discount ? ` (harga normal ${rupiah(normalTotal)})` : ''}. ${months === 1 ? 'Domain dibayar terpisah untuk 1 tahun.' : 'Domain gratis selama 1 tahun.'}`;
       const domainBenefit = card.querySelector('[data-domain-benefit]');
       domainBenefit.classList.toggle('domain-not-included', months === 1);
       domainBenefit.textContent = months === 1 ? 'Domain gratis' : 'Domain gratis selama 1 tahun';

@@ -350,19 +350,53 @@ test('halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat',
       const preview=await request('/preview/'+a.order.slug+'/'+page,{session:a.session});
       assert.equal(preview.status,200);assert.match(preview.headers.get('x-robots-tag'),/noindex/);
       const html=await preview.text();
-      assert.doesNotMatch(html,/template-access|href="\/template-/);
+      assert.doesNotMatch(html,/template-access|href="\/template-(?:architecture|padel|creative|consulting)(?=[/." ])/);
       assert.match(html,new RegExp('href="/preview/'+a.order.slug));
     }
     assert.equal((await request('/preview/'+a.order.slug+'/not-a-page',{session:a.session})).status,404);
     await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:initial.content.revision}}),200);
     for(const page of Object.keys(profilePages[template]).filter(Boolean)){
       const response=await request('/website/'+a.order.slug+'/'+page);assert.equal(response.status,200);
-      const html=await response.text();assert.doesNotMatch(html,/href="\/preview\/|href="\/template-/);
+      const html=await response.text();assert.doesNotMatch(html,/href="\/preview\/|href="\/template-(?:architecture|padel|creative|consulting)(?=[/." ])/);
       assert.match(html,new RegExp('href="/website/'+a.order.slug));
     }
     assert.equal((await request('/website/'+a.order.slug+'/not-a-page')).status,404);
   }
   assert.equal((await request('/template-padel/not-a-page')).status,404);
+});
+
+test('brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama',async()=>{
+  const admin=await login();
+  const routes={Architecture:['planning','renovation','contact'],Padel:['first-game','group-play','visit#enquiry'],Creative:['brand-foundations','brand-handover','brief'],Consulting:['business-review','operations-review','contact']};
+  for(const [template,[first,second,destination]] of Object.entries(routes)){
+    const a=await createOrder({...orderBody(),template});await verify(a,admin);
+    const initial=await clientContent(a);
+    for(const page of [first,second]){
+      const html=await (await request('/preview/'+a.order.slug+'/'+page,{session:a.session})).text();
+      assert.match(html,/data-prep-builder/);assert.match(html,/data-prep-copy/);assert.match(html,/data-prep-download/);
+      assert.ok(html.includes('href="/preview/'+a.order.slug+'/'+destination+'"'),template+'/'+page);
+    }
+    const enquiry=await (await request('/preview/'+a.order.slug+'/'+destination.split('#')[0],{session:a.session})).text();
+    assert.match(enquiry,/data-enquiry/);assert.match(enquiry,/name="message"[^>]*maxlength="6000"/);
+    await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:initial.content.revision}}),200);
+    for(const page of [first,second]){
+      const html=await (await request('/website/'+a.order.slug+'/'+page)).text();
+      assert.ok(html.includes('href="/website/'+a.order.slug+'/'+destination+'"'),template+'/'+page);
+      assert.doesNotMatch(html,/href="\/template-(?:architecture|padel|creative|consulting)(?=[/." ])/);
+    }
+  }
+});
+
+test('enquiry memakai kontak email klien ketika WhatsApp tidak diisi',async()=>{
+  const admin=await login(),a=await createOrder({...orderBody(),template:'Consulting'});await verify(a,admin);
+  const initial=await clientContent(a);
+  const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:initial.content.revision,content:{...initial.content.draft,whatsapp:'',email:'hello@example.test'}}}),200);
+  const preview=await (await request('/preview/'+a.order.slug+'/contact',{session:a.session})).text();
+  assert.match(preview,/data-whatsapp=""/);assert.match(preview,/data-contact-email="hello@example.test"/);
+  assert.match(preview,/Continue by email/);assert.match(preview,/href="mailto:hello@example.test"/);assert.doesNotMatch(preview,/wa.me\/60142317052/);
+  await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:saved.revision}}),200);
+  const published=await (await request('/website/'+a.order.slug+'/contact')).text();
+  assert.match(published,/data-contact-email="hello@example.test"/);assert.match(published,/Continue by email/);
 });
 
 test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',async()=>{

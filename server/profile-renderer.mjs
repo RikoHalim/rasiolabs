@@ -3,7 +3,10 @@ export function rewriteProfileLinks(source,data,{template,base,page=''}) {
   let html=new HTMLRewriter().on('[data-site-page]',{element:e=>{
     const target=e.getAttribute('data-site-page')||'';
     e.setAttribute('href',pageHref(base,target));
-  }}).on('[data-enquiry]',{element:e=>e.setAttribute('data-whatsapp',data.whatsapp.replace(/\D/g,''))});
+  }}).on('[data-enquiry]',{element:e=>{e.setAttribute('data-whatsapp',data.whatsapp.replace(/\D/g,''));e.setAttribute('data-contact-email',data.email||'');}})
+  .on('[data-enquiry] button[type="submit"]',{element:e=>{
+    if(!/^\d{8,15}$/.test(data.whatsapp.replace(/\D/g,''))&&data.email)e.setInnerContent('Continue by email ↗');
+  }});
   const map=mapLinks(data);
   if(map)html=html.on('[data-location-map]',{element:e=>e.setAttribute('src',map.embed)}).on('[data-location-link]',{element:e=>e.setAttribute('href',map.view)});
   return html.transform(source);
