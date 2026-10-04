@@ -177,7 +177,6 @@
  .menu-toggle span:nth-child(2) { top:25px; }
  .menu-open .menu-toggle span:nth-child(1) { top:21px; transform:rotate(45deg); }
  .menu-open .menu-toggle span:nth-child(2) { top:21px; transform:rotate(-45deg); }
- .menu-open .announcement-bar { visibility:hidden; }
  .menu-open .site-header { position:fixed; top:0; left:0; right:0; }
  .order-progress-bar { top:70px; }
  .order-page .order-aside { position:static; }

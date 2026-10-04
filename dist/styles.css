@@ -83,22 +83,6 @@ a {
   transform: translateY(0);
 }
 
-.announcement-bar {
-  color: var(--white);
-  background: var(--blue);
-}
-
-.announcement-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 32px;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
-
 .site-header {
   position: sticky;
   z-index: 50;
@@ -1592,14 +1576,6 @@ a {
   .header-inner {
     grid-template-columns: 1fr auto;
     min-height: 70px;
-  }
-
-  .announcement-inner {
-    justify-content: center;
-  }
-
-  .announcement-inner span:last-child {
-    display: none;
   }
 
   .header-cta {

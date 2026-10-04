@@ -88,7 +88,25 @@ for(const template of Object.keys(profilePages)) {
       bodies[p.slug]=section('<div class="guide-intro">'+heading(t(k+'Title'),p.label,t(k+'Lead'))+pic(p.image,p.alt,'fetchpriority="high"')+'</div>')+section('<div class="guide-review"><div class="guide-review-intro"><h2>Three areas to review.</h2>'+link(requestPage,requestLabel,'action')+'</div><div class="process-list">'+modules.map((m,n)=>'<details '+(!n?'open':'')+'><summary><span class="step-count">0'+(n+1)+'</span>'+t(m.title,'h2')+'<span class="disclosure-icon" aria-hidden="true">+</span></summary>'+t(m.body,'p')+'</details>').join('')+'</div></div>','soft-section')+section('<div class="guide-editorial-end">'+link(expansion.pages[1-i].slug,expansion.pages[1-i].label,'action')+link('expertise','Explore our expertise')+'</div>');
     }
   }
-  home+=guideHome;
+  const homeItems=(prefix,cls='home-note')=>[1,2,3].map(n=>'<article class="'+cls+'"><span class="home-step" aria-hidden="true">0'+n+'</span>'+t(prefix+'Item'+n+'Title','h3')+t(prefix+'Item'+n+'Body','p')+'</article>').join('');
+  const homeHeading=prefix=>t(prefix+'Title','h2')+t(prefix+'Lead','p','class="home-section-lead"');
+  const homeLink=(prefix,page)=>link(page,t(prefix+'Link'),'action');
+  let homeStories='';
+  if(template==='Architecture'){
+    homeStories=section('<div class="home-living"><div class="home-mosaic"><figure>'+pic('home1Image','A living space shaped around everyday routines','loading="lazy"')+'</figure><figure>'+pic('work2Image','Light and texture in an architectural interior','loading="lazy"')+'</figure></div><div class="home-section-copy">'+homeHeading('home1')+'<div class="home-note-list">'+homeItems('home1')+'</div>'+homeLink('home1','projects')+'</div></div>','home-section')+
+      section('<div class="home-materials"><figure>'+pic('home2Image','Material samples with different colours and textures','loading="lazy"')+'</figure><div class="home-section-copy">'+homeHeading('home2')+'<div class="home-detail-list">'+homeItems('home2','home-detail')+'</div>'+homeLink('home2','process')+'</div></div>','home-section soft-section');
+  }else if(template==='Padel'){
+    homeStories=section('<div class="home-court"><div class="home-court-copy">'+homeHeading('home1')+'<div class="home-note-list">'+homeItems('home1')+'</div>'+homeLink('home1','play')+'</div><figure>'+pic('home1Image','A padel player preparing for a rally','loading="lazy"')+'</figure></div>','home-section home-section--court')+
+      section('<div class="home-faq"><div class="home-section-copy">'+homeHeading('home2')+'<figure>'+pic('home2Image','Padel rackets and balls for a session','loading="lazy"')+'</figure></div><div class="home-faq-list">'+[1,2,3].map(n=>'<details '+(n===1?'open':'')+'><summary>'+t('home2Item'+n+'Title','h3')+'<span aria-hidden="true">+</span></summary>'+t('home2Item'+n+'Body','p')+'</details>').join('')+homeLink('home2','first-game')+'</div></div>','home-section');
+  }else if(template==='Creative'){
+    homeStories=section('<div class="home-capabilities"><div class="home-section-copy">'+homeHeading('home1')+'<div class="home-capability-list">'+homeItems('home1','home-capability-row')+'</div>'+homeLink('home1','studio#capabilities')+'</div><figure>'+pic('home1Image','Brand direction and design materials','loading="lazy"')+'</figure></div>','home-section soft-section')+
+      section('<div class="home-stage-heading"><div>'+homeHeading('home2')+'</div><figure>'+pic('home2Image','Colour and material references for a creative project','loading="lazy"')+'</figure></div><div class="home-stage-grid home-stage-grid--creative">'+homeItems('home2','home-stage')+'</div>'+homeLink('home2','brief'),'home-section dark-section');
+  }else{
+    homeStories=section('<div class="home-stage-heading"><div>'+homeHeading('home1')+'</div><figure>'+pic('home1Image','A team reviewing business information','loading="lazy"')+'</figure></div><div class="home-stage-grid">'+homeItems('home1','home-stage')+'</div>'+homeLink('home1','approach'),'home-section dark-section')+
+      section('<div class="home-deliverables"><figure>'+pic('home2Image','Workflow and priorities mapped using workshop notes','loading="lazy"')+'</figure><div class="home-section-copy">'+homeHeading('home2')+'<div class="home-detail-list">'+homeItems('home2','home-detail')+'</div>'+homeLink('home2','contact')+'</div></div>','home-section');
+  }
+  homeStories='<!--template-home-stories-start-->'+homeStories+'<!--template-home-stories-end-->';
+  home+=homeStories+guideHome;
   const wrapper=(page,body)=>{
     const nav=[1,2,3,4].map(n=>'<a data-cms-menu="'+n+'" href="'+navigationHref(template,base,d['nav'+n+'Target'])+'">'+esc(d['nav'+n+'Label'])+'</a>').join('');
     const pageLinks=Object.entries(pages).filter(([key])=>key).map(([key,label])=>link(key,esc(label),'footer-page')).join('');
@@ -98,9 +116,16 @@ for(const template of Object.keys(profilePages)) {
   // Retain each established hero, then give its homepage a sector-specific structure.
   const homeFile='dist'+profileAsset(template);
   let source=await readFile(homeFile,'utf8');
-  source=source.replace(/<!--template-guides-start-->[\s\S]*?<!--template-guides-end-->/g,'');
-  if(template!=='Architecture')source=source.replace(/<section class="intro-section"[\s\S]*?(?=<section class="contact-section)/,home);
-  else source=source.replace('<section class="contact-section',guideHome+'<section class="contact-section');
+  if(template!=='Architecture'){
+    const generatedHome='<!--template-home-start-->'+home+'<!--template-home-end-->';
+    source=source.includes('<!--template-home-start-->')
+      ?source.replace(/<!--template-home-start-->[\s\S]*?<!--template-home-end-->/,generatedHome)
+      :source.replace(/<section class="intro-section"[\s\S]*?(?=<section class="contact-section)/,generatedHome);
+  }else{
+    source=source.replace(/<!--template-guides-start-->[\s\S]*?<!--template-guides-end-->/g,'');
+    source=source.replace(/<!--template-home-stories-start-->[\s\S]*?<!--template-home-stories-end-->/g,'');
+    source=source.replace('<section class="contact-section',homeStories+guideHome+'<section class="contact-section');
+  }
   source=source.replace(/<!--template-page-links-start-->[\s\S]*?<!--template-page-links-end-->/g,'');
   source=source.replace('<div class="container footer-bottom">','<!--template-page-links-start--><div class="container footer-page-nav">'+Object.entries(pages).filter(([key])=>key).map(([key,label])=>link(key,esc(label),'footer-page')).join('')+'</div><!--template-page-links-end--><div class="container footer-bottom">');
   for(const n of [1,2,3,4])source=source.replace(new RegExp('(data-cms-menu="'+n+'" href=")[^"]*'),'$1'+navigationHref(template,base,d['nav'+n+'Target']));

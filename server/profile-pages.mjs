@@ -123,3 +123,68 @@ for(const [template,expansion] of Object.entries(profileExpansion)){
   });
   pageFields[template].push(group('guides','Panduan & informasi',items));
 }
+
+export const profileHomeContent={
+  Architecture:[
+    {title:'Spaces designed around everyday living.',lead:'The most useful design decisions begin with how you move, gather, rest, and spend time at home.',image:'/assets/architecture-living.jpg',link:'Explore our spaces',items:[
+      ['Room to gather.','Connected spaces make it easier to share a meal, welcome friends, and spend time together without losing the quieter parts of the home.'],
+      ['A quieter corner.','A place to read, work, or pause deserves the same care as the main living area. Privacy, acoustics, and a comfortable scale shape its character.'],
+      ['Light through the day.','We consider the orientation and use of each room, so natural light becomes part of daily life rather than an afterthought.']
+    ]},
+    {title:'Bring light, texture, and proportion into balance.',lead:'A considered material palette connects the overall space with the details you experience up close.',image:'/assets/profile-architecture-materials.jpg',link:'Explore our design process',items:[
+      ['Texture','Materials influence how a room feels to touch and live in. We consider their character alongside maintenance and everyday use.'],
+      ['Light','Surfaces respond differently to daylight and artificial light. Looking at them together helps make the palette feel coherent.'],
+      ['Proportion','The relationship between openings, furniture, and finishes gives a space its rhythm. Small adjustments can make it feel more comfortable.']
+    ]}
+  ],
+  Padel:[
+    {title:'GET READY FOR YOUR NEXT RALLY.',lead:'A few details help the team find a way to play that suits you.',image:'/assets/profile-padel-action.jpg',link:'Explore ways to play',items:[
+      ['Find your level.','Tell us whether you are picking up a racket for the first time, returning to the court, or looking for a more challenging game.'],
+      ['Choose your format.','Explore court sessions, coaching, and social play. Share whether you are coming on your own, with a partner, or with a group.'],
+      ['Confirm the details.','Speak with the club about timing, equipment, and arrangements before your visit. The team will help you prepare for your chosen session.']
+    ]},
+    {title:'GOOD GAMES START WITH GOOD QUESTIONS.',lead:'Plan your visit before you step onto the court.',image:'/assets/profile-padel-equipment.jpg',link:'Plan your first game',items:[
+      ['Can I come without a partner?','Yes, you can ask the club about a suitable way to join. Share your experience and preferred format so the team can discuss the options with you.'],
+      ['What equipment should I bring?','Wear comfortable sports clothing and suitable footwear. Check with the club about rackets, balls, and any requirements for your session.'],
+      ['How is my session confirmed?','Contact the team with your preferred session and date. The club confirms the available arrangements directly before you visit.']
+    ]}
+  ],
+  Creative:[
+    {title:'Build a connected brand across every touchpoint.',lead:'Direction, identity, and digital design work best when they share the same idea.',image:'/assets/profile-creative-branding.jpg',link:'Explore our capabilities',items:[
+      ['Brand direction','Define what the business needs to communicate, who it needs to reach, and the character that makes the direction its own.'],
+      ['Visual identity','Connect typography, colour, imagery, and graphic details into a visual language that works across different formats.'],
+      ['Digital experience','Bring that language into a website with a clear structure, useful content, and a considered path through the experience.']
+    ]},
+    {title:'How we move an idea from conversation to launch.',lead:'A shared brief keeps the creative work focused while leaving room to explore.',image:'/assets/profile-creative-detail.jpg',link:'Start your project brief',items:[
+      ['Understand the brief.','We begin with the business, audience, and places the work needs to appear. Together, we define the question the project needs to answer.'],
+      ['Explore the direction.','References, early concepts, and a visual direction help us discuss the choices. Your feedback shapes how the idea develops.'],
+      ['Make it ready to use.','We refine the agreed direction and prepare the assets and guidance within the project scope, so the team can use the work with clarity.']
+    ]}
+  ],
+  Consulting:[
+    {title:'Move from a business question to a shared plan.',lead:'Make space for the evidence, the people doing the work, and the decisions that need to be made.',image:'/assets/profile-consulting-detail.jpg',link:'See how we work',items:[
+      ['Understand the context.','We listen to the question, review the available information, and speak with the people closest to the work.'],
+      ['Focus the priorities.','We compare the options and trade-offs, then identify what needs attention first and where more information would help.'],
+      ['Agree on a next step.','The team leaves with a direction to discuss, actions to own, and a point at which to review what has been learned.']
+    ]},
+    {title:'Make the next step tangible for your team.',lead:'Useful support gives people a clearer way to move the work forward.',image:'/assets/profile-consulting-workshop.jpg',link:'Discuss your current priority',items:[
+      ['A clearer question.','A focused brief that names the decision, the constraints, and the information needed to evaluate the options.'],
+      ['A practical direction.','Priorities and actions connected to the way your business operates, rather than a plan detached from day-to-day work.'],
+      ['A shared next step.','Clear ownership and a review point agreed with the team, so decisions can be revisited as new information becomes available.']
+    ]}
+  ]
+};
+for(const [template,sections] of Object.entries(profileHomeContent)){
+  const items=[];
+  sections.forEach((section,index)=>{
+    const prefix='home'+(index+1);
+    Object.assign(pageDefaults[template],{[prefix+'Title']:section.title,[prefix+'Lead']:section.lead,[prefix+'Image']:section.image,[prefix+'Link']:section.link});
+    items.push([prefix+'Title','Bagian '+(index+1)+': judul',160],[prefix+'Lead','Bagian '+(index+1)+': pengantar',400],[prefix+'Image','Bagian '+(index+1)+': gambar','image'],[prefix+'Link','Bagian '+(index+1)+': teks tautan',60]);
+    section.items.forEach(([title,body],i)=>{
+      pageDefaults[template][prefix+'Item'+(i+1)+'Title']=title;
+      pageDefaults[template][prefix+'Item'+(i+1)+'Body']=body;
+      items.push([prefix+'Item'+(i+1)+'Title','Bagian '+(index+1)+': poin '+(i+1),100],[prefix+'Item'+(i+1)+'Body','Bagian '+(index+1)+': isi '+(i+1),600]);
+    });
+  });
+  pageFields[template].push(group('home-stories','Section beranda',items));
+}

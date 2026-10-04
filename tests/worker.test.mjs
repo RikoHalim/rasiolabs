@@ -369,9 +369,10 @@ test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',
   const admin=await login(),a=await createOrder({...orderBody(),template:'Padel'});await verify(a,admin);
   const initial=await clientContent(a);
   assert.ok(initial.fields.some(g=>g.items.some(f=>f.key==='founder1Bio')));
-  const legacy={...initial.content.draft};for(const key of ['founder1Bio','communityImage','locationLat','extra1Body1'])delete legacy[key];
+  const legacy={...initial.content.draft};for(const key of ['founder1Bio','communityImage','locationLat','extra1Body1','home1Title','home2Item1Body'])delete legacy[key];
   await db.prepare('UPDATE contents SET draft = ? WHERE order_id = ?').bind(JSON.stringify(legacy),a.order.id).run();
   const restored=await clientContent(a);assert.ok(restored.content.draft.founder1Bio);assert.equal(restored.content.draft.locationLat,'-6.2088');
+  assert.ok(restored.content.draft.home1Title);assert.ok(restored.content.draft.home2Item1Body);
   await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:restored.content.revision}}),200);
   const next={...restored.content.draft,founder1Bio:'<script>Edited founder</script>',founder2Bio:'/media/ is ordinary text in this biography.',locationName:'Our new venue',locationLat:'-6.3',locationLon:'106.8',extra1Title:'Prepare your first game',extra1Body1:'<b>Edited preparation guide</b>',nav4Target:'extra1',nav4Label:'First game'};
   assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...next,locationLat:'javascript:alert(1)'}}})).status,400);
@@ -380,7 +381,8 @@ test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',
   const foreign=await jsonResponse(await request('/api/client/media',{method:'POST',session:stranger.session,body:png,headers:{'Content-Type':'image/png'}}),201);
   assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...next,communityImage:foreign.url}}})).status,400);
   const own=await jsonResponse(await request('/api/client/media',{method:'POST',session:a.session,body:png,headers:{'Content-Type':'image/png'}}),201);
-  next.communityImage=own.url;next.whatsapp='+6281234567890';
+  assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...next,home1Image:foreign.url}}})).status,400);
+  next.communityImage=own.url;next.home1Image=own.url;next.home1Title='<script>Updated home story</script>';next.home2Item1Body='Updated homepage answer';next.whatsapp='+6281234567890';
   const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:next}}),200);
   const draft=await (await request('/preview/'+a.order.slug+'/club',{session:a.session})).text();
   assert.match(draft,/&lt;script&gt;Edited founder&lt;\/script&gt;/);assert.ok(draft.includes(own.url));
@@ -393,9 +395,14 @@ test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',
   assert.match(guide,/&lt;b&gt;Edited preparation guide&lt;\/b&gt;/);
   assert.ok(guide.includes('href="/preview/'+a.order.slug+'/first-game"'));
   assert.doesNotMatch(await (await request('/website/'+a.order.slug+'/first-game')).text(),/Edited preparation guide/);
+  const homePreview=await (await request('/preview/'+a.order.slug,{session:a.session})).text();
+  assert.match(homePreview,/&lt;script&gt;Updated home story&lt;\/script&gt;/);assert.match(homePreview,/Updated homepage answer/);
+  assert.ok(homePreview.includes('data-cms-image="home1Image" src="'+own.url));
+  assert.doesNotMatch(await (await request('/website/'+a.order.slug)).text(),/Updated home story|Updated homepage answer/);
   assert.equal((await request(own.url)).status,401);
   await jsonResponse(await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:saved.revision}}),200);
   assert.match(await (await request('/website/'+a.order.slug+'/club')).text(),/Edited founder/);
+  assert.match(await (await request('/website/'+a.order.slug)).text(),/Updated homepage answer/);
   assert.equal((await request(own.url)).status,200);
 });
 

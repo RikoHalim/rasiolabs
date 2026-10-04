@@ -17,12 +17,13 @@ for(const entry of await readdir('dist',{withFileTypes:true})){
   if(!entry.isFile()||!/\.(html|css|js|svg)$/.test(entry.name))continue;
   const path='dist/'+entry.name;
   let source=rebrand(await readFile(path,'utf8'));
+  source=source.replace(/(template-(?:architecture|padel|creative|consulting)-preview)\.(?:png|jpg)(?:\?v=[^"\s<>]+)?/g,'$1.jpg?v=labs50');
   if(entry.name.endsWith('.html')){
     source=source.replaceAll('/assets/rasio-logo.png','/assets/rasiolabs-logo.png');
     source=source.replace(/<link[^>]*href="\/template-brand\.css[^>]*>/g,'');
-    source=source.replace(/(\.(?:css|js)\?v=)[^"\s<>]+/g,'$1labs49');
+    source=source.replace(/(\.(?:css|js)\?v=)[^"\s<>]+/g,'$1labs50');
     const css=entry.name.startsWith('template-')?'profile-brand':'rasiolabs';
-    if(!source.includes('/'+css+'.css'))source=source.replace('</head>','<link rel="stylesheet" href="/'+css+'.css?v=labs49"/></head>');
+    if(!source.includes('/'+css+'.css'))source=source.replace('</head>','<link rel="stylesheet" href="/'+css+'.css?v=labs50"/></head>');
     source=source.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" href="/assets/rasiolabs-mark.svg" type="image/svg+xml"/>');
   }
   await writeFile(path,source);
