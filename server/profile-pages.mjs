@@ -9,7 +9,7 @@ const targets = {
   Architecture:{top:'',studio:'studio',work:'projects',services:'process#services',process:'process',contact:'contact'},
   Padel:{top:'',studio:'club',work:'visit',services:'play',process:'club#founders',contact:'visit#enquiry'},
   Creative:{top:'',studio:'studio',work:'work',services:'studio#capabilities',process:'brief',contact:'brief'},
-  Consulting:{top:'',studio:'approach',work:'insights',services:'expertise',process:'approach',contact:'contact'}
+  Consulting:{top:'',studio:'approach#perspective',work:'insights',services:'expertise',process:'approach',contact:'contact'}
 };
 export const hasProfilePage=(template,page='')=>Object.hasOwn(profilePages,template)&&Object.hasOwn(profilePages[template],page);
 export const profileAsset=(template,page='')=>hasProfilePage(template,page)?'/template-'+template.toLowerCase()+(page?'-'+page:'')+'.html':null;
@@ -26,7 +26,7 @@ export function mapLinks(data) {
 const group=(id,label,items)=>({id,label,items:items.map(([key,label,max])=>({key,label,max:max==='image'?200:max,type:max==='image'?'image':max>=240?'textarea':'text'}))});
 export const pageFields={
   Architecture:[group('projectDetail','Detail proyek',[
-    ['project1Context','Latar proyek pertama',1400],['project2Context','Latar proyek kedua',1400],['materialsImage','Foto material','image'],['materialsDescription','Cerita material',800]
+    ['project1Context','Latar proyek pertama',1400],['project2Context','Latar proyek kedua',1400],['materialsImage','Foto material','image'],['materialsDescription','Cerita material',800],['mosaicImage','Foto detail interior di beranda','image']
   ])],
   Padel:[group('club','Klub & founders',[
     ['founder1Name','Nama founder pertama',90],['founder1Role','Peran founder pertama',90],['founder1Bio','Cerita founder pertama',800],
@@ -53,6 +53,7 @@ export const pageDefaults={
   Creative:{case1Challenge:'Give a growing business a clear identity without losing the personality that made it interesting in the first place.',case1Direction:'Start with the brand story, explore a focused visual territory, and connect typography, colour, and imagery into one coherent direction.',case1Deliverables:'A visual identity system, a practical brand guide, and a set of launch touchpoints that work together.',case2Challenge:'Help visitors understand the offer, find the right information, and take the next step with confidence.',case2Direction:'Organise the content around real visitor questions. Use a clear hierarchy, considered imagery, and a consistent visual language.',case2Deliverables:'A website design direction, responsive page layouts, and a content framework for the team to build on.',brandingImage:'/assets/profile-creative-branding.jpg'},
   Consulting:{insightTitle:'Choosing your next business priority.',insightLead:'When everything feels urgent, a clearer question can be more useful than a longer to-do list.',insight1:'Start with the decision you need to make. Describe what is happening today, who it affects, and what would look different if the issue were resolved. Separate the evidence from the assumptions before deciding what to change.',insight2:'Follow the work from beginning to end. Where does it wait? Where is ownership unclear? Ask the people doing the work what information they need and which handoffs create repeated questions.',insight3:'Choose one action with a clear owner and an observable result. Agree on what to review and when to review it. A small, well-understood change gives the team a useful basis for deciding what comes next.',workshopImage:'/assets/profile-consulting-workshop.jpg'}
 };
+pageDefaults.Architecture.mosaicImage='/assets/profile-architecture-bathroom-audit.jpg';
 export const pageAssetPaths=Object.values(pageDefaults).flatMap(values=>Object.values(values).filter(v=>v.startsWith('/assets/')));
 
 export const profileExpansion={
@@ -174,6 +175,11 @@ export const profileHomeContent={
     ]}
   ]
 };
+profileHomeContent.Architecture[0].image='/assets/profile-architecture-lounge-audit.jpg';
+profileHomeContent.Padel[1].image='/assets/profile-padel-racket-ball-audit.jpg';
+profileHomeContent.Creative[1].image='/assets/profile-creative-letterpress-audit.jpg';
+profileHomeContent.Consulting[0].image='/assets/profile-consulting-documents-audit.jpg';
+profileHomeContent.Consulting[1].image='/assets/profile-consulting-planning-audit.jpg';
 for(const [template,sections] of Object.entries(profileHomeContent)){
   const items=[];
   sections.forEach((section,index)=>{
@@ -188,3 +194,5 @@ for(const [template,sections] of Object.entries(profileHomeContent)){
   });
   pageFields[template].push(group('home-stories','Section beranda',items));
 }
+
+for(const values of Object.values(pageDefaults))for(const value of Object.values(values))if(typeof value==='string'&&value.startsWith('/assets/')&&!pageAssetPaths.includes(value))pageAssetPaths.push(value);

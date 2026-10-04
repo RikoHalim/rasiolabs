@@ -3,10 +3,10 @@
   if (!shell) return;
   const params = new URLSearchParams(location.search);
   const catalog = {
-    Architecture: {type:'profile', title:'Architecture Studio — Designed for Better Living', description:'Arsitektur & Interior', art:'<img src="/assets/template-architecture-preview.jpg?v=labs52" alt="Architecture Studio — Designed for Better Living" />'},
-    Padel: {type:'profile', title:'Padel Club — More Than a Match', description:'Olahraga & Rekreasi', art:'<img src="/assets/template-padel-preview.jpg?v=labs52" alt="Padel Club — More Than a Match" />'},
-    Creative: {type:'profile', title:'Creative Studio — Ideas Made Visible', description:'Studio Kreatif & Branding', art:'<img src="/assets/template-creative-preview.jpg?v=labs52" alt="Creative Studio — Ideas Made Visible" />'},
-    Consulting: {type:'profile', title:'Business Consulting — Clarity for What’s Next', description:'Konsultan & Jasa Profesional', art:'<img src="/assets/template-consulting-preview.jpg?v=labs52" alt="Business Consulting — Clarity for What’s Next" />'},
+    Architecture: {type:'profile', title:'Architecture Studio — Designed for Better Living', description:'Arsitektur & Interior', art:'<img src="/assets/template-architecture-preview.jpg?v=labs53" alt="Architecture Studio — Designed for Better Living" />'},
+    Padel: {type:'profile', title:'Padel Club — More Than a Match', description:'Olahraga & Rekreasi', art:'<img src="/assets/template-padel-preview.jpg?v=labs53" alt="Padel Club — More Than a Match" />'},
+    Creative: {type:'profile', title:'Creative Studio — Ideas Made Visible', description:'Studio Kreatif & Branding', art:'<img src="/assets/template-creative-preview.jpg?v=labs53" alt="Creative Studio — Ideas Made Visible" />'},
+    Consulting: {type:'profile', title:'Business Consulting — Clarity for What’s Next', description:'Konsultan & Jasa Profesional', art:'<img src="/assets/template-consulting-preview.jpg?v=labs53" alt="Business Consulting — Clarity for What’s Next" />'},
   };
   const service = params.get('type');
   const names = {store:'RasioLabs Store', profile:'RasioLabs Profile', custom:'RasioLabs Custom'};

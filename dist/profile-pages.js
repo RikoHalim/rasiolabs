@@ -1,4 +1,6 @@
 (() => {
+  const theme=['padel','creative','consulting'].find(name=>document.body.classList.contains('theme-'+name))||'architecture';
+  const filterMotion={architecture:{duration:650,delay:100,enter:'translateY(12px)'},padel:{duration:380,delay:65,enter:'translateX(24px)'},creative:{duration:700,delay:140,enter:'translateY(18px) rotate(.8deg)'},consulting:{duration:300,delay:60,enter:'none'}}[theme];
   document.querySelectorAll('[data-filter-scope]').forEach(scope=>{
     const buttons=[...scope.querySelectorAll('[data-filter]')],cards=[...scope.querySelectorAll('[data-category]')];
     buttons.forEach(button=>button.addEventListener('click',()=>{
@@ -7,13 +9,13 @@
       cards.forEach(card=>{card.hidden=button.dataset.filter!=='all'&&card.dataset.category!==button.dataset.filter;});
       if(!matchMedia('(prefers-reduced-motion: reduce)').matches)cards.filter(card=>!card.hidden).forEach((card,index)=>{
         const before=previous.get(card),after=card.getBoundingClientRect();
-        card.animate([{opacity:before?1:0,transform:before?'translate('+(before.x-after.x)+'px,'+(before.y-after.y)+'px)':'translateY(18px)'},{opacity:1,transform:'translate(0,0)'}],{duration:550,delay:before?0:index*70,easing:'cubic-bezier(.16,1,.3,1)'});
+        card.animate([{opacity:before?1:0,transform:before?'translate('+(before.x-after.x)+'px,'+(before.y-after.y)+'px)':filterMotion.enter},{opacity:1,transform:'none'}],{duration:filterMotion.duration,delay:before?0:index*filterMotion.delay,easing:'cubic-bezier(.22,1,.36,1)'});
       });
     }));
   });
   document.querySelectorAll('[data-tabs]').forEach(scope=>{
     const tabs=[...scope.querySelectorAll('[role="tab"]')],panels=[...scope.querySelectorAll('[role="tabpanel"]')];
-    const select=(tab,focus=false)=>{tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;});panels.forEach(p=>{p.hidden=p.id!==tab.getAttribute('aria-controls');if(!p.hidden&&!matchMedia('(prefers-reduced-motion: reduce)').matches)p.animate([{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,easing:'cubic-bezier(.16,1,.3,1)'});});if(focus)tab.focus();};
+    const select=(tab,focus=false)=>{tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;});panels.forEach(p=>{p.hidden=p.id!==tab.getAttribute('aria-controls');if(!p.hidden)p.dispatchEvent(new CustomEvent('template:panel-visible',{bubbles:true}));});if(focus)tab.focus();};
     tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>select(tab));tab.addEventListener('keydown',e=>{let index;if(e.key==='ArrowRight'||e.key==='ArrowDown')index=(i+1)%tabs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')index=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')index=0;else if(e.key==='End')index=tabs.length-1;else return;e.preventDefault();select(tabs[index],true);});});
   });
   const dialog=document.querySelector('.gallery-dialog'),photos=[...document.querySelectorAll('[data-gallery-image]')];
@@ -34,7 +36,9 @@
     form.addEventListener('submit',e=>{
     e.preventDefault();if(!form.reportValidity())return;
     const phone=(form.dataset.whatsapp||'').replace(/\D/g,''),status=form.querySelector('.enquiry-status');
-    const data=new FormData(form),message='Hello, I’m '+String(data.get('name')).trim()+'.\nEmail: '+String(data.get('email')).trim()+'\n'+form.dataset.kind+': '+data.get('topic')+'\n\n'+String(data.get('message')).trim();
+    const data=new FormData(form),details=[...form.querySelectorAll('[data-enquiry-detail]')].map(input=>[input.name,String(data.get(input.name)||'').trim()]).filter(([,value])=>value);
+    const emailAddress=String(data.get('email')||'').trim();
+    const message=['Hello, I’m '+String(data.get('name')).trim()+'.',emailAddress?'Email: '+emailAddress:'',form.dataset.kind+': '+data.get('topic'),...details.map(([label,value])=>label+': '+value),'\n'+String(data.get('message')).trim()].filter(Boolean).join('\n');
     const email=form.dataset.contactEmail||'';
     if(!/^\d{8,15}$/.test(phone)&&!email){status.textContent='Please use the contact details in the footer.';return;}
     const url=/^\d{8,15}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent(message):'mailto:'+encodeURIComponent(email)+'?subject='+encodeURIComponent(form.dataset.kind)+'&body='+encodeURIComponent(message);

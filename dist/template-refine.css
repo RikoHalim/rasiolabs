@@ -23,6 +23,20 @@
 .theme-creative .home-stage-heading figure,.theme-consulting .home-stage-heading figure{height:190px}
 .theme-creative.page-work .portfolio-item{padding-top:0}
 .template-reading-progress{position:fixed;left:0;top:0;width:100%;height:3px;background:var(--accent,#665540);transform-origin:left;scale:0 1;z-index:110;pointer-events:none}
+.motion-word{display:inline-block}
+.theme-creative .hero-photos{grid-template-columns:1fr;max-width:960px}
+.theme-creative .hero-photos figure:only-child{display:block;padding-top:0}
+.theme-creative .hero-photos figure:first-child img{width:100%;height:310px}
+.guide-preview--text{display:flex;align-items:flex-start;gap:25px;padding:28px;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius);min-height:180px}
+.guide-preview--text>div{padding:0}.guide-preview--text h3{font-size:30px;margin-bottom:20px}
+.guide-index{font:500 16px/1 var(--body-font);color:var(--muted);padding-top:6px}
+.enquiry-detail-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.enquiry-detail-row input{width:100%;min-width:0}
+.theme-padel img[data-cms-image="home2Image"]{object-position:center 65%}
+.theme-creative img[data-cms-image="work2Image"]{object-position:center 35%}
+.theme-consulting img[data-cms-image="home2Image"]{object-position:center 45%}
+@media(max-width:1000px){.enquiry-detail-row{grid-template-columns:1fr}}
+@media(max-width:760px){.guide-preview--text{min-height:0;padding:24px}.theme-creative .hero-photos figure:first-child img{height:220px}}
 .prep-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 .prep-layout h2{font-size:36px;line-height:1.15;margin-bottom:26px}
 .prep-form{display:grid;gap:22px}
