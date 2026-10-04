@@ -18,11 +18,11 @@
 .hero--people .product-tab{font-size:11px;padding:9px 10px;border:0;border-radius:8px;min-height:35px;transition:background 180ms,color 180ms;cursor:pointer}
 .hero--people .product-tab:not(.is-active):hover{background:#dfe7f5;color:#172b55}
 .hero--people .domain-field{min-height:48px;background:#fff;border:1px solid #bac9e2;padding:4px;border-radius:10px}
-.hero--people .domain-field:focus-within{outline:2px solid #2353e1;outline-offset:2px}
+.hero--people .domain-field:focus-within{outline:2px solid #0c55fc;outline-offset:2px}
 .hero--people .domain-field>span{padding-left:8px;font-size:12px}
 .hero--people .domain-field input{height:38px;font-size:13px;min-width:0;padding:0 4px}
-.hero--people .domain-field button{background:#2353e1;font-size:11px;padding:0 14px;border-radius:7px;white-space:nowrap;transition:background 180ms}
-.hero--people .domain-field button:hover{background:#1739a4}
+.hero--people .domain-field button{background:#0c55fc;font-size:11px;padding:0 14px;border-radius:7px;white-space:nowrap;transition:background 180ms}
+.hero--people .domain-field button:hover{background:#1237b0}
 .hero--people .domain-hint{font-size:10px;margin:7px 0 0}
 .hero--people .domain-email{border:0;padding:0;margin-top:9px;gap:7px}
 .hero--people .domain-email>span{width:20px;height:20px;font-size:12px;border-radius:6px}
@@ -43,17 +43,17 @@
 .hero-people-card figcaption{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:19px 23px 20px}
 .hero-people-card figcaption div>span{display:block;font-size:8px;letter-spacing:.12em;color:#67768c;margin-bottom:7px;font-weight:600}
 .hero-people-card figcaption strong{display:block;font-size:22px;line-height:1.3;letter-spacing:-.035em;font-weight:700}
-.hero-people-card figcaption>a{display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border:1px solid #d3dff5;border-radius:50%;color:#2353e1;background:#edf3ff;transition:background 180ms,color 180ms}
-.hero-people-card figcaption>a:hover{background:#2353e1;color:#fff}
+.hero-people-card figcaption>a{display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border:1px solid #d3dff5;border-radius:50%;color:#0c55fc;background:#edf3ff;transition:background 180ms,color 180ms}
+.hero-people-card figcaption>a:hover{background:#0c55fc;color:#fff}
 .hero-people-card svg{width:18px;height:18px}
 .hero-ai-card{display:flex;gap:13px;align-items:center;padding:18px;background:#e8effe;border:1px solid #cfdcf5;border-radius:18px;box-shadow:0 4px 14px #1e3e7607;transition:background 180ms,border-color 180ms}
 .hero-ai-card:hover{background:#dfe9ff;border-color:#aabfea}
-.hero-ai-icon{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;border:1px solid #d4dff4;border-radius:13px;background:#fff;color:#2353e1}
+.hero-ai-icon{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;border:1px solid #d4dff4;border-radius:13px;background:#fff;color:#0c55fc}
 .hero-ai-icon svg{width:23px;height:23px}
-.hero-ai-card div>span{display:block;font-size:8px;letter-spacing:.12em;color:#2353e1;font-weight:700;margin-bottom:4px}
+.hero-ai-card div>span{display:block;font-size:8px;letter-spacing:.12em;color:#0c55fc;font-weight:700;margin-bottom:4px}
 .hero-ai-card strong{display:block;font-size:13px;font-weight:600;line-height:1.4;color:#182746}
 .hero-ai-card p{margin:5px 0 0;font-size:10px;line-height:1.6;color:#546788}
-.hero-ai-arrow{font-size:19px;color:#2353e1;margin-left:auto}
+.hero-ai-arrow{font-size:19px;color:#0c55fc;margin-left:auto}
 @media(min-width:841px) and (max-height:790px){
  .hero--people .hero-grid{padding-block:20px 24px;gap:36px}
  .hero--people h1{font-size:clamp(35px,3vw,43px)}
@@ -118,7 +118,7 @@
 .hero-benefit-note{margin:10px 0 13px;color:#63728a;font-size:12px;line-height:1.6}
 .hero-quick-flow{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;list-style:none;padding:0;margin:0;color:#405778;font-size:12px;font-weight:500}
 .hero-quick-flow li{display:flex;align-items:center;gap:8px}
-.hero-quick-flow li:not(:last-child)::after{content:'→';color:#2353e1;font-weight:600}
+.hero-quick-flow li:not(:last-child)::after{content:'→';color:#0c55fc;font-weight:600}
 .hero--people .hero-lede{font-size:14px;line-height:1.75}
 .hero--people .hero-copy>.eyebrow{font-size:12px}
 .hero--people .hero-actions>a{font-size:13px;min-height:44px;padding:11px 16px}

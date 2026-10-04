@@ -1,4 +1,4 @@
-/* A quieter, more legible finish for Rasio's inner pages. */
+/* A quieter, more legible finish for Rasio Labs's inner pages. */
 :is(body.service-page, body.info-page, body.blog-page, body.order-page) {
   --inner-border: #dfe6f0;
   --inner-ink: #17243c;
@@ -8,7 +8,7 @@
 
 /* Service details: clear section rhythm and easy-to-scan examples. */
 body.service-page-profile {
-  --service-accent:#2353e1;
+  --service-accent:#0c55fc;
   --service-soft:#eaf1ff;
   --service-wash:#f1f5ff;
   --service-glow:#e5edff;
@@ -285,7 +285,7 @@ body.blog-page .blog-help {
 body.blog-page .article-header { padding-top:clamp(30px,4vw,48px); }
 body.blog-page .article-toc {
   border-color:var(--inner-border);
-  border-top:3px solid #2353e1;
+  border-top:3px solid #0c55fc;
   background:#fff;
   box-shadow:var(--inner-shadow);
 }
@@ -320,7 +320,7 @@ body.order-page .summary-breakdown strong { font-size:12px; line-height:1.5; }
 body.order-page .summary-total strong { font-size:22px; }
 body.order-page .summary-disclaimer { font-size:10px; line-height:1.6; }
 body.order-page :is(.order-step,.summary-toggle,.order-template-card,.domain-result,button):focus-visible {
-  outline:2px solid #2353e1;
+  outline:2px solid #0c55fc;
   outline-offset:3px;
 }
 

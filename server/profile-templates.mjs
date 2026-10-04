@@ -2,7 +2,7 @@
 export const profileTemplates = {
   Architecture: {title:'Architecture Studio — Designed for Better Living', path:'/template-architecture.html', sector:'architecture', label:'Arsitektur & Interior', content:{}},
   Padel: {title:'Padel Club — More Than a Match', path:'/template-padel.html', sector:'sports', label:'Olahraga & Rekreasi', content:{
-    businessName:'Rasio Padel Club',tagline:'Padel · Coaching · Community',
+    businessName:'Rasio Labs Padel Club',tagline:'Padel · Coaching · Community',
     nav1Label:'The club',nav1Target:'studio',nav2Label:'Visit us',nav2Target:'work',nav3Label:'Ways to play',nav3Target:'services',nav4Label:'Founders',nav4Target:'process',navCtaLabel:'Let’s play',
     heroTitle:'MORE THAN\nA MATCH.',heroDescription:'A good court. A great rally. Your kind of people. Make room for a game that keeps you coming back.',heroImage:'/assets/profile-padel-hero.jpg',heroNote:'Find your game. Bring your people.',
     aboutTitle:'COME FOR THE GAME.\nSTAY FOR THE PEOPLE.',aboutLead:'Padel is better together. We make it easy to find your feet, meet your next playing partner, and make the court part of your week.',aboutBody:'Whether you are holding a racket for the first time or looking for a more competitive session, there is room for you here. Start with a friendly game and see where it takes you.',
@@ -11,7 +11,7 @@ export const profileTemplates = {
     processTitle:'LESS PLANNING.\nMORE PLAYING.',processDescription:'Your first session starts with a conversation.',process1Title:'Pick your session',process1Description:'Tell us whether you want a court, a coaching session, or a social game.',process2Title:'Find your time',process2Description:'Our team helps you check availability and confirm the details.',process3Title:'See you on court',process3Description:'Bring your people and get ready to enjoy the game.',contactTitle:'LET’S GET\nYOU ON COURT.',contactLabel:'Ask about a session'
   }},
   Creative: {title:'Creative Studio — Ideas Made Visible', path:'/template-creative.html', sector:'creative', label:'Studio Kreatif & Branding', content:{
-    businessName:'Rasio Creative Studio',tagline:'Independent design & brand studio',
+    businessName:'Rasio Labs Creative Studio',tagline:'Independent design & brand studio',
     nav1Label:'Selected work',nav1Target:'work',nav2Label:'The studio',nav2Target:'studio',nav3Label:'What we do',nav3Target:'services',nav4Label:'Our approach',nav4Target:'process',navCtaLabel:'Start a project',
     heroTitle:'Good ideas.\nMade visible.',heroDescription:'We turn the things that make your business different into a brand people can recognise, understand, and remember.',heroImage:'/assets/profile-creative-hero.jpg',heroNote:'A fresh perspective, thoughtfully brought to life.',
     aboutTitle:'A small studio.\nA considered point of view.',aboutLead:'We work with people who care about what they are building. Our job is to understand that ambition and give it a clear visual direction.',aboutBody:'From an early idea to the details that bring a launch together, we keep the conversation open and the design purposeful. Every decision should make the brand feel more like itself.',
@@ -20,7 +20,7 @@ export const profileTemplates = {
     processTitle:'Good work begins\nwith a good conversation.',processDescription:'A clear process with room to think, explore, and refine.',process1Title:'Find the story',process1Description:'We learn about your business, audience, and what you want to change.',process2Title:'Explore the direction',process2Description:'We share concepts and work together to find the right creative approach.',process3Title:'Bring it together',process3Description:'We refine the agreed direction into a consistent set of brand touchpoints.',contactTitle:'Let’s make\nsomething meaningful.',contactLabel:'Tell us about your project'
   }},
   Consulting: {title:'Business Consulting — Clarity for What’s Next', path:'/template-consulting.html', sector:'consulting', label:'Konsultan & Jasa Profesional', content:{
-    businessName:'Rasio Business Consulting',tagline:'Strategy & business operations',
+    businessName:'Rasio Labs Business Consulting',tagline:'Strategy & business operations',
     nav1Label:'Our approach',nav1Target:'studio',nav2Label:'Areas of focus',nav2Target:'work',nav3Label:'Services',nav3Target:'services',nav4Label:'How we work',nav4Target:'process',navCtaLabel:'Talk to our team',
     heroTitle:'Clarity for\nwhat’s next.',heroDescription:'Make your next business decision with a clearer view of the priorities, the people, and the work ahead.',heroImage:'/assets/profile-consulting-hero.jpg',heroNote:'A practical approach to moving your business forward.',
     aboutTitle:'The right perspective.\nA practical way forward.',aboutLead:'A growing business brings new questions. We help you look closely at the challenge, agree on what matters, and translate that understanding into an actionable plan.',aboutBody:'Our approach connects strategy with the realities of everyday operations. We work alongside your team, with clear conversations and recommendations that fit your context.',
@@ -30,4 +30,4 @@ export const profileTemplates = {
   }}
 };
 export const isProfileTemplate = key => typeof key === 'string' && Object.hasOwn(profileTemplates, key);
-export const templateAssets = new Set(['/assets/rasio-logo.png','/assets/architecture-exterior.jpg','/assets/architecture-living.jpg','/assets/architecture-detail.jpg',...Object.values(profileTemplates).flatMap(t=>['heroImage','work1Image','work2Image'].map(key=>t.content[key]).filter(Boolean))]);
+export const templateAssets = new Set(['/assets/rasiolabs-logo.png','/assets/rasio-logo.png','/assets/architecture-exterior.jpg','/assets/architecture-living.jpg','/assets/architecture-detail.jpg',...Object.values(profileTemplates).flatMap(t=>['heroImage','work1Image','work2Image'].map(key=>t.content[key]).filter(Boolean))]);

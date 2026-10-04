@@ -6,9 +6,9 @@
   if (!tabs.length || !panels.length) return;
 
   const links = {
-    profile: ['/layanan-profile.html', 'Lihat detail Rasio Profile'],
-    store: ['/layanan-store.html', 'Lihat detail Rasio Store'],
-    custom: ['/layanan-custom.html', 'Lihat detail Rasio Custom']
+    profile: ['/layanan-profile.html', 'Lihat detail RasioLabs Profile'],
+    store: ['/layanan-store.html', 'Lihat detail RasioLabs Store'],
+    custom: ['/layanan-custom.html', 'Lihat detail RasioLabs Custom']
   };
 
   function selectTab(selected, focus = false) {

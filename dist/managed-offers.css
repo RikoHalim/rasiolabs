@@ -1,4 +1,4 @@
-/* The hosted template offer has its own hierarchy while retaining Rasio's palette. */
+/* The hosted template offer has its own hierarchy while retaining Rasio Labs's palette. */
 .hero--people .hero-slide{min-height:207px}
 .hero-benefits{border:0;padding-top:0;margin-bottom:15px}
 .hero-benefit-list{gap:7px 15px}
@@ -52,7 +52,7 @@
 .offer-price strong small{font-size:12px;letter-spacing:0}
 .offer-price .offer-billing{display:block;margin:8px 0 0;color:#415675;font-size:11px;line-height:1.65}
 .offer-price .offer-renewal{display:block;margin-top:5px;color:#61728b;font-size:11px;line-height:1.65}
-body .offers-grid .offer-card.offer-store{background:linear-gradient(155deg,#2353e1 0%,#163baf 58%,#102971 100%);border-color:#1d46bd;color:#fff}
+body .offers-grid .offer-card.offer-store{background:linear-gradient(155deg,#0c55fc 0%,#163baf 58%,#102971 100%);border-color:#1d46bd;color:#fff}
 body .offers-grid .offer-store .offer-top>span:last-child,body .offers-grid .offer-store h3 a,body .offers-grid .offer-store .offer-description,body .offers-grid .offer-store .benefit-checklist li,body .offers-grid .offer-store .offer-price span,body .offers-grid .offer-store .offer-price strong{color:#fff}
 .offer-store .offer-detail>span{color:#a8c8ff}
 .offer-store .offer-price{border-color:#ffffff75}
@@ -77,7 +77,7 @@ body .offer-store .benefit-checklist li::before{background:#e7f7ed;color:#15803d
 .feature-showcase>article{overflow:hidden;border:1px solid var(--surface-border);border-radius:21px;background:#fff;box-shadow:var(--surface-shadow)}
 .feature-art{height:210px;position:relative;overflow:hidden;background:#e6efff;padding:21px}
 .feature-art--photo>img{display:block;width:100%;height:100%;object-fit:cover;border-radius:11px}
-.feature-art--photo:after{content:'Rasio membantu menyiapkan tampilan bisnis Anda';position:absolute;left:36px;bottom:35px;max-width:210px;padding:12px;border-radius:10px;background:#fffffff0;color:#183c7b;font-size:12px;font-weight:700;line-height:1.5;box-shadow:var(--control-shadow)}
+.feature-art--photo:after{content:'Rasio Labs membantu menyiapkan tampilan bisnis Anda';position:absolute;left:36px;bottom:35px;max-width:210px;padding:12px;border-radius:10px;background:#fffffff0;color:#183c7b;font-size:12px;font-weight:700;line-height:1.5;box-shadow:var(--control-shadow)}
 .feature-copy{padding:23px 25px 26px}
 .feature-copy h3{font-size:20px;line-height:1.35;margin:0 0 9px;letter-spacing:-.025em}
 .feature-copy p{font-size:13px;line-height:1.85;color:#445976;margin:0}
@@ -91,7 +91,7 @@ body .offer-store .benefit-checklist li::before{background:#e7f7ed;color:#15803d
 .feature-art--custom{background:linear-gradient(140deg,#eef3fc,#dbe7fa)}
 .feature-flow{display:flex;align-items:center;justify-content:center;gap:11px;height:100%;font-size:11px;color:#183c7b;font-weight:700}
 .feature-flow span{padding:12px 11px;border:1px solid #aac4e9;border-radius:10px;background:#fff;box-shadow:var(--control-shadow);text-align:center;line-height:1.5}
-.feature-flow i{font-style:normal;color:#2353e1}
+.feature-flow i{font-style:normal;color:#0c55fc}
 
 @media(max-width:1050px){.template-stack{height:500px}.stack-preview--profile{width:81%}.stack-preview--store{width:83%}.stack-preview--architecture{width:91%;left:4%}}
 @media(max-width:840px){.hero--people .hero-slide{min-height:183px}.template-stack{height:505px;max-width:600px;margin:auto}.feature-showcase{gap:13px}}

@@ -1,0 +1,23 @@
+:root{--blue:#0c55fc;--blue-dark:#1237b0;--blue-soft:#edf3ff;--labs-navy:#071b4b;--labs-line:#d5e1f9}
+.brand img{width:164px;height:auto;display:block;object-fit:contain}
+.site-footer .brand img,.site-footer .footer-brand img{content:url('/assets/rasiolabs-logo-white.png');filter:none}
+.site-header{border-bottom-color:#e2eafb}
+.header-cta,.button:not(.button-secondary):not(.button-whatsapp):not(.whatsapp-cta){border-color:var(--blue)}
+.button-primary,.header-cta,.btn.primary{background:#0c55fc;color:#fff;border-color:#0c55fc}
+.button-primary:is(:hover,:focus-visible),.header-cta:is(:hover,:focus-visible),.btn.primary:is(:hover,:focus-visible){background:#1237b0;color:#fff;border-color:#1237b0}
+.hero{background:radial-gradient(ellipse at 87% 38%,#dfeaff 0,transparent 51%),linear-gradient(120deg,#fff,#f7faff)}
+#main-content>.offers-section{background:linear-gradient(130deg,#eef4ff,#e5efff)}
+#main-content>.feature-showcase{background:#fff}
+#main-content>.rasio-ai-story{background:linear-gradient(135deg,#061738,#102d73 65%,#124bd2)}
+#main-content>.rasio-advantages{background:linear-gradient(115deg,#104bdf,#0c55fc 58%,#2775ff)}
+#main-content>.process-section{background:linear-gradient(120deg,#f3f7ff,#e9f1ff)}
+#main-content>.faq-section{background:#eef4ff}
+#main-content>.testimonial-section{background:linear-gradient(125deg,#071a45,#143778)}
+#main-content>.blog-home{background:linear-gradient(130deg,#eaf2ff,#f6f9ff)}
+body.service-page{--service-light-a:#edf3ff;--service-light-b:#dceaff;--service-dark-a:#071b4b;--service-dark-b:#153e96}
+body.service-page-store{--service-light-a:#e4f0ff;--service-light-b:#d7e9ff;--service-dark-a:#092b63;--service-dark-b:#0b52c4}
+body.service-page-custom{--service-light-a:#ecf0ff;--service-light-b:#dfe7ff;--service-dark-a:#101d49;--service-dark-b:#244da7}
+.nav-ai{background:#e8f0ff;color:#0b46cb;border-color:#c8d9ff}
+.marker{background-image:linear-gradient(transparent 61%,#cbdfff 61%)}
+.sidebar .brand img,.auth-brand img{width:156px;height:auto}
+@media(max-width:760px){.brand img{width:140px}.header-inner{gap:14px}}

@@ -54,3 +54,72 @@ export const pageDefaults={
   Consulting:{insightTitle:'Choosing your next business priority.',insightLead:'When everything feels urgent, a clearer question can be more useful than a longer to-do list.',insight1:'Start with the decision you need to make. Describe what is happening today, who it affects, and what would look different if the issue were resolved. Separate the evidence from the assumptions before deciding what to change.',insight2:'Follow the work from beginning to end. Where does it wait? Where is ownership unclear? Ask the people doing the work what information they need and which handoffs create repeated questions.',insight3:'Choose one action with a clear owner and an observable result. Agree on what to review and when to review it. A small, well-understood change gives the team a useful basis for deciding what comes next.',workshopImage:'/assets/profile-consulting-workshop.jpg'}
 };
 export const pageAssetPaths=Object.values(pageDefaults).flatMap(values=>Object.values(values).filter(v=>v.startsWith('/assets/')));
+
+export const profileExpansion={
+  Architecture:{homeTitle:'Before the first drawing.',homeLead:'Turn the way you live into a clearer project brief.',pages:[
+    {slug:'planning',label:'Plan your space',title:'Plan your space.',lead:'A useful brief begins with everyday life: what works, what gets in the way, and what your space needs to become.',image:'work1Image',alt:'Natural light in a residential interior',modules:[
+      ['Start with your day.','Describe how you use the space now. Include the routines, people, and moments the design needs to accommodate. Think about the parts of your day that deserve more room.'],
+      ['Set the priorities.','Separate essentials from possibilities. Share the budget range, timing, and constraints so the first conversation has a clear starting point. A short list of priorities is more useful than a long list of references.'],
+      ['Bring the context.','Gather photographs, available drawings, and a few references. Explain what you like about each reference: the light, layout, materials, or feeling. Bring questions about the site as well as ideas for the design.']
+    ]},
+    {slug:'renovation',label:'Renovation & renewal',title:'A new chapter for your space.',lead:'Understand what deserves to stay and what needs to work differently.',image:'materialsImage',alt:'Material samples for architecture and interiors',modules:[
+      ['Keep what matters.','Identify the qualities you value: a generous window, a familiar room, or a material with character. These can become the starting point for a space that feels renewed without losing its identity.'],
+      ['Look beyond the finish.','Consider movement, storage, light, and the relationship between rooms before choosing surface treatments. The most useful changes often begin with how a space works rather than how it looks.'],
+      ['Define the scope.','List the rooms involved and how the work may affect daily use. Share available information about the building so the team can discuss what needs to be assessed before developing a design.']
+    ]}
+  ]},
+  Padel:{homeTitle:'Find your way onto court.',homeLead:'New to the game or bringing your people? Start here.',pages:[
+    {slug:'first-game',label:'Your first game',title:'Your first game starts here.',lead:'A few simple details help the club find a suitable introduction to the court.',image:'equipmentImage',alt:'Padel rackets and balls ready for a game',modules:[
+      ['Choose a starting point.','Tell the team whether you are trying padel for the first time, returning to sport, or bringing experience from another racket game. Your starting point helps shape a suitable introduction.'],
+      ['Get the details.','Ask what equipment you need, what the session includes, and how the club confirms your place. Check practical details before arriving so you can focus on enjoying your first game.'],
+      ['Bring a friend—or ask.','Let the team know whether you already have playing partners. Ask about coaching or social sessions if you are coming on your own. Share your experience and the kind of game you are looking for.']
+    ]},
+    {slug:'group-play',label:'Group play',title:'Make room for your group.',lead:'Bring friends or colleagues together around a shared game.',image:'communityImage',alt:'Padel players sharing a game on a blue court',modules:[
+      ['Tell us about your group.','Share the number of people, their experience, and whether the aim is a relaxed introduction or time to play together. A clear group brief helps the team discuss a suitable format.'],
+      ['Choose the kind of session.','Discuss court time, coaching, or social play with the team. The right format depends on your group and the arrangements available. Include any preferences that would help everyone feel comfortable taking part.'],
+      ['Confirm the plan.','Ask about timing, equipment, costs, and club requirements before making plans. Your session is confirmed directly with the team. Keep the group informed once the arrangements are agreed.']
+    ]}
+  ]},
+  Creative:{homeTitle:'Think beyond the launch.',homeLead:'Clarify the direction, then make it practical for the people using it.',pages:[
+    {slug:'brand-foundations',label:'Brand foundations',title:'Get clear before getting visual.',lead:'A strong visual direction starts with a shared understanding of the business.',image:'brandingImage',alt:'Brand strategy and visual direction on a desk',modules:[
+      ['What do you offer?','Describe the offer in plain language. Make clear who it helps and what people need to understand first. A focused description gives the design work a useful starting point.'],
+      ['What makes it yours?','Identify the choices, values, and character that distinguish the business. Use real examples rather than a list of broad adjectives. The most useful brand stories connect what you say with what you do.'],
+      ['Where must it work?','List the places the brand appears: a website, packaging, social content, presentations, or physical spaces. These touchpoints help shape a connected visual system with practical uses in mind.']
+    ]},
+    {slug:'brand-handover',label:'Brand handover',title:'A brand built for everyday use.',lead:'The final direction needs to make sense to the people who use it.',image:'work1Image',alt:'Colour, texture and visual language for a brand',modules:[
+      ['Understand the system.','A clear guide connects the logo, typography, colour, imagery, and voice. The aim is to help each touchpoint feel part of the same brand, even when different people are working on it.'],
+      ['Know the essentials.','Discuss the file formats, templates, and guidance your team needs. Agree on the handover scope as part of the project. A useful handover reflects the ways the brand will actually be used.'],
+      ['Keep it consistent.','Choose who maintains the brand assets and where the team can find them. A shared source makes everyday decisions easier and helps new work build on the established direction.']
+    ]}
+  ]},
+  Consulting:{homeTitle:'Where would a clearer view help?',homeLead:'Start with a decision to make or a process that needs attention.',pages:[
+    {slug:'business-review',label:'Business review',title:'See the business more clearly.',lead:'Connect your goals with the evidence available today.',image:'work1Image',alt:'A team discussing business direction',modules:[
+      ['Define the decision.','Start with the question the review needs to answer. A focused decision helps determine which information matters. Describe the choices you are considering and the uncertainties that affect them.'],
+      ['Bring the evidence.','Gather relevant plans, customer feedback, operating information, and observations from the team. Identify where information is incomplete. Keep assumptions visible so they can be examined alongside the evidence.'],
+      ['Agree on the next step.','Compare the options, assumptions, and trade-offs. Turn the chosen direction into actions with clear ownership and a review point. Decide what the team needs to learn as the work progresses.']
+    ]},
+    {slug:'operations-review',label:'Operations review',title:'Follow the work. Find the friction.',lead:'Understand how work moves through the business before deciding what to change.',image:'workshopImage',alt:'A team mapping a workflow with sticky notes',modules:[
+      ['Map a real workflow.','Choose one recurring piece of work and trace it from request to completion. Include the people, information, and decisions involved. Start with what happens in practice rather than what the process is supposed to look like.'],
+      ['Inspect the handoffs.','Look for waiting, repeated questions, and unclear ownership. Ask the people doing the work where the process becomes difficult. Connect their observations with specific stages of the workflow.'],
+      ['Test a practical change.','Choose a manageable improvement and agree on what the team will observe. Review the effect before extending the change. Use what you learn to decide whether to refine, continue, or try another approach.']
+    ]}
+  ]}
+};
+for(const [template,expansion] of Object.entries(profileExpansion)){
+  pageDefaults[template].expansionTitle=expansion.homeTitle;
+  pageDefaults[template].expansionLead=expansion.homeLead;
+  const items=[['expansionTitle','Judul panduan',160],['expansionLead','Pengantar panduan',400]];
+  expansion.pages.forEach((p,i)=>{
+    const prefix='extra'+(i+1);
+    profilePages[template][p.slug]=p.label;
+    targets[template][prefix]=p.slug;
+    Object.assign(pageDefaults[template],{[prefix+'Title']:p.title,[prefix+'Lead']:p.lead});
+    items.push([prefix+'Title',p.label+': judul',160],[prefix+'Lead',p.label+': pengantar',600]);
+    p.modules.forEach(([title,body],n)=>{
+      pageDefaults[template][prefix+'Heading'+(n+1)]=title;
+      pageDefaults[template][prefix+'Body'+(n+1)]=body;
+      items.push([prefix+'Heading'+(n+1),p.label+': poin '+(n+1),100],[prefix+'Body'+(n+1),p.label+': isi '+(n+1),1000]);
+    });
+  });
+  pageFields[template].push(group('guides','Panduan & informasi',items));
+}

@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir } from 'node:fs/promises';
 import './build-profile-templates.mjs';
 await import('./build-profile-pages.mjs');
+await import('./rebrand-rasiolabs.mjs');
 await mkdir('dist/client',{recursive:true});
 for (const entry of await readdir('dist',{withFileTypes:true})) {
   if (['client','server','.openai'].includes(entry.name)) continue;

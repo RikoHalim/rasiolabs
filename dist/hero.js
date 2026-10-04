@@ -4,31 +4,31 @@
 
   const slides = [
     {
-      label: 'Rasio Profile',
+      label: 'RasioLabs Profile',
       lead: 'Website bisnis siap online, ',
       highlight: 'tanpa biaya pembuatan dari nol.',
-      copy: 'Pilih template dan berlangganan. Tim Rasio menyiapkan website serta mengelola teknisnya; Anda tetap dapat memperbarui konten lewat CMS sederhana.',
-      note: 'Company profile yang disiapkan dan dikelola Rasio',
+      copy: 'Pilih template dan berlangganan. Tim Rasio Labs menyiapkan website serta mengelola teknisnya; Anda tetap dapat memperbarui konten lewat CMS sederhana.',
+      note: 'Company profile yang disiapkan dan dikelola Rasio Labs',
       price: 'Rp27.250',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['1 email bisnis gratis; domain gratis selama 1 tahun untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio', 'CMS sederhana untuk ubah konten', 'SEO, WhatsApp CTA & AI chatbot 24/7'],
+      benefits: ['1 email bisnis gratis; domain gratis selama 1 tahun untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio Labs', 'CMS sederhana untuk ubah konten', 'SEO, WhatsApp CTA & AI chatbot 24/7'],
     },
     {
-      label: 'Rasio Store',
+      label: 'RasioLabs Store',
       lead: 'Buka toko online milik brand Anda, ',
       highlight: 'tanpa repot urusan teknis.',
-      copy: 'Tim Rasio menyiapkan toko dan membantu mengunggah 50 produk pertama. Berikutnya, Anda bisa menambah produk tanpa batas melalui dashboard.',
-      note: 'Toko online dengan pengelolaan teknis dari Rasio',
+      copy: 'Tim Rasio Labs menyiapkan toko dan membantu mengunggah 50 produk pertama. Berikutnya, Anda bisa menambah produk tanpa batas melalui dashboard.',
+      note: 'Toko online dengan pengelolaan teknis dari Rasio Labs',
       price: 'Rp52.500',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['1 email bisnis gratis; domain gratis selama 1 tahun untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio', '50 produk awal dibantu, berikutnya tanpa batas', 'Checkout, pengiriman & AI chatbot 24/7'],
+      benefits: ['1 email bisnis gratis; domain gratis selama 1 tahun untuk paket 12 bulan atau lebih', 'Setup & maintenance oleh tim Rasio Labs', '50 produk awal dibantu, berikutnya tanpa batas', 'Checkout, pengiriman & AI chatbot 24/7'],
     },
     {
-      label: 'Rasio Custom',
+      label: 'RasioLabs Custom',
       lead: 'Punya kebutuhan yang lebih spesifik? ',
-      highlight: 'Bangun sistem bersama Rasio.',
+      highlight: 'Bangun sistem bersama Rasio Labs.',
       copy: 'Website, ERP, dan software custom dirancang mengikuti alur kerja bisnis Anda. Ceritakan kebutuhan proyek untuk mendapat penawaran.',
       note: 'Website dan ERP sesuai kebutuhan bisnis',
       price: 'Sesuai cakupan proyek',
@@ -54,7 +54,7 @@
   const primary = document.querySelector('[data-hero-primary]');
   const secondary = document.querySelector('[data-hero-secondary]');
   const visuals = [...document.querySelectorAll('[data-hero-visual]')];
-  const whatsapp = 'https://wa.me/60142317052?text=Halo%20Rasio%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20website%20bisnis.';
+  const whatsapp = 'https://wa.me/60142317052?text=Halo%20Rasio%20Labs%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20website%20bisnis.';
   const actions = [
     {primary: ['Lihat Paket', '#paket-profile'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
     {primary: ['Lihat Paket', '#paket-store'], secondary: ['Konsultasi Gratis ↗', whatsapp]},

@@ -1,4 +1,4 @@
-/* Rasio's own quiet, high-contrast editorial system. */
+/* Rasio Labs's own quiet, high-contrast editorial system. */
 body:not(.architecture-page){background:#fff;color:#172037}
 html,body:not(.architecture-page){overflow-x:clip}
 body:not(.architecture-page) .hero--people{background:radial-gradient(circle at 87% 18%,#e9edff 0,transparent 32%),linear-gradient(135deg,#fff 28%,#f7f9ff 100%)}
@@ -23,7 +23,7 @@ body:not(.architecture-page) .hero--people{background:radial-gradient(circle at 
 #top .stack-preview.is-behind-left{z-index:1;opacity:.78;transform:translate(-29px,-24px) rotate(-5deg) scale(.9);pointer-events:none}
 #top .stack-preview.is-behind-right{z-index:2;opacity:.84;transform:translate(30px,25px) rotate(5deg) scale(.91);pointer-events:none}
 #top .stack-preview.is-active:hover,#top .stack-preview.is-active:focus-visible{transform:translateY(-5px) scale(1.008);box-shadow:0 20px 37px rgba(21,38,72,.2),0 31px 65px rgba(21,38,72,.13)}
-#top .stack-preview.is-active:focus-visible{outline:3px solid #2353e1;outline-offset:4px}
+#top .stack-preview.is-active:focus-visible{outline:3px solid #0c55fc;outline-offset:4px}
 #top .stack-browser{height:29px}
 #top .stack-store-body,#top .stack-architecture-body{height:calc(100% - 29px)}
 #top .stack-store-body{grid-template-rows:30px minmax(0,1fr) 21px;gap:9px;padding:17px 20px}
@@ -53,7 +53,7 @@ body:not(.architecture-page) .hero--people{background:radial-gradient(circle at 
 #top .stack-erp-chart i:nth-child(3){height:48%}
 #top .stack-erp-chart i:nth-child(4){height:77%;background:#377a9a}
 #top .stack-erp-chart i:nth-child(5){height:58%}
-#top .stack-erp-chart i:nth-child(6){height:92%;background:#2353e1}
+#top .stack-erp-chart i:nth-child(6){height:92%;background:#0c55fc}
 #top .stack-erp-chart i:nth-child(7){height:72%}
 #top .hero-visual-note{display:flex;align-items:center;gap:10px;min-height:43px;padding:10px 14px;border:1px solid #d7e1f2;border-radius:11px;background:#fff;color:#304668;font-size:11px;line-height:1.4;box-shadow:0 7px 17px rgba(26,48,92,.07)}
 #top .hero-visual-note .hero-ai-pulse{width:7px;height:7px}

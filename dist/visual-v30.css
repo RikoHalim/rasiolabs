@@ -1,4 +1,4 @@
-/* Rasio's section rhythm: quiet surfaces around the work, stronger color at key moments. */
+/* Rasio Labs's section rhythm: quiet surfaces around the work, stronger color at key moments. */
 #main-content > .template-section {
   border-top: 0;
   background: #fff;
@@ -98,7 +98,7 @@
   box-shadow: 0 12px 29px rgba(30, 52, 100, .075);
 }
 
-/* A less dense heading weight suits Rasio's broad section titles. */
+/* A less dense heading weight suits Rasio Labs's broad section titles. */
 #main-content > section h2 { font-weight: 700; }
 
 @media (max-width: 840px) {

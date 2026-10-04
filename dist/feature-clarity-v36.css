@@ -68,7 +68,7 @@
 
 #fitur-layanan .serp-heading span { margin-right: auto; }
 #fitur-layanan .serp-heading i { width: 4px; height: 4px; border-radius: 50%; background: #a7b5d0; }
-#fitur-layanan .serp-heading i:nth-child(2) { background: #2353e1; }
+#fitur-layanan .serp-heading i:nth-child(2) { background: #0c55fc; }
 
 #fitur-layanan .serp-input {
   display: flex;
@@ -83,7 +83,7 @@
   box-shadow: 0 2px 5px rgba(24, 49, 93, .04);
 }
 
-#fitur-layanan .serp-input svg { width: 11px; height: 11px; flex: none; color: #2353e1; }
+#fitur-layanan .serp-input svg { width: 11px; height: 11px; flex: none; color: #0c55fc; }
 #fitur-layanan .serp-input span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 8px; }
 
 #fitur-layanan .serp-tabs {
@@ -95,7 +95,7 @@
   font-size: 7px;
 }
 
-#fitur-layanan .serp-tabs b { color: #2353e1; }
+#fitur-layanan .serp-tabs b { color: #0c55fc; }
 #fitur-layanan .serp-result { display: flex; flex-direction: column; gap: 2px; padding-top: 5px; }
 #fitur-layanan .serp-result small { color: #4c6a5c; font-size: 7px; }
 #fitur-layanan .serp-result strong { color: #2451cb; font-size: 9px; line-height: 1.2; }

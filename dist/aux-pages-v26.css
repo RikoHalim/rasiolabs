@@ -1,7 +1,7 @@
 /* Shared finish for the journal, tutorial, and portfolio pages. */
 body:is(.blog-page, .tutorial-page, .portfolio-page) {
   --aux-navy: #081a3a;
-  --aux-blue: #2353e1;
+  --aux-blue: #0c55fc;
   --aux-ice: #eff5ff;
   --aux-border: #dbe5f3;
   --aux-muted: #52637c;
@@ -60,7 +60,7 @@ body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy h1 {
 }
 
 body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-copy .marker {
-  color: #2353e1;
+  color: #0c55fc;
   background: none;
 }
 
@@ -85,7 +85,7 @@ body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media::before {
   z-index: -1;
   inset: 18px -14px -16px 24px;
   border-radius: 28px;
-  background: #2353e1;
+  background: #0c55fc;
 }
 
 body:is(.blog-page, .tutorial-page, .portfolio-page) .aux-hero-media img {

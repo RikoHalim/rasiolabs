@@ -9,7 +9,7 @@
     Consulting: {type:'profile', title:'Business Consulting — Clarity for What’s Next', description:'Konsultan & Jasa Profesional', art:'<img src="/assets/template-consulting-preview.png" alt="Business Consulting — Clarity for What’s Next" />'},
   };
   const service = params.get('type');
-  const names = {store:'Rasio Store', profile:'Rasio Profile', custom:'Rasio Custom'};
+  const names = {store:'RasioLabs Store', profile:'RasioLabs Profile', custom:'RasioLabs Custom'};
   if (!Object.hasOwn(names, service)) {
     shell.hidden = true;
     document.querySelector('[data-order-empty]').hidden = false;
@@ -22,9 +22,9 @@
     const empty = document.querySelector('[data-order-empty]');
     empty.hidden = false;
     empty.querySelector('h1').textContent = 'Template toko online belum tersedia.';
-    empty.querySelector('p').textContent = 'Belum ada template Rasio Store yang dapat dipilih saat ini. Hubungi Rasio untuk membahas kebutuhan toko online Anda.';
+    empty.querySelector('p').textContent = 'Belum ada template RasioLabs Store yang dapat dipilih saat ini. Hubungi Rasio Labs untuk membahas kebutuhan toko online Anda.';
     const contact = empty.querySelector('a');
-    contact.href = 'https://wa.me/60142317052?text=' + encodeURIComponent('Halo Rasio, saya ingin konsultasi tentang toko online.');
+    contact.href = 'https://wa.me/60142317052?text=' + encodeURIComponent('Halo Rasio Labs, saya ingin konsultasi tentang toko online.');
     contact.textContent = 'Konsultasi toko online ↗';
     contact.target = '_blank'; contact.rel = 'noopener';
     return;
@@ -45,7 +45,7 @@
   const feeFor = choice => Number(durationSelect.value) === 1 ? domainPrices[choice.slice(choice.indexOf('.') + 1)] ?? null : 0;
   const requestedDuration = Number(params.get('duration'));
   if ([1, 12, 24, 48].includes(requestedDuration)) durationSelect.value = String(requestedDuration);
-  const titles = {addons:['Rasio AI','Tambahkan insight toko'],domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
+  const titles = {addons:['RasioLabs AI','Tambahkan insight toko'],domain:['Domain','Tentukan alamat website'],template:['Template','Pilih desain website'],business:['Data bisnis','Lengkapi kontak Anda'],review:['Review','Periksa pilihan Anda']};
   const input = document.querySelector('#order-domain');
   const form = document.querySelector('[data-order-domain-form]');
   const results = document.querySelector('[data-domain-results]');
@@ -75,12 +75,12 @@
   });
 
   const management = service === 'profile' ? 'CMS sederhana untuk teks, gambar, dan logo' : service === 'store' ? 'Dashboard toko untuk produk dan pesanan' : 'Disepakati sesuai cakupan proyek';
-  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Kami membantu unggah 50 produk pertama; selanjutnya Anda dapat mengunggah produk tanpa batas melalui dashboard.' : 'Ceritakan kebutuhan Anda agar tim Rasio dapat menyusun cakupan dan penawaran.';
-  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Tim Rasio menyiapkan desain dan menangani maintenance. Anda dapat memperbarui teks, gambar, dan logo melalui CMS sederhana tanpa mengubah tata letak template.' : service === 'store' ? 'Tim Rasio menyiapkan desain, mengunggah 50 produk pertama, dan menangani maintenance. Anda dapat menambah produk tanpa batas serta mengelola stok dan pesanan melalui dashboard toko.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Domain masuk dalam cakupan penawaran sesuai kebutuhan proyek.';
+  document.querySelector('[data-business-intro]').textContent = service === 'profile' ? 'Tim Rasio Labs menghubungi Anda dalam 1 × 24 jam setelah pembayaran untuk membantu setup awal dan akses CMS.' : service === 'store' ? 'Tim Rasio Labs menghubungi Anda dalam 1 × 24 jam setelah pembayaran. Kami membantu unggah 50 produk pertama; selanjutnya Anda dapat mengunggah produk tanpa batas melalui dashboard.' : 'Ceritakan kebutuhan Anda agar tim Rasio Labs dapat menyusun cakupan dan penawaran.';
+  document.querySelector('[data-management-note]').textContent = service === 'profile' ? 'Tim Rasio Labs menyiapkan desain dan menangani maintenance. Anda dapat memperbarui teks, gambar, dan logo melalui CMS sederhana tanpa mengubah tata letak template.' : service === 'store' ? 'Tim Rasio Labs menyiapkan desain, mengunggah 50 produk pertama, dan menangani maintenance. Anda dapat menambah produk tanpa batas serta mengelola stok dan pesanan melalui dashboard toko.' : 'Proyek custom dimulai setelah cakupan dan penawaran disepakati. Domain masuk dalam cakupan penawaran sesuai kebutuhan proyek.';
   document.querySelector('[data-review-management]').textContent = management;
-  document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum membuat pesanan. Pembayaran dikonfirmasi oleh tim Rasio.';
+  document.querySelector('[data-review-intro]').textContent = service === 'custom' ? 'Pilihan ini membantu konsultasi awal. Harga proyek ditentukan setelah pembahasan kebutuhan.' : 'Periksa pilihan Anda sebelum membuat pesanan. Pembayaran dikonfirmasi oleh tim Rasio Labs.';
   if (service === 'profile') {
-    document.querySelector('[data-order-domain-intro]').textContent = 'Pilih nama domain untuk website Anda. Tim Rasio memastikan ketersediaannya sebelum pembayaran.';
+    document.querySelector('[data-order-domain-intro]').textContent = 'Pilih nama domain untuk website Anda. Tim Rasio Labs memastikan ketersediaannya sebelum pembayaran.';
     form.querySelector('button').textContent = 'Lihat pilihan domain →';
     document.querySelector('#customer-email').required = true;
   }
@@ -164,9 +164,9 @@
       durationDomainBenefit.setAttribute('aria-label', duration === 1 ? 'Domain gratis: tidak termasuk dalam paket 1 bulan' : 'Domain gratis selama 1 tahun: termasuk dalam paket');
       document.querySelector('[data-upgrade-monthly]').textContent = `${rupiah(Math.round(normalMonthly * .25))}/bulan`;
       document.querySelector('[data-upgrade-total]').textContent = `Bayar ${rupiah(Math.round(normalMonthly * .25) * 48)} untuk 48 bulan. Domain gratis selama 1 tahun.`;
-      document.querySelector('[data-summary-ai-duration]').textContent = `Rasio AI Insight · ${addonDuration} bulan`;
+      document.querySelector('[data-summary-ai-duration]').textContent = `RasioLabs AI Insight · ${addonDuration} bulan`;
       document.querySelector('[data-summary-ai-price]').textContent = rupiah(addonTotal);
-      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan ${rupiah(renewalMonthly)}/bulan. ${domainTerms} 1 email bisnis gratis.${unquoted ? ' Harga domain dikonfirmasi sebelum pembayaran.' : ''}${duration === 1 && addonTotal ? ' Add-on Rasio AI Insight ditagih untuk 12 bulan.' : ''}`;
+      document.querySelector('[data-summary-terms]').textContent = `${discount ? `Diskon ${Math.round(discount * 100)}%` : 'Harga normal'} berlaku untuk pembayaran ${duration} bulan di muka. Tarif perpanjangan ${rupiah(renewalMonthly)}/bulan. ${domainTerms} 1 email bisnis gratis.${unquoted ? ' Harga domain dikonfirmasi sebelum pembayaran.' : ''}${duration === 1 && addonTotal ? ' Add-on RasioLabs AI Insight ditagih untuk 12 bulan.' : ''}`;
       document.querySelector('[data-summary-ai-line]').hidden = addonTotal === 0;
     }
     document.querySelectorAll('[data-summary-package]').forEach(e => e.textContent = names[service]);
@@ -237,7 +237,7 @@
     if (value.includes('.')) {
       const error = RasioDomain.error(value);
       if (error) return error;
-      if (service === 'profile' && !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.(com|id|co\.id)$/.test(value)) return 'Pilih ekstensi .com, .id, atau .co.id untuk Rasio Profile.';
+      if (service === 'profile' && !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.(com|id|co\.id)$/.test(value)) return 'Pilih ekstensi .com, .id, atau .co.id untuk RasioLabs Profile.';
       return '';
     }
     if (!/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(value)) return 'Masukkan nama bisnis tanpa spasi, misalnya namabisnis.';
@@ -258,7 +258,7 @@
     results.hidden = false;
     const domainNote = service === 'custom'
       ? 'Pilihan domain ini untuk konsultasi awal. Ketersediaan dan biayanya ditentukan dalam penawaran proyek.'
-      : 'Pilih domain yang Anda inginkan. Ketersediaannya akan dikonfirmasi oleh tim Rasio.';
+      : 'Pilih domain yang Anda inginkan. Ketersediaannya akan dikonfirmasi oleh tim Rasio Labs.';
     results.innerHTML = `<p class="domain-results-note">${domainNote}</p>` + choices.map(choice => `<button class="domain-result" type="button" data-domain-choice="${choice}" aria-pressed="false"><span><b>${choice}</b><small>${choice === requested ? 'Domain yang Anda cari' : 'Pilihan ekstensi'}</small></span><span data-domain-price><small></small><strong></strong></span><i aria-hidden="true">Pilih →</i></button>`).join('');
     refreshDomainPrices();
     results.querySelectorAll('[data-domain-choice]').forEach(button => button.addEventListener('click', () => {
@@ -379,7 +379,7 @@
     if (current === 'review') {
       if (!consent.checked) return;
       if (service === 'custom') {
-        const brief = `Halo Rasio, saya ingin konsultasi Rasio Custom.\nBisnis: ${document.querySelector('#business-name').value}\nDomain pilihan: ${domain}\nKebutuhan: ${document.querySelector('#project-brief').value}`;
+        const brief = `Halo Rasio Labs, saya ingin konsultasi RasioLabs Custom.\nBisnis: ${document.querySelector('#business-name').value}\nDomain pilihan: ${domain}\nKebutuhan: ${document.querySelector('#project-brief').value}`;
         customWhatsApp.href = 'https://wa.me/60142317052?text=' + encodeURIComponent(brief);
         customWhatsApp.hidden = false;
         checkoutNote.textContent = 'Ringkasan siap dibuka di WhatsApp. Anda dapat meninjau pesan sebelum mengirimkannya.';

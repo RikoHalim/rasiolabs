@@ -1,7 +1,7 @@
-/* Distinct editorial, guide, portfolio, and checkout surfaces for Rasio. */
+/* Distinct editorial, guide, portfolio, and checkout surfaces for Rasio Labs. */
 body:is(.blog-page, .tutorial-page, .portfolio-page, .order-page) {
   --secondary-ink: #0d1c3d;
-  --secondary-blue: #2353e1;
+  --secondary-blue: #0c55fc;
   --secondary-border: #d9e3f2;
 }
 
@@ -169,7 +169,7 @@ body.tutorial-page .tutorial-card > span {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: #2353e1;
+  background: #0c55fc;
   color: #fff;
 }
 body.tutorial-page .tutorial-card:nth-child(3n + 2) > span {
@@ -218,14 +218,14 @@ body.order-page .booking-help {
   box-shadow: 0 10px 30px rgba(17, 43, 88, .07);
 }
 body.order-page .order-step.is-active {
-  border-color: #2353e1;
-  background: #2353e1;
+  border-color: #0c55fc;
+  background: #0c55fc;
   color: #fff;
   box-shadow: 0 9px 23px rgba(35, 83, 225, .19);
 }
 body.order-page .order-step.is-active > span:first-child {
   background: #fff;
-  color: #2353e1;
+  color: #0c55fc;
 }
 body.order-page .order-step.is-active :is(b, small) {
   color: #fff;

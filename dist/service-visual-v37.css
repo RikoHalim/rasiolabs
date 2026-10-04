@@ -58,18 +58,18 @@
 .sv-editor-body > span { display: block; color: #697995; }
 .sv-editor-body > strong { display: block; margin: 3px 0 6px; border: 1px solid #dbe3f5; border-radius: 4px; padding: 4px; font-size: 9px; }
 .sv-editor-body > div { display: flex; justify-content: space-between; font-size: 7px; }
-.sv-editor-body b { color: #2353e1; }
-.sv-editor-body em { display: block; width: max-content; margin-top: 6px; padding: 4px 7px; border-radius: 4px; background: #2353e1; color: #fff; font-size: 7px; font-style: normal; }
+.sv-editor-body b { color: #0c55fc; }
+.sv-editor-body em { display: block; width: max-content; margin-top: 6px; padding: 4px 7px; border-radius: 4px; background: #0c55fc; color: #fff; font-size: 7px; font-style: normal; }
 .sv-search { width: 100%; border: 1px solid #d6e1f2; border-radius: 10px; background: #fff; padding: 10px; box-shadow: 0 6px 15px #1d49821c; }
 .sv-search-input { display: flex; gap: 5px; align-items: center; padding: 5px 7px; border-radius: 20px; border: 1px solid #dbe2ee; color: #53627c; font-size: 7px; }
 .sv-search-input svg { width: 10px; height: 10px; flex: 0 0 10px; }
 .sv-search-tabs { display: flex; gap: 8px; font-size: 6px; margin: 6px 2px; color: #717d91; }
-.sv-search-tabs b { color: #2353e1; }
+.sv-search-tabs b { color: #0c55fc; }
 .sv-search > small { display: block; font-size: 6px; color: #4b635b; }
 .sv-search > strong { display: block; font-size: 10px; color: #2459c4; margin: 3px 0; }
 .sv-search > span { display: block; font-size: 6px; color: #53627c; }
 .sv-chat { display: flex; flex-direction: column; gap: 7px; font-size: 8px; }
-.sv-chat > span { align-self: flex-end; padding: 7px 9px; border-radius: 10px 10px 0 10px; background: #2353e1; color: #fff; }
+.sv-chat > span { align-self: flex-end; padding: 7px 9px; border-radius: 10px 10px 0 10px; background: #0c55fc; color: #fff; }
 .sv-chat > strong { padding: 8px; border-radius: 10px 10px 10px 0; background: #fff; color: #344564; font-weight: 500; box-shadow: 0 4px 10px #1b316c12; }
 .sv-chat > b { color: #2153b9; font-size: 8px; }
 .sv-products { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; width: 100%; }
@@ -85,7 +85,7 @@
 .sv-shipping b { font-size: 9px; color: #20365d; }
 .sv-track { display: flex; justify-content: space-between; gap: 15px; position: relative; margin-block: 9px; }
 .sv-track::before { content: ''; position: absolute; height: 2px; background: #9aaee3; inset: 3px 0 auto; }
-.sv-track i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: #2353e1; }
+.sv-track i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: #0c55fc; }
 .sv-logistics { display: flex; align-items: center; gap: 12px; }
 .sv-logistics img { max-width: 37px; max-height: 16px; object-fit: contain; }
 .sv-modules { padding: 10px; width: 100%; background: #fff; border-radius: 10px; box-shadow: 0 6px 15px #263e8026; }
@@ -94,7 +94,7 @@
 .sv-modules b { font-size: 9px; padding: 9px 5px; text-align: center; border-radius: 5px; background: #e8edfc; color: #284db2; }
 .sv-integration { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; }
 .sv-integration span,.sv-integration strong { padding: 10px 6px; border-radius: 8px; background: #fff; color: #3a568c; font-size: 9px; box-shadow: 0 5px 12px #263e801c; }
-.sv-integration strong { padding: 15px 9px; background: #2353e1; color: #fff; }
+.sv-integration strong { padding: 15px 9px; background: #0c55fc; color: #fff; }
 .sv-integration i { color: #4369b5; font-size: 15px; font-style: normal; }
 .sv-workflow { width: 100%; padding: 10px; border-radius: 10px; background: #fff; box-shadow: 0 6px 15px #263e8026; }
 .sv-workflow > span { color: #435578; font-size: 8px; }
@@ -111,7 +111,7 @@
 .service-order-step { position: relative; min-width: 0; padding: 24px 20px; border: 1px solid #d8e1f1; border-radius: 18px; background: #fff; box-shadow: 0 7px 18px #274d8910; transition: transform 280ms cubic-bezier(.2,.7,.2,1), box-shadow 280ms ease; }
 @media (hover: hover) { .service-order-step:hover { transform: translateY(-3px); box-shadow: 0 12px 25px #274d891c; } }
 .service-order-step:not(:last-child)::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: #7387b7; font-size: 20px; z-index: 1; }
-.service-order-icon { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: #eaf0ff; border: 1px solid #d8e3fb; border-radius: 13px; color: #2353e1; }
+.service-order-icon { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: #eaf0ff; border: 1px solid #d8e3fb; border-radius: 13px; color: #0c55fc; }
 .service-order-icon svg { width: 24px; height: 24px; }
 .service-order-number { position: absolute; right: 20px; top: 27px; color: #9aa9c6; font-size: 13px; font-weight: 600; }
 .service-page .service-order-step h3 { margin: 18px 0 7px; color: #1a2b4e; font-size: 17px; line-height: 1.3; }

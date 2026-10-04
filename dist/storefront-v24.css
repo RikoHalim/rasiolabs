@@ -1,4 +1,4 @@
-/* A compact shop window for the Rasio Store slide. The product list is part of
+/* A compact shop window for the RasioLabs Store slide. The product list is part of
    the preview, rather than another service illustration. */
 .service-strip .offer-card .offer-top{min-height:40px;gap:10px;margin-bottom:17px}
 .service-strip .offer-card .offer-top>.service-icon{order:1;flex:none}

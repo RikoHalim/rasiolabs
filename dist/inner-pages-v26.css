@@ -1,11 +1,11 @@
-/* Rasio service pages: a cool blue palette with clear light/dark rhythm. */
+/* Rasio Labs service pages: a cool blue palette with clear light/dark rhythm. */
 body.service-page {
-  --service-accent: #2353e1;
+  --service-accent: #0c55fc;
   --service-soft: #eaf0ff;
   --service-wash: #f3f7ff;
   --service-glow: #cddcff;
   --service-icon-fill: #d5e1ff;
-  --check-green: #2353e1;
+  --check-green: #0c55fc;
   color: #111b3a;
 }
 
@@ -101,8 +101,8 @@ body.service-page .service-hero .service-actions { gap: 11px; margin-top: 17px; 
 body.service-page .service-hero .service-start-price + .service-actions { margin-top: 14px; }
 body.service-page .service-actions > a { min-height: 48px; border-radius: 12px; }
 body.service-page .service-actions .button {
-  border-color: #2353e1;
-  background: linear-gradient(110deg, #2353e1, #365ff0);
+  border-color: #0c55fc;
+  background: linear-gradient(110deg, #0c55fc, #365ff0);
   box-shadow: 0 10px 22px rgba(35, 83, 225, .2);
 }
 body.service-page .service-actions .button:hover {
@@ -301,7 +301,7 @@ body.service-page .detail-feature-card {
 }
 body.service-page .detail-feature-card h3 { color: #152446; }
 body.service-page .benefit-checklist li { color: #405370; font-size: 14px; line-height: 1.65; }
-body.service-page .benefit-checklist li::before { background: #e7efff; color: #2353e1; }
+body.service-page .benefit-checklist li::before { background: #e7efff; color: #0c55fc; }
 body.service-page .feature-showcase > article {
   border-color: #d7e3f7;
   border-radius: 18px;
@@ -321,7 +321,7 @@ body.service-page .detail-closing {
   border-radius: 24px;
   background:
     radial-gradient(circle at 100% 10%, rgba(177, 198, 255, .27), transparent 38%),
-    linear-gradient(115deg, #13327d, #2353e1 78%, #3a67ed);
+    linear-gradient(115deg, #13327d, #0c55fc 78%, #3a67ed);
   color: #fff;
   box-shadow: 0 22px 42px rgba(24, 62, 146, .16);
 }
@@ -372,8 +372,8 @@ body.service-page .detail-feature-card > a.secondary-button {
 body.service-page .service-actions > a { flex: 0 0 var(--service-action-width); }
 
 body.service-page .service-hero .service-actions > a.button {
-  border-color: #2353e1;
-  background: #2353e1;
+  border-color: #0c55fc;
+  background: #0c55fc;
   color: #fff;
 }
 body.service-page .service-hero .service-actions > a.button:is(:hover, :focus-visible) {
@@ -394,8 +394,8 @@ body.service-page .service-template-link:is(:hover, :focus-visible) {
   color: #12377f;
 }
 body.service-page .detail-feature-card > a.secondary-button {
-  border-color: #2353e1;
-  background: #2353e1;
+  border-color: #0c55fc;
+  background: #0c55fc;
   color: #fff;
 }
 body.service-page .detail-feature-card > a.secondary-button:is(:hover, :focus-visible) {

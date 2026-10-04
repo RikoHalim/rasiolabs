@@ -1,11 +1,11 @@
-/* Rasio visual system: sharper hierarchy, tactile surfaces, and restrained motion. */
+/* Rasio Labs visual system: sharper hierarchy, tactile surfaces, and restrained motion. */
 body:not(.architecture-page){background:#fafbfe;color:#11192a;font-family:'DM Sans',Arial,sans-serif}
 body:not(.architecture-page) button,body:not(.architecture-page) input,body:not(.architecture-page) textarea,body:not(.architecture-page) select{font-family:'DM Sans',Arial,sans-serif}
 body:not(.architecture-page) .site-header{border-bottom:1px solid #e5e9f2;background:rgba(255,255,255,.96);box-shadow:0 7px 22px rgba(15,31,70,.045)}
 body:not(.architecture-page) .header-inner{min-height:72px}
 body:not(.architecture-page) .site-nav{gap:clamp(14px,1.5vw,27px);font-size:13px}
-body:not(.architecture-page) .site-nav>a:hover,body:not(.architecture-page) .nav-dropdown-toggle:hover{color:#2353e1}
-body:not(.architecture-page) .button:not(.button-white):not(.offer-order){border-color:#2353e1;background:linear-gradient(115deg,#2353e1,#4168ef);color:#fff;box-shadow:0 9px 19px rgba(35,83,225,.18)}
+body:not(.architecture-page) .site-nav>a:hover,body:not(.architecture-page) .nav-dropdown-toggle:hover{color:#0c55fc}
+body:not(.architecture-page) .button:not(.button-white):not(.offer-order){border-color:#0c55fc;background:linear-gradient(115deg,#0c55fc,#4168ef);color:#fff;box-shadow:0 9px 19px rgba(35,83,225,.18)}
 body:not(.architecture-page) .button:not(.button-white):not(.offer-order):hover{background:linear-gradient(115deg,#163fbd,#3158d8);box-shadow:0 13px 25px rgba(35,83,225,.23);transform:translateY(-2px)}
 body:not(.architecture-page) .secondary-button{border:1px solid #cbd7ed;background:#fff;color:#1844b8;box-shadow:0 6px 16px rgba(26,54,111,.07)}
 body:not(.architecture-page) .secondary-button:hover{border-color:#90a9e3;background:#f4f7ff;color:#123799;box-shadow:0 10px 20px rgba(26,54,111,.11);transform:translateY(-2px)}
@@ -38,12 +38,12 @@ body:not(.architecture-page) .site-footer{border-top:1px solid #dfe6f3}
 .order-page .order-duration p{margin:4px 0 0;color:#5b6d8b;font-size:11px;line-height:1.5}
 .order-page .duration-select-wrap{position:relative;flex:0 0 min(48%,265px)}
 .order-page .duration-select-wrap select{appearance:none;width:100%;min-height:47px;padding:10px 36px 10px 14px;border:1px solid #94afeb;border-radius:10px;background:#fff;color:#173a8e;font:700 12px 'DM Sans',sans-serif;cursor:pointer;box-shadow:0 4px 11px rgba(29,62,139,.08)}
-.order-page .duration-select-wrap>span{position:absolute;right:13px;top:47%;transform:translateY(-50%);pointer-events:none;color:#2353e1;font-size:20px}
+.order-page .duration-select-wrap>span{position:absolute;right:13px;top:47%;transform:translateY(-50%);pointer-events:none;color:#0c55fc;font-size:20px}
 .order-page [data-plan-saving][hidden],.order-page [data-plan-normal][hidden],.order-page [data-summary-normal-price][hidden]{display:none!important}
 .order-page .order-package-card{border-color:#cad8f3!important;background:linear-gradient(120deg,#f8faff,#eef3ff)!important}
 .order-page .order-summary{box-shadow:0 17px 38px rgba(20,43,89,.11)!important}
 .order-page .order-workspace{box-shadow:0 17px 38px rgba(20,43,89,.08)!important}
-.order-page .order-domain-form input:focus{outline:2px solid #2353e1;outline-offset:2px}
+.order-page .order-domain-form input:focus{outline:2px solid #0c55fc;outline-offset:2px}
 .order-page .order-domain-form button,.order-page .toolbar-primary{box-shadow:0 7px 15px rgba(35,83,225,.17)}
 .testimonial-section .testimonial-grid,.blog-home .blog-grid,.service-page .problem-list{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:5px 3px 24px}
 .testimonial-section .testimonial-grid::-webkit-scrollbar,.blog-home .blog-grid::-webkit-scrollbar,.service-page .problem-list::-webkit-scrollbar{display:none}

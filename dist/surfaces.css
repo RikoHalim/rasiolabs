@@ -1,4 +1,4 @@
-/* Shared depth and checklist treatment for the Rasio Agency interface. */
+/* Shared depth and checklist treatment for the Rasio Labs interface. */
 :root {
   --surface-card: #ffffff;
   --surface-hover: #ffffff;
@@ -69,7 +69,7 @@ body :is(.secondary-button,.offer-details-label,.template-actions>.text-link,
 }
 body .offer-store .offer-details-label { background:#fff; color:var(--text-on-soft); }
 body :is(.button,.toolbar-primary,.domain-field>button,.order-domain-form button) {
- color:#fff; background:#2353e1; border:1px solid #2353e1;
+ color:#fff; background:#0c55fc; border:1px solid #0c55fc;
 }
 body :is(.button,.toolbar-primary,.domain-field>button,.order-domain-form button):hover {
  color:#fff; background:#1942bf; border-color:#1942bf;
@@ -77,10 +77,10 @@ body :is(.button,.toolbar-primary,.domain-field>button,.order-domain-form button
 .button span,.secondary-button span,.offer-order span { color:inherit; }
 .hero--people .hero-actions .button { color:#fff; }
 body .toolbar-button:not(.toolbar-primary) { color:#183c7b; background:#fff; border:1px solid var(--surface-border); }
-body .template-actions .button-outline { color:#fff; background:#2353e1; border-color:#2353e1; }
+body .template-actions .button-outline { color:#fff; background:#0c55fc; border-color:#0c55fc; }
 body :is(.product-tab,.filter-button,.sector-filter):not(.is-active) { color:#294b7d; }
 body .product-tab.is-active,.template-section .filter-button.is-active,.template-section .filter-button:hover {
- color:#fff; background:#2353e1; border-color:#2353e1;
+ color:#fff; background:#0c55fc; border-color:#0c55fc;
 }
 body .sector-filter.is-active { background:#fff; color:#183c7b; }
 body :is(.service-icon,.sector-card>.sector-icon,.hero-ai-icon,.step-number,
@@ -114,7 +114,7 @@ body .order-step:is(.is-active,.is-complete)>span:first-child {
 .hero--people .product-tab:not(.is-active),
 body .sector-filter.is-active,.site-nav>a:not(.nav-mobile-cta):hover { background:#fff; }
 body .domain-result:is(:hover,.is-selected),body .order-package.is-selected { background:#fff; }
-.hero-people-card figcaption>a:hover { border-color:#2353e1; box-shadow:var(--control-shadow); }
+.hero-people-card figcaption>a:hover { border-color:#0c55fc; box-shadow:var(--control-shadow); }
 .nav-dropdown-menu a:hover { box-shadow:inset 0 0 0 1px var(--surface-border); }
 .content-control .control-option,
 .content-control .control-option:first-of-type,
@@ -169,9 +169,9 @@ body :is(.button,.secondary-button,.toolbar-button,.offer-details-label,
 .site-nav .nav-ai { box-shadow:inset 0 0 0 1px #cfdbff,var(--control-shadow); }
 .sector-card>.sector-icon { box-shadow:inset 0 0 0 1px #dbe6fa,var(--control-shadow); }
 .template-card .template-media { box-shadow:var(--control-shadow); }
-.domain-field:focus-within { box-shadow:0 0 0 3px #2353e114,var(--control-shadow); }
-.order-template-card[aria-pressed="true"] { box-shadow:0 0 0 3px #2353e115,var(--surface-shadow); }
-.ai-addon-card:has(input:checked) { box-shadow:0 0 0 3px #2353e110,var(--surface-shadow); }
+.domain-field:focus-within { box-shadow:0 0 0 3px #0c55fc14,var(--control-shadow); }
+.order-template-card[aria-pressed="true"] { box-shadow:0 0 0 3px #0c55fc15,var(--surface-shadow); }
+.ai-addon-card:has(input:checked) { box-shadow:0 0 0 3px #0c55fc10,var(--surface-shadow); }
 
 /* Green is reserved for checkmarks and checkboxes; text keeps its original color. */
 .benefit-checklist li::before,
@@ -198,7 +198,7 @@ body .offer-card .offer-details-label,
 body .template-actions>.text-link, body .template-demo-badge { background:#e0ecff; color:#183c7b; border-color:#b9cff1; }
 body .offer-card .offer-details-label:hover, body .template-actions>.text-link:hover,
 body .template-demo-badge:hover { background:#cfdef9; color:#15366c; }
-body .detail-feature-card>.secondary-button, body .faq-intro>.text-link { background:#2353e1; color:#fff; border:1px solid #2353e1; box-shadow:var(--control-shadow); }
+body .detail-feature-card>.secondary-button, body .faq-intro>.text-link { background:#0c55fc; color:#fff; border:1px solid #0c55fc; box-shadow:var(--control-shadow); }
 body .detail-feature-card>.secondary-button:hover, body .faq-intro>.text-link:hover { background:#1942bf; color:#fff; border-color:#1942bf; }
 body .faq-intro>.text-link span { color:inherit; }
 
@@ -208,9 +208,9 @@ body .content-control { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;
 .content-control .control-title .eyebrow { margin:0; font-size:12px; }
 .content-control .control-title h3 { max-width:750px; font-size:23px; line-height:1.4; letter-spacing:-.025em; margin:0; }
 .content-control .control-option,.content-control .control-option:first-of-type,.content-control .control-option:last-child { display:grid; grid-template-columns:56px minmax(0,1fr); gap:16px; align-items:start; padding:20px; border:1px solid var(--surface-border); border-radius:15px; box-shadow:var(--control-shadow); }
-.content-control .control-icon { display:grid; place-items:center; width:56px; height:56px; margin:0; border:1px solid #b9cff1; border-radius:14px; color:#2353e1; background:#e0ecff; box-shadow:var(--control-shadow); }
+.content-control .control-icon { display:grid; place-items:center; width:56px; height:56px; margin:0; border:1px solid #b9cff1; border-radius:14px; color:#0c55fc; background:#e0ecff; box-shadow:var(--control-shadow); }
 .control-icon svg { width:29px; height:29px; }
-.control-copy>span { display:block; margin:0 0 7px; font-size:12px; font-weight:600; color:#2353e1; }
+.control-copy>span { display:block; margin:0 0 7px; font-size:12px; font-weight:600; color:#0c55fc; }
 .content-control .control-copy h4 { font-size:17px; line-height:1.45; margin:0; letter-spacing:-.02em; }
 .content-control .control-copy p { font-size:14px; line-height:1.8; margin:8px 0 0; color:#445976; }
 #setelah-terbit { scroll-margin-top:100px; }

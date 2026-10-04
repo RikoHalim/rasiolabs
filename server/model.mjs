@@ -1,5 +1,5 @@
 import {profileTemplates,isProfileTemplate,templateAssets} from './profile-templates.mjs';
-import {pageDefaults,pageFields,pageAssetPaths,mapLinks} from './profile-pages.mjs';
+import {pageDefaults,pageFields,pageAssetPaths,mapLinks,profileExpansion} from './profile-pages.mjs';
 export const durations = [1,12,24,48];
 export const statuses = ['new','materials','building','review','active','cancelled'];
 export const statusLabels = {new:'Pesanan baru',materials:'Menunggu materi',building:'Sedang disiapkan',review:'Siap ditinjau',active:'Website aktif',cancelled:'Dibatalkan'};
@@ -17,7 +17,7 @@ const groups = [
   ['process','Cara kerja',[['processTitle','Judul cara kerja',160],['processDescription','Pengantar cara kerja',400],...[1,2,3].flatMap(n=>[[`process${n}Title`,`Judul tahap ${n}`,100],[`process${n}Description`,`Deskripsi tahap ${n}`,800]])]],
   ['contact','Kontak',[['contactTitle','Judul ajakan menghubungi',160],['contactLabel','Teks tombol kontak',60],['whatsapp','Nomor WhatsApp',30],['email','Email bisnis',150]]]
 ];
-export const navigationTargets=[{value:'top',label:'Beranda'},{value:'studio',label:'Tentang bisnis'},{value:'work',label:'Portofolio'},{value:'services',label:'Layanan'},{value:'process',label:'Cara kerja'},{value:'contact',label:'Kontak'}];
+export const navigationTargets=[{value:'top',label:'Beranda'},{value:'studio',label:'Tentang bisnis'},{value:'work',label:'Portofolio'},{value:'services',label:'Layanan'},{value:'process',label:'Cara kerja'},{value:'contact',label:'Kontak'},{value:'extra1',label:'Panduan pertama'},{value:'extra2',label:'Panduan kedua'}];
 const navigationFields=[1,2,3,4].flatMap(n=>[
   {key:`nav${n}Visible`,label:`Tampilkan menu ${n}`,type:'boolean'},
   {key:`nav${n}Label`,label:`Nama menu ${n}`,type:'text',max:24},
@@ -29,7 +29,7 @@ fields.splice(1,0,{id:'navbar',label:'Navbar',items:navigationFields});
 const navigationDefaults={nav1Visible:true,nav1Label:'Our work',nav1Target:'work',nav2Visible:true,nav2Label:'The studio',nav2Target:'studio',nav3Visible:true,nav3Label:'Services',nav3Target:'services',nav4Visible:true,nav4Label:'Our process',nav4Target:'process',navCtaVisible:true,navCtaLabel:"Let's talk"};
 export const defaults={
   ...navigationDefaults,
-  businessName:'Architecture Studio',tagline:'Architecture & interior design',logo:'/assets/rasio-logo.png',
+  businessName:'Architecture Studio',tagline:'Architecture & interior design',logo:'/assets/rasiolabs-logo.png',
   heroTitle:'Designed for\nbetter living.',heroDescription:'Thoughtful spaces that bring light, purpose, and a little more possibility to everyday life.',heroImage:'/assets/architecture-exterior.jpg',heroNote:'A closer connection to the spaces we call home.',
   aboutTitle:'Good design starts\nwith how you live.',aboutLead:'A favourite corner. The way morning light enters a room. Space to gather, and space to be yourself.',aboutBody:'We bring these everyday moments into the design process. From the first conversation to the smallest material detail, the aim is simple: create a place that feels right for the people who use it.',
   workTitle:'A little less ordinary.\nA lot more you.',workDescription:'A look at the spaces and details that shape our design perspective.',work1Title:'A place to slow down.',work1Category:'Residential / Interior design',work1Description:'A study in natural light, comfortable proportions, and materials that feel good to live with.',work1Image:'/assets/architecture-living.jpg',work2Title:'A fresh perspective.',work2Category:'Spatial design / Material study',work2Description:'An exploration of how light and material can change the way a space feels.',work2Image:'/assets/architecture-detail.jpg',
@@ -44,6 +44,7 @@ export function defaultsFor(template='Architecture') {
 export function fieldsFor(template) {
   const labels={Padel:{about:'Tentang klub',work:'Lapangan & klub',services:'Program bermain',process:'Persiapan bermain'},Creative:{work:'Karya studio'},Consulting:{work:'Bidang fokus'}};
   const destinations={Padel:{studio:'Klub',work:'Lokasi klub',services:'Program bermain',process:'Founders',contact:'Kontak klub'},Creative:{work:'Karya studio',services:'Keahlian studio',process:'Project brief',contact:'Project brief'},Consulting:{studio:'Pendekatan',work:'Perspektif',services:'Keahlian',process:'Cara kerja'}};
+  destinations[template]={...destinations[template],extra1:profileExpansion[template].pages[0].label,extra2:profileExpansion[template].pages[1].label};
   return [...fields.map(g=>({...g,label:labels[template]?.[g.id]||g.label,items:g.items.map(f=>f.type==='select'?{...f,options:f.options.map(option=>({...option,label:destinations[template]?.[option.value]||option.label}))}:f)})),...(pageFields[template]||[])];
 }
 export const contentWithDefaults=(content,template='Architecture')=>({...defaultsFor(template),...content});

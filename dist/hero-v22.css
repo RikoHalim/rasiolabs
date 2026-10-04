@@ -9,7 +9,7 @@
 #top .stack-preview--store{top:83px;right:0;width:79%;height:232px;transform:rotate(4deg);pointer-events:none}
 #top .stack-preview--architecture{top:186px;left:5%;width:90%;height:258px;transform:rotate(-1.5deg)}
 #top .stack-preview--architecture:hover,#top .stack-preview--architecture:focus-visible{transform:rotate(0) translateY(-4px);box-shadow:0 18px 35px rgba(21,38,72,.2),0 30px 62px rgba(21,38,72,.13)}
-#top .stack-preview--architecture:focus-visible{outline:3px solid #2353e1;outline-offset:4px}
+#top .stack-preview--architecture:focus-visible{outline:3px solid #0c55fc;outline-offset:4px}
 @keyframes stack-arrive{from{opacity:.2;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 /* Let each card return to its hover transform after the tab entrance finishes. */
 #fitur-layanan .feature-panel.is-entering .feature-tile{animation-fill-mode:backwards}

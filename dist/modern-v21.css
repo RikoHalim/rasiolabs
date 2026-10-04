@@ -1,5 +1,5 @@
-/* Rasio's own visual rhythm: quiet surfaces, editorial photography, deliberate motion. */
-:root{--rasio-ink:#162037;--rasio-blue:#2353e1;--rasio-border:#dce4f1;--rasio-soft-shadow:0 12px 32px rgba(24,43,84,.08)}
+/* Rasio Labs's own visual rhythm: quiet surfaces, editorial photography, deliberate motion. */
+:root{--rasio-ink:#162037;--rasio-blue:#0c55fc;--rasio-border:#dce4f1;--rasio-soft-shadow:0 12px 32px rgba(24,43,84,.08)}
 body:not(.architecture-page){color:var(--rasio-ink)}
 body:not(.architecture-page) .site-header{background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-bottom:1px solid #e7ebf3}
 body:not(.architecture-page) .button,body:not(.architecture-page) .secondary-button,body:not(.architecture-page) .feature-showcase-footer a{transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,border-color .22s ease}
@@ -41,7 +41,7 @@ body:not(.architecture-page) .hero--people .hero-actions .button:hover{backgroun
 .hero-gallery-brand span{padding-left:9px;border-left:1px solid #dce3ef;color:#526685;font-size:9px;font-weight:700;letter-spacing:.02em}
 .hero-ai-link{display:flex;align-items:center;gap:8px;min-height:43px;padding:10px 14px;border:1px solid #dae3f3;border-radius:12px;background:#fff;color:#405572;text-decoration:none;font-size:11px;line-height:1.4;box-shadow:0 6px 18px rgba(25,50,110,.06);transition:border-color .2s,transform .2s,box-shadow .2s}
 .hero-ai-link strong{color:#1c45c2;white-space:nowrap}
-.hero-ai-link>span:last-child{margin-left:auto;color:#2353e1;font-size:14px}
+.hero-ai-link>span:last-child{margin-left:auto;color:#0c55fc;font-size:14px}
 .hero-ai-link:hover{transform:translateY(-2px);border-color:#a9bef1;box-shadow:0 11px 23px rgba(25,50,110,.12)}
 .hero-ai-pulse{flex:none;width:8px;height:8px;border-radius:50%;background:#2bba75;box-shadow:0 0 0 4px #def8e9}
 

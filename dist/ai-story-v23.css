@@ -1,4 +1,4 @@
-/* A concise explanation of Rasio AI, separate from the pricing and service cards. */
+/* A concise explanation of RasioLabs AI, separate from the pricing and service cards. */
 .rasio-ai-story {
   padding: clamp(60px, 7vw, 92px) 0;
   background: #111629;
@@ -173,7 +173,7 @@
 .rasio-ai-chat__bubble--question {
   justify-self: end;
   border-radius: 11px 11px 3px 11px;
-  background: #2353e1;
+  background: #0c55fc;
   color: #fff;
 }
 
@@ -216,7 +216,7 @@
   background: #92c8b9;
 }
 
-.rasio-ai-insight__bars i:last-child { background: #2353e1; }
+.rasio-ai-insight__bars i:last-child { background: #0c55fc; }
 .rasio-ai-insight__hint { color: #4f665f; font-size: 9px; line-height: 1.35; }
 
 .rasio-advantages {
@@ -270,7 +270,7 @@
   margin-bottom: 17px;
   border-radius: 9px;
   background: #e9edff;
-  color: #2353e1;
+  color: #0c55fc;
 }
 
 .rasio-advantage__icon svg {

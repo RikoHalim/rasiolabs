@@ -1,6 +1,6 @@
 :root {
-  --blue: #2353e1;
-  --blue-dark: #1739a4;
+  --blue: #0c55fc;
+  --blue-dark: #1237b0;
   --blue-soft: #edf2ff;
   --black: #0a0a0a;
   --white: #ffffff;
@@ -15,7 +15,7 @@
 }
 
 [hidden] { display: none !important; }
-:focus-visible { outline: 3px solid #2353e1; outline-offset: 4px; }
+:focus-visible { outline: 3px solid #0c55fc; outline-offset: 4px; }
 section[id] { scroll-margin-top: 100px; }
 
 html {

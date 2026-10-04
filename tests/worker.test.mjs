@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { Miniflare, Log, LogLevel, convertV4MiniflareOptions } from 'miniflare';
 import { dispatchEmail, resendActivation } from '../server/client-auth.mjs';
-import { defaultsFor } from '../server/model.mjs';
+import { defaultsFor, fieldsFor } from '../server/model.mjs';
 import {profilePages,profileBase,profileAsset} from '../server/profile-pages.mjs';
 
 const repo = fileURLToPath(new URL('../', import.meta.url));
@@ -104,7 +104,7 @@ test('email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan men
   const savedFetch=globalThis.fetch;let calls=0;
   try{
     globalThis.fetch=async (url,options)=>{calls++;assert.equal(url,'https://api.resend.com/emails');assert.equal(options.headers['Idempotency-Key'],'rasio-'+job.id);const mail=JSON.parse(options.body);assert.deepEqual(mail.to,['owner@example.test']);assert.match(mail.text,/Username:/);assert.match(mail.text,/#reset=/);assert.ok(!mail.text.includes(fixturePassword));return calls===1?Response.json({error:'failure'},{status:503}):Response.json({id:'fixture-mail-accepted'});};
-    const env={DB:db,CLIENT_AUTH_SECRET:clientSecret,RESEND_API_KEY:'test-only',EMAIL_FROM:'Rasio <no-reply@example.test>'};
+    const env={DB:db,CLIENT_AUTH_SECRET:clientSecret,RESEND_API_KEY:'test-only',EMAIL_FROM:'Rasio Labs <no-reply@example.test>'};
     await dispatchEmail(env,job.id);assert.equal((await db.prepare('SELECT status FROM email_outbox WHERE id = ?').bind(job.id).first()).status,'failed');
     await dispatchEmail(env,job.id);await dispatchEmail(env,job.id);assert.equal(calls,2);
     const sent=await db.prepare('SELECT * FROM email_outbox WHERE id = ?').bind(job.id).first();assert.equal(sent.status,'sent');assert.equal(sent.payload,'');assert.equal(sent.provider_id,'fixture-mail-accepted');
@@ -119,7 +119,7 @@ test('aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berl
   const savedFetch=globalThis.fetch;let calls=0,mail;
   try{
     globalThis.fetch=async(url,options)=>{calls++;mail=JSON.parse(options.body);return Response.json({id:'legacy-fixture-mail'});};
-    const result=await resendActivation({DB:db,CLIENT_AUTH_SECRET:clientSecret,PUBLIC_ORIGIN:origin,RESEND_API_KEY:'test-only',EMAIL_FROM:'Rasio <no-reply@example.test>'},order);
+    const result=await resendActivation({DB:db,CLIENT_AUTH_SECRET:clientSecret,PUBLIC_ORIGIN:origin,RESEND_API_KEY:'test-only',EMAIL_FROM:'Rasio Labs <no-reply@example.test>'},order);
     assert.equal(calls,1);assert.ok(mail.text.includes(result.url));assert.equal(result.account.emailStatus,'sent');
     const active=await db.prepare('SELECT COUNT(*) AS n FROM password_resets WHERE account_id = (SELECT id FROM client_accounts WHERE order_id = ?) AND used_at IS NULL').bind(order.id).first();
     assert.equal(active.n,1);
@@ -135,13 +135,14 @@ test('navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman unt
   await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`,{method:'POST',session:admin,json:{revision:restored.content.revision}}),200);
   const publicUrl=`/website/${a.order.slug}`;
   assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="[^"]+\/projects">Our work/);
-  const content={...restored.content.draft,nav1Label:'<b>Portfolio</b>',nav1Target:'studio',nav2Visible:false,navCtaLabel:'Chat WhatsApp',whatsapp:'+60142317052'};
+  const content={...restored.content.draft,nav1Label:'<b>Portfolio</b>',nav1Target:'studio',nav2Visible:false,navCtaLabel:'Chat WhatsApp',whatsapp:'+60142317052',extra1Title:'<b>Planning your home</b>'};
   assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...content,nav1Target:'javascript:alert(1)'}}})).status,400);
   const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content}}),200);
   const reopened=await clientContent(a);assert.equal(reopened.content.draft.nav2Visible,false);assert.equal(reopened.content.draft.nav1Target,'studio');
   const preview=await (await request(`/preview/${a.order.slug}`,{session:a.session})).text();
   assert.match(preview,/data-cms-menu="1" href="[^"]+\/studio">&lt;b&gt;Portfolio&lt;\/b&gt;/);assert.doesNotMatch(preview,/data-cms-menu="2"/);assert.match(preview,/id="studio"/);
   assert.match(preview,/data-cms-nav-cta[^>]*href="https:\/\/wa.me\/60142317052"/);assert.match(preview,/Chat WhatsApp <span aria-hidden="true">↗<\/span>/);
+  assert.match(preview,/data-cms-field="extra1Title"[^>]*>&lt;b&gt;Planning your home&lt;\/b&gt;/);
   assert.match(await (await request(publicUrl)).text(),/data-cms-menu="1" href="[^"]+\/projects">Our work/);
   await jsonResponse(await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:saved.revision}}),200);
   assert.doesNotMatch(await (await request(publicUrl)).text(),/data-cms-menu="2"/);
@@ -368,11 +369,11 @@ test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',
   const admin=await login(),a=await createOrder({...orderBody(),template:'Padel'});await verify(a,admin);
   const initial=await clientContent(a);
   assert.ok(initial.fields.some(g=>g.items.some(f=>f.key==='founder1Bio')));
-  const legacy={...initial.content.draft};for(const key of ['founder1Bio','communityImage','locationLat'])delete legacy[key];
+  const legacy={...initial.content.draft};for(const key of ['founder1Bio','communityImage','locationLat','extra1Body1'])delete legacy[key];
   await db.prepare('UPDATE contents SET draft = ? WHERE order_id = ?').bind(JSON.stringify(legacy),a.order.id).run();
   const restored=await clientContent(a);assert.ok(restored.content.draft.founder1Bio);assert.equal(restored.content.draft.locationLat,'-6.2088');
   await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:restored.content.revision}}),200);
-  const next={...restored.content.draft,founder1Bio:'<script>Edited founder</script>',founder2Bio:'/media/ is ordinary text in this biography.',locationName:'Our new venue',locationLat:'-6.3',locationLon:'106.8'};
+  const next={...restored.content.draft,founder1Bio:'<script>Edited founder</script>',founder2Bio:'/media/ is ordinary text in this biography.',locationName:'Our new venue',locationLat:'-6.3',locationLon:'106.8',extra1Title:'Prepare your first game',extra1Body1:'<b>Edited preparation guide</b>',nav4Target:'extra1',nav4Label:'First game'};
   assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:restored.content.revision,content:{...next,locationLat:'javascript:alert(1)'}}})).status,400);
   const stranger=await createOrder();await verify(stranger,admin);
   const png=Uint8Array.from([137,80,78,71,13,10,26,10,...new Array(24).fill(0)]);
@@ -387,10 +388,28 @@ test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',
   assert.doesNotMatch(await (await request('/website/'+a.order.slug+'/club')).text(),/Edited founder/);
   const visit=await (await request('/preview/'+a.order.slug+'/visit',{session:a.session})).text();
   assert.match(visit,/data-whatsapp="6281234567890"/);assert.match(visit,/marker=-6.3%2C106.8/);assert.match(visit,/Our new venue/);
+  const guide=await (await request('/preview/'+a.order.slug+'/first-game',{session:a.session})).text();
+  assert.match(guide,/<title>Prepare your first game/);
+  assert.match(guide,/&lt;b&gt;Edited preparation guide&lt;\/b&gt;/);
+  assert.ok(guide.includes('href="/preview/'+a.order.slug+'/first-game"'));
+  assert.doesNotMatch(await (await request('/website/'+a.order.slug+'/first-game')).text(),/Edited preparation guide/);
   assert.equal((await request(own.url)).status,401);
   await jsonResponse(await request('/api/client/publish',{method:'POST',session:a.session,json:{revision:saved.revision}}),200);
   assert.match(await (await request('/website/'+a.order.slug+'/club')).text(),/Edited founder/);
   assert.equal((await request(own.url)).status,200);
+});
+
+test('CMS menyimpan seluruh halaman panjang dalam batas tiap bidang',async()=>{
+  const admin=await login(),a=await createOrder({...orderBody(),template:'Creative'});await verify(a,admin);
+  const initial=await clientContent(a),content={...initial.content.draft};
+  for(const group of fieldsFor('Creative'))for(const f of group.items){
+    if(['text','textarea'].includes(f.type)&&!['email','whatsapp'].includes(f.key))content[f.key]='x'.repeat(f.max);
+  }
+  const payload={revision:initial.content.revision,content};
+  assert.ok(JSON.stringify(payload).length>32000);
+  await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:payload}),200);
+  const reopened=await clientContent(a);assert.equal(reopened.content.draft.extra2Body3,content.extra2Body3);
+  assert.equal((await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:reopened.content.revision,content:{...content,extra1Body1:'x'.repeat(64000)}}})).status,413);
 });
 
 test('domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga',async()=>{
@@ -569,7 +588,7 @@ test('akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesana
     assert.equal(client.order.status, 'preview');
     assert.equal(client.order.paymentStatus, 'not_required');
     assert.ok(client.fields.length, 'Form CMS langsung tersedia untuk percobaan.');
-    assert.equal(client.content.draft.businessName, 'Rasio Agency');
+    assert.equal(client.content.draft.businessName, 'Rasio Labs');
   }
   const count = await db.prepare('SELECT COUNT(*) AS count FROM orders WHERE is_preview = 1').first();
   assert.equal(count.count, 1);

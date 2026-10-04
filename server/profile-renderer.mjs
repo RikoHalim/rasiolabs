@@ -1,4 +1,4 @@
-import {navigationHref,pageHref,mapLinks,profilePages} from './profile-pages.mjs';
+import {navigationHref,pageHref,mapLinks,profilePages,profileExpansion} from './profile-pages.mjs';
 export function rewriteProfileLinks(source,data,{template,base,page=''}) {
   let html=new HTMLRewriter().on('[data-site-page]',{element:e=>{
     const target=e.getAttribute('data-site-page')||'';
@@ -9,11 +9,12 @@ export function rewriteProfileLinks(source,data,{template,base,page=''}) {
   return html.transform(source);
 }
 export function renderProfileTemplate(source,data,{template,base,page=''}) {
-  const titleField={living:'work1Title',detail:'work2Title',identity:'work1Title',digital:'work2Title',priorities:'insightTitle'}[page];
+  const extra=profileExpansion[template].pages.findIndex(p=>p.slug===page);
+  const titleField=extra>=0?'extra'+(extra+1)+'Title':{living:'work1Title',detail:'work2Title',identity:'work1Title',digital:'work2Title',priorities:'insightTitle'}[page];
   const pageTitle=titleField?data[titleField]:profilePages[template][page];
   let html=new HTMLRewriter().on('.template-access',{element:e=>e.remove()})
     .on('title',{element:e=>e.setInnerContent((page?pageTitle+' | ':'')+data.businessName)})
-    .on('meta[name="description"]',{element:e=>e.setAttribute('content',data.heroDescription)});
+    .on('meta[name="description"]',{element:e=>e.setAttribute('content',extra>=0?data['extra'+(extra+1)+'Lead']:data.heroDescription)});
   for(const [key,value] of Object.entries(data)) {
     if(typeof value!=='string') continue;
     html=html.on('[data-cms-field="'+key+'"]',{element:e=>e.setInnerContent(value)});
@@ -33,6 +34,7 @@ export function renderProfileTemplate(source,data,{template,base,page=''}) {
   html=html.on('[data-cms-nav-cta]',{element:e=>{
     if(!data.navCtaVisible){e.remove();return;}
     e.setInnerContent(data.navCtaLabel);e.setAttribute('href',contact);
+    if(template==='Architecture'&&!page)e.append(' <span aria-hidden="true">↗</span>',{html:true});
   }}).on('.contact-button',{element:e=>{
     e.setInnerContent(data.contactLabel||'Hubungi kami');e.setAttribute('href',contact);
   }}).on('.footer-whatsapp',{element:e=>{

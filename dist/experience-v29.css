@@ -1,4 +1,4 @@
-/* Rasio's quieter visual system: product previews, clear offers, deliberate motion. */
+/* Rasio Labs's quieter visual system: product previews, clear offers, deliberate motion. */
 body:not(.architecture-page) {
   --experience-ink: #17223d;
   --experience-line: #dae3f2;
@@ -40,7 +40,7 @@ body:not(.architecture-page) {
   box-shadow: 0 23px 47px rgba(27, 51, 123, .23);
 }
 #main-content .offer-card:focus-within { outline: none; }
-#main-content .offer-card h3 > span { color: #2353e1; }
+#main-content .offer-card h3 > span { color: #0c55fc; }
 #main-content .offer-store h3 > span { color: #a8c8ff; }
 #main-content .offer-actions > a.offer-details-label {
   position: relative;
