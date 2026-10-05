@@ -39,6 +39,19 @@
     running.add(animation);animation.finished.catch(()=>{}).finally(()=>running.delete(animation));return animation;
   };
   const main=document.querySelector('main');play(main,profile.entry,profile.entryTime);
+  document.querySelectorAll('[data-motion-toggle]').forEach(button=>{
+    const track=button.closest('.modern-ticker')?.querySelector('.ticker-track');
+    if(!track)return;
+    button.addEventListener('click',()=>{
+      const paused=button.getAttribute('aria-pressed')!=='true';
+      button.setAttribute('aria-pressed',String(paused));
+      button.setAttribute('aria-label',paused?'Resume scrolling text':'Pause scrolling text');
+      button.textContent=paused?'▶':'Ⅱ';
+      track.style.animationPlayState=paused?'paused':'running';
+    });
+    if(reduced.matches)button.hidden=true;
+    reduced.addEventListener('change',()=>{button.hidden=reduced.matches;});
+  });
   const revealHeading=element=>{
     // Keep the original words and line breaks; only their entrance is sequenced.
     if(theme==='creative'&&element.tagName==='H1'&&!reduced.matches){
@@ -56,7 +69,7 @@
       element.querySelectorAll('.motion-word').forEach((word,i)=>play(word,[{opacity:0,transform:'translateY(30px) rotate(2deg)'},{opacity:1,transform:'translateY(0) rotate(0)'}],700,i*70));
     }else play(element,profile.text,profile.textTime);
   };
-  const groups='.home-stage-grid,.process-grid,.guide-modules,.padel-home-programs,.consulting-focus,.home-capability-list,.statistics-grid';
+  const groups='.home-stage-grid,.process-grid,.guide-modules,.padel-home-programs,.consulting-focus,.home-capability-list,.statistics-grid,.modern-service-grid,.consulting-service-bento,.padel-program-bento';
   const reveal=element=>{
     if(element.matches(groups))[...element.children].forEach((child,i)=>play(child,profile.item,profile.itemTime,i*profile.stagger));
     else if(element.tagName==='IMG')play(element,profile.photo,profile.photoTime);
@@ -82,7 +95,7 @@
     exit.finished.catch(()=>{}).then(()=>location.assign(target.href));
   });
   window.addEventListener('pageshow',()=>{leaving=false;});
-  const photos=[...document.querySelectorAll('.hero-photo>img,.hero-image,.architecture-hero img')];
+  const photos=[...document.querySelectorAll('.hero-photo>img,.hero-image,.architecture-hero img,.modern-hero--architecture .modern-hero-photo>img')];
   const progress=theme==='architecture'?document.createElement('div'):null;
   if(progress){progress.className='template-reading-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);}
   let frame=0;

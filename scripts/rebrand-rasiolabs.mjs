@@ -17,19 +17,21 @@ for(const entry of await readdir('dist',{withFileTypes:true})){
   if(!entry.isFile()||!/\.(html|css|js|svg)$/.test(entry.name))continue;
   const path='dist/'+entry.name;
   let source=rebrand(await readFile(path,'utf8'));
-  source=source.replace(/(template-(?:architecture|padel|creative|consulting)-preview)\.(?:png|jpg)(?:\?v=[^"\s<>]+)?/g,'$1.jpg?v=labs54');
+  source=source.replace(/(template-(?:architecture|padel|creative|consulting)-preview)\.(?:png|jpg)(?:\?v=[^"\s<>]+)?/g,'$1.jpg?v=labs55');
   if(entry.name.endsWith('.html')){
     source=source.replaceAll('/assets/rasio-logo.png','/assets/rasiolabs-logo.png');
     source=source.replace(/<link[^>]*href="\/template-brand\.css[^>]*>/g,'');
-    source=source.replace(/(\.(?:css|js)\?v=)[^"\s<>]+/g,'$1labs54');
+    source=source.replace(/(\.(?:css|js)\?v=)[^"\s<>]+/g,'$1labs55');
     const css=entry.name.startsWith('template-')?'profile-brand':'rasiolabs';
-    if(!source.includes('/'+css+'.css'))source=source.replace('</head>','<link rel="stylesheet" href="/'+css+'.css?v=labs54"/></head>');
+    if(!source.includes('/'+css+'.css'))source=source.replace('</head>','<link rel="stylesheet" href="/'+css+'.css?v=labs55"/></head>');
     if(entry.name.startsWith('template-')){
-      if(!source.includes('/template-refine.css'))source=source.replace('</head>','<link rel="stylesheet" href="/template-refine.css?v=labs54"/></head>');
-      if(!source.includes('/profile-pages.js'))source=source.replace('</body>','<script src="/profile-pages.js?v=labs54" defer></script></body>');
-      if(!source.includes('/template-motion.js'))source=source.replace('</body>','<script src="/template-motion.js?v=labs54" defer></script></body>');
-    }else if(!['admin.html','cms.html','order.html'].includes(entry.name)&&!source.includes('/clean-layout.css'))source=source.replace('</head>','<link rel="stylesheet" href="/clean-layout.css?v=labs54"/></head>');
+      if(!source.includes('/template-refine.css'))source=source.replace('</head>','<link rel="stylesheet" href="/template-refine.css?v=labs55"/></head>');
+      if(!source.includes('/template-modern.css'))source=source.replace('</head>','<link rel="stylesheet" href="/template-modern.css?v=labs55"/></head>');
+      if(!source.includes('/profile-pages.js'))source=source.replace('</body>','<script src="/profile-pages.js?v=labs55" defer></script></body>');
+      if(!source.includes('/template-motion.js'))source=source.replace('</body>','<script src="/template-motion.js?v=labs55" defer></script></body>');
+    }else if(!['admin.html','cms.html','order.html'].includes(entry.name)&&!source.includes('/clean-layout.css'))source=source.replace('</head>','<link rel="stylesheet" href="/clean-layout.css?v=labs55"/></head>');
     source=source.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" href="/assets/rasiolabs-mark.svg" type="image/svg+xml"/>');
   }
   await writeFile(path,source);
 }
+

@@ -2,8 +2,9 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {defaultsFor} from '../server/model.mjs';
 import {profileTemplates} from '../server/profile-templates.mjs';
 import {profilePages,profileAsset,profileBase,pageHref,navigationHref,mapLinks,profileExpansion} from '../server/profile-pages.mjs';
+import {templateFonts,modernHome} from './profile-modern-design.mjs';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fonts={Architecture:'Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700',Padel:'Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800',Creative:'DM+Serif+Display:ital@0;1&family=Work+Sans:wght@400;500;600',Consulting:'IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600'};
+const fonts=templateFonts;
 const preparation={
   planning:{title:'Prepare your space brief',fields:[['Project location','text'],['Spaces involved','text'],['Your everyday needs','textarea'],['Main priority','select',['Better layout','More natural light','More storage','A complete new space']],['Budget range','text'],['Target timeline','text']]},
   renovation:{title:'Plan your renovation',fields:[['Rooms to renovate','text'],['What should stay?','textarea'],['What needs to change?','textarea'],['Access or building constraints','textarea']]},
@@ -140,7 +141,7 @@ for(const template of Object.keys(profilePages)) {
       section('<div class="home-deliverables"><figure>'+pic('home2Image','Three colleagues reviewing plans on an office wall','loading="lazy"')+'</figure><div class="home-section-copy">'+homeHeading('home2')+'<div class="home-detail-list">'+homeItems('home2','home-detail')+'</div>'+homeLink('home2','contact')+'</div></div>','home-section');
   }
   homeStories='<!--template-home-stories-start-->'+homeStories+'<!--template-home-stories-end-->';
-  home=statistics+home+homeStories+guideHome;
+  home=statistics+modernHome(template,{t,pic,link,section})+homeStories+guideHome;
   const wrapper=(page,body)=>{
     const nav=[1,2,3,4].map(n=>'<a data-cms-menu="'+n+'" href="'+navigationHref(template,base,d['nav'+n+'Target'])+'">'+esc(d['nav'+n+'Label'])+'</a>').join('');
     const pageLinks=Object.entries(pages).filter(([key])=>key).map(([key,label])=>link(key,esc(label),'footer-page')).join('');
@@ -150,7 +151,7 @@ for(const template of Object.keys(profilePages)) {
   // Retain each established hero, then give its homepage a sector-specific structure.
   const homeFile='dist'+profileAsset(template);
   let source=await readFile(homeFile,'utf8');
-  if(template!=='Architecture'){
+  if(source.includes('<!--template-home-start-->')||template!=='Architecture'){
     const generatedHome='<!--template-home-start-->'+home+'<!--template-home-end-->';
     source=source.includes('<!--template-home-start-->')
       ?source.replace(/<!--template-home-start-->[\s\S]*?<!--template-home-end-->/,generatedHome)
