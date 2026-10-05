@@ -24,6 +24,22 @@
 .theme-creative.page-work .portfolio-item{padding-top:0}
 .template-reading-progress{position:fixed;left:0;top:0;width:100%;height:3px;background:var(--accent,#665540);transform-origin:left;scale:0 1;z-index:110;pointer-events:none}
 .motion-word{display:inline-block}
+.business-statistics{padding:40px 0;background:var(--soft);color:var(--ink);border-block:1px solid var(--line)}
+.statistics-layout{display:grid;grid-template-columns:minmax(180px,.9fr) minmax(0,2.1fr);gap:48px;align-items:center}
+.statistics-layout>h2{font-family:var(--display-font,'Cormorant Garamond',Georgia,serif);font-size:clamp(26px,2.5vw,36px);line-height:1.15;margin:0;max-width:12ch}
+.statistics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;gap:0}
+.statistics-item{display:flex;flex-direction:column-reverse;justify-content:flex-end;padding:4px 24px;border-inline-start:1px solid var(--line);min-width:0}
+.statistics-item dt{font:400 14px/1.5 var(--body-font,Manrope,Arial,sans-serif);margin-top:8px;max-width:20ch;overflow-wrap:anywhere}
+.statistics-item dd{font:500 clamp(38px,4.2vw,58px)/1.1 var(--display-font,'Cormorant Garamond',Georgia,serif);font-variant-numeric:tabular-nums;margin:0;letter-spacing:-.03em;overflow-wrap:anywhere}
+.theme-architecture .business-statistics{background:#e9e3d8}
+.theme-padel .business-statistics{background:#1c2923;color:#eef7d8;border-color:#41513b}
+.theme-padel .statistics-item{border-color:#53623f}.theme-padel .statistics-item dd{color:#c7e566;font-weight:700}
+.theme-creative .business-statistics{background:#efe1d4}
+.theme-consulting .business-statistics{background:#132e41;color:#f8fafb;border-color:#446071}
+.theme-consulting .statistics-item{border-color:#446071}.theme-consulting .statistics-item dd{color:#d5e5f0}
+@media(max-width:1000px){.statistics-layout{gap:24px}.statistics-item{padding-inline:18px}}
+@media(max-width:760px){.business-statistics{padding:30px 0}.statistics-layout{grid-template-columns:1fr;gap:24px}.statistics-layout>h2{max-width:none;font-size:28px}.statistics-item{padding-inline:12px}.statistics-item:first-child{border-inline-start:0;padding-inline-start:0}.statistics-item dd{font-size:40px}.statistics-item dt{font-size:12px}}
+@media(max-width:360px){.statistics-item dd{font-size:34px}.statistics-item{padding-inline:9px}}
 .theme-creative .hero-photos{grid-template-columns:1fr;max-width:960px}
 .theme-creative .hero-photos figure:only-child{display:block;padding-top:0}
 .theme-creative .hero-photos figure:first-child img{width:100%;height:310px}

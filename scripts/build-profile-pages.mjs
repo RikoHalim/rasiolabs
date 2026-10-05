@@ -124,6 +124,7 @@ for(const template of Object.keys(profilePages)) {
   const homeItems=(prefix,cls='home-note')=>[1,2,3].map(n=>'<article class="'+cls+'"><span class="home-step" aria-hidden="true">0'+n+'</span>'+t(prefix+'Item'+n+'Title','h3')+t(prefix+'Item'+n+'Body','p')+'</article>').join('');
   const homeHeading=prefix=>t(prefix+'Title','h2')+t(prefix+'Lead','p','class="home-section-lead"');
   const homeLink=(prefix,page)=>link(page,t(prefix+'Link'),'action');
+  const statistics='<!--template-statistics-start--><section class="business-statistics" data-business-statistics aria-labelledby="statistics-title"><div class="container statistics-layout">'+t('statisticsTitle','h2','id="statistics-title"')+'<dl class="statistics-grid">'+[1,2,3].map(n=>'<div class="statistics-item" data-business-statistic="'+n+'">'+t('stat'+n+'Label','dt')+t('stat'+n+'Value','dd','class="statistics-value"')+'</div>').join('')+'</dl></div></section><!--template-statistics-end-->';
   let homeStories='';
   if(template==='Architecture'){
     homeStories=section('<div class="home-living"><div class="home-mosaic"><figure>'+pic('home1Image','A living space shaped around everyday routines','loading="lazy"')+'</figure><figure>'+pic('mosaicImage','Stone bathroom with a gold-framed mirror','loading="lazy"')+'</figure></div><div class="home-section-copy">'+homeHeading('home1')+'<div class="home-note-list">'+homeItems('home1')+'</div>'+homeLink('home1','projects')+'</div></div>','home-section')+
@@ -139,7 +140,7 @@ for(const template of Object.keys(profilePages)) {
       section('<div class="home-deliverables"><figure>'+pic('home2Image','Three colleagues reviewing plans on an office wall','loading="lazy"')+'</figure><div class="home-section-copy">'+homeHeading('home2')+'<div class="home-detail-list">'+homeItems('home2','home-detail')+'</div>'+homeLink('home2','contact')+'</div></div>','home-section');
   }
   homeStories='<!--template-home-stories-start-->'+homeStories+'<!--template-home-stories-end-->';
-  home+=homeStories+guideHome;
+  home=statistics+home+homeStories+guideHome;
   const wrapper=(page,body)=>{
     const nav=[1,2,3,4].map(n=>'<a data-cms-menu="'+n+'" href="'+navigationHref(template,base,d['nav'+n+'Target'])+'">'+esc(d['nav'+n+'Label'])+'</a>').join('');
     const pageLinks=Object.entries(pages).filter(([key])=>key).map(([key,label])=>link(key,esc(label),'footer-page')).join('');
@@ -155,6 +156,8 @@ for(const template of Object.keys(profilePages)) {
       ?source.replace(/<!--template-home-start-->[\s\S]*?<!--template-home-end-->/,generatedHome)
       :source.replace(/<section class="intro-section"[\s\S]*?(?=<section class="contact-section)/,generatedHome);
   }else{
+    source=source.replace(/<!--template-statistics-start-->[\s\S]*?<!--template-statistics-end-->/g,'');
+    source=source.replace('<section class="work-section',statistics+'<section class="work-section');
     source=source.replace(/<!--template-guides-start-->[\s\S]*?<!--template-guides-end-->/g,'');
     source=source.replace(/<!--template-home-stories-start-->[\s\S]*?<!--template-home-stories-end-->/g,'');
     source=source.replace('<section class="contact-section',homeStories+guideHome+'<section class="contact-section');

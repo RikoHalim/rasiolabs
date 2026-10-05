@@ -16,6 +16,8 @@ export function renderProfileTemplate(source,data,{template,base,page=''}) {
   const titleField=extra>=0?'extra'+(extra+1)+'Title':{living:'work1Title',detail:'work2Title',identity:'work1Title',digital:'work2Title',priorities:'insightTitle'}[page];
   const pageTitle=titleField?data[titleField]:profilePages[template][page];
   let html=new HTMLRewriter().on('.template-access',{element:e=>e.remove()})
+    .on('[data-business-statistics]',{element:e=>{if(data.statisticsVisible===false||![1,2,3].some(n=>data['stat'+n+'Value']?.trim()&&data['stat'+n+'Label']?.trim()))e.remove();}})
+    .on('[data-business-statistic]',{element:e=>{const prefix='stat'+e.getAttribute('data-business-statistic');if(!data[prefix+'Value']?.trim()||!data[prefix+'Label']?.trim())e.remove();}})
     .on('title',{element:e=>e.setInnerContent((page?pageTitle+' | ':'')+data.businessName)})
     .on('meta[name="description"]',{element:e=>e.setAttribute('content',extra>=0?data['extra'+(extra+1)+'Lead']:data.heroDescription)});
   for(const [key,value] of Object.entries(data)) {

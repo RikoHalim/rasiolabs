@@ -271,6 +271,24 @@ test('template baru tersambung dari pesanan sampai CMS dan publikasi dengan layo
   }
 });
 
+test('statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template',async()=>{
+  const admin=await login();
+  for(const template of ['Architecture','Padel','Creative','Consulting']){
+    const a=await createOrder({...orderBody(),template});await verify(a,admin);
+    const initial=await clientContent(a);
+    const content={...initial.content.draft,statisticsVisible:true,statisticsTitle:'Our business in numbers',stat1Value:'25+',stat1Label:'Completed projects'};
+    const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:initial.content.revision,content}}),200);
+    const published=await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`,{method:'POST',session:admin,json:{revision:saved.revision}}),200);
+    const visible=await (await request(published.url)).text();
+    assert.match(visible,/Our business in numbers/);assert.match(visible,/Completed projects/);assert.match(visible,/>25\+</);
+    const hidden=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:saved.revision,content:{...content,statisticsVisible:false}}}),200);
+    assert.doesNotMatch(await (await request(`/preview/${a.order.slug}`,{session:a.session})).text(),/data-business-statistics/);
+    assert.match(await (await request(published.url)).text(),/data-business-statistics/);
+    await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`,{method:'POST',session:admin,json:{revision:hidden.revision}}),200);
+    assert.doesNotMatch(await (await request(published.url)).text(),/data-business-statistics/);
+  }
+});
+
 test('database dan storage lokal tersedia tanpa gateway pembayaran palsu', async () => {
   const data = await jsonResponse(await request('/api/health'), 200);
   assert.deepEqual(data, { ok: true, database: true, storage: true, paymentGateway: false });

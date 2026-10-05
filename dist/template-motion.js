@@ -56,7 +56,7 @@
       element.querySelectorAll('.motion-word').forEach((word,i)=>play(word,[{opacity:0,transform:'translateY(30px) rotate(2deg)'},{opacity:1,transform:'translateY(0) rotate(0)'}],700,i*70));
     }else play(element,profile.text,profile.textTime);
   };
-  const groups='.home-stage-grid,.process-grid,.guide-modules,.padel-home-programs,.consulting-focus,.home-capability-list';
+  const groups='.home-stage-grid,.process-grid,.guide-modules,.padel-home-programs,.consulting-focus,.home-capability-list,.statistics-grid';
   const reveal=element=>{
     if(element.matches(groups))[...element.children].forEach((child,i)=>play(child,profile.item,profile.itemTime,i*profile.stagger));
     else if(element.tagName==='IMG')play(element,profile.photo,profile.photoTime);

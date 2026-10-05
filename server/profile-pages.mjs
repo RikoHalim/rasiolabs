@@ -54,7 +54,7 @@ export const pageDefaults={
   Consulting:{insightTitle:'Choosing your next business priority.',insightLead:'When everything feels urgent, a clearer question can be more useful than a longer to-do list.',insight1:'Start with the decision you need to make. Describe what is happening today, who it affects, and what would look different if the issue were resolved. Separate the evidence from the assumptions before deciding what to change.',insight2:'Follow the work from beginning to end. Where does it wait? Where is ownership unclear? Ask the people doing the work what information they need and which handoffs create repeated questions.',insight3:'Choose one action with a clear owner and an observable result. Agree on what to review and when to review it. A small, well-understood change gives the team a useful basis for deciding what comes next.',workshopImage:'/assets/profile-consulting-workshop.jpg'}
 };
 pageDefaults.Architecture.mosaicImage='/assets/profile-architecture-bathroom-audit.jpg';
-export const pageAssetPaths=Object.values(pageDefaults).flatMap(values=>Object.values(values).filter(v=>v.startsWith('/assets/')));
+export const pageAssetPaths=Object.values(pageDefaults).flatMap(values=>Object.values(values).filter(v=>typeof v==='string'&&v.startsWith('/assets/')));
 
 export const profileExpansion={
   Architecture:{homeTitle:'Before the first drawing.',homeLead:'Turn the way you live into a clearer project brief.',pages:[
@@ -195,4 +195,25 @@ for(const [template,sections] of Object.entries(profileHomeContent)){
   pageFields[template].push(group('home-stories','Section beranda',items));
 }
 
+// Default facts describe the content actually offered by each template. Clients
+// can replace both values and labels with their verified business figures.
+export const profileStatistics={
+  Architecture:{title:'Our practice at a glance.',items:[['02','Selected spaces'],['03','Design disciplines'],['03','Project stages']]},
+  Padel:{title:'THE CLUB IN NUMBERS.',items:[['03','Ways to play'],['04','Players in a doubles game'],['02','Club founders']]},
+  Creative:{title:'A closer look at the studio.',items:[['02','Selected studies'],['03','Creative disciplines'],['03','Project stages']]},
+  Consulting:{title:'Expertise at a glance.',items:[['03','Areas of expertise'],['02','Business review formats'],['03','Steps to action']]}
+};
+for(const [template,statistics] of Object.entries(profileStatistics)){
+  const items=[['statisticsTitle','Judul statistik',100]];
+  pageDefaults[template].statisticsVisible=true;
+  pageDefaults[template].statisticsTitle=statistics.title;
+  statistics.items.forEach(([value,label],index)=>{
+    const prefix='stat'+(index+1);
+    Object.assign(pageDefaults[template],{[prefix+'Value']:value,[prefix+'Label']:label});
+    items.push([prefix+'Value','Angka '+(index+1)+' (mis. 25+ atau 10 tahun)',20],[prefix+'Label','Keterangan angka '+(index+1),80]);
+  });
+  const statisticsGroup=group('statistics','Statistik bisnis',items);
+  statisticsGroup.items.unshift({key:'statisticsVisible',label:'Tampilkan statistik di beranda',type:'boolean'});
+  pageFields[template].push(statisticsGroup);
+}
 for(const values of Object.values(pageDefaults))for(const value of Object.values(values))if(typeof value==='string'&&value.startsWith('/assets/')&&!pageAssetPaths.includes(value))pageAssetPaths.push(value);
