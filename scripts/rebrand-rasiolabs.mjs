@@ -32,6 +32,7 @@ for(const entry of await readdir('dist',{withFileTypes:true})){
     }else if(!['admin.html','cms.html','order.html'].includes(entry.name)&&!source.includes('/clean-layout.css'))source=source.replace('</head>','<link rel="stylesheet" href="/clean-layout.css?v=labs55"/></head>');
     source=source.replace(/(\/clean-layout\.css\?v=)[^"\s<>]+/g,'$1labs56');
     source=source.replace(/(\/template-modern\.css\?v=)[^"\s<>]+/g,'$1labs56');
+    source=source.replace(/(\/template-motion\.js\?v=)[^"\s<>]+/g,'$1labs56');
     source=source.replace(/(\/checkout-v18\.css\?v=)[^"\s<>]+/g,'$1labs56');
     source=source.replace(/(\/portal\.css\?v=)[^"\s<>]+/g,'$1labs56');
     source=source.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" href="/assets/rasiolabs-mark.svg" type="image/svg+xml"/>');

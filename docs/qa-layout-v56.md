@@ -6,7 +6,7 @@
 
 Reading this as a managed website service for Indonesian business owners, with compact blue and neutral surfaces, ENERGY 2 / RHYTHM 2 / MOTION 2. Architecture uses ENERGY 1 / RHYTHM 2 / MOTION 1; Padel 2 / 2 / 2; Creative 2 / 3 / 2; Consulting 1 / 2 / 2.
 
-The latest request to reduce the hero's upper and lower space supersedes the earlier full-viewport hero direction. The hero now follows its content height instead of expanding to fill the screen.
+The final direction keeps the template collection below the first desktop screen. Hero content starts near the navbar, with larger typography and a wider preview stack; the section reserves the viewport height without vertically centering the text too low.
 
 ## Design reasons
 
@@ -29,9 +29,12 @@ The latest request to reduce the hero's upper and lower space supersedes the ear
 - Feature tabs: Profile, Store, Custom each measured 442 px panel height and 790.4 px section height at 1366 px after switching.
 - FAQ: clicked all five questions and observed their `aria-expanded` states change. The title/CTA spacing was reviewed at desktop and mobile sizes.
 - Template sector filter: selecting Studio Kreatif showed only Creative Studio; selecting Semua sektor restored the collection.
-- Hero: Profile selection and slider pause worked. Latest compact desktop hero measured 497 px at 1366 × 768, with copy at y≈102 and CTA bottom≈511. At 1920 × 1080 it measured 522.5 px, with copy at y≈109 and CTA bottom≈529.
+- Hero: Profile selection and slider pause worked. Desktop hero fills the available viewport; collection begins at y≈769 for 1366 × 768 and y≈1081 for 1920 × 1080. Copy begins at y≈101 and y≈125 respectively; purchase/conversation CTAs remain visible.
+- Short desktop: at 1280 × 600, template collection begins at y≈601 and the CTA row ends at y≈506. No horizontal overflow.
+- Template refresh: all four roots retained main/heading opacity 1 and no heading clipping after reload. Initial main fade removed; the first intersection observation leaves visible content stable. Later scroll entrances retain sector-specific motion with backwards fill during stagger delays.
 - Checkout Profile: 1 month displayed Rp109.000 + domain and excluded free domain; the offer button switched to 48 months/Rp1.308.000; 12 months displayed Rp654.000. Summary and crossed prices were darkened. Store's empty catalogue state remains explicit.
 - Mobile menu opened and closed through Escape. Existing focus/hover cascades were reviewed, including corrected padel/creative navigation hover colors. No new interactive controls were introduced.
+- Keyboard focus: Tab from the Profile slider control selected Store with a visible blue 2.4 px outline.
 - Local browser error log check returned no application errors.
 - Saved proof: workspace `rasiolabs-homepage-hero-v56.jpg` and `rasiolabs-faq-v56.jpg`.
 
@@ -79,7 +82,7 @@ The gate below applies to this revision. Existing owner-specified designs, examp
 - Dials PASS: declared above for main site and each sector.
 - Consistency PASS: compact main layout; sector compositions remain distinct.
 - Focal point PASS: hero title and decorative template stack dominate the introduction.
-- Structural whitespace PASS: content-height hero, tighter section cadence, and explicit FAQ internal gaps.
+- Structural whitespace PASS: top-aligned hero copy, viewport-sized introduction, tighter section cadence, and explicit FAQ internal gaps.
 - Accent PASS: brand blue reserved for emphasis and primary controls; sector accents remain separate.
 - Identity PASS: original blue code mark and sector typography retained.
 - Design read PASS: taken from the owner's explicit brief before revision.

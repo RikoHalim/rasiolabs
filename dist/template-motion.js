@@ -35,10 +35,10 @@
   const profile=profiles[theme],running=new Set();
   const play=(element,frames,duration,delay=0)=>{
     if(reduced.matches||!element?.animate)return null;
-    const animation=element.animate(frames,{duration,delay,easing:ease});
-    running.add(animation);animation.finished.catch(()=>{}).finally(()=>running.delete(animation));return animation;
+    const animation=element.animate(frames,{duration,delay,easing:ease,fill:'backwards'});
+    running.add(animation);animation.finished.catch(()=>{}).finally(()=>{running.delete(animation);animation.cancel();});return animation;
   };
-  const main=document.querySelector('main');play(main,profile.entry,profile.entryTime);
+  const main=document.querySelector('main');
   document.querySelectorAll('[data-motion-toggle]').forEach(button=>{
     const track=button.closest('.modern-ticker')?.querySelector('.ticker-track');
     if(!track)return;
@@ -76,8 +76,13 @@
     else revealHeading(element);
   };
   if('IntersectionObserver' in window){
+    const observed=new WeakSet();
     const observer=new IntersectionObserver(entries=>{
-      for(const {target,isIntersecting} of entries)if(isIntersecting){observer.unobserve(target);reveal(target);}
+      for(const {target,isIntersecting} of entries){
+        const firstObservation=!observed.has(target);
+        observed.add(target);
+        if(isIntersecting){observer.unobserve(target);if(!firstObservation)reveal(target);}
+      }
     },{threshold:.12});
     document.querySelectorAll('main h1,main h2,main figure>img,main .case-cover,main .architecture-cover,main .guide-intro>img,'+groups).forEach(element=>{
       if(element.closest(groups)!==element&&element.closest(groups))return;
