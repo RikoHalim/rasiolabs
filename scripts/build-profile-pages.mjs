@@ -1,7 +1,7 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import {defaultsFor} from '../server/model.mjs';
 import {profileTemplates} from '../server/profile-templates.mjs';
-import {profilePages,profileAsset,profileBase,pageHref,navigationHref,mapLinks,profileExpansion} from '../server/profile-pages.mjs';
+import {profilePages,profileAsset,profileBase,pageHref,navigationHref,mapLinks,profileExpansion,statisticsPreviewFor} from '../server/profile-pages.mjs';
 import {templateFonts,modernHome} from './profile-modern-design.mjs';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fonts=templateFonts;
@@ -17,7 +17,7 @@ const preparation={
   priorities:{title:'Turn a priority into an action',fields:[['Next action','textarea'],['Person responsible','text'],['Review point','text']]},
 };
 for(const template of Object.keys(profilePages)) {
-  const d=defaultsFor(template),base=profileBase(template),pages=profilePages[template];
+  const d={...defaultsFor(template),...statisticsPreviewFor(template)},base=profileBase(template),pages=profilePages[template];
   const t=(key,tag='span',attrs='')=>'<'+tag+' data-cms-field="'+key+'" '+attrs+'>'+esc(d[key])+'</'+tag+'>';
   const pic=(key,alt,attrs='')=>'<img data-cms-image="'+key+'" src="'+esc(d[key])+'" alt="'+esc(alt)+'" width="1400" height="1000" '+attrs+'/>';
   const link=(page,label,cls='text-link',topic='')=>'<a class="'+cls+'" data-site-page="'+page+'" '+(topic?'data-enquiry-topic="'+esc(topic)+'" ':'')+'href="'+pageHref(base,page)+'">'+label+' <span aria-hidden="true">↗</span></a>';
@@ -141,7 +141,7 @@ for(const template of Object.keys(profilePages)) {
       section('<div class="home-deliverables"><figure>'+pic('home2Image','Three colleagues reviewing plans on an office wall','loading="lazy"')+'</figure><div class="home-section-copy">'+homeHeading('home2')+'<div class="home-detail-list">'+homeItems('home2','home-detail')+'</div>'+homeLink('home2','contact')+'</div></div>','home-section');
   }
   homeStories='<!--template-home-stories-start-->'+homeStories+'<!--template-home-stories-end-->';
-  home=statistics+modernHome(template,{t,pic,link,section})+homeStories+guideHome;
+  home=modernHome(template,{t,pic,link,section,statistics})+homeStories+guideHome;
   const wrapper=(page,body)=>{
     const nav=[1,2,3,4].map(n=>'<a data-cms-menu="'+n+'" href="'+navigationHref(template,base,d['nav'+n+'Target'])+'">'+esc(d['nav'+n+'Label'])+'</a>').join('');
     const pageLinks=Object.entries(pages).filter(([key])=>key).map(([key,label])=>link(key,esc(label),'footer-page')).join('');

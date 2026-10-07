@@ -9,6 +9,16 @@ const checkout = {
   whatsapp: '+62 812-3456-7890', email: 'owner@example.test', domain: 'studio-contoh.co.id'
 };
 
+test('angka contoh template tidak menjadi klaim di website klien baru', () => {
+  for (const template of Object.keys(profileTemplates)) {
+    const content = defaultsFor(template);
+    assert.equal(content.statisticsVisible, false, template);
+    for (let index = 1; index <= 3; index++) {
+      assert.equal(content['stat' + index + 'Value'], '', template);
+    }
+  }
+});
+
 test('harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan', () => {
   assert.deepEqual([1, 12, 24, 48].map(pricing), [
     { monthly: 109000, total: 109000, renewalMonthly: 87200 },

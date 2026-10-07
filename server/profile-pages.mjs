@@ -195,21 +195,25 @@ for(const [template,sections] of Object.entries(profileHomeContent)){
   pageFields[template].push(group('home-stories','Section beranda',items));
 }
 
-// Default facts describe the content actually offered by each template. Clients
-// can replace both values and labels with their verified business figures.
+// Preview figures illustrate the sector-specific metric layout. New client
+// websites keep statistics off and values empty until their own figures are set.
 export const profileStatistics={
-  Architecture:{title:'Our practice at a glance.',items:[['02','Selected spaces'],['03','Design disciplines'],['03','Project stages']]},
-  Padel:{title:'THE CLUB IN NUMBERS.',items:[['03','Ways to play'],['04','Players in a doubles game'],['02','Club founders']]},
-  Creative:{title:'A closer look at the studio.',items:[['02','Selected studies'],['03','Creative disciplines'],['03','Project stages']]},
-  Consulting:{title:'Expertise at a glance.',items:[['03','Areas of expertise'],['02','Business review formats'],['03','Steps to action']]}
+  Architecture:{title:'Built on experience.',items:[['100+','Projects completed'],['10+','Years of practice'],['20+','Cities shaped']]},
+  Padel:{title:'A CLUB THAT KEEPS GROWING.',items:[['500+','Club members'],['100+','Coaching sessions'],['25+','Community events']]},
+  Creative:{title:'Good work travels far.',items:[['100+','Brands partnered with'],['250+','Projects delivered'],['10+','Years creating']]},
+  Consulting:{title:'Experience you can build on.',items:[['100+','Clients advised'],['150+','Projects completed'],['10+','Years of experience']]}
 };
+export function statisticsPreviewFor(template){
+  const statistics=profileStatistics[template];
+  return Object.fromEntries(statistics.items.flatMap(([value,label],index)=>[['stat'+(index+1)+'Value',value],['stat'+(index+1)+'Label',label]]));
+}
 for(const [template,statistics] of Object.entries(profileStatistics)){
   const items=[['statisticsTitle','Judul statistik',100]];
-  pageDefaults[template].statisticsVisible=true;
+  pageDefaults[template].statisticsVisible=false;
   pageDefaults[template].statisticsTitle=statistics.title;
   statistics.items.forEach(([value,label],index)=>{
     const prefix='stat'+(index+1);
-    Object.assign(pageDefaults[template],{[prefix+'Value']:value,[prefix+'Label']:label});
+    Object.assign(pageDefaults[template],{[prefix+'Value']:'',[prefix+'Label']:label});
     items.push([prefix+'Value','Angka '+(index+1)+' (mis. 25+ atau 10 tahun)',20],[prefix+'Label','Keterangan angka '+(index+1),80]);
   });
   const statisticsGroup=group('statistics','Statistik bisnis',items);

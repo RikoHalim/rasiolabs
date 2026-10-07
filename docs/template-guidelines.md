@@ -12,3 +12,5 @@
 - Keep decorative motion finite. The Padel text ticker has its own pause/resume control. Hero layouts must grow with valid client copy, while optional statistics remain editable and removable in CMS.
 - Do not show a photography credits section in the public template UI. Retain asset sources and license notes in internal documentation, and choose assets whose terms allow this presentation.
 - Do not put demo/preview explanations or sample-content notices inside template pages. Keep the catalog/template selector context, and avoid claiming stock photographs are completed client projects; describe spaces and design ideas instead.
+- Preview metric values illustrate the requested business statistics layouts. New client websites have empty metric values and statistics disabled until the client supplies their own numbers in CMS.
+- Statistics follow each sector: Architecture uses an editorial strip after the studio introduction; Padel uses a centered club row; Creative uses a large brand count with two supporting metrics after its work; Consulting pairs its heading with a primary client metric after the approach section.
