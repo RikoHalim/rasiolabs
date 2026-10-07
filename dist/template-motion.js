@@ -38,7 +38,6 @@
     const animation=element.animate(frames,{duration,delay,easing:ease,fill:'backwards'});
     running.add(animation);animation.finished.catch(()=>{}).finally(()=>{running.delete(animation);animation.cancel();});return animation;
   };
-  const main=document.querySelector('main');
   document.querySelectorAll('[data-motion-toggle]').forEach(button=>{
     const track=button.closest('.modern-ticker')?.querySelector('.ticker-track');
     if(!track)return;
@@ -89,17 +88,6 @@
       observer.observe(element);
     });
   }
-  let leaving=false;
-  document.addEventListener('click',event=>{
-    const link=event.target.closest('a[data-site-page],.studio-nav a');
-    if(!main?.animate||!link||reduced.matches||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.target||link.hasAttribute('download'))return;
-    const target=new URL(link.href,location.href);
-    if(target.origin!==location.origin||target.pathname===location.pathname)return;
-    event.preventDefault();if(leaving)return;leaving=true;
-    const exit=play(main,profile.exit,profile.exitTime);
-    exit.finished.catch(()=>{}).then(()=>location.assign(target.href));
-  });
-  window.addEventListener('pageshow',()=>{leaving=false;});
   const photos=[...document.querySelectorAll('.hero-photo>img,.hero-image,.architecture-hero img,.modern-hero--architecture .modern-hero-photo>img')];
   const progress=theme==='architecture'?document.createElement('div'):null;
   if(progress){progress.className='template-reading-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);}

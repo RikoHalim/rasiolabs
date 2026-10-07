@@ -56,9 +56,9 @@
   const visuals = [...document.querySelectorAll('[data-hero-visual]')];
   const whatsapp = 'https://wa.me/60142317052?text=Halo%20Rasio%20Labs%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20website%20bisnis.';
   const actions = [
-    {primary: ['Lihat Paket', '#paket-profile'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
-    {primary: ['Lihat Paket', '#paket-store'], secondary: ['Konsultasi Gratis ↗', whatsapp]},
-    {primary: ['Diskusikan proyek custom ↗', whatsapp], secondary: ['Lihat layanan Custom ↗', '/layanan-custom.html']},
+    {primary: ['Lihat Paket', '#paket-profile'], secondary: ['Konsultasi Gratis', whatsapp]},
+    {primary: ['Lihat Paket', '#paket-store'], secondary: ['Konsultasi Gratis', whatsapp]},
+    {primary: ['Konsultasi Gratis', whatsapp], secondary: ['Lihat layanan Custom', '/layanan-custom.html']},
   ];
   const originalTabIndex = new WeakMap();
   let current = 0;
@@ -222,6 +222,7 @@
 
   function schedule() {
     clearInterval(interval);
+    root.closest('#top').classList.toggle('is-motion-paused', userPaused || reducedMotion.matches || document.hidden);
     if (!userPaused && !reducedMotion.matches && !document.hidden) {
       interval = setInterval(() => show((current + 1) % slides.length), 6200);
     }
@@ -230,7 +231,7 @@
   function updatePauseButton() {
     if (!pause) return;
     pause.disabled = reducedMotion.matches;
-    pause.setAttribute('aria-label', reducedMotion.matches ? 'Animasi dinonaktifkan oleh pengaturan perangkat' : userPaused ? 'Putar slider' : 'Jeda slider');
+    pause.setAttribute('aria-label', reducedMotion.matches ? 'Animasi dinonaktifkan oleh pengaturan perangkat' : userPaused ? 'Putar animasi' : 'Jeda animasi');
     pause.textContent = userPaused || reducedMotion.matches ? '▷' : 'Ⅱ';
   }
 
@@ -251,7 +252,13 @@
       document.querySelector('[data-offer-duration="48"]')?.click();
     }
   });
-  document.addEventListener('visibilitychange', schedule);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearTimeout(transitionTimer);
+      render(current, false);
+    }
+    schedule();
+  });
   reducedMotion.addEventListener('change', () => {
     clearTimeout(transitionTimer);
     slide.classList.remove('is-leaving');

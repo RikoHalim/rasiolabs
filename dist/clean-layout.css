@@ -1,14 +1,42 @@
-/* One clear hierarchy across the marketing pages. */
+/* Blue identifies the service and its actions; white keeps the product previews in focus. */
+body:not(.architecture-page) .site-header{background:#fff;backdrop-filter:none;border-color:#e8ecf5}
+body:not(.architecture-page) .header-cta{border-radius:11px;box-shadow:0 5px 16px #0c55fc24}
+#main-content>.hero--people{background:linear-gradient(115deg,#fff 38%,#f3f7ff);border-bottom:1px solid #e7edf7}
 body:not(.service-page) #top .hero-copy{max-width:600px}
-#top .hero-copy h1{font-size:clamp(38px,3.8vw,54px);line-height:1.08;letter-spacing:-.045em;max-width:600px}
-#top .hero-lede{font-size:16px;line-height:1.75;max-width:510px}
+#top .hero-copy h1{font-size:clamp(38px,3.8vw,56px);font-weight:700;line-height:1.1;letter-spacing:-.045em;max-width:600px;color:#10182d}
+#top .hero-copy .marker{background:none;color:#0c55fc;padding:0;box-decoration-break:clone}
+#top .hero-copy>.eyebrow{font-size:13px;line-height:1.5;letter-spacing:0;text-transform:none;font-weight:600;color:#23447e}
+#top .hero-lede{font-size:16px;line-height:1.65;max-width:490px;color:#45516a}
 #top .hero-slide{min-height:0}
 #top .hero-benefits{padding:12px 0;border:0;margin:5px 0 0;min-height:0}
 #top .hero-benefit-list{gap:10px 20px}
 #top .hero-benefit-list li{font-size:14px;line-height:1.55}
 #top .hero-start-price{margin-top:12px}
 #top .hero-start-price [data-hero-price]{font-size:32px}
-#top .hero-visual-note{border:0;background:transparent;box-shadow:none;justify-content:center;padding:12px 0;font-size:14px}
+#top .hero-slider-controls{gap:14px;align-items:center;margin:12px 0}
+#top .hero-slide-dots{gap:18px}
+#top .hero-slide-dots button{width:auto;min-width:44px;height:44px;padding:0 2px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;font-size:13px;font-weight:600;color:#536079;transition:color 180ms,border-color 180ms}
+#top .hero-slide-dots button::before{display:none}
+#top .hero-slide-dots button[aria-pressed="true"]{background:transparent;border-bottom-color:#0c55fc;color:#0c55fc}
+#top .hero-slide-dots button:hover{color:#103caf}
+#top [data-slide-count]{display:none}
+#top .slider-pause{width:44px;height:44px;min-height:44px;background:#fff;border:1px solid #7888a3;border-radius:8px;color:#334866;box-shadow:none}
+#top .hero-stack-float{position:relative;animation:labs-levitate 8s ease-in-out infinite;will-change:transform}
+#top.is-motion-paused .hero-stack-float{animation-play-state:paused}
+#top .template-stack{animation:none;transform:perspective(1400px) rotateY(-8deg) rotateX(3deg);transform-origin:center;max-width:720px;margin-inline:auto}
+#top .stack-preview{border:1px solid #c7d7f4;border-radius:18px;box-shadow:0 22px 42px -20px #164bcc59,0 3px 8px #183f731a}
+#top .stack-preview.is-active{transform:translate(0,0) rotate(-1.5deg);box-shadow:0 24px 44px -16px #194be854,0 3px 8px #183f731a}
+#top .stack-preview.is-behind-left{opacity:.58;transform:translate(-24px,-25px) rotate(-5deg) scale(.94);box-shadow:none}
+#top .stack-preview.is-behind-right{opacity:.68;transform:translate(28px,28px) rotate(4deg) scale(.95);box-shadow:none}
+#top .hero-visual-note{border:0;background:transparent;box-shadow:none;justify-content:center;padding:8px 0;font-size:12px;font-weight:500;color:#45516a}
+#top .stack-erp-sidebar img{content:url('/assets/rasiolabs-logo-white.png');filter:none}
+#top .hero-actions .button{background:#0c55fc;border-color:#0c55fc;box-shadow:0 5px 15px #0c55fc25}
+#top .hero-actions .button:hover{background:#1237b0;border-color:#1237b0}
+#top .hero-actions .secondary-button{background:#fff;border-color:#7888a3;color:#244174;box-shadow:none}
+#top .hero-actions .secondary-button:hover{background:#edf3ff;border-color:#5177c6;color:#103caf}
+#top .hero-actions>a{border-radius:10px;font-size:13px;transition:background-color 220ms,border-color 220ms,color 220ms,transform 300ms cubic-bezier(.2,.7,.2,1),box-shadow 300ms}
+#top .response-promise>span{display:none}
+@keyframes labs-levitate{0%,100%{transform:translateY(5px)}50%{transform:translateY(-9px)}}
 #main-content>.template-section{background:#fff}
 #main-content>.offers-section{background:#f2f6ff}
 #main-content>.feature-showcase{background:#fff}
@@ -16,7 +44,8 @@ body:not(.service-page) #top .hero-copy{max-width:600px}
 #main-content>.faq-section{background:#fff}
 #main-content>.blog-home{background:#f2f6ff}
 body .site-footer .footer-brand img{content:url('/assets/rasiolabs-logo.png');filter:none}
-.section-heading h2,.rasio-ai-story__head h2{font-size:clamp(30px,3.1vw,42px);line-height:1.15;max-width:760px}
+.section-heading h2,.rasio-ai-story__head h2{font-size:clamp(30px,3.1vw,42px);line-height:1.15;max-width:760px;font-weight:700;letter-spacing:-.035em}
+#main-content .section-heading .marker,#fitur-layanan .feature-showcase-heading .marker{background:none;color:#0c55fc;padding:0}
 .section-heading{margin-bottom:30px}
 .template-sector-bar{padding:14px 18px;box-shadow:none;background:#f7f9fc;border-color:#e1e6ef}
 #template .template-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:22px}
@@ -61,11 +90,22 @@ body .site-footer .footer-brand img{content:url('/assets/rasiolabs-logo.png');fi
 #top .hero-start-price>span:last-child,#top .response-promise{color:#46536b}
 .offer-card:not(.offer-store) .offer-price del{color:#536079}
 .testimonial-person small{color:#536079}
-#main-content .offers-grid .offer-card.offer-store{background:radial-gradient(circle at 91% 0%,#979fff33,transparent 38%),linear-gradient(150deg,#151e42 0%,#1a2e68 52%,#244291 100%)}
+#main-content .offers-grid .offer-card.offer-store{background:linear-gradient(145deg,#0b2668,#1542a7)}
 #main-content .offer-store h3>span{color:#fff}
 #main-content .rasio-ai-story__eyebrow{color:#d5e0ff}
 #main-content .closing-section .eyebrow{color:#fff}
 #main-content>.rasio-advantages{background:linear-gradient(115deg,#1046c8,#144fd3 58%,#174bb4)}
+#main-content>.rasio-ai-story{background:linear-gradient(140deg,#071a43,#10387d)}
+#main-content>.testimonial-section{background:#f4f7fc;border-color:#e4eaf3}
+#main-content .testimonial-section :is(h2,.eyebrow){color:#182747}
+#main-content .testimonial-card{background:#fff;border-color:#dce4f0;color:#25314a}
+#main-content .testimonial-card blockquote{color:#25314a}
+#main-content .testimonial-card .testimonial-person strong{color:#182747}
+#main-content .faq-intro{background:transparent;border:0;box-shadow:none;padding-inline:0}
+#main-content .faq-item{border-radius:14px;box-shadow:0 2px 8px #162f5b05}
+#main-content .process-list{gap:18px}
+#main-content .process-list li:nth-child(n){background:#fff;border:1px solid #dce4f0;box-shadow:none;border-radius:16px}
+#main-content .process-list .step-number{background:#edf3ff;color:#1237b0;border:0;border-radius:8px}
 body.service-page .breadcrumbs,body.service-page .service-start-price .service-price-note{color:#46536b}
 body.service-page .board-label{color:#fff}
 #main-content>.template-section,#main-content>.rasio-ai-story{padding-block:60px}
@@ -79,9 +119,9 @@ body.service-page .board-label{color:#fff}
 #main-content .process-list li:nth-child(n){min-height:190px;padding:24px}
 #main-content .process-list .step-number{margin-bottom:18px}
 #main-content .faq-grid{gap:44px}
-#main-content .faq-intro{padding:32px}
-#main-content .faq-intro>.eyebrow{margin-bottom:20px}
-#main-content .faq-intro h2{margin:0 0 24px}
+#main-content .faq-intro{padding:12px 0}
+#main-content .faq-intro>.eyebrow{margin-bottom:20px;color:#244174}
+#main-content .faq-intro h2{margin:0 0 24px;color:#10182d}
 #main-content .faq-list{gap:14px}
 #main-content .faq-item button{min-height:68px;padding-block:16px}
 #main-content .closing-inner{padding-block:52px}
@@ -89,10 +129,10 @@ body.service-page .board-label{color:#fff}
 #main-content :is(.template-card,.testimonial-card,.blog-card){box-shadow:0 4px 16px #162f5b0b}
 body.service-page :is(.problem-section,.detail-included,.sector-section,.service-order-section){padding-block:48px}
 @media(min-width:1051px){
- body:not(.service-page) #top .hero-grid{width:min(1440px,calc(100% - 80px));grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:40px;padding-block:clamp(28px,5svh,52px) 32px;align-items:center;min-height:calc(100vh - 73px);min-height:calc(100svh - 73px)}
- body:not(.service-page) #top .hero-copy{align-self:start;max-width:640px}
+ body:not(.service-page) #top .hero-grid{width:min(1440px,calc(100% - 80px));grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:56px;padding-block:36px;align-items:center;min-height:calc(100vh - 73px);min-height:calc(100svh - 73px)}
+ body:not(.service-page) #top .hero-copy{align-self:center;max-width:600px}
  #top .hero-copy>.eyebrow{margin-bottom:12px}
- #top .hero-copy h1{font-size:clamp(44px,3.8vw,58px);line-height:1.08;margin:0 0 16px;max-width:620px}
+ #top .hero-copy h1{font-size:clamp(44px,3.8vw,58px);line-height:1.1;margin:0 0 18px;max-width:600px}
  #top .hero-lede{font-size:17px;line-height:1.6;max-width:560px;margin:0}
  #top .hero-slide-measure{position:fixed!important}
  #top .hero-slider-controls{margin:8px 0}
@@ -105,9 +145,9 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #top .hero-actions>a{min-height:48px;padding:12px 18px}
  #top .response-promise{margin:10px 0 0;font-size:11px;line-height:1.5}
  #top .hero-visual{align-self:center}
- #top .template-stack{height:clamp(430px,56svh,540px)}
- #top .stack-preview{top:34px;height:calc(100% - 76px)}
- #top .hero-visual-note{padding:8px 0;min-height:36px}
+ #top .template-stack{height:clamp(460px,59svh,560px)}
+ #top .stack-preview{top:40px;left:4%;width:92%;height:calc(100% - 80px)}
+ #top .hero-visual-note{padding:8px 0;min-height:32px}
 }
 @media(min-width:1051px) and (max-height:790px){
  body:not(.service-page) #top .hero-grid{padding-block:28px 32px}
@@ -116,6 +156,12 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
 }
 @media(min-width:761px) and (max-width:1050px){
  #template .template-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body:not(.service-page) #top .hero-grid{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:30px;padding-block:36px}
+ #top .hero-copy h1{font-size:38px}
+ #top .hero-lede{font-size:15px}
+ #top .hero-benefit-list{grid-template-columns:1fr;gap:8px}
+ #top .template-stack{height:430px}
+ #top .stack-preview{top:45px;left:5%;width:90%;height:340px}
 }
 @media(min-width:1051px) and (max-height:650px){
  body:not(.service-page) #top .hero-grid{padding-block:20px}
@@ -124,6 +170,8 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #top .hero-start-price [data-hero-price]{font-size:29px}
  #top .hero-actions>a{min-height:44px;padding:10px 16px}
  #top .template-stack{height:390px}
+ #top .hero-benefit-list li{font-size:13px}
+ #top .hero-copy>.eyebrow{margin-bottom:10px}
 }
 @media(max-width:760px){
  #main-content>.template-section,#main-content>.rasio-ai-story{padding-block:46px}
@@ -132,9 +180,21 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #main-content .process-list li:nth-child(n){min-height:0;padding:22px}
  #main-content .closing-inner{padding-block:42px}
  body.service-page :is(.problem-section,.detail-included,.sector-section,.service-order-section){padding-block:40px}
- #top .hero-copy h1{font-size:38px}#top .hero-lede{font-size:16px}
+ body:not(.service-page) #top .hero-grid{grid-template-columns:1fr;gap:32px;padding-block:30px 24px;width:calc(100% - 40px)}
+ #top .hero-copy h1{font-size:clamp(34px,7vw,44px)}#top .hero-lede{font-size:16px}
+ #top .hero-copy>.eyebrow{margin-bottom:16px}
+ #top .hero-slider-controls{margin-block:12px}
+ #top .hero-actions>a{min-height:48px;padding:12px 16px}
+ #top .hero-visual{max-width:620px;width:100%;gap:0}
+ #top .template-stack{height:clamp(320px,62vw,440px);transform:perspective(1400px) rotateY(-3deg) rotateX(2deg)}
+ #top .stack-preview{top:32px;left:4%;width:92%;height:calc(100% - 64px)}
+ #top .stack-preview.is-behind-left{transform:translate(-8px,-15px) rotate(-4deg) scale(.95)}
+ #top .stack-preview.is-behind-right{transform:translate(8px,15px) rotate(3deg) scale(.95)}
+ #top .hero-visual-note{min-height:32px}
+ #top .hero-benefit-list{gap:9px}
  #template .template-grid{grid-template-columns:1fr;gap:22px}#template .template-info h3{font-size:21px}
  .rasio-ai-story__grid{grid-template-columns:1fr}.rasio-ai-story__head h2{font-size:34px}
- #main-content .faq-grid{gap:28px}#main-content .faq-intro{padding:26px}.service-page .detail-included-grid{gap:28px}
+ #main-content .faq-grid{gap:28px}#main-content .faq-intro{padding:0}.service-page .detail-included-grid{gap:28px}
  .template-sector-bar{padding:12px;box-shadow:none}.offer-audience{margin-bottom:18px}
 }
+@media(prefers-reduced-motion:reduce){#top .hero-stack-float{animation:none;will-change:auto}#top .template-stack{transform:none}#top .hero-actions>a{transition:none}}
