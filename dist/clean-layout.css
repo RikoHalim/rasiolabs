@@ -16,13 +16,13 @@ body:not(.service-page) #top .hero-copy{max-width:600px}
 #top .hero-start-price{margin-top:12px}
 #top .hero-start-price [data-hero-price]{font-size:32px}
 #top .hero-slider-controls{gap:14px;align-items:center;margin:12px 0}
-#top .hero-slide-dots{gap:18px}
-#top .hero-slide-dots button{width:auto;min-width:44px;height:44px;padding:0 2px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;font-size:13px;font-weight:600;color:#536079;transition:color 180ms,border-color 180ms}
+#top .hero-slide-dots{gap:18px;flex-wrap:wrap}
+#top .hero-slide-dots button{width:auto;min-width:44px;min-height:44px;height:auto;padding:0 2px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;font-size:13px;font-weight:600;color:#45516a;transition:color 180ms,border-color 180ms}
 #top .hero-slide-dots button::before{display:none}
 #top .hero-slide-dots button[aria-pressed="true"]{background:transparent;border-bottom-color:#0c55fc;color:#0c55fc}
-#top .hero-slide-dots button:hover{color:#103caf}
+#top .hero-slide-dots button:hover{background:transparent;border-bottom-color:#0c55fc;color:#103caf}
+#top .hero-slide-dots button:focus-visible{outline:3px solid #0c55fc;outline-offset:3px}
 #top [data-slide-count]{display:none}
-#top .slider-pause{width:44px;height:44px;min-height:44px;background:#fff;border:1px solid #7888a3;border-radius:8px;color:#334866;box-shadow:none}
 #top .hero-visual{position:relative;isolation:isolate}
 #top .hero-depth-sphere{position:absolute;z-index:-1;right:10%;top:-28px;width:180px;height:180px;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 30% 24%,#9bb7ff 0,#1954ed 37%,#1036a1 71%,#081f5d 100%);box-shadow:inset -15px -18px 28px #061a6a66}
 #top .hero-depth-floor{position:absolute;z-index:-1;inset:auto -7% -8% -20%;height:42%;pointer-events:none;background-image:linear-gradient(#0c55fc0d 1px,transparent 1px),linear-gradient(90deg,#0c55fc0d 1px,transparent 1px);background-size:70px 70px;transform:perspective(500px) rotateX(55deg);transform-origin:bottom;mask-image:linear-gradient(transparent,#000 55%,transparent)}
@@ -38,13 +38,14 @@ body:not(.service-page) #top .hero-copy{max-width:600px}
 #top .stack-erp-sidebar img{content:url('/assets/rasiolabs-logo-white.png');filter:none}
 #top .hero-actions .button{background:linear-gradient(135deg,#0c55fc,#123ecd);border-color:#0c55fc;color:#fff;box-shadow:0 7px 18px #0c55fc30}
 #top .hero-actions .button:hover{background:#1237b0;border-color:#1237b0}
-#top .hero-actions .secondary-button{background:transparent;border-color:transparent;color:#1746b8;box-shadow:none}
-#top .hero-actions .secondary-button:hover{background:#e9f0ff;border-color:transparent;color:#103caf}
+#top .hero-actions .secondary-button{background:#fff;border:1px solid #1746b8;color:#1746b8;box-shadow:none}
+#top .hero-actions .secondary-button:hover{background:#e9f0ff;border-color:#103caf;color:#103caf}
 #top .hero-actions>a{border-radius:12px;font-size:13px;white-space:nowrap;transition:background-color 220ms,border-color 220ms,color 220ms,transform 300ms cubic-bezier(.2,.7,.2,1),box-shadow 300ms}
 #top .hero-action-arrow{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:#fff;color:#0c55fc;font:400 18px/1 Arial,sans-serif;margin-left:7px}
 #top .response-promise>span{display:none}
 @keyframes labs-levitate{0%,100%{transform:translateY(5px)}50%{transform:translateY(-9px)}}
-.company-marquee{display:flex;align-items:center;gap:20px;width:min(1280px,calc(100% - 80px));margin:0 auto;padding:28px 0;border-bottom:1px solid #e7edf7}
+.company-marquee{display:grid;gap:18px;width:min(1280px,calc(100% - 80px));margin:0 auto;padding:28px 0;border-bottom:1px solid #e7edf7}
+.company-title{margin:0;text-align:center;color:#45516a;font-size:14px;font-weight:600;line-height:1.5}
 .company-marquee-window{min-width:0;flex:1;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .company-logo-track{display:flex;width:max-content;min-width:200%;animation:labs-company-loop 32s linear infinite}
 .company-logo-group{display:flex;align-items:center;justify-content:space-between;gap:64px;padding-right:64px;flex:1}
@@ -55,10 +56,7 @@ body:not(.service-page) #top .hero-copy{max-width:600px}
 .company-logo--linea{font-weight:600;letter-spacing:3px;font-size:19px}
 .company-logo--forma{font-weight:500;letter-spacing:-1.5px;font-size:27px}
 .company-logo--cobalt{font-size:19px;letter-spacing:1px}
-.company-motion-toggle{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid #9cabc2;border-radius:10px;background:#fff;color:#46536b;font-size:17px;cursor:pointer;transition:background-color 180ms,border-color 180ms}
-.company-motion-toggle:hover{background:#edf3ff;border-color:#416fc8}
-.company-motion-toggle:focus-visible{outline:3px solid #0c55fc;outline-offset:4px}
-.company-marquee:is(.is-paused,.is-motion-paused) .company-logo-track{animation-play-state:paused}
+.company-marquee.is-motion-paused .company-logo-track{animation-play-state:paused}
 @keyframes labs-company-loop{to{transform:translateX(-50%)}}
 #main-content>.template-section{background:#fff}
 #main-content>.offers-section{background:#f2f6ff}
@@ -90,7 +88,17 @@ body .site-footer .footer-brand img{content:url('/assets/rasiolabs-logo.png');fi
 .feature-tile-copy h3{font-size:24px;line-height:1.2}
 .feature-tile-copy p{font-size:15px;line-height:1.7;max-width:45ch}
 #fitur-layanan .feature-tablist{border-radius:12px;box-shadow:none;background:#f7f9fd;border-color:#dce4f0}
-#fitur-layanan .feature-tab{border-radius:8px;min-height:44px}
+#fitur-layanan .feature-tab{border:1px solid #7888a3;border-radius:8px;min-height:44px}
+#fitur-layanan .feature-tab:is(.is-active,:hover){border-color:#0c55fc}
+#fitur-layanan .feature-tab:focus-visible{outline:3px solid #0c55fc;outline-offset:3px}
+#template .filter-button{border:1px solid #7888a3;min-height:44px}
+#template .filter-button:is(.is-active,:hover){border-color:#0c55fc}
+#template .filter-button:focus-visible{outline:3px solid #0c55fc;outline-offset:3px}
+#main-content .offer-duration-picker button{border:1px solid #7888a3;min-height:44px}
+#main-content .offer-duration-picker button:is(.is-active,:hover){border-color:#0c55fc}
+#main-content .offer-duration-picker button:focus-visible{outline:3px solid #0c55fc;outline-offset:3px}
+#main-content .offer-actions>a:focus-visible{outline:3px solid #0c55fc;outline-offset:3px}
+#main-content .offer-store .offer-actions>a:focus-visible{outline-color:#fff}
 #fitur-layanan .feature-panel .feature-tile{border-radius:18px;border-color:#dde5f2;box-shadow:0 4px 14px #162f5b06;transition:transform 350ms cubic-bezier(.2,.7,.2,1),box-shadow 350ms}
 #fitur-layanan .feature-panel .feature-tile:hover{transform:translateY(-5px);box-shadow:0 12px 24px #164bcc15}
 #fitur-layanan .feature-panel .feature-photo-copy{backdrop-filter:none;background:#fff;box-shadow:0 6px 20px #162f5b15}
@@ -211,6 +219,7 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy h3{font-size:19px;line-height:1.25;margin:9px 0 7px}
  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy p{font-size:12.5px;line-height:1.5}
  #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy>span{padding:0;border:0;background:transparent;letter-spacing:.04em;font-size:11px}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-float--order{display:flex;top:12px;right:12px;bottom:auto;left:auto;max-width:calc(100% - 24px)}
 }
 @media(min-width:1051px) and (max-height:650px){
  body:not(.service-page) #top .hero-grid{padding-block:20px}
@@ -231,7 +240,7 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #main-content .closing-inner{padding-block:42px}
  #fitur-layanan .feature-panel:not([hidden])>.feature-tile:nth-child(n){flex-basis:min(84vw,320px)}
  #fitur-layanan .feature-tablist{width:100%;gap:4px}
- #fitur-layanan .feature-tab{min-width:0;flex:1;padding:11px 6px;font-size:13px}
+ #fitur-layanan .feature-tab{min-width:0;flex:1;min-height:58px;padding:11px 6px;font-size:13px;line-height:1.25;white-space:normal}
  #fitur-layanan .feature-tab-brand{display:none}
  #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo>img{height:136px;min-height:136px;flex:1}
  body.service-page :is(.problem-section,.detail-included,.sector-section,.service-order-section){padding-block:40px}
@@ -239,6 +248,8 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #top .hero-copy h1{font-size:clamp(34px,7vw,44px)}#top .hero-lede{font-size:16px}
  #top .hero-copy>.eyebrow{margin-bottom:16px}
  #top .hero-slider-controls{margin-block:12px}
+ #top .hero-slide-dots{gap:10px}
+ #top .hero-slide-dots button{font-size:12px}
  #top .hero-actions>a{min-height:48px;padding:12px 16px}
  #top .hero-visual{max-width:620px;width:100%;gap:0}
  #top .template-stack{height:clamp(320px,62vw,440px);transform:perspective(1400px) rotateY(-3deg) rotateX(2deg)}
@@ -260,4 +271,4 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #main-content .faq-grid{gap:28px}#main-content .faq-intro{padding:0}.service-page .detail-included-grid{gap:28px}
  .template-sector-bar{padding:12px;box-shadow:none}.offer-audience{margin-bottom:18px}
 }
-@media(prefers-reduced-motion:reduce){#top .hero-stack-float{animation:none;will-change:auto}#top .template-stack{transform:none;transition:none}#top .hero-actions>a{transition:none}.company-logo-track{animation:none;width:100%;min-width:0}.company-logo-group{width:100%;flex-wrap:wrap;justify-content:center;gap:24px;padding:0}.company-logo-group[aria-hidden="true"]{display:none}.company-marquee-window{mask-image:none}.company-motion-toggle{display:none}#fitur-layanan .feature-panel .feature-tile{transition:none}}
+@media(prefers-reduced-motion:reduce){#top .hero-stack-float{animation:none;will-change:auto}#top .template-stack{transform:none;transition:none}#top .hero-actions>a{transition:none}.company-logo-track{animation:none;width:100%;min-width:0}.company-logo-group{width:100%;flex-wrap:wrap;justify-content:center;gap:24px;padding:0}.company-logo-group[aria-hidden="true"]{display:none}.company-marquee-window{mask-image:none}#fitur-layanan .feature-panel .feature-tile{transition:none}}

@@ -4,26 +4,26 @@
 
   const slides = [
     {
-      label: 'RasioLabs Profile',
+      label: 'Company Profile',
       lead: 'Buat website bisnis ',
       highlight: 'tanpa biaya pembuatan dari nol.',
-      copy: 'Pilih template dan kirim materi. Rasio Labs menyiapkan serta merawat website Anda, dengan CMS untuk memperbarui konten.',
-      note: 'RasioLabs Profile',
+      copy: 'Berlangganan template siap pakai. Rasio Labs menangani setup dan maintenance; Anda bisa memperbarui konten melalui CMS.',
+      note: 'Company Profile',
       price: 'Rp27.250',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['Domain gratis 1 tahun (12–48 bulan)', 'Email bisnis, hosting & SSL', 'Setup & maintenance oleh Rasio Labs', 'CMS, SEO & chatbot 24/7'],
+      benefits: ['Domain gratis 1 tahun (langganan 12-24 bulan)', 'Email bisnis, hosting & SSL', 'Setup & maintenance oleh Rasio Labs', 'CMS, SEO & chatbot 24/7'],
     },
     {
-      label: 'RasioLabs Store',
+      label: 'Online Store',
       lead: 'Buka toko online Anda ',
       highlight: 'tanpa repot urusan teknis.',
-      copy: 'Katalog, pembayaran, dan pengiriman dalam satu toko. Rasio Labs membantu unggah 50 produk pertama; produk berikutnya bisa ditambah tanpa batas.',
-      note: 'RasioLabs Store',
+      copy: 'Pilih template toko online. Rasio Labs menyiapkan toko dan membantu unggah 50 produk pertama; produk berikutnya bisa Anda tambah tanpa batas.',
+      note: 'Online Store',
       price: 'Rp52.500',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['Domain gratis 1 tahun (12–48 bulan)', 'Email bisnis, hosting & SSL', 'Produk tanpa batas, 50 awal dibantu', 'Checkout, pengiriman & chatbot 24/7'],
+      benefits: ['Domain gratis 1 tahun (langganan 12-24 bulan)', 'Email bisnis, hosting & SSL', 'Produk tanpa batas, 50 awal dibantu', 'Checkout, pengiriman & chatbot 24/7'],
     },
     {
       label: 'RasioLabs Custom',
@@ -46,7 +46,6 @@
   const title = root.querySelector('[data-hero-title]');
   const copy = root.querySelector('[data-hero-copy]');
   const dots = [...root.querySelectorAll('[data-slide]')];
-  const pause = root.querySelector('[data-slide-pause]');
   const count = root.querySelector('[data-slide-count]');
   const announcement = root.querySelector('[data-hero-announcement]');
   const note = document.querySelector('[data-hero-note]');
@@ -65,7 +64,6 @@
   ];
   const originalTabIndex = new WeakMap();
   let current = 0;
-  let userPaused = false;
   let interval;
   let transitionTimer;
   let resizeTimer;
@@ -81,7 +79,7 @@
   }
 
   hoverSurface?.addEventListener('pointermove', (event) => {
-    if (!stack || event.pointerType !== 'mouse' || !finePointer.matches || reducedMotion.matches || userPaused || document.hidden) return;
+    if (!stack || event.pointerType !== 'mouse' || !finePointer.matches || reducedMotion.matches || document.hidden) return;
     const bounds = hoverSurface.getBoundingClientRect();
     if (!bounds.width || !bounds.height) return;
     tiltX = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1)) * -5;
@@ -98,20 +96,12 @@
 
   const logoMarquee = document.querySelector('.company-marquee');
   const logoGroup = logoMarquee?.querySelector('[data-company-logo-group]');
-  const logoToggle = logoMarquee?.querySelector('.company-motion-toggle');
   if (logoGroup) {
     const duplicate = logoGroup.cloneNode(true);
     duplicate.removeAttribute('data-company-logo-group');
     duplicate.setAttribute('aria-hidden', 'true');
     logoGroup.parentElement.append(duplicate);
   }
-  logoToggle?.addEventListener('click', () => {
-    const paused = logoToggle.getAttribute('aria-pressed') !== 'true';
-    logoToggle.setAttribute('aria-pressed', String(paused));
-    logoToggle.setAttribute('aria-label', paused ? 'Putar slider logo' : 'Jeda slider logo');
-    logoToggle.textContent = paused ? '▷' : 'Ⅱ';
-    logoMarquee.classList.toggle('is-paused', paused);
-  });
 
   function fill(targetTitle, targetCopy, index) {
     targetTitle.replaceChildren(document.createTextNode(slides[index].lead));
@@ -124,13 +114,14 @@
 
   function measureSlides() {
     if (!slide) return;
+    root.style.minHeight = '';
     slide.style.minHeight = '';
-    const baseMinHeight = parseFloat(getComputedStyle(slide).minHeight) || 0;
-    const width = slide.getBoundingClientRect().width;
+    const width = root.getBoundingClientRect().width;
     if (!width) return;
-    const measure = slide.cloneNode(true);
+    const measure = root.cloneNode(true);
     measure.classList.add('hero-slide-measure');
-    measure.removeAttribute('data-hero-slide');
+    measure.removeAttribute('data-hero-slider');
+    measure.inert = true;
     Object.assign(measure.style, {
       position: 'fixed',
       left: '-9999px',
@@ -145,28 +136,24 @@
       transition: 'none',
     });
     measure.setAttribute('aria-hidden', 'true');
-    slide.parentElement.append(measure);
+    root.parentElement.append(measure);
     const measureTitle = measure.querySelector('[data-hero-title]');
     const measureCopy = measure.querySelector('[data-hero-copy]');
     let tallest = 0;
     slides.forEach((_, index) => {
       fill(measureTitle, measureCopy, index);
+      measure.querySelectorAll('.hero-benefit-list li').forEach((item, i) => {
+        item.textContent = slides[index].benefits[i];
+      });
+      measure.querySelector('[data-hero-price-label]').textContent = index === 2 ? 'Harga' : 'Mulai dari';
+      fillPrice(measure.querySelector('[data-hero-price]'), index);
+      measure.querySelector('[data-hero-price-note]').textContent = slides[index].priceNote;
+      fillActionLabel(measure.querySelector('[data-hero-primary]'), actions[index].primary[0], true);
+      measure.querySelector('[data-hero-secondary]').textContent = actions[index].secondary[0];
       tallest = Math.max(tallest, measure.getBoundingClientRect().height);
     });
     measure.remove();
-    slide.style.minHeight = Math.max(baseMinHeight, Math.ceil(tallest)) + 'px';
-    reserveHeight(root.querySelector('.hero-benefits'), (clone, index) => {
-      clone.querySelectorAll('li').forEach((item, i) => { item.textContent = slides[index].benefits[i]; });
-    });
-    reserveHeight(root.querySelector('.hero-start-price'), (clone, index) => {
-      clone.querySelector('[data-hero-price-label]').textContent = index === 2 ? 'Harga' : 'Mulai dari';
-      fillPrice(clone.querySelector('[data-hero-price]'), index);
-      clone.querySelector('[data-hero-price-note]').textContent = slides[index].priceNote;
-    });
-    reserveHeight(root.querySelector('.hero-actions'), (clone, index) => {
-      fillActionLabel(clone.querySelector('[data-hero-primary]'), actions[index].primary[0], true);
-      clone.querySelector('[data-hero-secondary]').textContent = actions[index].secondary[0];
-    });
+    root.style.minHeight = Math.ceil(tallest) + 'px';
     reserveHeight(note?.parentElement, (clone, index) => {
       clone.querySelector('[data-hero-note]').textContent = slides[index].note;
     });
@@ -278,23 +265,12 @@
 
   function schedule() {
     clearInterval(interval);
-    if (userPaused || reducedMotion.matches || document.hidden) resetTilt();
-    root.closest('#top').classList.toggle('is-motion-paused', userPaused || reducedMotion.matches || document.hidden);
+    if (reducedMotion.matches || document.hidden) resetTilt();
+    root.closest('#top').classList.toggle('is-motion-paused', reducedMotion.matches || document.hidden);
     logoMarquee?.classList.toggle('is-motion-paused', reducedMotion.matches || document.hidden);
-    if (!userPaused && !reducedMotion.matches && !document.hidden) {
+    if (!reducedMotion.matches && !document.hidden) {
       interval = setInterval(() => show((current + 1) % slides.length), 6200);
     }
-  }
-
-  function updatePauseButton() {
-    if (logoToggle) {
-      logoToggle.disabled = reducedMotion.matches;
-      logoToggle.setAttribute('aria-label', reducedMotion.matches ? 'Animasi dinonaktifkan oleh pengaturan perangkat' : logoToggle.getAttribute('aria-pressed') === 'true' ? 'Putar slider logo' : 'Jeda slider logo');
-    }
-    if (!pause) return;
-    pause.disabled = reducedMotion.matches;
-    pause.setAttribute('aria-label', reducedMotion.matches ? 'Animasi dinonaktifkan oleh pengaturan perangkat' : userPaused ? 'Putar animasi' : 'Jeda animasi');
-    pause.textContent = userPaused || reducedMotion.matches ? '▷' : 'Ⅱ';
   }
 
   dots.forEach((dot, index) => {
@@ -303,11 +279,6 @@
       show(index, true);
       schedule();
     });
-  });
-  pause?.addEventListener('click', () => {
-    userPaused = !userPaused;
-    updatePauseButton();
-    schedule();
   });
   primary?.addEventListener('click', () => {
     if (primary.hash === '#paket-profile' || primary.hash === '#paket-store') {
@@ -325,7 +296,6 @@
     clearTimeout(transitionTimer);
     slide.classList.remove('is-leaving');
     render(current, false);
-    updatePauseButton();
     schedule();
   });
   window.addEventListener('resize', () => {
@@ -336,6 +306,5 @@
   document.fonts?.ready.then(measureSlides);
   render(0, false);
   measureSlides();
-  updatePauseButton();
   schedule();
 })();
