@@ -12,7 +12,7 @@
       price: 'Rp27.250',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['Domain gratis 1 tahun (langganan 12-24 bulan)', 'Email bisnis, hosting & SSL', 'Setup & maintenance oleh Rasio Labs', 'CMS, SEO & chatbot 24/7'],
+      benefits: ['Domain gratis 1 tahun (langganan 12-48 bulan)', 'Email bisnis, hosting & SSL', 'Setup & maintenance oleh Rasio Labs', 'CMS, SEO & chatbot 24/7'],
     },
     {
       label: 'Online Store',
@@ -23,7 +23,7 @@
       price: 'Rp52.500',
       suffix: '/bln',
       priceNote: 'Untuk berlangganan 48 bulan',
-      benefits: ['Domain gratis 1 tahun (langganan 12-24 bulan)', 'Email bisnis, hosting & SSL', 'Produk tanpa batas, 50 awal dibantu', 'Checkout, pengiriman & chatbot 24/7'],
+      benefits: ['Domain gratis 1 tahun (langganan 12-48 bulan)', 'Email bisnis, hosting & SSL', 'Produk tanpa batas, 50 awal dibantu', 'Checkout, pengiriman & chatbot 24/7'],
     },
     {
       label: 'RasioLabs Custom',
