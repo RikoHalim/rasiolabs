@@ -39,6 +39,9 @@
   ];
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const hoverSurface = document.querySelector('#top .hero-visual');
+  const stack = hoverSurface?.querySelector('.template-stack');
   const slide = root.querySelector('[data-hero-slide]');
   const title = root.querySelector('[data-hero-title]');
   const copy = root.querySelector('[data-hero-copy]');
@@ -66,6 +69,49 @@
   let interval;
   let transitionTimer;
   let resizeTimer;
+  let tiltFrame = 0;
+  let tiltX = 0;
+  let tiltY = 0;
+
+  function resetTilt() {
+    cancelAnimationFrame(tiltFrame);
+    tiltFrame = 0;
+    stack?.style.removeProperty('--hero-tilt-x');
+    stack?.style.removeProperty('--hero-tilt-y');
+  }
+
+  hoverSurface?.addEventListener('pointermove', (event) => {
+    if (!stack || event.pointerType !== 'mouse' || !finePointer.matches || reducedMotion.matches || userPaused || document.hidden) return;
+    const bounds = hoverSurface.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    tiltX = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1)) * -5;
+    tiltY = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1)) * 7;
+    if (!tiltFrame) tiltFrame = requestAnimationFrame(() => {
+      tiltFrame = 0;
+      stack.style.setProperty('--hero-tilt-x', tiltX.toFixed(2) + 'deg');
+      stack.style.setProperty('--hero-tilt-y', tiltY.toFixed(2) + 'deg');
+    });
+  });
+  hoverSurface?.addEventListener('pointerleave', resetTilt);
+  hoverSurface?.addEventListener('pointercancel', resetTilt);
+  finePointer.addEventListener('change', resetTilt);
+
+  const logoMarquee = document.querySelector('.company-marquee');
+  const logoGroup = logoMarquee?.querySelector('[data-company-logo-group]');
+  const logoToggle = logoMarquee?.querySelector('.company-motion-toggle');
+  if (logoGroup) {
+    const duplicate = logoGroup.cloneNode(true);
+    duplicate.removeAttribute('data-company-logo-group');
+    duplicate.setAttribute('aria-hidden', 'true');
+    logoGroup.parentElement.append(duplicate);
+  }
+  logoToggle?.addEventListener('click', () => {
+    const paused = logoToggle.getAttribute('aria-pressed') !== 'true';
+    logoToggle.setAttribute('aria-pressed', String(paused));
+    logoToggle.setAttribute('aria-label', paused ? 'Putar slider logo' : 'Jeda slider logo');
+    logoToggle.textContent = paused ? '▷' : 'Ⅱ';
+    logoMarquee.classList.toggle('is-paused', paused);
+  });
 
   function fill(targetTitle, targetCopy, index) {
     targetTitle.replaceChildren(document.createTextNode(slides[index].lead));
@@ -118,7 +164,7 @@
       clone.querySelector('[data-hero-price-note]').textContent = slides[index].priceNote;
     });
     reserveHeight(root.querySelector('.hero-actions'), (clone, index) => {
-      clone.querySelector('[data-hero-primary]').textContent = actions[index].primary[0];
+      fillActionLabel(clone.querySelector('[data-hero-primary]'), actions[index].primary[0], true);
       clone.querySelector('[data-hero-secondary]').textContent = actions[index].secondary[0];
     });
     reserveHeight(note?.parentElement, (clone, index) => {
@@ -133,6 +179,16 @@
       suffix.textContent = slides[index].suffix;
       element.append(suffix);
     }
+  }
+
+  function fillActionLabel(link, label, withArrow) {
+    link.textContent = label;
+    if (!withArrow) return;
+    const arrow = document.createElement('span');
+    arrow.className = 'hero-action-arrow';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '→';
+    link.append(arrow);
   }
 
   function reserveHeight(element, update) {
@@ -194,7 +250,7 @@
     if (priceNote) priceNote.textContent = slides[index].priceNote;
     [[primary, actions[index].primary], [secondary, actions[index].secondary]].forEach(([link, action]) => {
       if (!link) return;
-      link.textContent = action[0];
+      fillActionLabel(link, action[0], link === primary);
       link.href = action[1];
       if (action[1].startsWith('https://')) {
         link.target = '_blank';
@@ -222,13 +278,19 @@
 
   function schedule() {
     clearInterval(interval);
+    if (userPaused || reducedMotion.matches || document.hidden) resetTilt();
     root.closest('#top').classList.toggle('is-motion-paused', userPaused || reducedMotion.matches || document.hidden);
+    logoMarquee?.classList.toggle('is-motion-paused', reducedMotion.matches || document.hidden);
     if (!userPaused && !reducedMotion.matches && !document.hidden) {
       interval = setInterval(() => show((current + 1) % slides.length), 6200);
     }
   }
 
   function updatePauseButton() {
+    if (logoToggle) {
+      logoToggle.disabled = reducedMotion.matches;
+      logoToggle.setAttribute('aria-label', reducedMotion.matches ? 'Animasi dinonaktifkan oleh pengaturan perangkat' : logoToggle.getAttribute('aria-pressed') === 'true' ? 'Putar slider logo' : 'Jeda slider logo');
+    }
     if (!pause) return;
     pause.disabled = reducedMotion.matches;
     pause.setAttribute('aria-label', reducedMotion.matches ? 'Animasi dinonaktifkan oleh pengaturan perangkat' : userPaused ? 'Putar animasi' : 'Jeda animasi');
@@ -267,6 +329,7 @@
     schedule();
   });
   window.addEventListener('resize', () => {
+    resetTilt();
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(measureSlides, 90);
   });

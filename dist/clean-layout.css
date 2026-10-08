@@ -1,16 +1,18 @@
 /* Blue identifies the service and its actions; white keeps the product previews in focus. */
 body:not(.architecture-page) .site-header{background:#fff;backdrop-filter:none;border-color:#e8ecf5}
 body:not(.architecture-page) .header-cta{border-radius:11px;box-shadow:0 5px 16px #0c55fc24}
-#main-content>.hero--people{background:linear-gradient(115deg,#fff 38%,#f3f7ff);border-bottom:1px solid #e7edf7}
+#main-content>.hero--people{background:linear-gradient(115deg,#fff 42%,#f5f8ff);border-bottom:1px solid #e7edf7}
 body:not(.service-page) #top .hero-copy{max-width:600px}
 #top .hero-copy h1{font-size:clamp(38px,3.8vw,56px);font-weight:700;line-height:1.1;letter-spacing:-.045em;max-width:600px;color:#10182d}
 #top .hero-copy .marker{background:none;color:#0c55fc;padding:0;box-decoration-break:clone}
-#top .hero-copy>.eyebrow{font-size:13px;line-height:1.5;letter-spacing:0;text-transform:none;font-weight:600;color:#23447e}
+#top .hero-copy>.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border-radius:7px;background:#edf3ff;font-size:12px;line-height:1.5;letter-spacing:0;text-transform:none;font-weight:600;color:#23447e}
+#top .hero-copy>.eyebrow img{width:16px;height:16px;object-fit:contain}
 #top .hero-lede{font-size:16px;line-height:1.65;max-width:490px;color:#45516a}
 #top .hero-slide{min-height:0}
-#top .hero-benefits{padding:12px 0;border:0;margin:5px 0 0;min-height:0}
+#top .hero-benefits{padding:16px 0 0;border:0;margin:0;min-height:0}
 #top .hero-benefit-list{gap:10px 20px}
-#top .hero-benefit-list li{font-size:14px;line-height:1.55}
+#top .hero-benefit-list li{font-size:12px;line-height:1.55;color:#45516a}
+#top .hero-benefit-list li::before{width:16px;height:16px;margin-top:1px;background:#0c55fc;color:#fff;font-size:10px}
 #top .hero-start-price{margin-top:12px}
 #top .hero-start-price [data-hero-price]{font-size:32px}
 #top .hero-slider-controls{gap:14px;align-items:center;margin:12px 0}
@@ -21,22 +23,43 @@ body:not(.service-page) #top .hero-copy{max-width:600px}
 #top .hero-slide-dots button:hover{color:#103caf}
 #top [data-slide-count]{display:none}
 #top .slider-pause{width:44px;height:44px;min-height:44px;background:#fff;border:1px solid #7888a3;border-radius:8px;color:#334866;box-shadow:none}
+#top .hero-visual{position:relative;isolation:isolate}
+#top .hero-depth-sphere{position:absolute;z-index:-1;right:10%;top:-28px;width:180px;height:180px;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 30% 24%,#9bb7ff 0,#1954ed 37%,#1036a1 71%,#081f5d 100%);box-shadow:inset -15px -18px 28px #061a6a66}
+#top .hero-depth-floor{position:absolute;z-index:-1;inset:auto -7% -8% -20%;height:42%;pointer-events:none;background-image:linear-gradient(#0c55fc0d 1px,transparent 1px),linear-gradient(90deg,#0c55fc0d 1px,transparent 1px);background-size:70px 70px;transform:perspective(500px) rotateX(55deg);transform-origin:bottom;mask-image:linear-gradient(transparent,#000 55%,transparent)}
+#top .hero-depth-mark{position:absolute;left:-2%;bottom:6%;width:66px;height:66px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 14px 8px #0c55fc24);transform:rotate(-12deg)}
 #top .hero-stack-float{position:relative;animation:labs-levitate 8s ease-in-out infinite;will-change:transform}
 #top.is-motion-paused .hero-stack-float{animation-play-state:paused}
-#top .template-stack{animation:none;transform:perspective(1400px) rotateY(-8deg) rotateX(3deg);transform-origin:center;max-width:720px;margin-inline:auto}
+#top .template-stack{animation:none;transform:perspective(1400px) rotateY(calc(-8deg + var(--hero-tilt-y,0deg))) rotateX(calc(3deg + var(--hero-tilt-x,0deg)));transform-origin:center;max-width:720px;margin-inline:auto;transition:transform 420ms cubic-bezier(.2,.7,.2,1)}
 #top .stack-preview{border:1px solid #c7d7f4;border-radius:18px;box-shadow:0 22px 42px -20px #164bcc59,0 3px 8px #183f731a}
 #top .stack-preview.is-active{transform:translate(0,0) rotate(-1.5deg);box-shadow:0 24px 44px -16px #194be854,0 3px 8px #183f731a}
 #top .stack-preview.is-behind-left{opacity:.58;transform:translate(-24px,-25px) rotate(-5deg) scale(.94);box-shadow:none}
 #top .stack-preview.is-behind-right{opacity:.68;transform:translate(28px,28px) rotate(4deg) scale(.95);box-shadow:none}
 #top .hero-visual-note{border:0;background:transparent;box-shadow:none;justify-content:center;padding:8px 0;font-size:12px;font-weight:500;color:#45516a}
 #top .stack-erp-sidebar img{content:url('/assets/rasiolabs-logo-white.png');filter:none}
-#top .hero-actions .button{background:#0c55fc;border-color:#0c55fc;box-shadow:0 5px 15px #0c55fc25}
+#top .hero-actions .button{background:linear-gradient(135deg,#0c55fc,#123ecd);border-color:#0c55fc;color:#fff;box-shadow:0 7px 18px #0c55fc30}
 #top .hero-actions .button:hover{background:#1237b0;border-color:#1237b0}
-#top .hero-actions .secondary-button{background:#fff;border-color:#7888a3;color:#244174;box-shadow:none}
-#top .hero-actions .secondary-button:hover{background:#edf3ff;border-color:#5177c6;color:#103caf}
-#top .hero-actions>a{border-radius:10px;font-size:13px;transition:background-color 220ms,border-color 220ms,color 220ms,transform 300ms cubic-bezier(.2,.7,.2,1),box-shadow 300ms}
+#top .hero-actions .secondary-button{background:transparent;border-color:transparent;color:#1746b8;box-shadow:none}
+#top .hero-actions .secondary-button:hover{background:#e9f0ff;border-color:transparent;color:#103caf}
+#top .hero-actions>a{border-radius:12px;font-size:13px;white-space:nowrap;transition:background-color 220ms,border-color 220ms,color 220ms,transform 300ms cubic-bezier(.2,.7,.2,1),box-shadow 300ms}
+#top .hero-action-arrow{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:#fff;color:#0c55fc;font:400 18px/1 Arial,sans-serif;margin-left:7px}
 #top .response-promise>span{display:none}
 @keyframes labs-levitate{0%,100%{transform:translateY(5px)}50%{transform:translateY(-9px)}}
+.company-marquee{display:flex;align-items:center;gap:20px;width:min(1280px,calc(100% - 80px));margin:0 auto;padding:28px 0;border-bottom:1px solid #e7edf7}
+.company-marquee-window{min-width:0;flex:1;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.company-logo-track{display:flex;width:max-content;min-width:200%;animation:labs-company-loop 32s linear infinite}
+.company-logo-group{display:flex;align-items:center;justify-content:space-between;gap:64px;padding-right:64px;flex:1}
+.company-logo{display:inline-flex;align-items:center;gap:10px;flex:none;color:#626e88;font-size:23px;font-weight:700;line-height:1;white-space:nowrap}
+.company-logo svg{width:30px;height:30px;flex:none}
+.company-logo--norda{font-family:Georgia,serif;font-style:italic;letter-spacing:-1px}
+.company-logo--motive{font-weight:500;letter-spacing:-1px}
+.company-logo--linea{font-weight:600;letter-spacing:3px;font-size:19px}
+.company-logo--forma{font-weight:500;letter-spacing:-1.5px;font-size:27px}
+.company-logo--cobalt{font-size:19px;letter-spacing:1px}
+.company-motion-toggle{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid #9cabc2;border-radius:10px;background:#fff;color:#46536b;font-size:17px;cursor:pointer;transition:background-color 180ms,border-color 180ms}
+.company-motion-toggle:hover{background:#edf3ff;border-color:#416fc8}
+.company-motion-toggle:focus-visible{outline:3px solid #0c55fc;outline-offset:4px}
+.company-marquee:is(.is-paused,.is-motion-paused) .company-logo-track{animation-play-state:paused}
+@keyframes labs-company-loop{to{transform:translateX(-50%)}}
 #main-content>.template-section{background:#fff}
 #main-content>.offers-section{background:#f2f6ff}
 #main-content>.feature-showcase{background:#fff}
@@ -66,6 +89,15 @@ body .site-footer .footer-brand img{content:url('/assets/rasiolabs-logo.png');fi
 .offer-card .offer-summary{font-size:16px;line-height:1.65;max-width:38ch}
 .feature-tile-copy h3{font-size:24px;line-height:1.2}
 .feature-tile-copy p{font-size:15px;line-height:1.7;max-width:45ch}
+#fitur-layanan .feature-tablist{border-radius:12px;box-shadow:none;background:#f7f9fd;border-color:#dce4f0}
+#fitur-layanan .feature-tab{border-radius:8px;min-height:44px}
+#fitur-layanan .feature-panel .feature-tile{border-radius:18px;border-color:#dde5f2;box-shadow:0 4px 14px #162f5b06;transition:transform 350ms cubic-bezier(.2,.7,.2,1),box-shadow 350ms}
+#fitur-layanan .feature-panel .feature-tile:hover{transform:translateY(-5px);box-shadow:0 12px 24px #164bcc15}
+#fitur-layanan .feature-panel .feature-photo-copy{backdrop-filter:none;background:#fff;box-shadow:0 6px 20px #162f5b15}
+#fitur-layanan .feature-panel .feature-visual{background:#f0f5ff}
+#fitur-layanan .feature-showcase-footer{justify-content:center;margin-top:22px}
+#fitur-layanan .feature-showcase-footer a{background:#0c55fc;border-color:#0c55fc;color:#fff;border-radius:10px;min-height:44px}
+#fitur-layanan .feature-showcase-footer a:hover{background:#1237b0;color:#fff}
 .rasio-ai-story__head{max-width:780px;margin:0 auto 35px}
 .rasio-ai-story__intro{font-size:16px;max-width:620px;margin:20px auto 0;line-height:1.75}
 .rasio-ai-story__grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px;margin:auto;gap:24px}
@@ -98,10 +130,13 @@ body .site-footer .footer-brand img{content:url('/assets/rasiolabs-logo.png');fi
 #main-content>.rasio-ai-story{background:linear-gradient(140deg,#071a43,#10387d)}
 #main-content>.testimonial-section{background:#f4f7fc;border-color:#e4eaf3}
 #main-content .testimonial-section :is(h2,.eyebrow){color:#182747}
+#main-content .testimonial-section .marker{color:#0c55fc;-webkit-text-fill-color:currentColor;background:none}
 #main-content .testimonial-card{background:#fff;border-color:#dce4f0;color:#25314a}
 #main-content .testimonial-card blockquote{color:#25314a}
 #main-content .testimonial-card .testimonial-person strong{color:#182747}
 #main-content .faq-intro{background:transparent;border:0;box-shadow:none;padding-inline:0}
+#main-content .faq-intro .text-link{background:#0c55fc;border-color:#0c55fc;color:#fff}
+#main-content .faq-intro .text-link:is(:hover,:focus-visible){background:#1237b0;border-color:#1237b0;color:#fff}
 #main-content .faq-item{border-radius:14px;box-shadow:0 2px 8px #162f5b05}
 #main-content .process-list{gap:18px}
 #main-content .process-list li:nth-child(n){background:#fff;border:1px solid #dce4f0;box-shadow:none;border-radius:16px}
@@ -129,25 +164,27 @@ body.service-page .board-label{color:#fff}
 #main-content :is(.template-card,.testimonial-card,.blog-card){box-shadow:0 4px 16px #162f5b0b}
 body.service-page :is(.problem-section,.detail-included,.sector-section,.service-order-section){padding-block:48px}
 @media(min-width:1051px){
- body:not(.service-page) #top .hero-grid{width:min(1440px,calc(100% - 80px));grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:56px;padding-block:36px;align-items:center;min-height:calc(100vh - 73px);min-height:calc(100svh - 73px)}
- body:not(.service-page) #top .hero-copy{align-self:center;max-width:600px}
+ body:not(.service-page) #top .hero-grid{width:min(1440px,calc(100% - 80px));grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:40px;padding-block:36px;align-items:center;min-height:calc(100vh - 73px);min-height:calc(100svh - 73px)}
+ body:not(.service-page) #top .hero-copy{align-self:center;max-width:540px}
  #top .hero-copy>.eyebrow{margin-bottom:12px}
- #top .hero-copy h1{font-size:clamp(44px,3.8vw,58px);line-height:1.1;margin:0 0 18px;max-width:600px}
- #top .hero-lede{font-size:17px;line-height:1.6;max-width:560px;margin:0}
+ #top .hero-copy h1{font-size:clamp(44px,3.8vw,56px);line-height:1.1;margin:0 0 18px;max-width:510px}
+ #top .hero-lede{font-size:16px;line-height:1.6;max-width:490px;margin:0}
  #top .hero-slide-measure{position:fixed!important}
  #top .hero-slider-controls{margin:8px 0}
- #top .hero-benefits{margin:0;padding:8px 0}
+ #top .hero-benefits{margin:0;padding:16px 0 0}
  #top .hero-benefit-list{gap:8px 16px}
- #top .hero-benefit-list li{font-size:14px;line-height:1.55}
+ #top .hero-benefit-list li{font-size:12px;line-height:1.55}
  #top .hero-start-price{margin:10px 0 12px}
  #top .hero-start-price [data-hero-price]{font-size:34px}
  #top .hero-actions{margin:0;gap:10px}
- #top .hero-actions>a{min-height:48px;padding:12px 18px}
+ #top .hero-actions>a{min-height:48px;padding:9px 12px 9px 18px}
  #top .response-promise{margin:10px 0 0;font-size:11px;line-height:1.5}
  #top .hero-visual{align-self:center}
  #top .template-stack{height:clamp(460px,59svh,560px)}
  #top .stack-preview{top:40px;left:4%;width:92%;height:calc(100% - 80px)}
  #top .hero-visual-note{padding:8px 0;min-height:32px}
+ #fitur-layanan .feature-panel:not(.feature-panel--store) .feature-tile-copy h3{font-size:17px;line-height:1.25}
+ #fitur-layanan .feature-panel:not(.feature-panel--store) .feature-tile-copy p{font-size:12px;line-height:1.5}
 }
 @media(min-width:1051px) and (max-height:790px){
  body:not(.service-page) #top .hero-grid{padding-block:28px 32px}
@@ -163,6 +200,18 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #top .template-stack{height:430px}
  #top .stack-preview{top:45px;left:5%;width:90%;height:340px}
 }
+@media(max-width:1050px){
+ #fitur-layanan .feature-panel:not([hidden]){height:346px;padding:8px 8px 18px;align-items:start}
+ #fitur-layanan .feature-panel:not([hidden])>.feature-tile:nth-child(n){height:320px;min-height:0}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-tile-copy{margin:0;padding:16px;flex:none}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-tile-copy h3{font-size:17px;line-height:1.3;margin-bottom:7px}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-tile-copy p{font-size:12.5px;line-height:1.5}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-visual{flex:1;height:auto;min-height:146px}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy{padding:14px 16px;background:#fff;box-shadow:none}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy h3{font-size:19px;line-height:1.25;margin:9px 0 7px}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy p{font-size:12.5px;line-height:1.5}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-photo-copy>span{padding:0;border:0;background:transparent;letter-spacing:.04em;font-size:11px}
+}
 @media(min-width:1051px) and (max-height:650px){
  body:not(.service-page) #top .hero-grid{padding-block:20px}
  #top .hero-copy h1{font-size:clamp(36px,3.1vw,40px)}
@@ -170,8 +219,9 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #top .hero-start-price [data-hero-price]{font-size:29px}
  #top .hero-actions>a{min-height:44px;padding:10px 16px}
  #top .template-stack{height:390px}
- #top .hero-benefit-list li{font-size:13px}
+ #top .hero-benefit-list li{font-size:11px}
  #top .hero-copy>.eyebrow{margin-bottom:10px}
+ #top .hero-depth-sphere{width:145px;height:145px}
 }
 @media(max-width:760px){
  #main-content>.template-section,#main-content>.rasio-ai-story{padding-block:46px}
@@ -179,6 +229,11 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #main-content>.process-section,#main-content>.faq-section,#main-content>.testimonial-section{padding-block:40px}
  #main-content .process-list li:nth-child(n){min-height:0;padding:22px}
  #main-content .closing-inner{padding-block:42px}
+ #fitur-layanan .feature-panel:not([hidden])>.feature-tile:nth-child(n){flex-basis:min(84vw,320px)}
+ #fitur-layanan .feature-tablist{width:100%;gap:4px}
+ #fitur-layanan .feature-tab{min-width:0;flex:1;padding:11px 6px;font-size:13px}
+ #fitur-layanan .feature-tab-brand{display:none}
+ #fitur-layanan .feature-panel:not([hidden]) .feature-tile--photo>img{height:136px;min-height:136px;flex:1}
  body.service-page :is(.problem-section,.detail-included,.sector-section,.service-order-section){padding-block:40px}
  body:not(.service-page) #top .hero-grid{grid-template-columns:1fr;gap:32px;padding-block:30px 24px;width:calc(100% - 40px)}
  #top .hero-copy h1{font-size:clamp(34px,7vw,44px)}#top .hero-lede{font-size:16px}
@@ -192,9 +247,17 @@ body.service-page :is(.problem-section,.detail-included,.sector-section,.service
  #top .stack-preview.is-behind-right{transform:translate(8px,15px) rotate(3deg) scale(.95)}
  #top .hero-visual-note{min-height:32px}
  #top .hero-benefit-list{gap:9px}
+ #top .hero-benefit-list li{font-size:13px}
+ #top .hero-depth-sphere{width:110px;height:110px;right:10%;top:-5px}
+ #top .hero-depth-mark{width:40px;height:40px;left:0;bottom:3%}
+ #top .hero-depth-floor{inset-inline:0;height:35%}
+ .company-marquee{width:calc(100% - 40px);padding-block:20px;gap:10px}
+ .company-logo-group{gap:40px;padding-right:40px}
+ .company-logo{font-size:21px}
+ .company-logo--linea,.company-logo--cobalt{font-size:17px}
  #template .template-grid{grid-template-columns:1fr;gap:22px}#template .template-info h3{font-size:21px}
  .rasio-ai-story__grid{grid-template-columns:1fr}.rasio-ai-story__head h2{font-size:34px}
  #main-content .faq-grid{gap:28px}#main-content .faq-intro{padding:0}.service-page .detail-included-grid{gap:28px}
  .template-sector-bar{padding:12px;box-shadow:none}.offer-audience{margin-bottom:18px}
 }
-@media(prefers-reduced-motion:reduce){#top .hero-stack-float{animation:none;will-change:auto}#top .template-stack{transform:none}#top .hero-actions>a{transition:none}}
+@media(prefers-reduced-motion:reduce){#top .hero-stack-float{animation:none;will-change:auto}#top .template-stack{transform:none;transition:none}#top .hero-actions>a{transition:none}.company-logo-track{animation:none;width:100%;min-width:0}.company-logo-group{width:100%;flex-wrap:wrap;justify-content:center;gap:24px;padding:0}.company-logo-group[aria-hidden="true"]{display:none}.company-marquee-window{mask-image:none}.company-motion-toggle{display:none}#fitur-layanan .feature-panel .feature-tile{transition:none}}
