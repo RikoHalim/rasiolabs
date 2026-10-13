@@ -1,0 +1,142 @@
+[
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-architecture",
+    "width": 1366
+  },
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-padel",
+    "width": 1366
+  },
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-creative",
+    "width": 1366
+  },
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-consulting",
+    "width": 1366
+  },
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-hospitality",
+    "width": 1366
+  },
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-catering",
+    "width": 1366
+  },
+  {
+    "images": 0,
+    "left": 55.60000228881836,
+    "overflow": false,
+    "position": "sticky",
+    "radius": "16px",
+    "right": 1295.6000022888184,
+    "top": "12px",
+    "url": "/template-logistics",
+    "width": 1366
+  },
+  {
+    "gap": 7.186378479003906,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-architecture",
+    "width": 390
+  },
+  {
+    "gap": 7.200004577636719,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-padel",
+    "width": 390
+  },
+  {
+    "gap": 7.200004577636719,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-creative",
+    "width": 390
+  },
+  {
+    "gap": 7.200004577636719,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-consulting",
+    "width": 390
+  },
+  {
+    "gap": 7.200000762939453,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-hospitality",
+    "width": 390
+  },
+  {
+    "gap": 7.200000762939453,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-catering",
+    "width": 390
+  },
+  {
+    "gap": 7.200000762939453,
+    "menu": "flex",
+    "menuInView": true,
+    "overflow": false,
+    "radius": "12px",
+    "url": "/template-logistics",
+    "width": 390
+  }
+]

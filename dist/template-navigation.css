@@ -1,0 +1,39 @@
+.profile-template:is(.theme-architecture,.theme-padel,.theme-creative,.theme-consulting,.theme-hospitality,.theme-catering,.theme-logistics) .studio-header {
+  position: sticky;
+  top: 12px;
+  z-index: 60;
+  width: min(1240px, calc(100% - 40px));
+  margin: 16px auto 22px;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgb(15 28 40 / 9%);
+}
+.profile-template .studio-header :is(.header-row,.header-inner) {
+  width: 100%;
+  min-height: 76px;
+  height: auto;
+  padding: 10px 24px;
+  margin: 0;
+}
+.profile-template .studio-header .studio-menu { border-radius: 8px; }
+@media (max-width: 800px) {
+  .profile-template:is(.theme-architecture,.theme-padel,.theme-creative,.theme-consulting,.theme-hospitality,.theme-catering,.theme-logistics) .studio-header {
+    top: 8px;
+    width: calc(100% - 24px);
+    margin: 10px auto 16px;
+    border-radius: 12px;
+  }
+  .profile-template .studio-header :is(.header-row,.header-inner) {
+    min-height: 66px;
+    padding: 9px 16px;
+  }
+  .profile-template .studio-header .studio-nav {
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: auto;
+    border-radius: 12px;
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
+  }
+}

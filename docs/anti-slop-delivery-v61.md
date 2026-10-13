@@ -57,7 +57,7 @@ The owner's earlier request for illustrative statistics in template previews is 
 - C-4 PASS: route-wide narrow/tablet/desktop checks, keyboard contracts, reduced motion, escaped client edits and no-JavaScript contact fallback pass their relevant checks.
 - C-5 PASS with owner override: no new testimonials or performance claims; owner-requested preview figures are not promoted to client evidence.
 - R-05 PASS: portfolio chapters, menus, disclosures, maps, calculators and briefs follow sector tasks rather than one repeated section formula.
-- R-11 PASS: header, photograph, button and field shapes vary by sector and role, not universal pills.
+- R-11 PASS with owner direction: rounded floating headers are explicitly requested on October 13; photo, button and field shapes retain their sector roles.
 - R-15 PASS: actions identify rooms, services, briefs, dates or enquiries; no new generic Get started control.
 - R-16 PASS: added text describes concrete business tasks without AI marketing superlatives.
 - R-20 PASS: typography, photographs, layout and motion remain recognizable as seven different sectors even with the same preview logo.

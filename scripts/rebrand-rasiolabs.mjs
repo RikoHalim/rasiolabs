@@ -38,6 +38,10 @@ for(const entry of await readdir('dist',{withFileTypes:true})){
       if(!source.includes('/profile-pages.js'))source=source.replace('</body>','<script src="/profile-pages.js?v=labs55" defer></script></body>');
       if(!source.includes('/template-motion.js'))source=source.replace('</body>','<script src="/template-motion.js?v=labs55" defer></script></body>');
     }else if(!businessTemplate&&!['admin.html','cms.html','order.html'].includes(entry.name)&&!source.includes('/clean-layout.css'))source=source.replace('</head>','<link rel="stylesheet" href="/clean-layout.css?v=labs55"/></head>');
+    if(fontFamily){
+      source=source.replace(/<link[^>]*href="\/template-navigation\.css[^>]*>/g,'');
+      source=source.replace('</head>','<link rel="stylesheet" href="/template-navigation.css?v=labs61"/></head>');
+    }
     if(entry.name.startsWith('template-')&&!source.includes('data-nojs-contact'))source=source.replace('</head>','<noscript data-nojs-contact><style>[data-enquiry],[data-business-enquiry],[data-volume-calculator],[data-prep-builder],.studio-menu{display:none!important}</style></noscript></head>').replace('<main','<noscript><p style="padding:16px 24px;margin:0;background:#fff;color:#182d38">Use the business contact link in the footer to send an enquiry.</p></noscript><main');
     source=source.replace(/(\/clean-layout\.css\?v=)[^"\s<>]+/g,'$1labs59');
     source=source.replace(/(\/template-modern\.css\?v=)[^"\s<>]+/g,'$1labs61');

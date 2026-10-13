@@ -68,7 +68,7 @@ Depth comes primarily from photography, image crops and section contrast. The Cr
 
 ## Shapes
 
-Architecture uses spatial proportions, Padel court geometry, Creative compositional crops, Consulting decision lines, Hospitality framed views, Catering plate/ingredient compositions, and Logistics cargo routes. Navbar shape remains family-specific, rather than forcing seven capsule headers.
+Architecture uses spatial proportions, Padel court geometry, Creative compositional crops, Consulting decision lines, Hospitality framed views, Catering plate/ingredient compositions, and Logistics cargo routes. Per the owner's October 13 preference, all seven families share a floating rounded-rectangle navbar. Colours and typography remain family-specific. `dist/template-navigation.css` owns its final geometry, mobile dropdown spacing and sticky placement.
 
 ## Components
 
