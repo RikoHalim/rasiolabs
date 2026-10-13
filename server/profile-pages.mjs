@@ -1,3 +1,5 @@
+import {businessTemplates} from './templates/index.mjs';
+import {legacyExpansion} from './templates/legacy-expansion.mjs';
 // Page structure belongs to the selected template; CMS content cannot change routes.
 export const profilePages = {
   Architecture: {'':'Home',studio:'The studio',projects:'Selected spaces',living:'A place to slow down',detail:'Material perspectives',process:'Our process',contact:'Project enquiry'},
@@ -15,8 +17,9 @@ export const hasProfilePage=(template,page='')=>Object.hasOwn(profilePages,templ
 export const profileAsset=(template,page='')=>hasProfilePage(template,page)?'/template-'+template.toLowerCase()+(page?'-'+page:'')+'.html':null;
 export const profileBase=template=>'/template-'+template.toLowerCase();
 export const pageHref=(base,page='')=>base+(page?'/'+page:'');
-export const navigationHref=(template,base,target)=>pageHref(base,targets[template]?.[target]??'');
+export const navigationHref=(template,base,target)=>pageHref(base,target?.startsWith('page:')&&hasProfilePage(template,target.slice(5))?target.slice(5):targets[template]?.[target]??'');
 export function mapLinks(data) {
+  if(!String(data.locationLat??'').trim()||!String(data.locationLon??'').trim())return null;
   const lat=Number(data.locationLat),lon=Number(data.locationLon);
   if(!Number.isFinite(lat)||!Number.isFinite(lon)||Math.abs(lat)>90||Math.abs(lon)>180)return null;
   const bounds=[lon-.015,lat-.01,lon+.015,lat+.01].join(',');
@@ -54,6 +57,9 @@ export const pageDefaults={
   Consulting:{insightTitle:'Choosing your next business priority.',insightLead:'When everything feels urgent, a clearer question can be more useful than a longer to-do list.',insight1:'Start with the decision you need to make. Describe what is happening today, who it affects, and what would look different if the issue were resolved. Separate the evidence from the assumptions before deciding what to change.',insight2:'Follow the work from beginning to end. Where does it wait? Where is ownership unclear? Ask the people doing the work what information they need and which handoffs create repeated questions.',insight3:'Choose one action with a clear owner and an observable result. Agree on what to review and when to review it. A small, well-understood change gives the team a useful basis for deciding what comes next.',workshopImage:'/assets/profile-consulting-workshop.jpg'}
 };
 pageDefaults.Architecture.mosaicImage='/assets/profile-architecture-bathroom-audit.jpg';
+for(const [key,module] of Object.entries(businessTemplates)){
+  profilePages[key]=module.pages;targets[key]=module.targets;pageFields[key]=module.fields;pageDefaults[key]={};
+}
 export const pageAssetPaths=Object.values(pageDefaults).flatMap(values=>Object.values(values).filter(v=>typeof v==='string'&&v.startsWith('/assets/')));
 
 export const profileExpansion={
@@ -221,3 +227,8 @@ for(const [template,statistics] of Object.entries(profileStatistics)){
   pageFields[template].push(statisticsGroup);
 }
 for(const values of Object.values(pageDefaults))for(const value of Object.values(values))if(typeof value==='string'&&value.startsWith('/assets/')&&!pageAssetPaths.includes(value))pageAssetPaths.push(value);
+for(const [template,module] of Object.entries(legacyExpansion)){
+  Object.assign(profilePages[template],module.pages);
+  Object.assign(pageDefaults[template],module.defaults);
+  pageFields[template].push(...module.fields);
+}

@@ -31,10 +31,8 @@
     dialog.addEventListener('close',()=>trigger?.focus());
   }
   document.querySelectorAll('[data-enquiry]').forEach(form=>{
-    const hasPhone=/^\d{8,15}$/.test((form.dataset.whatsapp||'').replace(/\D/g,''));
-    if(!hasPhone&&form.dataset.contactEmail)form.querySelector('[type="submit"]').firstChild.textContent='Continue by email ';
     form.addEventListener('submit',e=>{
-    e.preventDefault();if(!form.reportValidity())return;
+    e.preventDefault();if(!window.RasioTemplateForms.validate(form))return;
     const phone=(form.dataset.whatsapp||'').replace(/\D/g,''),status=form.querySelector('.enquiry-status');
     const data=new FormData(form),details=[...form.querySelectorAll('[data-enquiry-detail]')].map(input=>[input.name,String(data.get(input.name)||'').trim()]).filter(([,value])=>value);
     const emailAddress=String(data.get('email')||'').trim();
@@ -43,11 +41,12 @@
     if(!/^\d{8,15}$/.test(phone)&&!email){status.textContent='Please use the contact details in the footer.';return;}
     const url=/^\d{8,15}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent(message):'mailto:'+encodeURIComponent(email)+'?subject='+encodeURIComponent(form.dataset.kind)+'&body='+encodeURIComponent(message);
     status.replaceChildren();const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent=/^\d{8,15}$/.test(phone)?'Continue in WhatsApp':'Continue by email';status.append(link);
-    window.open(url,'_blank','noopener,noreferrer');
+    link.focus({preventScroll:true});
     });
   });
   const home=document.querySelector('[data-site-page=""]');
-  const briefKey='profile-brief:'+new URL(home?.href||location.href,location.href).pathname;
+  const sitePath=new URL(home?.href||location.href,location.href).pathname.replace(/\/+$/,'')||'/';
+  const briefKey='profile-brief:'+sitePath;
   const keep=brief=>{try{sessionStorage.setItem(briefKey,JSON.stringify(brief));}catch{}};
   const rows=form=>{
     const data=new FormData(form),seen=new Set(),answers=[];
@@ -68,14 +67,18 @@
       status.textContent='';
     };
     form.addEventListener('input',render);form.addEventListener('change',render);
-    form.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;render();status.textContent=rows(form).length?'Brief ready. Continue to enquiry when you’re ready.':'Add your answers to prepare a brief.';});
+    form.addEventListener('submit',event=>{event.preventDefault();if(!window.RasioTemplateForms.validate(form))return;render();status.textContent=rows(form).length?'Brief ready. Continue to enquiry when you’re ready.':'Add your answers to prepare a brief.';});
     scope.querySelector('[data-prep-copy]').addEventListener('click',async()=>{if(!rows(form).length){status.textContent='Add your answers first.';return;}try{await navigator.clipboard.writeText(text());status.textContent='Brief copied.';}catch{status.textContent='Copy is unavailable. Use Download brief.';}});
     scope.querySelector('[data-prep-download]').addEventListener('click',()=>{if(!rows(form).length){status.textContent='Add your answers first.';return;}const url=URL.createObjectURL(new Blob([text()],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download='project-brief.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Brief downloaded.';});
-    scope.querySelector('[data-prep-continue]').addEventListener('click',event=>{if(!form.reportValidity()){event.preventDefault();return;}if(rows(form).length)keep({message:text(),topic:''});});
+    scope.querySelector('[data-prep-continue]').addEventListener('click',event=>{if(!window.RasioTemplateForms.validate(form)){event.preventDefault();return;}if(rows(form).length)keep({message:text(),topic:''});});
   });
-  document.querySelectorAll('[data-site-page="brief"],[data-site-page="contact"],[data-site-page="visit#enquiry"]').forEach(link=>{
+  document.querySelectorAll('[data-enquiry-topic],[data-site-page="brief"],[data-site-page="contact"],[data-site-page="visit#enquiry"]').forEach(link=>{
     if(link.hasAttribute('data-prep-continue'))return;
-    link.addEventListener('click',()=>{const card=link.closest('article,.program-card,.expertise-panels [role="tabpanel"],.portfolio-item');const title=card?.querySelector('h2,h3')?.textContent?.trim();if(title)keep({topic:link.dataset.enquiryTopic||title,message:'I’m interested in '+title+'.'});});
+    link.addEventListener('click',()=>{
+      const card=link.closest('article,.program-card,.expertise-panels [role="tabpanel"],.portfolio-item');
+      const topic=link.dataset.enquiryTopic?.trim()||card?.querySelector('h2,h3')?.textContent?.trim();
+      if(topic)keep({topic,message:'I’m interested in '+topic+'.'});
+    });
   });
   document.querySelectorAll('[data-enquiry]').forEach(form=>{
     let brief;try{brief=JSON.parse(sessionStorage.getItem(briefKey)||'null');}catch{}

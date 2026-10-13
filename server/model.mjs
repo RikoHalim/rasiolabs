@@ -1,5 +1,6 @@
 import {profileTemplates,isProfileTemplate,templateAssets} from './profile-templates.mjs';
-import {pageDefaults,pageFields,pageAssetPaths,mapLinks,profileExpansion} from './profile-pages.mjs';
+import {pageDefaults,pageFields,pageAssetPaths,mapLinks,profileExpansion,profilePages} from './profile-pages.mjs';
+import {businessTemplates,businessContentKeys} from './templates/index.mjs';
 export const durations = [1,12,24,48];
 export const statuses = ['new','materials','building','review','active','cancelled'];
 export const statusLabels = {new:'Pesanan baru',materials:'Menunggu materi',building:'Sedang disiapkan',review:'Siap ditinjau',active:'Website aktif',cancelled:'Dibatalkan'};
@@ -39,13 +40,20 @@ export const defaults={
 };
 export function defaultsFor(template='Architecture') {
   if (!isProfileTemplate(template)) throw new Error('Template tidak tersedia.');
-  return {...defaults,...profileTemplates[template].content,...pageDefaults[template]};
+  return {...defaults,statisticsVisible:false,stat1Value:'',stat2Value:'',stat3Value:'',...profileTemplates[template].content,...pageDefaults[template]};
 }
 export function fieldsFor(template) {
   const labels={Padel:{about:'Tentang klub',work:'Lapangan & klub',services:'Program bermain',process:'Persiapan bermain'},Creative:{work:'Karya studio'},Consulting:{work:'Bidang fokus'}};
   const destinations={Padel:{studio:'Klub',work:'Lokasi klub',services:'Program bermain',process:'Founders',contact:'Kontak klub'},Creative:{work:'Karya studio',services:'Keahlian studio',process:'Project brief',contact:'Project brief'},Consulting:{studio:'Pendekatan',work:'Perspektif',services:'Keahlian',process:'Cara kerja'}};
-  destinations[template]={...destinations[template],extra1:profileExpansion[template].pages[0].label,extra2:profileExpansion[template].pages[1].label};
-  return [...fields.map(g=>({...g,label:labels[template]?.[g.id]||g.label,items:g.items.map(f=>f.type==='select'?{...f,options:f.options.map(option=>({...option,label:destinations[template]?.[option.value]||option.label}))}:f)})),...(pageFields[template]||[])];
+  const module=businessTemplates[template];
+  destinations[template]={...destinations[template],extra1:profileExpansion[template]?.pages[0].label,extra2:profileExpansion[template]?.pages[1].label};
+  if(module)for(const [value,page] of Object.entries(module.targets))destinations[template][value]=module.pages[page.split('#')[0]];
+  const unused={Padel:['work1Title','work1Category','work1Description','work2Title','work2Category','work2Description','work2Image','processTitle','processDescription','process1Title','process1Description','process2Title','process2Description','process3Title','process3Description'],Creative:['processTitle'],Consulting:['workTitle','workDescription','work1Title','work1Category','work1Description','work2Title','work2Category','work2Description','work2Image']};
+  const seen=new Set();
+  return [...fields,...(pageFields[template]||[])].map(g=>({...g,label:module&&g.id==='work'?(template==='Hospitality'?'Kamar & suite':'Koleksi'):labels[template]?.[g.id]||g.label,items:g.items.filter(f=>{
+    if(seen.has(f.key)||unused[template]?.includes(f.key)||module&&g.id!=='navbar'&&!businessContentKeys[template].has(f.key))return false;
+    seen.add(f.key);return true;
+  }).map(f=>f.type==='select'?{...f,options:[...f.options.map(option=>({...option,label:destinations[template]?.[option.value]||option.label})),...Object.entries(profilePages[template]).filter(([page])=>page).map(([page,label])=>({value:'page:'+page,label}))]}:module&&f.key==='navCtaVisible'?{...f,label:'Tampilkan tombol formulir'}:module&&f.key==='navCtaLabel'?{...f,label:'Teks tombol formulir'}:module&&template==='Hospitality'&&/^work[12]/.test(f.key)?{...f,label:f.label.replaceAll('proyek','kamar')}:f)})).filter(g=>g.items.length);
 }
 export const contentWithDefaults=(content,template='Architecture')=>({...defaultsFor(template),...content});
 export function validateOrder(b) {
@@ -79,7 +87,7 @@ export function validateContent(input,template='Architecture') {
   if(!result.businessName||!result.heroTitle)throw new Error('Nama bisnis dan judul utama wajib diisi.');
   if(result.whatsapp&&(!/^[+\d\s().-]+$/.test(result.whatsapp)||!/^\d{8,15}$/.test(result.whatsapp.replace(/\D/g,''))))throw new Error('Nomor WhatsApp tidak valid.');
   if(result.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result.email))throw new Error('Email tidak valid.');
-  if(template==='Padel'&&(!result.locationLat||!result.locationLon||!mapLinks(result)))throw new Error('Koordinat lokasi tidak valid.');
+  if(Object.hasOwn(result,'locationLat')&&(!result.locationLat||!result.locationLon||!mapLinks(result)))throw new Error('Koordinat lokasi tidak valid.');
   return result;
 }
 export function imageMime(bytes) {

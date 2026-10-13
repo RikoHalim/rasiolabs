@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+ok 1 - the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+  ---
+  duration_ms: 9.5712
+  type: 'test'
+  ...
+# Subtest: the actual brief tool handles empty answers, clipboard failure and invalid continuation
+ok 2 - the actual brief tool handles empty answers, clipboard failure and invalid continuation
+  ---
+  duration_ms: 1.9115
+  type: 'test'
+  ...
+# Subtest: the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+ok 3 - the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+  ---
+  duration_ms: 3.2921
+  type: 'test'
+  ...
+# Subtest: the real shared validator associates inline errors, focuses the first error and preserves answers
+ok 4 - the real shared validator associates inline errors, focuses the first error and preserves answers
+  ---
+  duration_ms: 10.9437
+  type: 'test'
+  ...
+# Subtest: the actual business enquiry script reviews values and prepares only an explicitly chosen client contact
+ok 5 - the actual business enquiry script reviews values and prepares only an explicitly chosen client contact
+  ---
+  duration_ms: 2.8568
+  type: 'test'
+  ...
+# Subtest: the actual business enquiry script rejects a non-increasing stay and supports one-time topic handoff
+ok 6 - the actual business enquiry script rejects a non-increasing stay and supports one-time topic handoff
+  ---
+  duration_ms: 1.2089
+  type: 'test'
+  ...
+# Subtest: the actual cargo calculator and checklist provide useful results and recovery without a service quote
+ok 7 - the actual cargo calculator and checklist provide useful results and recovery without a service quote
+  ---
+  duration_ms: 4.1638
+  type: 'test'
+  ...
+# Subtest: stay dates and email contact URLs reject malformed data and preserve real addresses
+ok 8 - stay dates and email contact URLs reject malformed data and preserve real addresses
+  ---
+  duration_ms: 0.3244
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1552.8996

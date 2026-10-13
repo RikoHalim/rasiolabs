@@ -1,0 +1,203 @@
+TAP version 13
+# Subtest: cargo calculator converts cm dimensions to cubic metres across packages
+ok 1 - cargo calculator converts cm dimensions to cubic metres across packages
+  ---
+  duration_ms: 1.1378
+  type: 'test'
+  ...
+# Subtest: business enquiries use only the actual client contact and URL-encode the brief
+ok 2 - business enquiries use only the actual client contact and URL-encode the brief
+  ---
+  duration_ms: 0.4869
+  type: 'test'
+  ...
+# Subtest: a hotel departure must be later than arrival
+ok 3 - a hotel departure must be later than arrival
+  ---
+  duration_ms: 0.5619
+  type: 'test'
+  ...
+# Subtest: generated template and client renderer contracts
+    # Subtest: every registered template page has real content, valid links, fragments, and loaded assets
+    ok 1 - every registered template page has real content, valid links, fragments, and loaded assets
+      ---
+      duration_ms: 568.517
+      type: 'test'
+      ...
+    # Subtest: navbar defaults and every CMS-approved destination resolve to real client content
+    ok 2 - navbar defaults and every CMS-approved destination resolve to real client content
+      ---
+      duration_ms: 12.2081
+      type: 'test'
+      ...
+    # Subtest: CMS-approved page navigation is validated and rendered under the client website base
+    ok 3 - CMS-approved page navigation is validated and rendered under the client website base
+      ---
+      duration_ms: 681.5217
+      type: 'test'
+      ...
+    # Subtest: forms, filters, tabs, galleries and preparation tools expose usable hooks and feedback
+    ok 4 - forms, filters, tabs, galleries and preparation tools expose usable hooks and feedback
+      ---
+      duration_ms: 24.7439
+      type: 'test'
+      ...
+    # Subtest: every registered page is reachable through the family navigation or visitor journey
+    ok 5 - every registered page is reachable through the family navigation or visitor journey
+      ---
+      duration_ms: 12.2536
+      type: 'test'
+      ...
+    # Subtest: template families use distinct photography rather than recycling another sector imagery
+    ok 6 - template families use distinct photography rather than recycling another sector imagery
+      ---
+      duration_ms: 1.8401
+      type: 'test'
+      ...
+    # Subtest: client renderer rewrites all page links, navbar, contact and CMS values for every template page
+    ok 7 - client renderer rewrites all page links, navbar, contact and CMS values for every template page
+      ---
+      duration_ms: 945.8551
+      type: 'test'
+      ...
+    # Subtest: CMS only offers content fields that affect a rendered client page
+    ok 8 - CMS only offers content fields that affect a rendered client page
+      ---
+      duration_ms: 17.5113
+      type: 'test'
+      ...
+    # Subtest: editable location coordinates reject malformed values for all map-based templates
+    ok 9 - editable location coordinates reject malformed values for all map-based templates
+      ---
+      duration_ms: 2.2984
+      type: 'test'
+      ...
+    # Subtest: historical unused fields do not prevent a client from editing supported content
+    ok 10 - historical unused fields do not prevent a client from editing supported content
+      ---
+      duration_ms: 1.2579
+      type: 'test'
+      ...
+    # Subtest: renamed client rooms, menus and services stay consistent in enquiry links and topic choices
+    ok 11 - renamed client rooms, menus and services stay consistent in enquiry links and topic choices
+      ---
+      duration_ms: 506.5466
+      type: 'test'
+      ...
+    # Subtest: renamed hotel rooms appear in detail metadata, footer labels and other-room links
+    ok 12 - renamed hotel rooms appear in detail metadata, footer labels and other-room links
+      ---
+      duration_ms: 15.9292
+      type: 'test'
+      ...
+    1..12
+ok 4 - generated template and client renderer contracts
+  ---
+  duration_ms: 2919.7854
+  type: 'suite'
+  ...
+# Subtest: actual navigation script opens the mobile menu and closes on Escape or chosen links
+ok 5 - actual navigation script opens the mobile menu and closes on Escape or chosen links
+  ---
+  duration_ms: 2.3064
+  type: 'test'
+  ...
+# Subtest: actual filter and tab script selects matching content and supports keyboard navigation
+ok 6 - actual filter and tab script selects matching content and supports keyboard navigation
+  ---
+  duration_ms: 3.065
+  type: 'test'
+  ...
+# Subtest: actual gallery script changes photographs, wraps navigation, and restores trigger focus
+ok 7 - actual gallery script changes photographs, wraps navigation, and restores trigger focus
+  ---
+  duration_ms: 0.9404
+  type: 'test'
+  ...
+# Subtest: actual enquiry script validates and prepares an explicit client contact link without automatically sending
+ok 8 - actual enquiry script validates and prepares an explicit client contact link without automatically sending
+  ---
+  duration_ms: 2.464
+  type: 'test'
+  ...
+# Subtest: an enquiry link keeps its chosen room, menu or service on the client enquiry page
+ok 9 - an enquiry link keeps its chosen room, menu or service on the client enquiry page
+  ---
+  duration_ms: 1.565
+  type: 'test'
+  ...
+# Subtest: the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+ok 10 - the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+  ---
+  duration_ms: 2.5252
+  type: 'test'
+  ...
+# Subtest: the actual brief tool handles empty answers, clipboard failure and invalid continuation
+ok 11 - the actual brief tool handles empty answers, clipboard failure and invalid continuation
+  ---
+  duration_ms: 1.2099
+  type: 'test'
+  ...
+# Subtest: the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+ok 12 - the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+  ---
+  duration_ms: 2.5832
+  type: 'test'
+  ...
+# Subtest: the actual business motion script keeps first-paint content static while retaining camera pan and respecting reduced motion
+ok 13 - the actual business motion script keeps first-paint content static while retaining camera pan and respecting reduced motion
+  ---
+  duration_ms: 4.7309
+  type: 'test'
+  ...
+# Subtest: the real shared validator associates inline errors, focuses the first error and preserves answers
+ok 14 - the real shared validator associates inline errors, focuses the first error and preserves answers
+  ---
+  duration_ms: 1.9552
+  type: 'test'
+  ...
+# Subtest: the actual business enquiry script reviews values and prepares only an explicitly chosen client contact
+ok 15 - the actual business enquiry script reviews values and prepares only an explicitly chosen client contact
+  ---
+  duration_ms: 2.815
+  type: 'test'
+  ...
+# Subtest: the actual business enquiry script rejects a non-increasing stay and supports one-time topic handoff
+ok 16 - the actual business enquiry script rejects a non-increasing stay and supports one-time topic handoff
+  ---
+  duration_ms: 1.2887
+  type: 'test'
+  ...
+# Subtest: the actual business topic selector removes duplicate values while preserving selection and distinct client offerings
+ok 17 - the actual business topic selector removes duplicate values while preserving selection and distinct client offerings
+  ---
+  duration_ms: 1.5773
+  type: 'test'
+  ...
+# Subtest: the actual cargo calculator and checklist provide useful results and recovery without a service quote
+ok 18 - the actual cargo calculator and checklist provide useful results and recovery without a service quote
+  ---
+  duration_ms: 4.1575
+  type: 'test'
+  ...
+# Subtest: stay dates and email contact URLs reject malformed data and preserve real addresses
+ok 19 - stay dates and email contact URLs reject malformed data and preserve real addresses
+  ---
+  duration_ms: 0.2425
+  type: 'test'
+  ...
+# Subtest: Logistics home and service catalogue take each offering to its own usable detail page
+ok 20 - Logistics home and service catalogue take each offering to its own usable detail page
+  ---
+  duration_ms: 0.734
+  type: 'test'
+  ...
+1..20
+# tests 31
+# suites 1
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4690.7661

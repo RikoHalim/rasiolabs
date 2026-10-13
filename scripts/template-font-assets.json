@@ -1,0 +1,128 @@
+{
+  "DM Serif Display": [
+    {
+      "asset": "/assets/fonts/dm-serif-display-0.woff2",
+      "weight": "400",
+      "style": "italic"
+    },
+    {
+      "asset": "/assets/fonts/dm-serif-display-1.woff2",
+      "weight": "400",
+      "style": "normal"
+    }
+  ],
+  "Manrope": [
+    {
+      "asset": "/assets/fonts/manrope-0.woff2",
+      "weight": "400 700",
+      "style": "normal"
+    }
+  ],
+  "Barlow": [
+    {
+      "asset": "/assets/fonts/barlow-0.woff2",
+      "weight": "400",
+      "style": "normal"
+    },
+    {
+      "asset": "/assets/fonts/barlow-1.woff2",
+      "weight": "500",
+      "style": "normal"
+    },
+    {
+      "asset": "/assets/fonts/barlow-2.woff2",
+      "weight": "600",
+      "style": "normal"
+    },
+    {
+      "asset": "/assets/fonts/barlow-3.woff2",
+      "weight": "700",
+      "style": "normal"
+    }
+  ],
+  "Barlow Condensed": [
+    {
+      "asset": "/assets/fonts/barlow-condensed-0.woff2",
+      "weight": "600",
+      "style": "normal"
+    },
+    {
+      "asset": "/assets/fonts/barlow-condensed-1.woff2",
+      "weight": "700",
+      "style": "normal"
+    },
+    {
+      "asset": "/assets/fonts/barlow-condensed-2.woff2",
+      "weight": "800",
+      "style": "normal"
+    }
+  ],
+  "Space Grotesk": [
+    {
+      "asset": "/assets/fonts/space-grotesk-0.woff2",
+      "weight": "400 700",
+      "style": "normal"
+    }
+  ],
+  "Work Sans": [
+    {
+      "asset": "/assets/fonts/work-sans-0.woff2",
+      "weight": "400 600",
+      "style": "normal"
+    }
+  ],
+  "Plus Jakarta Sans": [
+    {
+      "asset": "/assets/fonts/plus-jakarta-sans-0.woff2",
+      "weight": "400 700",
+      "style": "normal"
+    }
+  ],
+  "Fraunces": [
+    {
+      "asset": "/assets/fonts/fraunces-0.woff2",
+      "weight": "400 500",
+      "style": "normal"
+    }
+  ],
+  "DM Sans": [
+    {
+      "asset": "/assets/fonts/dm-sans-0.woff2",
+      "weight": "400 600",
+      "style": "normal"
+    }
+  ],
+  "Newsreader": [
+    {
+      "asset": "/assets/fonts/newsreader-0.woff2",
+      "weight": "400 500",
+      "style": "italic"
+    },
+    {
+      "asset": "/assets/fonts/newsreader-1.woff2",
+      "weight": "400 600",
+      "style": "normal"
+    }
+  ],
+  "Hanken Grotesk": [
+    {
+      "asset": "/assets/fonts/hanken-grotesk-0.woff2",
+      "weight": "400 700",
+      "style": "normal"
+    }
+  ],
+  "Archivo": [
+    {
+      "asset": "/assets/fonts/archivo-0.woff2",
+      "weight": "400 700",
+      "style": "normal"
+    }
+  ],
+  "Archivo Narrow": [
+    {
+      "asset": "/assets/fonts/archivo-narrow-0.woff2",
+      "weight": "600 700",
+      "style": "normal"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "sourceRoots": ["server", "scripts"],
+  "verificationCommands": ["npm run build", "npm test"],
+  "register": "marketing",
+  "notes": "Template UI is owned in dist and generated from source modules. Generated dist/client, dist/server and .wrangler bundles are excluded from this static source audit. Project-owned runtime/route/CMS tests and browser layout checks cover the actual rendered UI."
+}

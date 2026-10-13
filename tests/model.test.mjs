@@ -63,13 +63,15 @@ test('CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tid
 });
 
 test('template Profile memakai konten dan menu sendiri tanpa mengubah harga', () => {
-  assert.deepEqual(Object.keys(profileTemplates), ['Architecture', 'Padel', 'Creative', 'Consulting']);
+  assert.deepEqual(Object.keys(profileTemplates), ['Architecture', 'Padel', 'Creative', 'Consulting','Hospitality','Catering','Logistics']);
   for (const template of Object.keys(profileTemplates)) {
     const order = validateOrder({ ...checkout, template });
     assert.equal(order.template, template);
     assert.deepEqual(pricing(order.duration), pricing(checkout.duration));
     const content = defaultsFor(template);
-    assert.deepEqual(validateContent(content, template), content);
+    const editable=validateContent(content,template);
+    for(const [key,value] of Object.entries(editable))assert.deepEqual(value,content[key]);
+    assert.equal(editable.heroTitle,content.heroTitle);
     const legacy = { ...content, heroTitle: 'Konten milik klien' };
     for (const key of Object.keys(legacy)) if (key.startsWith('nav')) delete legacy[key];
     assert.equal(contentWithDefaults(legacy, template).nav1Label, content.nav1Label);

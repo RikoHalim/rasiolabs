@@ -3,6 +3,7 @@ import {defaultsFor} from '../server/model.mjs';
 import {profileTemplates} from '../server/profile-templates.mjs';
 import {profilePages,profileAsset,profileBase,pageHref,navigationHref,mapLinks,profileExpansion,statisticsPreviewFor} from '../server/profile-pages.mjs';
 import {templateFonts,modernHome} from './profile-modern-design.mjs';
+import {legacyExpansion,renderLegacyPages,legacyOwningLinks} from '../server/templates/legacy-expansion.mjs';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fonts=templateFonts;
 const preparation={
@@ -16,11 +17,15 @@ const preparation={
   'operations-review':{title:'Map your operations question',fields:[['Workflow to review','text'],['Where does work get delayed?','textarea'],['People or teams involved','text'],['Improvement to explore','textarea']]},
   priorities:{title:'Turn a priority into an action',fields:[['Next action','textarea'],['Person responsible','text'],['Review point','text']]},
 };
+for(const family of Object.values(legacyExpansion))Object.assign(preparation,family.preparation);
 for(const template of Object.keys(profilePages)) {
-  const d={...defaultsFor(template),...statisticsPreviewFor(template)},base=profileBase(template),pages=profilePages[template];
+  if(!templateFonts[template])continue;
+  const d={...defaultsFor(template),...legacyExpansion[template]?.defaults,...statisticsPreviewFor(template)},base=profileBase(template),pages={...profilePages[template],...legacyExpansion[template]?.pages};
   const t=(key,tag='span',attrs='')=>'<'+tag+' data-cms-field="'+key+'" '+attrs+'>'+esc(d[key])+'</'+tag+'>';
   const pic=(key,alt,attrs='')=>'<img data-cms-image="'+key+'" src="'+esc(d[key])+'" alt="'+esc(alt)+'" width="1400" height="1000" '+attrs+'/>';
-  const link=(page,label,cls='text-link',topic='')=>'<a class="'+cls+'" data-site-page="'+page+'" '+(topic?'data-enquiry-topic="'+esc(topic)+'" ':'')+'href="'+pageHref(base,page)+'">'+label+' <span aria-hidden="true">↗</span></a>';
+  const topicAliases={Padel:['Court session','Coaching','Social play'],Creative:['Brand direction','Visual identity','Website design'],Consulting:['Business strategy','Operations','Change & growth']};
+  const topicKey=topic=>{if(Object.hasOwn(d,topic)&&/Title$/.test(topic))return topic;const index=(topicAliases[template]||[]).indexOf(topic);return index>=0?'service'+(index+1)+'Title':[1,2,3].map(n=>'service'+n+'Title').find(key=>d[key]===topic)||'';};
+  const link=(page,label,cls='text-link',topic='')=>{const key=topicKey(topic);return '<a class="'+cls+'" data-site-page="'+page+'" '+(topic?'data-enquiry-topic="'+esc(key?d[key]:topic)+'" '+(key?'data-cms-topic-key="'+key+'" ':''):'')+'href="'+pageHref(base,page)+'">'+label+' <span aria-hidden="true">↗</span></a>';};
   const section=(content,cls='')=>'<section class="page-section '+cls+'"><div class="container">'+content+'</div></section>';
   const heading=(title,label,desc='')=>'<div class="page-heading"><p class="eyebrow">'+label+'</p><h1>'+title+'</h1>'+(desc?'<p class="page-lead">'+desc+'</p>':'')+'</div>';
   const cta=()=>'<section class="contact-section container" id="contact">'+t('contactTitle','h2')+'<a class="contact-button" href="https://wa.me/60142317052">'+esc(d.contactLabel)+'</a></section>';
@@ -32,7 +37,7 @@ for(const template of Object.keys(profilePages)) {
     Creative:[['Company or brand','text'],['Target launch date','date'],['Budget range','text']],
     Consulting:[['Company','text'],['Your role','text'],['Desired start','text']]
   };
-  const enquiry=(kind,options)=>'<form class="enquiry-form" data-enquiry data-kind="'+kind+'" data-whatsapp="60142317052"><div class="form-two"><label>Your name<input name="name" autocomplete="name" maxlength="90" required/></label><label>Email (optional)<input name="email" type="email" autocomplete="email" maxlength="150"/></label></div><fieldset><legend>'+kind+'</legend><div class="choice-grid">'+options.map((x,i)=>'<label class="choice"><input type="radio" name="topic" value="'+x+'" '+(i===0?'checked':'')+'/>'+x+'</label>').join('')+'</div></fieldset><div class="enquiry-detail-row">'+enquiryFields[template].map(([label,type])=>'<label>'+label+'<input data-enquiry-detail name="'+esc(label)+'" type="'+type+'" '+(type==='number'?'min="1" max="500"':'maxlength="160"')+'/></label>').join('')+'</div><label>Tell us a little more<textarea name="message" rows="4" maxlength="6000" required></textarea></label><button class="action" type="submit">Open WhatsApp <span aria-hidden="true">↗</span></button><p class="enquiry-status" role="status"></p><noscript><p>Use the contact link in the footer to send your enquiry.</p></noscript></form>';
+  const enquiry=(kind)=>'<form class="enquiry-form" data-enquiry data-kind="'+kind+'" data-whatsapp="60142317052"><div class="form-two"><label>Your name<input name="name" autocomplete="name" maxlength="90" required/></label><label>Email (optional)<input name="email" type="email" autocomplete="email" maxlength="150"/></label></div><fieldset><legend>'+kind+'</legend><div class="choice-grid">'+[1,2,3].map((n,i)=>'<label class="choice"><input type="radio" name="topic" data-cms-topic-key="service'+n+'Title" value="'+esc(d['service'+n+'Title'])+'" '+(i===0?'checked':'')+'/>'+t('service'+n+'Title')+'</label>').join('')+'</div></fieldset><div class="enquiry-detail-row">'+enquiryFields[template].map(([label,type])=>'<label>'+label+'<input data-enquiry-detail name="'+esc(label)+'" type="'+type+'" '+(type==='number'?'min="1" max="500" step="1"':'maxlength="160"')+'/></label>').join('')+'</div><label>Tell us a little more<textarea name="message" rows="4" maxlength="6000" required></textarea></label><button class="action" type="submit">Review enquiry</button><p class="enquiry-status" role="status"></p><noscript><p>Use the contact link in the footer to send your enquiry.</p></noscript></form>';
   const gallery=(keys,labels)=>'<div class="photo-gallery">'+keys.map((k,i)=>'<button class="gallery-open" type="button" aria-label="Open '+esc(labels[i])+'" data-gallery-image>'+pic(k,labels[i],'loading="lazy"')+'<span>'+labels[i]+' ↗</span></button>').join('')+'</div>';
   const filter=(label,options)=>'<div class="filter-bar" role="group" aria-label="'+label+'">'+options.map((o,i)=>'<button type="button" data-filter="'+o[0]+'" aria-pressed="'+(i===0)+'">'+o[1]+'</button>').join('')+'</div>';
   const workCard=(n,page,category)=>'<article class="portfolio-item" data-category="'+category+'"><a data-site-page="'+page+'" href="'+pageHref(base,page)+'"><figure>'+pic('work'+n+'Image',d['work'+n+'Title'],'loading="lazy"')+'<span class="photo-link">Explore ↗</span></figure><div class="portfolio-caption">'+t('work'+n+'Category','p','class="eyebrow"')+t('work'+n+'Title','h2')+'</div></a></article>';
@@ -122,6 +127,8 @@ for(const template of Object.keys(profilePages)) {
     bodies[p.slug]=bodies[p.slug].slice(0,end)+prep(p.slug,p.label,target)+bodies[p.slug].slice(end);
   }
   if(template==='Consulting')bodies.priorities+=prep('priorities','Business priorities','contact');
+  Object.assign(bodies,renderLegacyPages(template,{t,pic,link,section,heading,prep,tabs}));
+  for(const page of Object.keys(bodies))bodies[page]+=legacyOwningLinks(template,page,{link,section});
   const homeItems=(prefix,cls='home-note')=>[1,2,3].map(n=>'<article class="'+cls+'"><span class="home-step" aria-hidden="true">0'+n+'</span>'+t(prefix+'Item'+n+'Title','h3')+t(prefix+'Item'+n+'Body','p')+'</article>').join('');
   const homeHeading=prefix=>t(prefix+'Title','h2')+t(prefix+'Lead','p','class="home-section-lead"');
   const homeLink=(prefix,page)=>link(page,t(prefix+'Link'),'action');
@@ -147,7 +154,11 @@ for(const template of Object.keys(profilePages)) {
     const pageLinks=Object.entries(pages).filter(([key])=>key).map(([key,label])=>link(key,esc(label),'footer-page')).join('');
     return '<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>'+esc(pages[page]+' | '+d.businessName)+'</title><meta name="description" content="'+esc(d.heroDescription)+'"/><link rel="icon" href="/favicon.svg"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family='+fonts[template]+'&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/profile-templates.css?v=48"/><link rel="stylesheet" href="/profile-pages.css?v=48"/></head><body class="profile-template template-subpage theme-'+template.toLowerCase()+' page-'+page+'"><a class="skip" href="#main">Skip to content</a><div class="template-access"><a href="/#template">← Koleksi template</a><a href="/order?type=profile&amp;template='+template+'">Gunakan template</a></div><header class="studio-header"><div class="container header-row"><a class="studio-logo" data-site-page="" href="'+base+'"><img data-cms-image="logo" src="/assets/rasiolabs-logo.png" alt="Rasio Labs" width="128" height="50"/></a><button class="studio-menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="studio-nav"><span></span><span></span></button><nav class="studio-nav" id="studio-nav" aria-label="Main navigation">'+nav+'<a data-cms-nav-cta class="nav-contact" href="https://wa.me/60142317052">'+esc(d.navCtaLabel)+'</a></nav></div></header><main id="main">'+body+cta()+'</main><footer class="template-footer"><div class="container footer-main"><a class="studio-logo" data-site-page="" href="'+base+'">'+pic('logo','Rasio Labs')+'</a>'+t('businessName','p')+'<a class="footer-whatsapp" href="https://wa.me/60142317052" target="_blank" rel="noopener">+60142317052</a></div><div class="container footer-page-nav">'+pageLinks+'</div><div class="container footer-bottom"><span data-cms-copyright>© '+new Date().getUTCFullYear()+' '+esc(d.businessName)+'</span>'+link('','Home','footer-page')+'</div></footer><dialog class="gallery-dialog" aria-label="Photo viewer"><button class="gallery-close" type="button" aria-label="Close photo">Close ×</button><img alt=""/><p></p><div class="gallery-controls"><button type="button" data-gallery-prev aria-label="Previous photo">←</button><span data-gallery-count></span><button type="button" data-gallery-next aria-label="Next photo">→</button></div></dialog><script src="/profile-templates.js?v=48" defer></script><script src="/profile-pages.js?v=48" defer></script></body></html>';
   };
-  for(const [page,body] of Object.entries(bodies))await writeFile('dist'+profileAsset(template,page),wrapper(page,body));
+  for(const [page,body] of Object.entries(bodies)){
+    const asset=profileAsset(template,page)||'/template-'+template.toLowerCase()+'-'+page+'.html';
+    const html=wrapper(page,body).replace('</head>','<link rel="stylesheet" href="/template-legacy-expansion.css?v=labs61"/></head>').replace('<script src="/profile-pages.js','<script src="/template-validation.js?v=labs61" defer></script><script src="/profile-pages.js');
+    await writeFile('dist'+asset,html);
+  }
   // Retain each established hero, then give its homepage a sector-specific structure.
   const homeFile='dist'+profileAsset(template);
   let source=await readFile(homeFile,'utf8');
@@ -173,6 +184,8 @@ for(const template of Object.keys(profilePages)) {
     if(!source.includes('data-project-story'))source=source.replace('<span>01</span></div></article>','<span>01</span></div><a data-project-story data-site-page="living" class="text-link" href="'+base+'/living">Explore the project ↗</a></article>').replace('<span>02</span></div></article>','<span>02</span></div><a data-project-story data-site-page="detail" class="text-link" href="'+base+'/detail">Explore the project ↗</a></article>');
   }
   if(!source.includes('/profile-pages.css'))source=source.replace('</head>','<link rel="stylesheet" href="/profile-pages.css?v=48"/></head>');
+  if(!source.includes('/template-legacy-expansion.css'))source=source.replace('</head>','<link rel="stylesheet" href="/template-legacy-expansion.css?v=labs61"/></head>');
+  if(!source.includes('/template-validation.js'))source=source.replace('<script src="/profile-pages.js','<script src="/template-validation.js?v=labs61" defer></script><script src="/profile-pages.js');
   source=source.replace('/profile-templates.js?v=47','/profile-templates.js?v=48').replace('/profile-templates.css?v=47','/profile-templates.css?v=48');
   await writeFile(homeFile,source);
 }

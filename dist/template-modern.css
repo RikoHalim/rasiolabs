@@ -46,7 +46,7 @@
 .modern-hero--padel{min-height:540px;display:flex;align-items:center;padding:48px 48px 100px;border-radius:28px;overflow:hidden;color:#fff;isolation:isolate}
 .modern-hero--padel .modern-hero-photo{position:absolute;inset:0;border-radius:0;z-index:-2}
 .modern-hero--padel .modern-hero-photo img{object-position:50% 60%}
-.modern-hero--padel:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#072319d9 0%,#07231999 47%,#07231905 100%);z-index:-1}
+.modern-hero--padel:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#072319e6 0%,#072319bf 58%,#07231905 100%);z-index:-1}
 .modern-hero--padel .modern-hero-copy{max-width:560px}
 .modern-hero--padel h1{font-size:clamp(74px,8.2vw,112px);font-weight:700;line-height:.94;letter-spacing:-.025em}
 .modern-hero--padel :is(.eyebrow,.modern-hero-description){color:#fff}
@@ -318,6 +318,7 @@
 .profile-template.theme-creative :is(.modern-work,.dark-section) :is(.text-link,.back-link):hover{color:#bcf45b}
 .profile-template .dark-section .text-link:hover{color:#fff}
 @media(max-width:1050px){
+ .modern-hero--padel:after{background:linear-gradient(90deg,#072319e6,#072319bf)}
  .profile-template .container{width:calc(100% - 48px)}
  .profile-template .studio-nav{gap:16px}.profile-template .studio-nav .nav-contact{padding-inline:14px}
  .profile-template .studio-logo img{width:125px}
@@ -468,3 +469,10 @@
  .profile-template :is(.ticker-track,.creative-orbit,.consulting-hero-note){animation:none}
  .profile-template *{scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
+.template-field-error{display:block;min-height:18px;font-size:12px;line-height:1.5;color:#a32323;letter-spacing:normal;text-transform:none}
+.template-field-error:not(:empty){background:#fff}
+[aria-invalid=true]{border-color:#a32323!important}
+html{scrollbar-color:#65717d #edf0f2;scrollbar-width:auto;scrollbar-gutter:stable}
+::-webkit-scrollbar{width:12px;height:12px}::-webkit-scrollbar-track{background:#edf0f2}::-webkit-scrollbar-thumb{background:#65717d;border:3px solid #edf0f2;border-radius:8px}::-webkit-scrollbar-thumb:hover{background:#394956}::-webkit-scrollbar-thumb:active{background:#182d38}
+@media(forced-colors:active){html{scrollbar-color:auto}}
+.profile-template :is([data-enquiry],[data-prep-builder]) textarea{resize:none;min-height:144px}

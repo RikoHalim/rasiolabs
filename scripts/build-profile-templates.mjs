@@ -5,6 +5,7 @@ import {profileBase,pageHref,navigationHref} from '../server/profile-pages.mjs';
 import {templateFonts,modernHero} from './profile-modern-design.mjs';
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 for(const key of Object.keys(profileTemplates)) {
+  if(!templateFonts[key])continue;
   const def=profileTemplates[key],d=defaultsFor(key),theme=key.toLowerCase(),base=profileBase(key);
   const text=(key,tag='span',attrs='')=>`<${tag} data-cms-field="${key}" ${attrs}>${esc(d[key])}</${tag}>`;
   const photo=(key,alt,attrs='')=>`<img data-cms-image="${key}" src="${esc(d[key])}" alt="${esc(alt)}" width="1400" height="1000" ${attrs}/>`;

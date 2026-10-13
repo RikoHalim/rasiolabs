@@ -1,3 +1,4 @@
+import {businessTemplates} from './templates/index.mjs';
 // Registered Profile layouts. The stored order key controls rendering, never client content.
 export const profileTemplates = {
   Architecture: {title:'Architecture Studio — Designed for Better Living', path:'/template-architecture.html', sector:'architecture', label:'Arsitektur & Interior', content:{}},
@@ -12,7 +13,7 @@ export const profileTemplates = {
   }},
   Creative: {title:'Creative Studio — Ideas Made Visible', path:'/template-creative.html', sector:'creative', label:'Studio Kreatif & Branding', content:{
     businessName:'Rasio Labs Creative Studio',tagline:'Independent design & brand studio',
-    nav1Label:'Selected work',nav1Target:'work',nav2Label:'The studio',nav2Target:'studio',nav3Label:'What we do',nav3Target:'services',nav4Label:'Our approach',nav4Target:'process',navCtaLabel:'Start a project',
+    nav1Label:'Selected work',nav1Target:'work',nav2Label:'The studio',nav2Target:'studio',nav3Label:'What we do',nav3Target:'services',nav4Label:'Project brief',nav4Target:'process',navCtaLabel:'Start a project',
     heroTitle:'Good ideas.\nMade visible.',heroDescription:'We turn the things that make your business different into a brand people can recognise, understand, and remember.',heroImage:'/assets/profile-creative-hero.jpg',heroNote:'A fresh perspective, thoughtfully brought to life.',
     aboutTitle:'A small studio.\nA considered point of view.',aboutLead:'We work with people who care about what they are building. Our job is to understand that ambition and give it a clear visual direction.',aboutBody:'From an early idea to the details that bring a launch together, we keep the conversation open and the design purposeful. Every decision should make the brand feel more like itself.',
     workTitle:'Ideas in good company.',workDescription:'An introduction to the kind of work we can create together.',work1Title:'A distinct identity.',work1Category:'Brand strategy & visual identity',work1Description:'A shared direction for the way a business looks, speaks, and presents itself. Start with the story, then carry it through the details.',work1Image:'/assets/profile-creative-detail.jpg',work2Title:'A clearer experience.',work2Category:'Digital design & direction',work2Description:'Thoughtful design that helps people understand the offering and find their next step.',work2Image:'/assets/profile-creative-print-review-audit.jpg',
@@ -29,5 +30,6 @@ export const profileTemplates = {
     processTitle:'A clear process.\nA shared direction.',processDescription:'From understanding the challenge to agreeing on the next steps.',process1Title:'Understand',process1Description:'We listen to the context, gather the right information, and define the challenge together.',process2Title:'Plan',process2Description:'We identify priorities and agree on a practical direction with your team.',process3Title:'Move forward',process3Description:'We support the agreed next steps and review progress along the way.',contactTitle:'Let’s talk about\nyour next step.',contactLabel:'Arrange a conversation'
   }}
 };
+Object.assign(profileTemplates,Object.fromEntries(Object.entries(businessTemplates).map(([key,module])=>[key,module.definition])));
 export const isProfileTemplate = key => typeof key === 'string' && Object.hasOwn(profileTemplates, key);
-export const templateAssets = new Set(['/assets/rasiolabs-logo.png','/assets/rasio-logo.png','/assets/architecture-exterior.jpg','/assets/architecture-living.jpg','/assets/architecture-detail.jpg',...Object.values(profileTemplates).flatMap(t=>['heroImage','work1Image','work2Image'].map(key=>t.content[key]).filter(Boolean))]);
+export const templateAssets = new Set(['/assets/rasiolabs-logo.png','/assets/rasio-logo.png','/assets/architecture-exterior.jpg','/assets/architecture-living.jpg','/assets/architecture-detail.jpg',...Object.values(profileTemplates).flatMap(t=>Object.values(t.content).filter(value=>typeof value==='string'&&value.startsWith('/assets/')))]);

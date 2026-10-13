@@ -1,0 +1,223 @@
+TAP version 13
+# Subtest: verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama
+ok 1 - verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama
+  ---
+  duration_ms: 2268.0876
+  type: 'test'
+  ...
+# Subtest: lupa password memakai respons generik dan reset membatalkan password serta sesi lama
+ok 2 - lupa password memakai respons generik dan reset membatalkan password serta sesi lama
+  ---
+  duration_ms: 819.955
+  type: 'test'
+  ...
+# Subtest: email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran
+ok 3 - email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran
+  ---
+  duration_ms: 320.8996
+  type: 'test'
+  ...
+# Subtest: aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku
+ok 4 - aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku
+  ---
+  duration_ms: 376.411
+  type: 'test'
+  ...
+# Subtest: navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama
+ok 5 - navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama
+  ---
+  duration_ms: 717.4264
+  type: 'test'
+  ...
+# Subtest: username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin
+ok 6 - username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin
+  ---
+  duration_ms: 319.7412
+  type: 'test'
+  ...
+# Subtest: template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih
+ok 7 - template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih
+  ---
+  duration_ms: 3153.2641
+  type: 'test'
+  ...
+# Subtest: statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template
+ok 8 - statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template
+  ---
+  duration_ms: 2216.3181
+  type: 'test'
+  ...
+# Subtest: database dan storage lokal tersedia tanpa gateway pembayaran palsu
+ok 9 - database dan storage lokal tersedia tanpa gateway pembayaran palsu
+  ---
+  duration_ms: 10.0583
+  type: 'test'
+  ...
+# Subtest: portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html
+ok 10 - portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html
+  ---
+  duration_ms: 49.5362
+  type: 'test'
+  ...
+# Subtest: sesi aman, origin dan CSRF wajib; klien tidak bisa membuka endpoint admin
+ok 11 - sesi aman, origin dan CSRF wajib; klien tidak bisa membuka endpoint admin
+  ---
+  duration_ms: 139.737
+  type: 'test'
+  ...
+# Subtest: pesanan persisten, harga dihitung server dan retry tidak menciptakan pesanan kedua
+ok 12 - pesanan persisten, harga dihitung server dan retry tidak menciptakan pesanan kedua
+  ---
+  duration_ms: 494.6188
+  type: 'test'
+  ...
+# Subtest: dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan
+ok 13 - dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan
+  ---
+  duration_ms: 63.7707
+  type: 'test'
+  ...
+# Subtest: halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat
+ok 14 - halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat
+  ---
+  duration_ms: 6476.6496
+  type: 'test'
+  ...
+# Subtest: brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama
+ok 15 - brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama
+  ---
+  duration_ms: 1766.9453
+  type: 'test'
+  ...
+# Subtest: enquiry memakai kontak email klien ketika WhatsApp tidak diisi
+ok 16 - enquiry memakai kontak email klien ketika WhatsApp tidak diisi
+  ---
+  duration_ms: 399.4199
+  type: 'test'
+  ...
+# Subtest: konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan
+ok 17 - konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan
+  ---
+  duration_ms: 1093.6684
+  type: 'test'
+  ...
+# Subtest: CMS menyimpan seluruh halaman panjang dalam batas tiap bidang
+ok 18 - CMS menyimpan seluruh halaman panjang dalam batas tiap bidang
+  ---
+  duration_ms: 391.85
+  type: 'test'
+  ...
+# Subtest: domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga
+ok 19 - domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga
+  ---
+  duration_ms: 304.8741
+  type: 'test'
+  ...
+# Subtest: domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang
+ok 20 - domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang
+  ---
+  duration_ms: 114.7316
+  type: 'test'
+  ...
+# service core:user:rasio-priced-test: Uncaught Error: No such module "server/templates/index.mjs".
+#   imported from "server/model.mjs"
+# Subtest: tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry
+not ok 21 - tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry
+  ---
+  duration_ms: 199.3869
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:510:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The Workers runtime failed to start. There was likely a problem with the workerd binary or your configuration.
+    Runtime stderr:
+    {"timestamp":"1791517156666","level":"error","source":"src/workerd/server/json-logger.c++:127","message":"service core:user:rasio-priced-test: Uncaught Error: No such module \"server/templates/index.mjs\".\n  imported from \"server/model.mjs\"","context_depth":0}
+  code: 'ERR_RUNTIME_FAILURE'
+  name: 'MiniflareCoreError [ERR_RUNTIME_FAILURE]'
+  stack: |-
+    StartupLogBuffer.handleStartupFailure (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:107157:13)
+    Runtime.updateConfig (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:107237:24)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async #assembleAndUpdateConfig (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:124481:30)
+    async C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:123232:7
+    async Mutex.runWith (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:70190:16)
+    async #waitForReady (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:124606:5)
+    async _Miniflare._getProxyClient (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:124944:5)
+    async #getProxy (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:125004:25)
+    async TestContext.<anonymous> (file:///C:/Users/rikoh/Documents/Rasio%20Agency/rasio-web/tests/worker.test.mjs:516:20)
+  ...
+# Subtest: draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru
+ok 22 - draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru
+  ---
+  duration_ms: 813.9701
+  type: 'test'
+  ...
+# Subtest: unggahan memeriksa isi, ukuran dan kepemilikan; gambar privat tidak bocor
+ok 23 - unggahan memeriksa isi, ukuran dan kepemilikan; gambar privat tidak bocor
+  ---
+  duration_ms: 810.7856
+  type: 'test'
+  ...
+# Subtest: pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape
+ok 24 - pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape
+  ---
+  duration_ms: 859.8861
+  type: 'test'
+  ...
+# Subtest: password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru
+ok 25 - password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru
+  ---
+  duration_ms: 1083.1514
+  type: 'test'
+  ...
+# Subtest: sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai
+ok 26 - sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai
+  ---
+  duration_ms: 388.224
+  type: 'test'
+  ...
+# Subtest: D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal
+ok 27 - D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal
+  ---
+  duration_ms: 67.8982
+  type: 'test'
+  ...
+# Subtest: akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin
+ok 28 - akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin
+  ---
+  duration_ms: 225.2676
+  type: 'test'
+  ...
+# Subtest: pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya
+ok 29 - pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya
+  ---
+  duration_ms: 635.1995
+  type: 'test'
+  ...
+# Subtest: percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa
+ok 30 - percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa
+  ---
+  duration_ms: 159.8016
+  type: 'test'
+  ...
+# Subtest: flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah
+ok 31 - flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah
+  ---
+  duration_ms: 256.4632
+  type: 'test'
+  ...
+# Subtest: sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan
+ok 32 - sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan
+  ---
+  duration_ms: 294.0794
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 31
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28494.4354

@@ -1,0 +1,2802 @@
+[
+  {
+    "family": "Architecture",
+    "page": "",
+    "path": "/template-architecture",
+    "broken": [],
+    "contrast": [],
+    "h1": "Designed for\nbetter living.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "studio",
+    "path": "/template-architecture/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good design starts\nwith how you live.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "projects",
+    "path": "/template-architecture/projects",
+    "broken": [],
+    "contrast": [],
+    "h1": "A little less ordinary.\nA lot more you.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "living",
+    "path": "/template-architecture/living",
+    "broken": [],
+    "contrast": [],
+    "h1": "A place to slow down.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "detail",
+    "path": "/template-architecture/detail",
+    "broken": [],
+    "contrast": [],
+    "h1": "A fresh perspective.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "process",
+    "path": "/template-architecture/process",
+    "broken": [],
+    "contrast": [],
+    "h1": "An open conversation.\nA clear way forward.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "contact",
+    "path": "/template-architecture/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let's make room\nfor your next chapter.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "planning",
+    "path": "/template-architecture/planning",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan your space.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "renovation",
+    "path": "/template-architecture/renovation",
+    "broken": [],
+    "contrast": [],
+    "h1": "A new chapter for your space.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "commercial",
+    "path": "/template-architecture/commercial",
+    "broken": [],
+    "contrast": [],
+    "h1": "Spaces that work for your business.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "",
+    "path": "/template-padel",
+    "broken": [],
+    "contrast": [],
+    "h1": "MORE THAN\nA MATCH.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "club",
+    "path": "/template-padel/club",
+    "broken": [],
+    "contrast": [],
+    "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "play",
+    "path": "/template-padel/play",
+    "broken": [],
+    "contrast": [],
+    "h1": "PLAY YOUR WAY.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "visit",
+    "path": "/template-padel/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "SEE YOUON COURT.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "first-game",
+    "path": "/template-padel/first-game",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your first game starts here.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "group-play",
+    "path": "/template-padel/group-play",
+    "broken": [],
+    "contrast": [],
+    "h1": "Make room for your group.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "membership",
+    "path": "/template-padel/membership",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A GOOD GAME A REGULAR THING.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "coaching",
+    "path": "/template-padel/coaching",
+    "broken": [],
+    "contrast": [],
+    "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "events",
+    "path": "/template-padel/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A DAY OF IT.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Padel",
+    "page": "player-guide",
+    "path": "/template-padel/player-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "ARRIVE READY. ENJOY THE GAME.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "",
+    "path": "/template-creative",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good ideas.\nMade visible.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "work",
+    "path": "/template-creative/work",
+    "broken": [],
+    "contrast": [],
+    "h1": "Ideas in good company.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "identity",
+    "path": "/template-creative/identity",
+    "broken": [],
+    "contrast": [],
+    "h1": "A distinct identity.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "digital",
+    "path": "/template-creative/digital",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clearer experience.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "studio",
+    "path": "/template-creative/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "A small studio.\nA considered point of view.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "brief",
+    "path": "/template-creative/brief",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something goodstarts here.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "brand-foundations",
+    "path": "/template-creative/brand-foundations",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get clear before getting visual.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "brand-handover",
+    "path": "/template-creative/brand-handover",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand built for everyday use.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "packaging",
+    "path": "/template-creative/packaging",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand you can hold.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Creative",
+    "page": "project-scope",
+    "path": "/template-creative/project-scope",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear brief makes room for better work.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "",
+    "path": "/template-consulting",
+    "broken": [],
+    "contrast": [],
+    "h1": "Clarity for\nwhat’s next.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "expertise",
+    "path": "/template-consulting/expertise",
+    "broken": [],
+    "contrast": [],
+    "h1": "Advice connected\nto the work ahead.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "approach",
+    "path": "/template-consulting/approach",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear process.\nA shared direction.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "insights",
+    "path": "/template-consulting/insights",
+    "broken": [],
+    "contrast": [],
+    "h1": "Useful perspectives.Practical next steps.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "priorities",
+    "path": "/template-consulting/priorities",
+    "broken": [],
+    "contrast": [],
+    "h1": "Choosing your next business priority.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "contact",
+    "path": "/template-consulting/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let’s talk about\nyour next step.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "business-review",
+    "path": "/template-consulting/business-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "See the business more clearly.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "operations-review",
+    "path": "/template-consulting/operations-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "Follow the work. Find the friction.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "workshops",
+    "path": "/template-consulting/workshops",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get the right people around the same question.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Consulting",
+    "page": "working-together",
+    "path": "/template-consulting/working-together",
+    "broken": [],
+    "contrast": [],
+    "h1": "Know what to bring. Know what comes next.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "",
+    "path": "/template-hospitality",
+    "broken": [],
+    "contrast": [],
+    "h1": "Somewhere worth\nstaying a little longer.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "rooms",
+    "path": "/template-hospitality/rooms",
+    "broken": [],
+    "contrast": [],
+    "h1": "A room that\nfeels like your own.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "garden-room",
+    "path": "/template-hospitality/garden-room",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Garden Room",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "terrace-suite",
+    "path": "/template-hospitality/terrace-suite",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Terrace Suite",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "experiences",
+    "path": "/template-hospitality/experiences",
+    "broken": [],
+    "contrast": [],
+    "h1": "Days with\nroom to wander.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "visit",
+    "path": "/template-hospitality/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "The journeyis part of the stay.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "dining",
+    "path": "/template-hospitality/dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "Meet at\nthe breakfast table.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "groups",
+    "path": "/template-hospitality/groups",
+    "broken": [],
+    "contrast": [],
+    "h1": "Travel together.\nKeep your own space.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay-guide",
+    "path": "/template-hospitality/stay-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Before you\npack your bag.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay",
+    "path": "/template-hospitality/stay",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your next\nquiet few days.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "",
+    "path": "/template-catering",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good food.\nGood company.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "menus",
+    "path": "/template-catering/menus",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something for\nyour kind of gathering.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "seasonal-menu",
+    "path": "/template-catering/seasonal-menu",
+    "broken": [],
+    "contrast": [],
+    "h1": "The sharing table.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "events",
+    "path": "/template-catering/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "The right food.\nThe right rhythm.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "weddings",
+    "path": "/template-catering/weddings",
+    "broken": [],
+    "contrast": [],
+    "h1": "A meal your guests\nwill remember.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "corporate",
+    "path": "/template-catering/corporate",
+    "broken": [],
+    "contrast": [],
+    "h1": "Food that works\nwith your schedule.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "private-dining",
+    "path": "/template-catering/private-dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "A dinner at your place.\nTime to enjoy it.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "kitchen",
+    "path": "/template-catering/kitchen",
+    "broken": [],
+    "contrast": [],
+    "h1": "It begins\nin the kitchen.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "planning-guide",
+    "path": "/template-catering/planning-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan the gathering.\nLeave out the guesswork.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Catering",
+    "page": "enquiry",
+    "path": "/template-catering/enquiry",
+    "broken": [],
+    "contrast": [],
+    "h1": "Tell us who\nis coming together.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "",
+    "path": "/template-logistics",
+    "broken": [],
+    "contrast": [],
+    "h1": "KEEP YOUR\nBUSINESS MOVING.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "services",
+    "path": "/template-logistics/services",
+    "broken": [],
+    "contrast": [],
+    "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "freight",
+    "path": "/template-logistics/freight",
+    "broken": [],
+    "contrast": [],
+    "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "warehouse",
+    "path": "/template-logistics/warehouse",
+    "broken": [],
+    "contrast": [],
+    "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "distribution",
+    "path": "/template-logistics/distribution",
+    "broken": [],
+    "contrast": [],
+    "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "cargo-guide",
+    "path": "/template-logistics/cargo-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "requirements",
+    "path": "/template-logistics/requirements",
+    "broken": [],
+    "contrast": [],
+    "h1": "READY FOR\nCOLLECTION.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "questions",
+    "path": "/template-logistics/questions",
+    "broken": [],
+    "contrast": [],
+    "h1": "BEFORE\nGOODS MOVE.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "company",
+    "path": "/template-logistics/company",
+    "broken": [],
+    "contrast": [],
+    "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Logistics",
+    "page": "quote",
+    "path": "/template-logistics/quote",
+    "broken": [],
+    "contrast": [],
+    "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+    "overflow": false,
+    "width": 305
+  },
+  {
+    "family": "Architecture",
+    "page": "",
+    "path": "/template-architecture",
+    "broken": [],
+    "contrast": [],
+    "h1": "Designed for\nbetter living.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "studio",
+    "path": "/template-architecture/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good design starts\nwith how you live.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "projects",
+    "path": "/template-architecture/projects",
+    "broken": [],
+    "contrast": [],
+    "h1": "A little less ordinary.\nA lot more you.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "living",
+    "path": "/template-architecture/living",
+    "broken": [],
+    "contrast": [],
+    "h1": "A place to slow down.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "detail",
+    "path": "/template-architecture/detail",
+    "broken": [],
+    "contrast": [],
+    "h1": "A fresh perspective.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "process",
+    "path": "/template-architecture/process",
+    "broken": [],
+    "contrast": [],
+    "h1": "An open conversation.\nA clear way forward.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "contact",
+    "path": "/template-architecture/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let's make room\nfor your next chapter.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "planning",
+    "path": "/template-architecture/planning",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan your space.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "renovation",
+    "path": "/template-architecture/renovation",
+    "broken": [],
+    "contrast": [],
+    "h1": "A new chapter for your space.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "commercial",
+    "path": "/template-architecture/commercial",
+    "broken": [],
+    "contrast": [],
+    "h1": "Spaces that work for your business.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "",
+    "path": "/template-padel",
+    "broken": [],
+    "contrast": [],
+    "h1": "MORE THAN\nA MATCH.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "club",
+    "path": "/template-padel/club",
+    "broken": [],
+    "contrast": [],
+    "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "play",
+    "path": "/template-padel/play",
+    "broken": [],
+    "contrast": [],
+    "h1": "PLAY YOUR WAY.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "visit",
+    "path": "/template-padel/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "SEE YOUON COURT.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "first-game",
+    "path": "/template-padel/first-game",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your first game starts here.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "group-play",
+    "path": "/template-padel/group-play",
+    "broken": [],
+    "contrast": [],
+    "h1": "Make room for your group.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "membership",
+    "path": "/template-padel/membership",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A GOOD GAME A REGULAR THING.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "coaching",
+    "path": "/template-padel/coaching",
+    "broken": [],
+    "contrast": [],
+    "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "events",
+    "path": "/template-padel/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A DAY OF IT.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Padel",
+    "page": "player-guide",
+    "path": "/template-padel/player-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "ARRIVE READY. ENJOY THE GAME.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "",
+    "path": "/template-creative",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good ideas.\nMade visible.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "work",
+    "path": "/template-creative/work",
+    "broken": [],
+    "contrast": [],
+    "h1": "Ideas in good company.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "identity",
+    "path": "/template-creative/identity",
+    "broken": [],
+    "contrast": [],
+    "h1": "A distinct identity.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "digital",
+    "path": "/template-creative/digital",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clearer experience.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "studio",
+    "path": "/template-creative/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "A small studio.\nA considered point of view.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "brief",
+    "path": "/template-creative/brief",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something goodstarts here.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "brand-foundations",
+    "path": "/template-creative/brand-foundations",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get clear before getting visual.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "brand-handover",
+    "path": "/template-creative/brand-handover",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand built for everyday use.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "packaging",
+    "path": "/template-creative/packaging",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand you can hold.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Creative",
+    "page": "project-scope",
+    "path": "/template-creative/project-scope",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear brief makes room for better work.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "",
+    "path": "/template-consulting",
+    "broken": [],
+    "contrast": [],
+    "h1": "Clarity for\nwhat’s next.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "expertise",
+    "path": "/template-consulting/expertise",
+    "broken": [],
+    "contrast": [],
+    "h1": "Advice connected\nto the work ahead.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "approach",
+    "path": "/template-consulting/approach",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear process.\nA shared direction.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "insights",
+    "path": "/template-consulting/insights",
+    "broken": [],
+    "contrast": [],
+    "h1": "Useful perspectives.Practical next steps.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "priorities",
+    "path": "/template-consulting/priorities",
+    "broken": [],
+    "contrast": [],
+    "h1": "Choosing your next business priority.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "contact",
+    "path": "/template-consulting/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let’s talk about\nyour next step.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "business-review",
+    "path": "/template-consulting/business-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "See the business more clearly.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "operations-review",
+    "path": "/template-consulting/operations-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "Follow the work. Find the friction.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "workshops",
+    "path": "/template-consulting/workshops",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get the right people around the same question.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Consulting",
+    "page": "working-together",
+    "path": "/template-consulting/working-together",
+    "broken": [],
+    "contrast": [],
+    "h1": "Know what to bring. Know what comes next.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "",
+    "path": "/template-hospitality",
+    "broken": [],
+    "contrast": [],
+    "h1": "Somewhere worth\nstaying a little longer.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "rooms",
+    "path": "/template-hospitality/rooms",
+    "broken": [],
+    "contrast": [],
+    "h1": "A room that\nfeels like your own.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "garden-room",
+    "path": "/template-hospitality/garden-room",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Garden Room",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "terrace-suite",
+    "path": "/template-hospitality/terrace-suite",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Terrace Suite",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "experiences",
+    "path": "/template-hospitality/experiences",
+    "broken": [],
+    "contrast": [],
+    "h1": "Days with\nroom to wander.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "visit",
+    "path": "/template-hospitality/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "The journeyis part of the stay.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "dining",
+    "path": "/template-hospitality/dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "Meet at\nthe breakfast table.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "groups",
+    "path": "/template-hospitality/groups",
+    "broken": [],
+    "contrast": [],
+    "h1": "Travel together.\nKeep your own space.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay-guide",
+    "path": "/template-hospitality/stay-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Before you\npack your bag.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay",
+    "path": "/template-hospitality/stay",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your next\nquiet few days.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "",
+    "path": "/template-catering",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good food.\nGood company.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "menus",
+    "path": "/template-catering/menus",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something for\nyour kind of gathering.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "seasonal-menu",
+    "path": "/template-catering/seasonal-menu",
+    "broken": [],
+    "contrast": [],
+    "h1": "The sharing table.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "events",
+    "path": "/template-catering/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "The right food.\nThe right rhythm.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "weddings",
+    "path": "/template-catering/weddings",
+    "broken": [],
+    "contrast": [],
+    "h1": "A meal your guests\nwill remember.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "corporate",
+    "path": "/template-catering/corporate",
+    "broken": [],
+    "contrast": [],
+    "h1": "Food that works\nwith your schedule.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "private-dining",
+    "path": "/template-catering/private-dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "A dinner at your place.\nTime to enjoy it.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "kitchen",
+    "path": "/template-catering/kitchen",
+    "broken": [],
+    "contrast": [],
+    "h1": "It begins\nin the kitchen.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "planning-guide",
+    "path": "/template-catering/planning-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan the gathering.\nLeave out the guesswork.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Catering",
+    "page": "enquiry",
+    "path": "/template-catering/enquiry",
+    "broken": [],
+    "contrast": [],
+    "h1": "Tell us who\nis coming together.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "",
+    "path": "/template-logistics",
+    "broken": [],
+    "contrast": [],
+    "h1": "KEEP YOUR\nBUSINESS MOVING.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "services",
+    "path": "/template-logistics/services",
+    "broken": [],
+    "contrast": [],
+    "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "freight",
+    "path": "/template-logistics/freight",
+    "broken": [],
+    "contrast": [],
+    "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "warehouse",
+    "path": "/template-logistics/warehouse",
+    "broken": [],
+    "contrast": [],
+    "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "distribution",
+    "path": "/template-logistics/distribution",
+    "broken": [],
+    "contrast": [],
+    "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "cargo-guide",
+    "path": "/template-logistics/cargo-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "requirements",
+    "path": "/template-logistics/requirements",
+    "broken": [],
+    "contrast": [],
+    "h1": "READY FOR\nCOLLECTION.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "questions",
+    "path": "/template-logistics/questions",
+    "broken": [],
+    "contrast": [],
+    "h1": "BEFORE\nGOODS MOVE.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "company",
+    "path": "/template-logistics/company",
+    "broken": [],
+    "contrast": [],
+    "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Logistics",
+    "page": "quote",
+    "path": "/template-logistics/quote",
+    "broken": [],
+    "contrast": [],
+    "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+    "overflow": false,
+    "width": 1351
+  },
+  {
+    "family": "Architecture",
+    "page": "",
+    "path": "/template-architecture",
+    "broken": [],
+    "contrast": [],
+    "h1": "Designed for\nbetter living.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "studio",
+    "path": "/template-architecture/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good design starts\nwith how you live.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "projects",
+    "path": "/template-architecture/projects",
+    "broken": [],
+    "contrast": [],
+    "h1": "A little less ordinary.\nA lot more you.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "living",
+    "path": "/template-architecture/living",
+    "broken": [],
+    "contrast": [],
+    "h1": "A place to slow down.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "detail",
+    "path": "/template-architecture/detail",
+    "broken": [],
+    "contrast": [],
+    "h1": "A fresh perspective.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "process",
+    "path": "/template-architecture/process",
+    "broken": [],
+    "contrast": [],
+    "h1": "An open conversation.\nA clear way forward.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "contact",
+    "path": "/template-architecture/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let's make room\nfor your next chapter.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "planning",
+    "path": "/template-architecture/planning",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan your space.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "renovation",
+    "path": "/template-architecture/renovation",
+    "broken": [],
+    "contrast": [],
+    "h1": "A new chapter for your space.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "commercial",
+    "path": "/template-architecture/commercial",
+    "broken": [],
+    "contrast": [],
+    "h1": "Spaces that work for your business.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "",
+    "path": "/template-padel",
+    "broken": [],
+    "contrast": [],
+    "h1": "MORE THAN\nA MATCH.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "club",
+    "path": "/template-padel/club",
+    "broken": [],
+    "contrast": [],
+    "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "play",
+    "path": "/template-padel/play",
+    "broken": [],
+    "contrast": [],
+    "h1": "PLAY YOUR WAY.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "visit",
+    "path": "/template-padel/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "SEE YOUON COURT.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "first-game",
+    "path": "/template-padel/first-game",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your first game starts here.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "group-play",
+    "path": "/template-padel/group-play",
+    "broken": [],
+    "contrast": [],
+    "h1": "Make room for your group.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "membership",
+    "path": "/template-padel/membership",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A GOOD GAME A REGULAR THING.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "coaching",
+    "path": "/template-padel/coaching",
+    "broken": [],
+    "contrast": [],
+    "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "events",
+    "path": "/template-padel/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A DAY OF IT.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Padel",
+    "page": "player-guide",
+    "path": "/template-padel/player-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "ARRIVE READY. ENJOY THE GAME.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "",
+    "path": "/template-creative",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good ideas.\nMade visible.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "work",
+    "path": "/template-creative/work",
+    "broken": [],
+    "contrast": [],
+    "h1": "Ideas in good company.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "identity",
+    "path": "/template-creative/identity",
+    "broken": [],
+    "contrast": [],
+    "h1": "A distinct identity.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "digital",
+    "path": "/template-creative/digital",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clearer experience.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "studio",
+    "path": "/template-creative/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "A small studio.\nA considered point of view.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "brief",
+    "path": "/template-creative/brief",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something goodstarts here.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "brand-foundations",
+    "path": "/template-creative/brand-foundations",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get clear before getting visual.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "brand-handover",
+    "path": "/template-creative/brand-handover",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand built for everyday use.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "packaging",
+    "path": "/template-creative/packaging",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand you can hold.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Creative",
+    "page": "project-scope",
+    "path": "/template-creative/project-scope",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear brief makes room for better work.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "",
+    "path": "/template-consulting",
+    "broken": [],
+    "contrast": [],
+    "h1": "Clarity for\nwhat’s next.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "expertise",
+    "path": "/template-consulting/expertise",
+    "broken": [],
+    "contrast": [],
+    "h1": "Advice connected\nto the work ahead.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "approach",
+    "path": "/template-consulting/approach",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear process.\nA shared direction.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "insights",
+    "path": "/template-consulting/insights",
+    "broken": [],
+    "contrast": [],
+    "h1": "Useful perspectives.Practical next steps.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "priorities",
+    "path": "/template-consulting/priorities",
+    "broken": [],
+    "contrast": [],
+    "h1": "Choosing your next business priority.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "contact",
+    "path": "/template-consulting/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let’s talk about\nyour next step.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "business-review",
+    "path": "/template-consulting/business-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "See the business more clearly.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "operations-review",
+    "path": "/template-consulting/operations-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "Follow the work. Find the friction.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "workshops",
+    "path": "/template-consulting/workshops",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get the right people around the same question.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Consulting",
+    "page": "working-together",
+    "path": "/template-consulting/working-together",
+    "broken": [],
+    "contrast": [],
+    "h1": "Know what to bring. Know what comes next.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "",
+    "path": "/template-hospitality",
+    "broken": [],
+    "contrast": [],
+    "h1": "Somewhere worth\nstaying a little longer.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "rooms",
+    "path": "/template-hospitality/rooms",
+    "broken": [],
+    "contrast": [],
+    "h1": "A room that\nfeels like your own.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "garden-room",
+    "path": "/template-hospitality/garden-room",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Garden Room",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "terrace-suite",
+    "path": "/template-hospitality/terrace-suite",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Terrace Suite",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "experiences",
+    "path": "/template-hospitality/experiences",
+    "broken": [],
+    "contrast": [],
+    "h1": "Days with\nroom to wander.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "visit",
+    "path": "/template-hospitality/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "The journeyis part of the stay.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "dining",
+    "path": "/template-hospitality/dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "Meet at\nthe breakfast table.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "groups",
+    "path": "/template-hospitality/groups",
+    "broken": [],
+    "contrast": [],
+    "h1": "Travel together.\nKeep your own space.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay-guide",
+    "path": "/template-hospitality/stay-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Before you\npack your bag.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay",
+    "path": "/template-hospitality/stay",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your next\nquiet few days.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "",
+    "path": "/template-catering",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good food.\nGood company.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "menus",
+    "path": "/template-catering/menus",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something for\nyour kind of gathering.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "seasonal-menu",
+    "path": "/template-catering/seasonal-menu",
+    "broken": [],
+    "contrast": [],
+    "h1": "The sharing table.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "events",
+    "path": "/template-catering/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "The right food.\nThe right rhythm.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "weddings",
+    "path": "/template-catering/weddings",
+    "broken": [],
+    "contrast": [],
+    "h1": "A meal your guests\nwill remember.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "corporate",
+    "path": "/template-catering/corporate",
+    "broken": [],
+    "contrast": [],
+    "h1": "Food that works\nwith your schedule.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "private-dining",
+    "path": "/template-catering/private-dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "A dinner at your place.\nTime to enjoy it.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "kitchen",
+    "path": "/template-catering/kitchen",
+    "broken": [],
+    "contrast": [],
+    "h1": "It begins\nin the kitchen.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "planning-guide",
+    "path": "/template-catering/planning-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan the gathering.\nLeave out the guesswork.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Catering",
+    "page": "enquiry",
+    "path": "/template-catering/enquiry",
+    "broken": [],
+    "contrast": [],
+    "h1": "Tell us who\nis coming together.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "",
+    "path": "/template-logistics",
+    "broken": [],
+    "contrast": [],
+    "h1": "KEEP YOUR\nBUSINESS MOVING.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "services",
+    "path": "/template-logistics/services",
+    "broken": [],
+    "contrast": [],
+    "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "freight",
+    "path": "/template-logistics/freight",
+    "broken": [],
+    "contrast": [],
+    "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "warehouse",
+    "path": "/template-logistics/warehouse",
+    "broken": [],
+    "contrast": [],
+    "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "distribution",
+    "path": "/template-logistics/distribution",
+    "broken": [],
+    "contrast": [],
+    "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "cargo-guide",
+    "path": "/template-logistics/cargo-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "requirements",
+    "path": "/template-logistics/requirements",
+    "broken": [],
+    "contrast": [],
+    "h1": "READY FOR\nCOLLECTION.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "questions",
+    "path": "/template-logistics/questions",
+    "broken": [],
+    "contrast": [],
+    "h1": "BEFORE\nGOODS MOVE.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "company",
+    "path": "/template-logistics/company",
+    "broken": [],
+    "contrast": [],
+    "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Logistics",
+    "page": "quote",
+    "path": "/template-logistics/quote",
+    "broken": [],
+    "contrast": [],
+    "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "family": "Architecture",
+    "page": "",
+    "path": "/template-architecture",
+    "broken": [],
+    "contrast": [],
+    "h1": "Designed for\nbetter living.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "studio",
+    "path": "/template-architecture/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good design starts\nwith how you live.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "projects",
+    "path": "/template-architecture/projects",
+    "broken": [],
+    "contrast": [],
+    "h1": "A little less ordinary.\nA lot more you.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "living",
+    "path": "/template-architecture/living",
+    "broken": [],
+    "contrast": [],
+    "h1": "A place to slow down.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "detail",
+    "path": "/template-architecture/detail",
+    "broken": [],
+    "contrast": [],
+    "h1": "A fresh perspective.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "process",
+    "path": "/template-architecture/process",
+    "broken": [],
+    "contrast": [],
+    "h1": "An open conversation.\nA clear way forward.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "contact",
+    "path": "/template-architecture/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let's make room\nfor your next chapter.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "planning",
+    "path": "/template-architecture/planning",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan your space.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "renovation",
+    "path": "/template-architecture/renovation",
+    "broken": [],
+    "contrast": [],
+    "h1": "A new chapter for your space.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Architecture",
+    "page": "commercial",
+    "path": "/template-architecture/commercial",
+    "broken": [],
+    "contrast": [],
+    "h1": "Spaces that work for your business.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "",
+    "path": "/template-padel",
+    "broken": [],
+    "contrast": [],
+    "h1": "MORE THAN\nA MATCH.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "club",
+    "path": "/template-padel/club",
+    "broken": [],
+    "contrast": [],
+    "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "play",
+    "path": "/template-padel/play",
+    "broken": [],
+    "contrast": [],
+    "h1": "PLAY YOUR WAY.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "visit",
+    "path": "/template-padel/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "SEE YOUON COURT.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "first-game",
+    "path": "/template-padel/first-game",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your first game starts here.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "group-play",
+    "path": "/template-padel/group-play",
+    "broken": [],
+    "contrast": [],
+    "h1": "Make room for your group.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "membership",
+    "path": "/template-padel/membership",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A GOOD GAME A REGULAR THING.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "coaching",
+    "path": "/template-padel/coaching",
+    "broken": [],
+    "contrast": [],
+    "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "events",
+    "path": "/template-padel/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "MAKE A DAY OF IT.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Padel",
+    "page": "player-guide",
+    "path": "/template-padel/player-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "ARRIVE READY. ENJOY THE GAME.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "",
+    "path": "/template-creative",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good ideas.\nMade visible.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "work",
+    "path": "/template-creative/work",
+    "broken": [],
+    "contrast": [],
+    "h1": "Ideas in good company.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "identity",
+    "path": "/template-creative/identity",
+    "broken": [],
+    "contrast": [],
+    "h1": "A distinct identity.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "digital",
+    "path": "/template-creative/digital",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clearer experience.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "studio",
+    "path": "/template-creative/studio",
+    "broken": [],
+    "contrast": [],
+    "h1": "A small studio.\nA considered point of view.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "brief",
+    "path": "/template-creative/brief",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something goodstarts here.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "brand-foundations",
+    "path": "/template-creative/brand-foundations",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get clear before getting visual.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "brand-handover",
+    "path": "/template-creative/brand-handover",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand built for everyday use.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "packaging",
+    "path": "/template-creative/packaging",
+    "broken": [],
+    "contrast": [],
+    "h1": "A brand you can hold.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Creative",
+    "page": "project-scope",
+    "path": "/template-creative/project-scope",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear brief makes room for better work.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "",
+    "path": "/template-consulting",
+    "broken": [],
+    "contrast": [],
+    "h1": "Clarity for\nwhat’s next.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "expertise",
+    "path": "/template-consulting/expertise",
+    "broken": [],
+    "contrast": [],
+    "h1": "Advice connected\nto the work ahead.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "approach",
+    "path": "/template-consulting/approach",
+    "broken": [],
+    "contrast": [],
+    "h1": "A clear process.\nA shared direction.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "insights",
+    "path": "/template-consulting/insights",
+    "broken": [],
+    "contrast": [],
+    "h1": "Useful perspectives.Practical next steps.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "priorities",
+    "path": "/template-consulting/priorities",
+    "broken": [],
+    "contrast": [],
+    "h1": "Choosing your next business priority.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "contact",
+    "path": "/template-consulting/contact",
+    "broken": [],
+    "contrast": [],
+    "h1": "Let’s talk about\nyour next step.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "business-review",
+    "path": "/template-consulting/business-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "See the business more clearly.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "operations-review",
+    "path": "/template-consulting/operations-review",
+    "broken": [],
+    "contrast": [],
+    "h1": "Follow the work. Find the friction.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "workshops",
+    "path": "/template-consulting/workshops",
+    "broken": [],
+    "contrast": [],
+    "h1": "Get the right people around the same question.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Consulting",
+    "page": "working-together",
+    "path": "/template-consulting/working-together",
+    "broken": [],
+    "contrast": [],
+    "h1": "Know what to bring. Know what comes next.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "",
+    "path": "/template-hospitality",
+    "broken": [],
+    "contrast": [],
+    "h1": "Somewhere worth\nstaying a little longer.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "rooms",
+    "path": "/template-hospitality/rooms",
+    "broken": [],
+    "contrast": [],
+    "h1": "A room that\nfeels like your own.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "garden-room",
+    "path": "/template-hospitality/garden-room",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Garden Room",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "terrace-suite",
+    "path": "/template-hospitality/terrace-suite",
+    "broken": [],
+    "contrast": [],
+    "h1": "The Terrace Suite",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "experiences",
+    "path": "/template-hospitality/experiences",
+    "broken": [],
+    "contrast": [],
+    "h1": "Days with\nroom to wander.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "visit",
+    "path": "/template-hospitality/visit",
+    "broken": [],
+    "contrast": [],
+    "h1": "The journeyis part of the stay.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "dining",
+    "path": "/template-hospitality/dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "Meet at\nthe breakfast table.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "groups",
+    "path": "/template-hospitality/groups",
+    "broken": [],
+    "contrast": [],
+    "h1": "Travel together.\nKeep your own space.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay-guide",
+    "path": "/template-hospitality/stay-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Before you\npack your bag.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Hospitality",
+    "page": "stay",
+    "path": "/template-hospitality/stay",
+    "broken": [],
+    "contrast": [],
+    "h1": "Your next\nquiet few days.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "",
+    "path": "/template-catering",
+    "broken": [],
+    "contrast": [],
+    "h1": "Good food.\nGood company.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "menus",
+    "path": "/template-catering/menus",
+    "broken": [],
+    "contrast": [],
+    "h1": "Something for\nyour kind of gathering.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "seasonal-menu",
+    "path": "/template-catering/seasonal-menu",
+    "broken": [],
+    "contrast": [],
+    "h1": "The sharing table.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "events",
+    "path": "/template-catering/events",
+    "broken": [],
+    "contrast": [],
+    "h1": "The right food.\nThe right rhythm.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "weddings",
+    "path": "/template-catering/weddings",
+    "broken": [],
+    "contrast": [],
+    "h1": "A meal your guests\nwill remember.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "corporate",
+    "path": "/template-catering/corporate",
+    "broken": [],
+    "contrast": [],
+    "h1": "Food that works\nwith your schedule.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "private-dining",
+    "path": "/template-catering/private-dining",
+    "broken": [],
+    "contrast": [],
+    "h1": "A dinner at your place.\nTime to enjoy it.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "kitchen",
+    "path": "/template-catering/kitchen",
+    "broken": [],
+    "contrast": [],
+    "h1": "It begins\nin the kitchen.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "planning-guide",
+    "path": "/template-catering/planning-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "Plan the gathering.\nLeave out the guesswork.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Catering",
+    "page": "enquiry",
+    "path": "/template-catering/enquiry",
+    "broken": [],
+    "contrast": [],
+    "h1": "Tell us who\nis coming together.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "",
+    "path": "/template-logistics",
+    "broken": [],
+    "contrast": [],
+    "h1": "KEEP YOUR\nBUSINESS MOVING.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "services",
+    "path": "/template-logistics/services",
+    "broken": [],
+    "contrast": [],
+    "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "freight",
+    "path": "/template-logistics/freight",
+    "broken": [],
+    "contrast": [],
+    "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "warehouse",
+    "path": "/template-logistics/warehouse",
+    "broken": [],
+    "contrast": [],
+    "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "distribution",
+    "path": "/template-logistics/distribution",
+    "broken": [],
+    "contrast": [],
+    "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "cargo-guide",
+    "path": "/template-logistics/cargo-guide",
+    "broken": [],
+    "contrast": [],
+    "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "requirements",
+    "path": "/template-logistics/requirements",
+    "broken": [],
+    "contrast": [],
+    "h1": "READY FOR\nCOLLECTION.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "questions",
+    "path": "/template-logistics/questions",
+    "broken": [],
+    "contrast": [],
+    "h1": "BEFORE\nGOODS MOVE.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "company",
+    "path": "/template-logistics/company",
+    "broken": [],
+    "contrast": [],
+    "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+    "overflow": false,
+    "width": 753
+  },
+  {
+    "family": "Logistics",
+    "page": "quote",
+    "path": "/template-logistics/quote",
+    "broken": [],
+    "contrast": [],
+    "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+    "overflow": false,
+    "width": 753
+  }
+]

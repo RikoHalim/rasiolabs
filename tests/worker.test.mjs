@@ -28,7 +28,8 @@ before(async () => {
       { type: 'ESModule', path: path.join(repo, 'server/domains.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/profile-templates.mjs') },
       { type: 'ESModule', path: path.join(repo, 'server/profile-renderer.mjs') },
-      { type: 'ESModule', path: path.join(repo, 'server/profile-pages.mjs') }
+      { type: 'ESModule', path: path.join(repo, 'server/profile-pages.mjs') },
+      ...['index','hospitality','catering','logistics','legacy-expansion'].map(file=>({type:'ESModule',path:path.join(repo,'server/templates',file+'.mjs')}))
     ], modulesRoot: repo,
     compatibilityDate: '2026-09-01',
     bindings: { PUBLIC_ORIGIN: origin, ADMIN_ACCESS_HASH: hash(adminCode), CMS_PREVIEW_ACCESS_HASH: hash(previewCode), CLIENT_AUTH_SECRET: clientSecret },
@@ -235,7 +236,7 @@ async function verify(order,admin,activate=true) {
 
 test('template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih', async () => {
   const admin = await login();
-  for (const template of ['Padel', 'Creative', 'Consulting']) {
+  for (const template of ['Padel', 'Creative', 'Consulting','Hospitality','Catering','Logistics']) {
     const a = await createOrder({ ...orderBody(), template });
     assert.equal(a.order.template, template);
     assert.equal((await request(`/api/orders`, { method:'POST', json:{ ...a.body, template:'Architecture' }, headers:{ 'Idempotency-Key':a.key } })).status, 409);
@@ -261,7 +262,7 @@ test('template baru tersambung dari pesanan sampai CMS dan publikasi dengan layo
     assert.match(html, /href="https:\/\/wa.me\/6281234567890"/);
     assert.doesNotMatch(html, /wa.me\/60142317052/);
     assert.match(html, /data-cms-image="heroImage"/);
-    assert.equal((html.match(/data-cms-image="logo"/g) || []).length, 2);
+    assert.equal((html.match(/data-cms-image="logo"/g) || []).length, ['Hospitality','Catering','Logistics'].includes(template)?1:2);
     assert.equal((await request(`/website/${a.order.slug}`)).status, 404);
     const published = await jsonResponse(await request(`/api/admin/orders/${a.order.id}/publish`, { method:'POST', session:admin, json:{ revision:saved.revision } }), 200);
     assert.match(await (await request(published.url)).text(), /&lt;strong&gt;Konten klien&lt;\/strong&gt;/);
@@ -411,10 +412,10 @@ test('enquiry memakai kontak email klien ketika WhatsApp tidak diisi',async()=>{
   const saved=await jsonResponse(await request('/api/client/content',{method:'PUT',session:a.session,json:{revision:initial.content.revision,content:{...initial.content.draft,whatsapp:'',email:'hello@example.test'}}}),200);
   const preview=await (await request('/preview/'+a.order.slug+'/contact',{session:a.session})).text();
   assert.match(preview,/data-whatsapp=""/);assert.match(preview,/data-contact-email="hello@example.test"/);
-  assert.match(preview,/Continue by email/);assert.match(preview,/href="mailto:hello@example.test"/);assert.doesNotMatch(preview,/wa.me\/60142317052/);
+  assert.match(preview,/<button\b[^>]*type="submit">Review enquiry<\/button>/);assert.match(preview,/<a\b[^>]*class="footer-whatsapp"[^>]*href="mailto:hello%40example.test"/);assert.doesNotMatch(preview,/wa.me\/60142317052/);
   await jsonResponse(await request('/api/admin/orders/'+a.order.id+'/publish',{method:'POST',session:admin,json:{revision:saved.revision}}),200);
   const published=await (await request('/website/'+a.order.slug+'/contact')).text();
-  assert.match(published,/data-contact-email="hello@example.test"/);assert.match(published,/Continue by email/);
+  assert.match(published,/data-contact-email="hello@example.test"/);assert.match(published,/<button\b[^>]*type="submit">Review enquiry<\/button>/);assert.match(published,/<a\b[^>]*class="footer-whatsapp"[^>]*href="mailto:hello%40example.test"/);
 });
 
 test('konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan',async()=>{
@@ -508,7 +509,7 @@ test('domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu diti
 
 test('tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry',async()=>{
   const priced=new Miniflare(convertV4MiniflareOptions({workers:[{
-    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs','profile-templates.mjs','profile-renderer.mjs','profile-pages.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
+    name:'rasio-priced-test',modules:['worker.mjs','model.mjs','client-auth.mjs','domains.mjs','profile-templates.mjs','profile-renderer.mjs','profile-pages.mjs','templates/index.mjs','templates/hospitality.mjs','templates/catering.mjs','templates/logistics.mjs','templates/legacy-expansion.mjs'].map(file=>({type:'ESModule',path:path.join(repo,'server',file)})),modulesRoot:repo,
     compatibilityDate:'2026-09-01',bindings:{PUBLIC_ORIGIN:origin,CLIENT_AUTH_SECRET:clientSecret,DOMAIN_PRICES_IDR:JSON.stringify({com:150000,'co.id':310000})},d1Databases:['DB'],r2Buckets:['BUCKET'],
   }],log:new Log(LogLevel.ERROR)}));
   try{

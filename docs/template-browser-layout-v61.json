@@ -1,0 +1,2174 @@
+{
+  "checks": [
+    {
+      "path": "/template-architecture",
+      "broken": [],
+      "h1": "Designed for\nbetter living.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/studio",
+      "broken": [],
+      "h1": "Good design starts\nwith how you live.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/projects",
+      "broken": [],
+      "h1": "A little less ordinary.\nA lot more you.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/living",
+      "broken": [],
+      "h1": "A place to slow down.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/detail",
+      "broken": [],
+      "h1": "A fresh perspective.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/process",
+      "broken": [],
+      "h1": "An open conversation.\nA clear way forward.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/contact",
+      "broken": [],
+      "h1": "Let's make room\nfor your next chapter.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/planning",
+      "broken": [],
+      "h1": "Plan your space.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/renovation",
+      "broken": [],
+      "h1": "A new chapter for your space.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-architecture/commercial",
+      "broken": [],
+      "h1": "Spaces that work for your business.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel",
+      "broken": [],
+      "h1": "MORE THAN\nA MATCH.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/club",
+      "broken": [],
+      "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/play",
+      "broken": [],
+      "h1": "PLAY YOUR WAY.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/visit",
+      "broken": [],
+      "h1": "SEE YOUON COURT.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/first-game",
+      "broken": [],
+      "h1": "Your first game starts here.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/group-play",
+      "broken": [],
+      "h1": "Make room for your group.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/membership",
+      "broken": [],
+      "h1": "MAKE A GOOD GAME A REGULAR THING.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/coaching",
+      "broken": [],
+      "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/events",
+      "broken": [],
+      "h1": "MAKE A DAY OF IT.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-padel/player-guide",
+      "broken": [],
+      "h1": "ARRIVE READY. ENJOY THE GAME.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative",
+      "broken": [],
+      "h1": "Good ideas.\nMade visible.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/work",
+      "broken": [],
+      "h1": "Ideas in good company.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/identity",
+      "broken": [],
+      "h1": "A distinct identity.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/digital",
+      "broken": [],
+      "h1": "A clearer experience.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/studio",
+      "broken": [],
+      "h1": "A small studio.\nA considered point of view.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/brief",
+      "broken": [],
+      "h1": "Something goodstarts here.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/brand-foundations",
+      "broken": [],
+      "h1": "Get clear before getting visual.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/brand-handover",
+      "broken": [],
+      "h1": "A brand built for everyday use.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/packaging",
+      "broken": [],
+      "h1": "A brand you can hold.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-creative/project-scope",
+      "broken": [],
+      "h1": "A clear brief makes room for better work.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting",
+      "broken": [],
+      "h1": "Clarity for\nwhat’s next.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/expertise",
+      "broken": [],
+      "h1": "Advice connected\nto the work ahead.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/approach",
+      "broken": [],
+      "h1": "A clear process.\nA shared direction.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/insights",
+      "broken": [],
+      "h1": "Useful perspectives.Practical next steps.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/priorities",
+      "broken": [],
+      "h1": "Choosing your next business priority.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/contact",
+      "broken": [],
+      "h1": "Let’s talk about\nyour next step.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/business-review",
+      "broken": [],
+      "h1": "See the business more clearly.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/operations-review",
+      "broken": [],
+      "h1": "Follow the work. Find the friction.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/workshops",
+      "broken": [],
+      "h1": "Get the right people around the same question.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-consulting/working-together",
+      "broken": [],
+      "h1": "Know what to bring. Know what comes next.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality",
+      "broken": [],
+      "h1": "Somewhere worth\nstaying a little longer.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/rooms",
+      "broken": [],
+      "h1": "A room that\nfeels like your own.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/garden-room",
+      "broken": [],
+      "h1": "The Garden Room",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/terrace-suite",
+      "broken": [],
+      "h1": "The Terrace Suite",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/experiences",
+      "broken": [],
+      "h1": "Days with\nroom to wander.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/visit",
+      "broken": [],
+      "h1": "The journeyis part of the stay.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/dining",
+      "broken": [],
+      "h1": "Meet at\nthe breakfast table.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/groups",
+      "broken": [],
+      "h1": "Travel together.\nKeep your own space.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/stay-guide",
+      "broken": [],
+      "h1": "Before you\npack your bag.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-hospitality/stay",
+      "broken": [],
+      "h1": "Your next\nquiet few days.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering",
+      "broken": [],
+      "h1": "Good food.\nGood company.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/menus",
+      "broken": [],
+      "h1": "Something for\nyour kind of gathering.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/seasonal-menu",
+      "broken": [],
+      "h1": "The sharing table.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/events",
+      "broken": [],
+      "h1": "The right food.\nThe right rhythm.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/weddings",
+      "broken": [],
+      "h1": "A meal your guests\nwill remember.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/corporate",
+      "broken": [],
+      "h1": "Food that works\nwith your schedule.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/private-dining",
+      "broken": [],
+      "h1": "A dinner at your place.\nTime to enjoy it.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/kitchen",
+      "broken": [],
+      "h1": "It begins\nin the kitchen.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/planning-guide",
+      "broken": [],
+      "h1": "Plan the gathering.\nLeave out the guesswork.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-catering/enquiry",
+      "broken": [],
+      "h1": "Tell us who\nis coming together.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics",
+      "broken": [],
+      "h1": "KEEP YOUR\nBUSINESS MOVING.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/services",
+      "broken": [],
+      "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/freight",
+      "broken": [],
+      "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/warehouse",
+      "broken": [],
+      "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/distribution",
+      "broken": [],
+      "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/cargo-guide",
+      "broken": [],
+      "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/requirements",
+      "broken": [],
+      "h1": "READY FOR\nCOLLECTION.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/questions",
+      "broken": [],
+      "h1": "BEFORE\nGOODS MOVE.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/company",
+      "broken": [],
+      "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "path": "/template-logistics/quote",
+      "broken": [],
+      "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture",
+      "broken": [],
+      "h1": "Designed for\nbetter living.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/studio",
+      "broken": [],
+      "h1": "Good design starts\nwith how you live.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/projects",
+      "broken": [],
+      "h1": "A little less ordinary.\nA lot more you.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/living",
+      "broken": [],
+      "h1": "A place to slow down.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/detail",
+      "broken": [],
+      "h1": "A fresh perspective.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/process",
+      "broken": [],
+      "h1": "An open conversation.\nA clear way forward.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/contact",
+      "broken": [],
+      "h1": "Let's make room\nfor your next chapter.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/planning",
+      "broken": [],
+      "h1": "Plan your space.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/renovation",
+      "broken": [],
+      "h1": "A new chapter for your space.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-architecture/commercial",
+      "broken": [],
+      "h1": "Spaces that work for your business.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel",
+      "broken": [],
+      "h1": "MORE THAN\nA MATCH.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/club",
+      "broken": [],
+      "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/play",
+      "broken": [],
+      "h1": "PLAY YOUR WAY.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/visit",
+      "broken": [],
+      "h1": "SEE YOUON COURT.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/first-game",
+      "broken": [],
+      "h1": "Your first game starts here.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/group-play",
+      "broken": [],
+      "h1": "Make room for your group.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/membership",
+      "broken": [],
+      "h1": "MAKE A GOOD GAME A REGULAR THING.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/coaching",
+      "broken": [],
+      "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/events",
+      "broken": [],
+      "h1": "MAKE A DAY OF IT.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-padel/player-guide",
+      "broken": [],
+      "h1": "ARRIVE READY. ENJOY THE GAME.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative",
+      "broken": [],
+      "h1": "Good ideas.\nMade visible.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/work",
+      "broken": [],
+      "h1": "Ideas in good company.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/identity",
+      "broken": [],
+      "h1": "A distinct identity.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/digital",
+      "broken": [],
+      "h1": "A clearer experience.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/studio",
+      "broken": [],
+      "h1": "A small studio.\nA considered point of view.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/brief",
+      "broken": [],
+      "h1": "Something goodstarts here.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/brand-foundations",
+      "broken": [],
+      "h1": "Get clear before getting visual.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/brand-handover",
+      "broken": [],
+      "h1": "A brand built for everyday use.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/packaging",
+      "broken": [],
+      "h1": "A brand you can hold.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-creative/project-scope",
+      "broken": [],
+      "h1": "A clear brief makes room for better work.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting",
+      "broken": [],
+      "h1": "Clarity for\nwhat’s next.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/expertise",
+      "broken": [],
+      "h1": "Advice connected\nto the work ahead.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/approach",
+      "broken": [],
+      "h1": "A clear process.\nA shared direction.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/insights",
+      "broken": [],
+      "h1": "Useful perspectives.Practical next steps.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/priorities",
+      "broken": [],
+      "h1": "Choosing your next business priority.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/contact",
+      "broken": [],
+      "h1": "Let’s talk about\nyour next step.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/business-review",
+      "broken": [],
+      "h1": "See the business more clearly.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/operations-review",
+      "broken": [],
+      "h1": "Follow the work. Find the friction.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/workshops",
+      "broken": [],
+      "h1": "Get the right people around the same question.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-consulting/working-together",
+      "broken": [],
+      "h1": "Know what to bring. Know what comes next.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality",
+      "broken": [],
+      "h1": "Somewhere worth\nstaying a little longer.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/rooms",
+      "broken": [],
+      "h1": "A room that\nfeels like your own.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/garden-room",
+      "broken": [],
+      "h1": "The Garden Room",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/terrace-suite",
+      "broken": [],
+      "h1": "The Terrace Suite",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/experiences",
+      "broken": [],
+      "h1": "Days with\nroom to wander.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/visit",
+      "broken": [],
+      "h1": "The journeyis part of the stay.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/dining",
+      "broken": [],
+      "h1": "Meet at\nthe breakfast table.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/groups",
+      "broken": [],
+      "h1": "Travel together.\nKeep your own space.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/stay-guide",
+      "broken": [],
+      "h1": "Before you\npack your bag.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-hospitality/stay",
+      "broken": [],
+      "h1": "Your next\nquiet few days.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering",
+      "broken": [],
+      "h1": "Good food.\nGood company.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/menus",
+      "broken": [],
+      "h1": "Something for\nyour kind of gathering.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/seasonal-menu",
+      "broken": [],
+      "h1": "The sharing table.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/events",
+      "broken": [],
+      "h1": "The right food.\nThe right rhythm.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/weddings",
+      "broken": [],
+      "h1": "A meal your guests\nwill remember.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/corporate",
+      "broken": [],
+      "h1": "Food that works\nwith your schedule.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/private-dining",
+      "broken": [],
+      "h1": "A dinner at your place.\nTime to enjoy it.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/kitchen",
+      "broken": [],
+      "h1": "It begins\nin the kitchen.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/planning-guide",
+      "broken": [],
+      "h1": "Plan the gathering.\nLeave out the guesswork.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-catering/enquiry",
+      "broken": [],
+      "h1": "Tell us who\nis coming together.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics",
+      "broken": [],
+      "h1": "KEEP YOUR\nBUSINESS MOVING.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/services",
+      "broken": [],
+      "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/freight",
+      "broken": [],
+      "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/warehouse",
+      "broken": [],
+      "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/distribution",
+      "broken": [],
+      "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/cargo-guide",
+      "broken": [],
+      "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/requirements",
+      "broken": [],
+      "h1": "READY FOR\nCOLLECTION.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/questions",
+      "broken": [],
+      "h1": "BEFORE\nGOODS MOVE.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/company",
+      "broken": [],
+      "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "path": "/template-logistics/quote",
+      "broken": [],
+      "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture",
+      "broken": [],
+      "h1": "Designed for\nbetter living.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/studio",
+      "broken": [],
+      "h1": "Good design starts\nwith how you live.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/projects",
+      "broken": [],
+      "h1": "A little less ordinary.\nA lot more you.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/living",
+      "broken": [],
+      "h1": "A place to slow down.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/detail",
+      "broken": [],
+      "h1": "A fresh perspective.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/process",
+      "broken": [],
+      "h1": "An open conversation.\nA clear way forward.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/contact",
+      "broken": [],
+      "h1": "Let's make room\nfor your next chapter.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/planning",
+      "broken": [],
+      "h1": "Plan your space.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/renovation",
+      "broken": [],
+      "h1": "A new chapter for your space.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-architecture/commercial",
+      "broken": [],
+      "h1": "Spaces that work for your business.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel",
+      "broken": [],
+      "h1": "MORE THAN\nA MATCH.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/club",
+      "broken": [],
+      "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/play",
+      "broken": [],
+      "h1": "PLAY YOUR WAY.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/visit",
+      "broken": [],
+      "h1": "SEE YOUON COURT.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/first-game",
+      "broken": [],
+      "h1": "Your first game starts here.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/group-play",
+      "broken": [],
+      "h1": "Make room for your group.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/membership",
+      "broken": [],
+      "h1": "MAKE A GOOD GAME A REGULAR THING.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/coaching",
+      "broken": [],
+      "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/events",
+      "broken": [],
+      "h1": "MAKE A DAY OF IT.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-padel/player-guide",
+      "broken": [],
+      "h1": "ARRIVE READY. ENJOY THE GAME.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative",
+      "broken": [],
+      "h1": "Good ideas.\nMade visible.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/work",
+      "broken": [],
+      "h1": "Ideas in good company.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/identity",
+      "broken": [],
+      "h1": "A distinct identity.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/digital",
+      "broken": [],
+      "h1": "A clearer experience.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/studio",
+      "broken": [],
+      "h1": "A small studio.\nA considered point of view.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/brief",
+      "broken": [],
+      "h1": "Something goodstarts here.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/brand-foundations",
+      "broken": [],
+      "h1": "Get clear before getting visual.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/brand-handover",
+      "broken": [],
+      "h1": "A brand built for everyday use.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/packaging",
+      "broken": [],
+      "h1": "A brand you can hold.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-creative/project-scope",
+      "broken": [],
+      "h1": "A clear brief makes room for better work.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting",
+      "broken": [],
+      "h1": "Clarity for\nwhat’s next.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/expertise",
+      "broken": [],
+      "h1": "Advice connected\nto the work ahead.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/approach",
+      "broken": [],
+      "h1": "A clear process.\nA shared direction.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/insights",
+      "broken": [],
+      "h1": "Useful perspectives.Practical next steps.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/priorities",
+      "broken": [],
+      "h1": "Choosing your next business priority.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/contact",
+      "broken": [],
+      "h1": "Let’s talk about\nyour next step.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/business-review",
+      "broken": [],
+      "h1": "See the business more clearly.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/operations-review",
+      "broken": [],
+      "h1": "Follow the work. Find the friction.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/workshops",
+      "broken": [],
+      "h1": "Get the right people around the same question.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-consulting/working-together",
+      "broken": [],
+      "h1": "Know what to bring. Know what comes next.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality",
+      "broken": [],
+      "h1": "Somewhere worth\nstaying a little longer.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/rooms",
+      "broken": [],
+      "h1": "A room that\nfeels like your own.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/garden-room",
+      "broken": [],
+      "h1": "The Garden Room",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/terrace-suite",
+      "broken": [],
+      "h1": "The Terrace Suite",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/experiences",
+      "broken": [],
+      "h1": "Days with\nroom to wander.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/visit",
+      "broken": [],
+      "h1": "The journeyis part of the stay.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/dining",
+      "broken": [],
+      "h1": "Meet at\nthe breakfast table.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/groups",
+      "broken": [],
+      "h1": "Travel together.\nKeep your own space.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/stay-guide",
+      "broken": [],
+      "h1": "Before you\npack your bag.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-hospitality/stay",
+      "broken": [],
+      "h1": "Your next\nquiet few days.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering",
+      "broken": [],
+      "h1": "Good food.\nGood company.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/menus",
+      "broken": [],
+      "h1": "Something for\nyour kind of gathering.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/seasonal-menu",
+      "broken": [],
+      "h1": "The sharing table.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/events",
+      "broken": [],
+      "h1": "The right food.\nThe right rhythm.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/weddings",
+      "broken": [],
+      "h1": "A meal your guests\nwill remember.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/corporate",
+      "broken": [],
+      "h1": "Food that works\nwith your schedule.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/private-dining",
+      "broken": [],
+      "h1": "A dinner at your place.\nTime to enjoy it.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/kitchen",
+      "broken": [],
+      "h1": "It begins\nin the kitchen.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/planning-guide",
+      "broken": [],
+      "h1": "Plan the gathering.\nLeave out the guesswork.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-catering/enquiry",
+      "broken": [],
+      "h1": "Tell us who\nis coming together.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics",
+      "broken": [],
+      "h1": "KEEP YOUR\nBUSINESS MOVING.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/services",
+      "broken": [],
+      "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/freight",
+      "broken": [],
+      "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/warehouse",
+      "broken": [],
+      "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/distribution",
+      "broken": [],
+      "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/cargo-guide",
+      "broken": [],
+      "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/requirements",
+      "broken": [],
+      "h1": "READY FOR\nCOLLECTION.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/questions",
+      "broken": [],
+      "h1": "BEFORE\nGOODS MOVE.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/company",
+      "broken": [],
+      "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "path": "/template-logistics/quote",
+      "broken": [],
+      "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture",
+      "broken": [],
+      "h1": "Designed for\nbetter living.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/studio",
+      "broken": [],
+      "h1": "Good design starts\nwith how you live.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/projects",
+      "broken": [],
+      "h1": "A little less ordinary.\nA lot more you.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/living",
+      "broken": [],
+      "h1": "A place to slow down.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/detail",
+      "broken": [],
+      "h1": "A fresh perspective.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/process",
+      "broken": [],
+      "h1": "An open conversation.\nA clear way forward.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/contact",
+      "broken": [],
+      "h1": "Let's make room\nfor your next chapter.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/planning",
+      "broken": [],
+      "h1": "Plan your space.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/renovation",
+      "broken": [],
+      "h1": "A new chapter for your space.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-architecture/commercial",
+      "broken": [],
+      "h1": "Spaces that work for your business.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel",
+      "broken": [],
+      "h1": "MORE THAN\nA MATCH.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/club",
+      "broken": [],
+      "h1": "A GOOD GAME.A GREAT COMMUNITY.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/play",
+      "broken": [],
+      "h1": "PLAY YOUR WAY.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/visit",
+      "broken": [],
+      "h1": "SEE YOUON COURT.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/first-game",
+      "broken": [],
+      "h1": "Your first game starts here.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/group-play",
+      "broken": [],
+      "h1": "Make room for your group.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/membership",
+      "broken": [],
+      "h1": "MAKE A GOOD GAME A REGULAR THING.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/coaching",
+      "broken": [],
+      "h1": "LESS GUESSING. MORE GOOD RALLIES.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/events",
+      "broken": [],
+      "h1": "MAKE A DAY OF IT.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-padel/player-guide",
+      "broken": [],
+      "h1": "ARRIVE READY. ENJOY THE GAME.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative",
+      "broken": [],
+      "h1": "Good ideas.\nMade visible.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/work",
+      "broken": [],
+      "h1": "Ideas in good company.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/identity",
+      "broken": [],
+      "h1": "A distinct identity.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/digital",
+      "broken": [],
+      "h1": "A clearer experience.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/studio",
+      "broken": [],
+      "h1": "A small studio.\nA considered point of view.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/brief",
+      "broken": [],
+      "h1": "Something goodstarts here.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/brand-foundations",
+      "broken": [],
+      "h1": "Get clear before getting visual.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/brand-handover",
+      "broken": [],
+      "h1": "A brand built for everyday use.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/packaging",
+      "broken": [],
+      "h1": "A brand you can hold.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-creative/project-scope",
+      "broken": [],
+      "h1": "A clear brief makes room for better work.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting",
+      "broken": [],
+      "h1": "Clarity for\nwhat’s next.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/expertise",
+      "broken": [],
+      "h1": "Advice connected\nto the work ahead.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/approach",
+      "broken": [],
+      "h1": "A clear process.\nA shared direction.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/insights",
+      "broken": [],
+      "h1": "Useful perspectives.Practical next steps.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/priorities",
+      "broken": [],
+      "h1": "Choosing your next business priority.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/contact",
+      "broken": [],
+      "h1": "Let’s talk about\nyour next step.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/business-review",
+      "broken": [],
+      "h1": "See the business more clearly.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/operations-review",
+      "broken": [],
+      "h1": "Follow the work. Find the friction.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/workshops",
+      "broken": [],
+      "h1": "Get the right people around the same question.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-consulting/working-together",
+      "broken": [],
+      "h1": "Know what to bring. Know what comes next.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality",
+      "broken": [],
+      "h1": "Somewhere worth\nstaying a little longer.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/rooms",
+      "broken": [],
+      "h1": "A room that\nfeels like your own.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/garden-room",
+      "broken": [],
+      "h1": "The Garden Room",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/terrace-suite",
+      "broken": [],
+      "h1": "The Terrace Suite",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/experiences",
+      "broken": [],
+      "h1": "Days with\nroom to wander.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/visit",
+      "broken": [],
+      "h1": "The journeyis part of the stay.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/dining",
+      "broken": [],
+      "h1": "Meet at\nthe breakfast table.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/groups",
+      "broken": [],
+      "h1": "Travel together.\nKeep your own space.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/stay-guide",
+      "broken": [],
+      "h1": "Before you\npack your bag.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-hospitality/stay",
+      "broken": [],
+      "h1": "Your next\nquiet few days.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering",
+      "broken": [],
+      "h1": "Good food.\nGood company.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/menus",
+      "broken": [],
+      "h1": "Something for\nyour kind of gathering.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/seasonal-menu",
+      "broken": [],
+      "h1": "The sharing table.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/events",
+      "broken": [],
+      "h1": "The right food.\nThe right rhythm.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/weddings",
+      "broken": [],
+      "h1": "A meal your guests\nwill remember.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/corporate",
+      "broken": [],
+      "h1": "Food that works\nwith your schedule.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/private-dining",
+      "broken": [],
+      "h1": "A dinner at your place.\nTime to enjoy it.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/kitchen",
+      "broken": [],
+      "h1": "It begins\nin the kitchen.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/planning-guide",
+      "broken": [],
+      "h1": "Plan the gathering.\nLeave out the guesswork.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-catering/enquiry",
+      "broken": [],
+      "h1": "Tell us who\nis coming together.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics",
+      "broken": [],
+      "h1": "KEEP YOUR\nBUSINESS MOVING.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/services",
+      "broken": [],
+      "h1": "MOVE IT.\nSTORE IT.\nKEEP IT CONNECTED.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/freight",
+      "broken": [],
+      "h1": "BUILD THE ROUTE\nAROUND THE CARGO.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/warehouse",
+      "broken": [],
+      "h1": "SPACE THAT FITS\nYOUR OPERATION.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/distribution",
+      "broken": [],
+      "h1": "THE LAST HANDOVER\nDESERVES A PLAN.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/cargo-guide",
+      "broken": [],
+      "h1": "KNOW YOUR CARGO.\nPREPARE THE JOURNEY.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/requirements",
+      "broken": [],
+      "h1": "READY FOR\nCOLLECTION.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/questions",
+      "broken": [],
+      "h1": "BEFORE\nGOODS MOVE.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/company",
+      "broken": [],
+      "h1": "GOOD LOGISTICS\nSTARTS WITH LISTENING.",
+      "scroll": 1351,
+      "width": 1351
+    },
+    {
+      "viewport": 1366,
+      "path": "/template-logistics/quote",
+      "broken": [],
+      "h1": "LET’S PLAN\nYOUR NEXT SHIPMENT.",
+      "scroll": 1351,
+      "width": 1351
+    }
+  ]
+}
