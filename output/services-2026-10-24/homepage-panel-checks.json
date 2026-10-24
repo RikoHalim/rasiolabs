@@ -1,0 +1,450 @@
+[
+  {
+    "badges": [
+      {
+        "rect": {
+          "bottom": 2083.639892578125,
+          "height": 44.1875,
+          "left": 139.3125,
+          "right": 293.96875,
+          "top": 2039.452392578125,
+          "width": 154.65625,
+          "x": 139.3125,
+          "y": 2039.452392578125
+        },
+        "text": "Hosting & SSL"
+      },
+      {
+        "rect": {
+          "bottom": 2083.639892578125,
+          "height": 44.1875,
+          "left": 301.96875,
+          "right": 456.640625,
+          "top": 2039.452392578125,
+          "width": 154.671875,
+          "x": 301.96875,
+          "y": 2039.452392578125
+        },
+        "text": "CMS"
+      },
+      {
+        "rect": {
+          "bottom": 2083.639892578125,
+          "height": 44.1875,
+          "left": 464.640625,
+          "right": 619.3125,
+          "top": 2039.452392578125,
+          "width": 154.671875,
+          "x": 464.640625,
+          "y": 2039.452392578125
+        },
+        "text": "Revisi minor"
+      }
+    ],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "#template",
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=1&type=profile",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 2219.203125,
+    "overflow": 0,
+    "selectedTab": "Company profile",
+    "service": "product-profile",
+    "stageHeight": 524.921875,
+    "width": 1280
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": true,
+        "height": 48,
+        "href": null,
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-store.html?duration=1&type=store",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 2219.203125,
+    "overflow": 0,
+    "selectedTab": "Online store",
+    "service": "product-store",
+    "stageHeight": 524.921875,
+    "width": 1280
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "https://wa.me/60142317052",
+        "text": "Konsultasi Gratis"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-custom.html?duration=1&type=custom",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 2219.203125,
+    "overflow": 0,
+    "selectedTab": "Custom",
+    "service": "product-custom",
+    "stageHeight": 524.921875,
+    "width": 1280
+  },
+  {
+    "badges": [
+      {
+        "rect": {
+          "bottom": 2023.3125,
+          "height": 86.375,
+          "left": 57,
+          "right": 149.5,
+          "top": 1936.9375,
+          "width": 92.5,
+          "x": 57,
+          "y": 1936.9375
+        },
+        "text": "Hosting & SSL"
+      },
+      {
+        "rect": {
+          "bottom": 2023.3125,
+          "height": 86.375,
+          "left": 157.5,
+          "right": 250,
+          "top": 1936.9375,
+          "width": 92.5,
+          "x": 157.5,
+          "y": 1936.9375
+        },
+        "text": "CMS"
+      },
+      {
+        "rect": {
+          "bottom": 2023.3125,
+          "height": 86.375,
+          "left": 258,
+          "right": 350.5,
+          "top": 1936.9375,
+          "width": 92.5,
+          "x": 258,
+          "y": 1936.9375
+        },
+        "text": "Revisi minor"
+      }
+    ],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "#template",
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?duration=1&type=profile",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 2216.78125,
+    "overflow": 0,
+    "selectedTab": "Company profile",
+    "service": "product-profile",
+    "stageHeight": 627.484375,
+    "width": 768
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": true,
+        "height": 48,
+        "href": null,
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-store.html?duration=1&type=store",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 2216.78125,
+    "overflow": 0,
+    "selectedTab": "Online store",
+    "service": "product-store",
+    "stageHeight": 627.484375,
+    "width": 768
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "https://wa.me/60142317052",
+        "text": "Konsultasi Gratis"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-custom.html?duration=1&type=custom",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 2216.78125,
+    "overflow": 0,
+    "selectedTab": "Custom",
+    "service": "product-custom",
+    "stageHeight": 627.484375,
+    "width": 768
+  },
+  {
+    "badges": [
+      {
+        "rect": {
+          "bottom": 2343.78125,
+          "height": 80.375,
+          "left": 37,
+          "right": 130.65625,
+          "top": 2263.40625,
+          "width": 93.65625,
+          "x": 37,
+          "y": 2263.40625
+        },
+        "text": "Hosting & SSL"
+      },
+      {
+        "rect": {
+          "bottom": 2343.78125,
+          "height": 80.375,
+          "left": 138.65625,
+          "right": 232.328125,
+          "top": 2263.40625,
+          "width": 93.671875,
+          "x": 138.65625,
+          "y": 2263.40625
+        },
+        "text": "CMS"
+      },
+      {
+        "rect": {
+          "bottom": 2343.78125,
+          "height": 80.375,
+          "left": 240.328125,
+          "right": 333.984375,
+          "top": 2263.40625,
+          "width": 93.65625,
+          "x": 240.328125,
+          "y": 2263.40625
+        },
+        "text": "Revisi minor"
+      }
+    ],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "#template",
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?duration=1&type=profile",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 3029.171875,
+    "overflow": 0,
+    "selectedTab": "Company profile",
+    "service": "product-profile",
+    "stageHeight": 975.765625,
+    "width": 390
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": true,
+        "height": 48,
+        "href": null,
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-store.html?duration=1&type=store",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 3029.171875,
+    "overflow": 0,
+    "selectedTab": "Online store",
+    "service": "product-store",
+    "stageHeight": 975.765625,
+    "width": 390
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "https://wa.me/60142317052",
+        "text": "Konsultasi Gratis"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-custom.html?duration=1&type=custom",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 3029.171875,
+    "overflow": 0,
+    "selectedTab": "Custom",
+    "service": "product-custom",
+    "stageHeight": 975.765625,
+    "width": 390
+  },
+  {
+    "badges": [
+      {
+        "rect": {
+          "bottom": 2511.9375,
+          "height": 80.375,
+          "left": 37,
+          "right": 120.65625,
+          "top": 2431.5625,
+          "width": 83.65625,
+          "x": 37,
+          "y": 2431.5625
+        },
+        "text": "Hosting & SSL"
+      },
+      {
+        "rect": {
+          "bottom": 2511.9375,
+          "height": 80.375,
+          "left": 128.65625,
+          "right": 212.328125,
+          "top": 2431.5625,
+          "width": 83.671875,
+          "x": 128.65625,
+          "y": 2431.5625
+        },
+        "text": "CMS"
+      },
+      {
+        "rect": {
+          "bottom": 2511.9375,
+          "height": 80.375,
+          "left": 220.328125,
+          "right": 303.984375,
+          "top": 2431.5625,
+          "width": 83.65625,
+          "x": 220.328125,
+          "y": 2431.5625
+        },
+        "text": "Revisi minor"
+      }
+    ],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "#template",
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?duration=1&type=profile",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 3304.890625,
+    "overflow": 0,
+    "selectedTab": "Company profile",
+    "service": "product-profile",
+    "stageHeight": 1073.953125,
+    "width": 360
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": true,
+        "height": 48,
+        "href": null,
+        "text": "Lihat Template"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-store.html?duration=1&type=store",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 3304.890625,
+    "overflow": 0,
+    "selectedTab": "Online store",
+    "service": "product-store",
+    "stageHeight": 1073.953125,
+    "width": 360
+  },
+  {
+    "badges": [],
+    "badgesOverlapImage": false,
+    "buttons": [
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "https://wa.me/60142317052",
+        "text": "Konsultasi Gratis"
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-custom.html?duration=1&type=custom",
+        "text": "Lihat Detail Layanan"
+      }
+    ],
+    "nextSectionY": 3304.890625,
+    "overflow": 0,
+    "selectedTab": "Custom",
+    "service": "product-custom",
+    "stageHeight": 1073.953125,
+    "width": 360
+  }
+]

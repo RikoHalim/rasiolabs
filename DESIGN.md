@@ -20,7 +20,21 @@ omitted:
 
 ## Overview
 
-Rasio Labs sells managed, editable company-profile websites. Templates are marketing/content sites with enquiry tools; the admin, authentication and billing application is a separate register. This revision extends the template catalogue and does not redesign billing or authentication.
+Planning update, 23 October 2026: the [Website Evaluation and Priorities](<../docs/Rasio Labs - Evaluasi Website dan Prioritas.md>) records consulting findings and WEB-01–WEB-07. It does not amend approved policy, authorize implementation, or replace the current homepage visual direction. The preview-to-order duration defect is still open. Current homepage typography remains DM Sans with heading weight 550 and runtime tokens as canonical; use BUSINESS_DECISIONS.md for policy status and the workspace FUTURE_BACKLOG.md for deferred tasks.
+
+Dedicated service pages were removed at the owner's request on 22 October 2026. Their sector/icon patterns, ordering steps, “Mengapa…” content and launch feature grids are preserved in `../docs/Rasio Labs - Referensi Halaman Layanan.md` for planning only. The active build no longer generates these pages. Store's remaining homepage information action points to the homepage pricing section. The current homepage runtime tokens and typography, including actual font weights, are the visual authority for future recommendations. Recreating or implementing dedicated pages requires a new explicit request; advice and briefs are the default role.
+
+Current override (20 October 2026): the selectable catalogue contains Padel Club only. Six retired implementations were removed after backup. Their historic design notes below are not an active catalogue. Three independent Architecture/Creative/Padel hero screenshots remain unchanged. Homepage design ownership is in frontend/marketing/DESIGN.md; Store pricing, unlimited-product scope and the 0% RasioLabs transaction fee are centralized in server/policy-v4.mjs.
+
+Sprint 1 homepage (16 October 2026): the main marketing page now has a canonical source in `frontend/marketing/`. Its tokens, component ownership, design rationale and behavior are recorded in `frontend/marketing/DESIGN.md`. `scripts/build-homepage.mjs` emits the same source to `dist/index.html` and the existing concept preview. Template family internals remain unchanged. The newer homepage scope does not extend the catalogue or implement checkout.
+
+Current policy phase (16 October 2026): Chapter 85 v4 controls pricing and customer-policy flows. No new template or sector is part of this phase. The canonical behavior is in `UX-CONTRACT.md`, decisions in `BUSINESS_DECISIONS.md`, and verification in `docs/policy-v4/IMPLEMENTATION.md`. The template art direction below remains applicable to the existing collection.
+
+### Historical template-family reference
+
+The template-family material below describes the earlier catalogue and its design rationale. Removed families, generator paths and catalogue-expansion statements are historical, not a list of active services or files. The current overrides above and homepage runtime source take precedence; the live selectable catalogue remains Padel Club only.
+
+At the time of that revision, the template work covered managed, editable company-profile websites with enquiry tools. The admin, authentication and billing application was a separate register. That historical revision extended the template catalogue without redesigning billing or authentication.
 
 Each family supports ten purposeful pages. Clients edit identity, copy, photos, contact details and approved navbar destinations. Routes, typography and layout remain part of the selected template. Enquiries prepare a reviewed WhatsApp or email message; no availability, paid reservation, transport quote or shipment tracking is fabricated.
 

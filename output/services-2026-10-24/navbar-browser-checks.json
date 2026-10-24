@@ -1,0 +1,34 @@
+[
+  {
+    "buttonHeight": 44,
+    "buttonLeft": 653.875,
+    "buttonWidth": 180.125,
+    "lastLinkRight": 647.75,
+    "noOverlap": true,
+    "width": 902
+  },
+  {
+    "buttonHeight": 44,
+    "buttonLeft": 775.875,
+    "buttonWidth": 180.125,
+    "lastLinkRight": 708.75,
+    "noOverlap": true,
+    "width": 1024
+  },
+  {
+    "buttonHeight": 44,
+    "buttonLeft": 1021.375,
+    "buttonWidth": 180.125,
+    "lastLinkRight": 854.75,
+    "noOverlap": true,
+    "width": 1280
+  },
+  {
+    "buttonHeight": 44,
+    "buttonLeft": 1101.375,
+    "buttonWidth": 180.125,
+    "lastLinkRight": 934.75,
+    "noOverlap": true,
+    "width": 1440
+  }
+]

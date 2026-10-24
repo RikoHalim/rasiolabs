@@ -8,8 +8,6 @@ import {Miniflare, Log, LogLevel, convertV4MiniflareOptions} from 'miniflare';
 import {profileTemplates} from '../server/profile-templates.mjs';
 import {profilePages, profileAsset, profileBase, navigationHref} from '../server/profile-pages.mjs';
 import {defaultsFor, fieldsFor, validateContent, contentWithDefaults} from '../server/model.mjs';
-import {packageVolume, enquiryDestination, validStay} from '../dist/business-enquiry.mjs';
-import * as logisticsTemplate from '../server/templates/logistics.mjs';
 
 const repo = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'http://template-audit.test';
@@ -253,7 +251,7 @@ test('editable location coordinates reject malformed values for all map-based te
 });
 
 test('historical unused fields do not prevent a client from editing supported content', () => {
-  for(const template of ['Padel','Creative','Consulting']) {
+  for(const template of ['Padel']) {
     const historical={...defaultsFor(template),work2Description:'Legacy description',processTitle:'Legacy process title',heroTitle:'Current client title'};
     const validated=validateContent(historical,template);
     const supported=new Set(fieldsFor(template).flatMap(group=>group.items).map(field=>field.key));
@@ -265,7 +263,7 @@ test('historical unused fields do not prevent a client from editing supported co
 });
 
 test('renamed client rooms, menus and services stay consistent in enquiry links and topic choices', async () => {
-  for(const [template,field] of [['Architecture','service1Title'],['Padel','service1Title'],['Creative','service1Title'],['Consulting','service1Title'],['Hospitality','work1Title'],['Catering','menu1Title'],['Logistics','service1Title']]) {
+  for(const [template,field] of [['Padel','service1Title']]) {
     const defaults=defaultsFor(template),title='Client '+field+' & details';
     let optionFound=false,linkFound=false;
     for(const [assetPath,{template:family,page,html:source}] of documents) {
@@ -287,31 +285,10 @@ test('renamed client rooms, menus and services stay consistent in enquiry links 
       if(source.includes('data-enquiry-topic="'+escape(defaults[field])+'"'))assert.ok(elements(html,'a').some(el=>el.attrs['data-enquiry-topic']===title),assetPath+' topic link is not tied to the editable title');
     }
     assert.ok(optionFound,template+' renamed topic is not present in the client enquiry selector');
-    if(['Padel','Consulting','Hospitality','Catering'].includes(template))assert.ok(linkFound,template+' has no bound enquiry link for its editable offering');
+    if(['Padel'].includes(template))assert.ok(linkFound,template+' has no bound enquiry link for its editable offering');
   }
 });
 
-test('renamed hotel rooms appear in detail metadata, footer labels and other-room links', async () => {
-  const data={...defaultsFor('Hospitality'),businessName:'Client Hotel',work1Title:'Garden & sea <room>',work2Title:'A private terrace',whatsapp:'+6281234567890',email:'owner@example.test'};
-  for(const [page,field] of [['garden-room','work1Title'],['terrace-suite','work2Title']]) {
-    const response=await renderer.dispatchFetch(origin+'/?template=Hospitality&page='+page,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-    const html=await response.text();
-    assert.ok(html.includes('<title>'+escape(data[field])+' | Client Hotel</title>'),'hotel detail metadata uses the original preview room name');
-    const links=[...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)];
-    for(const match of links) {
-      const attrs=attributes(match[1]),key=attrs['data-cms-link-label-key'];
-      if(!['work1Title','work2Title'].includes(key))continue;
-      assert.equal(decode(match[2]),(attrs['data-cms-link-label-prefix']||'')+data[key]+(attrs['data-cms-link-label-suffix']||''),'bound link did not preserve its surrounding label while replacing the room name');
-    }
-    for(const key of ['work1Title','work2Title'])assert.ok(links.some(match=>{
-      const attrs=attributes(match[1]);return attrs.class?.includes('footer-page')&&attrs['data-cms-link-label-key']===key&&decode(match[2])===data[key];
-    }),'hotel footer does not reflect renamed '+key);
-    const otherField=field==='work1Title'?'work2Title':'work1Title';
-    assert.ok(links.some(match=>{
-      const attrs=attributes(match[1]);return !attrs.class?.includes('footer-page')&&attrs['data-cms-link-label-key']===otherField&&decode(match[2]).includes(data[otherField]);
-    }),'other-room action does not reflect the renamed room');
-  }
-});
 });
 
 class Control {
@@ -346,7 +323,7 @@ class Control {
 
 async function pageRuntime({selectors={},lists={},storage=new Map(),clipboard={writeText:async()=>{}}}={}) {
   const opened=[],created=[],downloads=[],document=new Control({selectors,lists});
-  document.body=new Control();document.body.classList.add('theme-consulting');
+  document.body=new Control();document.body.classList.add('theme-padel');
   document.createElement=()=>{const element=new Control();created.push(element);return element;};
   class RuntimeURL extends URL {static createObjectURL(value){downloads.push(value);return 'blob:local-brief';}static revokeObjectURL(){}}
   const context={document,window:{open:url=>opened.push(url),RasioTemplateForms:{initialize(){},validate:form=>form.valid!==false}},location:{href:origin+'/website/client/brief'},URL:RuntimeURL,Blob,setTimeout,navigator:{clipboard},
@@ -467,133 +444,3 @@ test('the actual legacy motion script keeps the initial viewport readable and re
   }
 });
 
-async function businessRuntime({forms=[],calculators=[],checklists=[],motions=[],reduced=true,storage=new Map(),search='',homePath='/website/client-hotel'}={}) {
-  const created=[],opened=[],observers=[],document=new Control({selectors:{'[data-site-page=""]':{href:origin+homePath}},lists:{'[data-business-enquiry]':forms,'[data-volume-calculator]':calculators,'[data-cargo-checklist]':checklists,'[data-motion]':motions}});
-  document.body=new Control();document.createElement=()=>{const element=new Control();created.push(element);return element;};document.getElementById=id=>created.find(element=>element.id===id)||null;
-  const formValue=(form,key)=>form.elements?.namedItem(key)?.value??form.values[key];
-  const window={open:url=>opened.push(url)};
-  class Observer {constructor(callback){this.callback=callback;this.observed=[];observers.push(this);}observe(element){this.observed.push(element);}unobserve(element){this.observed=this.observed.filter(item=>item!==element);}}
-  window.IntersectionObserver=Observer;
-  const context={document,window,location:{href:origin+homePath+'/stay',search},URL,URLSearchParams,Date,packageVolume,enquiryDestination,validStay,
-    matchMedia:()=>({matches:reduced}),IntersectionObserver:Observer,innerHeight:900,Option:class{constructor(text,value){this.textContent=text;this.value=value;}},
-    sessionStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)},
-    FormData:class {constructor(form){this.form=form;}get(name){return formValue(this.form,name)??null;}*[Symbol.iterator](){for(const key of Object.keys(this.form.values))yield [key,formValue(this.form,key)];}}
-  };
-  runInNewContext(await asset('/template-validation.js'),context,{filename:'template-validation.js'});
-  runInNewContext((await asset('/business-templates.js')).replace(/^import[^\n]+\n/,''),context,{filename:'business-templates.js'});
-  return {document,window,created,opened,storage,observers};
-}
-
-test('the actual business motion script keeps first-paint content static while retaining camera pan and respecting reduced motion', async () => {
-  for(const reduced of [false,true]) {
-    const pan=new Control({dataset:{motion:'pan'}}),photo=new Control({dataset:{motion:'photo'}}),text=new Control({dataset:{motion:'text'}}),aperture=new Control({dataset:{motion:'aperture'}}),later=new Control({dataset:{motion:'photo'}});
-    later.getBoundingClientRect=()=>({top:1200,bottom:1400});
-    const {document,observers}=await businessRuntime({motions:[pan,photo,text,aperture,later],reduced});
-    assert.equal(document.body.classList.contains('motion-ready'),!reduced);
-    assert.equal(observers.length,reduced?0:1);
-    for(const element of [pan,photo,text,aperture])assert.equal(element.classList.contains('is-visible'),!reduced);
-    assert.equal(pan.classList.contains('motion-static'),false,'the transform-only camera pan remains available in the initial viewport');
-    for(const element of [photo,text,aperture])assert.equal(element.classList.contains('motion-static'),!reduced,'first-paint reveal effects are suppressed');
-    assert.equal(later.classList.contains('is-visible'),false);
-    if(!reduced){assert.deepEqual(observers[0].observed,[later]);observers[0].callback([{target:later,isIntersecting:true}]);assert.equal(later.classList.contains('is-visible'),true);assert.equal(observers[0].observed.length,0);}
-  }
-  assert.match(await asset('/business-templates.css'),/@media\(prefers-reduced-motion:reduce\)[\s\S]*?animation:none!important/,'CSS also disables all motion when requested');
-});
-
-function businessForm({phone='6281234567890',email='owner@example.test',dates=false}={}) {
-  const status=new Control(),values={name:'Alex',email:'alex@example.test',topic:'Garden room',message:'An enquiry & a question.'},inputs=new Map();
-  if(dates)Object.assign(values,{'Arrival date':'2026-12-01','Departure date':'2026-12-04',Guests:'2'});
-  for(const [name,value] of Object.entries(values)) {
-    const label=new Control(),input=new Control({selectors:{'closest:label':label}});input.name=name;input.value=value;input.type=name.includes('date')?'date':name==='email'?'email':name==='Guests'?'number':'text';inputs.set(name,input);
-  }
-  const topic=inputs.get('topic');topic.options=[{value:'Garden room'},{value:'Terrace suite'}];topic.add=option=>topic.options.push(option);
-  const controls=[...inputs.values()];
-  const form=new Control({dataset:{whatsapp:phone,contactEmail:email,kind:'Stay enquiry'},values,selectors:{'[data-enquiry-status]':status},lists:{'input,select,textarea':controls,'input[type=date]':controls.filter(input=>input.type==='date')}});
-  form.elements={namedItem:name=>inputs.get(name),topic};
-  return {form,status,inputs};
-}
-
-test('the real shared validator associates inline errors, focuses the first error and preserves answers', async () => {
-  const {form,inputs,status}=businessForm(),name=inputs.get('name'),email=inputs.get('email');
-  name.validity={valid:false,valueMissing:true};email.validity={valid:false,typeMismatch:true};
-  const runtime=await businessRuntime({forms:[form]});
-  assert.equal(form.noValidate,true);
-  form.emit('submit');assert.equal(name.focused,true);assert.equal(name.getAttribute('aria-invalid'),'true');assert.equal(status.children.length,0);assert.equal(email.value,'alex@example.test');
-  const error=runtime.document.getElementById(name.dataset.errorId);assert.equal(error.textContent,'Complete this field.');assert.ok(name.getAttribute('aria-describedby').split(' ').includes(error.id));
-  name.validity={valid:true};name.emit('input');assert.equal(error.textContent,'');assert.equal(name.getAttribute('aria-invalid'),'false');
-  email.validity={valid:true};form.emit('submit');assert.equal(status.children[0].textContent,'Check your enquiry');assert.equal(runtime.opened.length,0);
-});
-
-test('the actual business enquiry script reviews values and prepares only an explicitly chosen client contact', async () => {
-  for(const settings of [{phone:'6281234567890',email:'owner@example.test',protocol:'https:'},{phone:'',email:'owner+stay@example.test',protocol:'mailto:'},{phone:'',email:'',protocol:null}]) {
-    const {form,status,inputs}=businessForm(settings),runtime=await businessRuntime({forms:[form]});
-    form.emit('submit');assert.equal(runtime.opened.length,0);assert.equal(inputs.get('name').value,'Alex');
-    if(!settings.protocol){assert.match(status.textContent,/Contact details are not available/);continue;}
-    assert.equal(status.children.length,3);const link=status.children[2],url=new URL(link.href);assert.equal(url.protocol,settings.protocol);assert.equal(link.focused,true);
-    if(settings.protocol==='https:'){assert.equal(url.pathname,'/6281234567890');assert.match(url.searchParams.get('text'),/Stay enquiry[\s\S]*An enquiry & a question/);assert.equal(link.rel,'noopener');}
-    else{assert.equal(decodeURIComponent(url.pathname),settings.email);assert.equal(url.searchParams.get('subject'),'Stay enquiry');assert.match(url.searchParams.get('body'),/Alex[\s\S]*An enquiry & a question/);}
-    const message=url.searchParams.get(settings.protocol==='https:'?'text':'body');
-    const review=status.children[1].children;
-    for(let index=0;index<review.length;index+=2)assert.ok(message.includes(review[index].textContent+': '+review[index+1].textContent),'prepared contact message differs from the visible review label or value');
-    assert.doesNotMatch(message,/(?:^|\n)(?:name|email|topic|message):/,'visitor-facing contact messages contain machine field names');
-    form.emit('input');assert.equal(status.children.length,0,'changing the enquiry removes an obsolete review');
-  }
-});
-
-test('the actual business enquiry script rejects a non-increasing stay and supports one-time topic handoff', async () => {
-  const {form,status,inputs}=businessForm({dates:true}),storage=new Map([['profile-brief:/website/client-hotel',JSON.stringify({topic:'Terrace suite'})]]);
-  const runtime=await businessRuntime({forms:[form],storage});assert.equal(form.elements.topic.value,'Terrace suite');assert.equal(storage.size,0);
-  const departure=inputs.get('Departure date');departure.value='2026-12-01';form.emit('submit');
-  assert.equal(departure.getAttribute('aria-invalid'),'true');assert.equal(departure.focused,true);assert.match(runtime.document.getElementById(departure.dataset.errorId).textContent,/Departure must be after arrival/);assert.equal(status.children.length,0);
-  departure.value='2026-12-04';form.emit('submit');assert.equal(departure.getAttribute('aria-invalid'),'false');assert.equal(status.children[0].textContent,'Check your enquiry');
-  const link=new URL(status.children[2].href);assert.match(link.searchParams.get('text'),/Interested in: Terrace suite/);assert.equal(runtime.opened.length,0);
-});
-
-test('the actual business topic selector removes duplicate values while preserving selection and distinct client offerings', async () => {
-  const {form}=businessForm(),select=form.elements.topic;
-  const original={value:'Private dining'},selected={value:'Private dining',selected:true},corporate={value:'Corporate catering'},renamed={value:'Private celebration'};
-  select.options=[original,corporate,selected,renamed];select.value='Private dining';
-  for(const option of select.options)option.remove=()=>select.options.splice(select.options.indexOf(option),1);
-  await businessRuntime({forms:[form]});
-  assert.deepEqual(select.options.map(option=>option.value),['Corporate catering','Private dining','Private celebration']);
-  assert.ok(select.options.includes(selected),'the selected duplicate keeps its option identity');assert.ok(!select.options.includes(original));assert.equal(select.value,'Private dining');
-  const next=businessForm(),topic=next.form.elements.topic;
-  topic.options=[{value:'Dinner service'},{value:'Private dining'}];topic.value='Dinner service';
-  const storage=new Map([['profile-brief:/website/client-hotel',JSON.stringify({topic:'Chef’s table'})]]);
-  await businessRuntime({forms:[next.form],storage});
-  assert.deepEqual(topic.options.map(option=>option.value),['Dinner service','Private dining','Chef’s table'],'separately renamed CMS offerings are retained and a new handoff topic is added');
-  assert.equal(topic.value,'Chef’s table');assert.equal(storage.size,0,'a custom handoff is consumed once');
-});
-
-test('the actual cargo calculator and checklist provide useful results and recovery without a service quote', async () => {
-  const output=new Control(),calculator=new Control({values:{length:'100',width:'50',height:'40',quantity:'3'},selectors:{'[data-volume-output]':output}});
-  calculator.elements={namedItem(){return null;}};
-  const boxes=[new Control(),new Control()],progress=new Control(),checklist=new Control({selectors:{'[data-checklist-status]':progress},lists:{'input[type=checkbox]':boxes}});
-  await businessRuntime({calculators:[calculator],checklists:[checklist]});
-  calculator.emit('submit');assert.equal(output.textContent,'0.600 m³ total package volume');calculator.emit('input');assert.match(output.textContent,/Calculate again/);
-  calculator.values.quantity='1.5';calculator.emit('submit');assert.match(output.textContent,/whole number/);
-  boxes[0].checked=true;checklist.emit('change');assert.equal(progress.textContent,'1 of 2 items prepared');boxes[1].checked=true;checklist.emit('change');assert.equal(progress.textContent,'Checklist complete. Ready to prepare your enquiry.');
-});
-
-test('stay dates and email contact URLs reject malformed data and preserve real addresses', () => {
-  assert.equal(validStay('2026-02-31','2026-03-01'),false);assert.equal(validStay('2026-02-28','2026-02-29'),false);assert.equal(validStay('2028-02-28','2028-02-29'),true);
-  assert.equal(enquiryDestination('','owner@example.test?subject=Injected','Stay','Notes'),null);
-  const contact=enquiryDestination('','owner+stay@example.test','A subject & details','A visitor message?');
-  const url=new URL(contact.href);assert.equal(decodeURIComponent(url.pathname),'owner+stay@example.test');assert.equal(url.searchParams.get('subject'),'A subject & details');assert.equal(url.searchParams.get('body'),'A visitor message?');
-});
-
-test('Logistics home and service catalogue take each offering to its own usable detail page', () => {
-  const data=defaultsFor('Logistics'),ctx={data,t:(field,tag='span')=>`<${tag} data-cms-field="${field}">${escape(data[field])}</${tag}>`,pic:()=>'',link:(page,label)=>`<a data-site-page="${page}" href="${profileBase('Logistics')}/${page}">${escape(label)}</a>`,enquiry:()=>''};
-  for(const page of ['', 'services']) {
-    const html=logisticsTemplate.renderPage(page,ctx);
-    const offeringRows=[...html.matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/g)];
-    for(const [field,destination,titleField] of [['service1Title','freight','freightTitle'],['service2Title','warehouse','warehouseTitle'],['service3Title','distribution','distributionTitle']]) {
-      const row=offeringRows.find(match=>match[1].includes('data-cms-field="'+field+'"'));
-      assert.ok(row,'Logistics '+(page||'home')+' lacks the '+data[field]+' offering');
-      const link=elements(row[1],'a').find(element=>'data-site-page' in element.attrs);
-      assert.equal(link?.attrs['data-site-page'],destination,data[field]+' does not open its own detail page from '+(page||'home'));
-      const detail=logisticsTemplate.renderPage(destination,ctx);
-      assert.ok(detail.includes('data-cms-field="'+titleField+'"'),data[field]+' destination lacks its own detail content');
-    }
-  }
-});

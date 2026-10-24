@@ -1,0 +1,1434 @@
+{
+  "date": "2026-10-22",
+  "checks": [
+    {
+      "cards": [
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4936,
+          "buttonBottom": 4984,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4629,
+          "height": 903.133056640625,
+          "price": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4699,
+          "buttonBottom": 4747,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4389,
+          "height": 954.681396484375,
+          "price": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 961
+    },
+    {
+      "cards": [
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 961
+    },
+    {
+      "cards": [
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 961
+    },
+    {
+      "cards": [
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 4711,
+          "buttonBottom": 4759,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4402,
+          "height": 975.681396484375,
+          "price": 4492,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 961
+    },
+    {
+      "cards": [
+        {
+          "button": 4641,
+          "buttonBottom": 4689,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4358,
+          "height": 649.0886840820312,
+          "price": 4438,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 5314,
+          "buttonBottom": 5362,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5031,
+          "height": 824.2862548828125,
+          "price": 5111,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 6189,
+          "buttonBottom": 6237,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5922,
+          "height": 735.5040283203125,
+          "price": 6002,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 960
+    },
+    {
+      "cards": [
+        {
+          "button": 4675,
+          "buttonBottom": 4723,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4358,
+          "height": 683.0886840820312,
+          "price": 4438,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 5382,
+          "buttonBottom": 5430,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5065,
+          "height": 858.2862548828125,
+          "price": 5145,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 6257,
+          "buttonBottom": 6305,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5990,
+          "height": 735.5040283203125,
+          "price": 6070,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 960
+    },
+    {
+      "cards": [
+        {
+          "button": 4719,
+          "buttonBottom": 4767,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4401,
+          "height": 726.2862548828125,
+          "price": 4481,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 5469,
+          "buttonBottom": 5517,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5151,
+          "height": 901.4838256835938,
+          "price": 5231,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 6344,
+          "buttonBottom": 6392,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6077,
+          "height": 735.5040283203125,
+          "price": 6157,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 960
+    },
+    {
+      "cards": [
+        {
+          "button": 4719,
+          "buttonBottom": 4767,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 4401,
+          "height": 726.2862548828125,
+          "price": 4481,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 5469,
+          "buttonBottom": 5517,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5151,
+          "height": 901.4838256835938,
+          "price": 5231,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 6344,
+          "buttonBottom": 6392,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6077,
+          "height": 735.5040283203125,
+          "price": 6157,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 960
+    },
+    {
+      "cards": [
+        {
+          "button": 5334,
+          "buttonBottom": 5382,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5050,
+          "height": 649.0886840820312,
+          "price": 5130,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 6007,
+          "buttonBottom": 6055,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5723,
+          "height": 824.2862548828125,
+          "price": 5803,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 6882,
+          "buttonBottom": 6930,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6615,
+          "height": 735.5040283203125,
+          "price": 6695,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "cards": [
+        {
+          "button": 5368,
+          "buttonBottom": 5416,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5050,
+          "height": 683.0886840820312,
+          "price": 5130,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 6075,
+          "buttonBottom": 6123,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5757,
+          "height": 858.2862548828125,
+          "price": 5837,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 6950,
+          "buttonBottom": 6998,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6683,
+          "height": 735.5040283203125,
+          "price": 6763,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "cards": [
+        {
+          "button": 5411,
+          "buttonBottom": 5459,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5094,
+          "height": 726.2862548828125,
+          "price": 5174,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 6161,
+          "buttonBottom": 6209,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5844,
+          "height": 901.4838256835938,
+          "price": 5924,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 7036,
+          "buttonBottom": 7084,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6769,
+          "height": 735.5040283203125,
+          "price": 6849,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "cards": [
+        {
+          "button": 5411,
+          "buttonBottom": 5459,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5094,
+          "height": 726.2862548828125,
+          "price": 5174,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 6161,
+          "buttonBottom": 6209,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 5844,
+          "height": 901.4838256835938,
+          "price": 5924,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 7036,
+          "buttonBottom": 7084,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6769,
+          "height": 735.5040283203125,
+          "price": 6849,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "cards": [
+        {
+          "button": 6383,
+          "buttonBottom": 6431,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6089,
+          "height": 667.6854858398438,
+          "price": 6169,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7075,
+          "buttonBottom": 7123,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6781,
+          "height": 842.883056640625,
+          "price": 6861,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 7965,
+          "buttonBottom": 8013,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7691,
+          "height": 750.7056274414062,
+          "price": 7771,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "button": 6417,
+          "buttonBottom": 6465,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6089,
+          "height": 701.6854858398438,
+          "price": 6169,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7143,
+          "buttonBottom": 7191,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6815,
+          "height": 876.883056640625,
+          "price": 6895,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8033,
+          "buttonBottom": 8081,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7759,
+          "height": 750.7056274414062,
+          "price": 7839,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "button": 6461,
+          "buttonBottom": 6509,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6132,
+          "height": 744.883056640625,
+          "price": 6212,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7229,
+          "buttonBottom": 7277,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6901,
+          "height": 920.0806274414062,
+          "price": 6981,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8119,
+          "buttonBottom": 8167,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7845,
+          "height": 750.7056274414062,
+          "price": 7925,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "button": 6461,
+          "buttonBottom": 6509,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6132,
+          "height": 744.883056640625,
+          "price": 6212,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7229,
+          "buttonBottom": 7277,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6901,
+          "height": 920.0806274414062,
+          "price": 6981,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8119,
+          "buttonBottom": 8167,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7845,
+          "height": 750.7056274414062,
+          "price": 7925,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "button": 6695,
+          "buttonBottom": 6743,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6401,
+          "height": 688.6854858398438,
+          "price": 6481,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7407,
+          "buttonBottom": 7455,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7113,
+          "height": 904.0806274414062,
+          "price": 7193,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8361,
+          "buttonBottom": 8409,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 8085,
+          "height": 794.9031982421875,
+          "price": 8167,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "monthly": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "monthly": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "width": 360
+    },
+    {
+      "cards": [
+        {
+          "button": 6729,
+          "buttonBottom": 6777,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6401,
+          "height": 722.6854858398438,
+          "price": 6481,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7475,
+          "buttonBottom": 7523,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7147,
+          "height": 938.0806274414062,
+          "price": 7227,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8429,
+          "buttonBottom": 8477,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 8153,
+          "height": 794.9031982421875,
+          "price": 8235,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "monthly": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "monthly": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "width": 360
+    },
+    {
+      "cards": [
+        {
+          "button": 6772,
+          "buttonBottom": 6820,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6444,
+          "height": 765.883056640625,
+          "price": 6524,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7562,
+          "buttonBottom": 7610,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7234,
+          "height": 981.2781982421876,
+          "price": 7314,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8515,
+          "buttonBottom": 8563,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 8239,
+          "height": 794.9031982421875,
+          "price": 8321,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "monthly": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "monthly": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "width": 360
+    },
+    {
+      "cards": [
+        {
+          "button": 6772,
+          "buttonBottom": 6820,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 6444,
+          "height": 765.883056640625,
+          "price": 6524,
+          "service": "Rasio Profile"
+        },
+        {
+          "button": 7562,
+          "buttonBottom": 7610,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 7234,
+          "height": 981.2781982421876,
+          "price": 7314,
+          "service": "Rasio Store"
+        },
+        {
+          "button": 8515,
+          "buttonBottom": 8563,
+          "buttonHeight": 48,
+          "clipped": false,
+          "header": 8239,
+          "height": 794.9031982421875,
+          "price": 8321,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "prices": [
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "monthly": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "monthly": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "width": 360
+    }
+  ],
+  "console": []
+}

@@ -1,0 +1,38 @@
+{
+  "keyboardCheck": {
+    "focus": "Custom",
+    "outline": "rgb(20, 84, 237) solid 3px",
+    "selected": "Custom"
+  },
+  "menuCheck": {
+    "expanded": "true",
+    "focusOutline": "rgb(20, 84, 237) solid 3px",
+    "links": [
+      {
+        "height": 46.390625,
+        "text": "Rasio Profile"
+      },
+      {
+        "height": 46.390625,
+        "text": "Rasio Store"
+      },
+      {
+        "height": 46.390625,
+        "text": "Rasio Custom"
+      },
+      {
+        "height": 46.390625,
+        "text": "Harga"
+      },
+      {
+        "height": 46.390625,
+        "text": "Login klien"
+      }
+    ]
+  },
+  "faqCheck": {
+    "focusOutline": "rgb(20, 84, 237) solid 3px",
+    "open": true,
+    "text": "Apakah saya perlu membuat website sendiri?\n+\n\nTidak. Anda memilih template dan mengirim materi bisnis. Rasio menyiapkan website berdasarkan template tersebut."
+  }
+}

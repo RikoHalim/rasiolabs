@@ -1,0 +1,45 @@
+[
+  {
+    "action": "change",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=12&type=profile",
+    "profile": "Rp654.000",
+    "store": "Rp2.148.000",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=12#harga"
+  },
+  {
+    "action": "change",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=24&type=profile",
+    "profile": "Rp768.000",
+    "store": "Rp3.576.000",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=24#harga"
+  },
+  {
+    "action": "change",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=48&type=profile",
+    "profile": "Rp1.332.000",
+    "store": "Rp6.192.000",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=48#harga"
+  },
+  {
+    "action": "change",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=1&type=profile",
+    "profile": "Rp109.000",
+    "store": "Rp299.000",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=1#harga"
+  },
+  {
+    "action": "back",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=48&type=profile",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=48#harga"
+  },
+  {
+    "action": "forward",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=1&type=profile",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=1#harga"
+  },
+  {
+    "action": "refresh",
+    "link": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?template=Padel&duration=1&type=profile",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?type=profile&template=Padel&duration=1#harga"
+  }
+]

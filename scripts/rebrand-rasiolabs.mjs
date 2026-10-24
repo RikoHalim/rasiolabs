@@ -15,16 +15,17 @@ export const rebrand=text=>text
   .replaceAll('#1739a4','#1237b0');
 // Apply also after template generation so generated pages share the current brand.
 for(const entry of await readdir('dist',{withFileTypes:true})){
+  if(entry.name.startsWith('template-padel'))continue;
   if(!entry.isFile()||!/\.(html|css|js|svg)$/.test(entry.name))continue;
   const path='dist/'+entry.name;
   let source=rebrand(await readFile(path,'utf8'));
-  source=source.replace(/(template-(?:architecture|padel|creative|consulting|hospitality|catering|logistics)-preview)\.(?:png|jpg)(?:\?v=[^"\s<>]+)?/g,'$1.jpg?v=labs61');
+  source=source.replace(/(template-(?:padel)-preview)\.(?:png|jpg)(?:\?v=[^"\s<>]+)?/g,'$1.jpg?v=labs61');
   if(entry.name.endsWith('.html')){
     source=source.replaceAll('/assets/rasio-logo.png','/assets/rasiolabs-logo.png');
     source=source.replace(/<link[^>]*href="\/template-brand\.css[^>]*>/g,'');
     source=source.replace(/(\.(?:css|js)\?v=)[^"\s<>]+/g,'$1labs55');
     const businessTemplate=/^template-(hospitality|catering|logistics)(?:-|\.)/.test(entry.name);
-    const fontFamily=entry.name.match(/^template-(architecture|padel|creative|consulting|hospitality|catering|logistics)(?:-|\.)/)?.[1];
+    const fontFamily=entry.name.match(/^template-(padel)(?:-|\.)/)?.[1];
     if(fontFamily){
       source=source.replace(/<link[^>]*(?:fonts\.googleapis\.com|fonts\.gstatic\.com|\/template-fonts\.css|\/assets\/fonts\/)[^>]*>/g,'');
       source=source.replace('</head>',fontHead(fontFamily)+'</head>');

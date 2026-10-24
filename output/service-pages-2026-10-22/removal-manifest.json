@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-22",
+  "reason": "Owner-requested removal after preservation in workspace docs/Rasio Labs - Referensi Halaman Layanan.md",
+  "files": [
+    {
+      "path": "frontend/services/profile.html",
+      "sha256": "498046C996DABAB5E81E9E3A720D3D8473855CCB3B3336CDC40DF6D431A1B300",
+      "bytes": 21968
+    },
+    {
+      "path": "frontend/services/store.html",
+      "sha256": "674FF6059C68E4C80CC8F7502A57C69B60148CE3ADE8CBB3F2C9DD9541072E73",
+      "bytes": 22216
+    },
+    {
+      "path": "frontend/services/custom.html",
+      "sha256": "26A835A6E3056C1ECC72E85EEDB31C633A8B1E4A250F14F189C31ACF7B92CE67",
+      "bytes": 20170
+    },
+    {
+      "path": "frontend/services/content.mjs",
+      "sha256": "C3D7C4B144999B0C680C8C13D052FBB89355BED41F2885CFD77E90311BDD27C6",
+      "bytes": 6033
+    },
+    {
+      "path": "frontend/services/render.mjs",
+      "sha256": "F7EE71423EF714167674240E25C32ADF682B469550C019C8A0A054989282F7A5",
+      "bytes": 5140
+    },
+    {
+      "path": "frontend/services/styles.css",
+      "sha256": "EEAD7B4EF2EDDAC76B362C048DDC5A4A625676FE69AF8AFC9049A2F6ACC463A6",
+      "bytes": 6201
+    },
+    {
+      "path": "scripts/build-service-content.mjs",
+      "sha256": "F64DA76B232F2462D8B77415B94A35FF243ADDE357FE1023505D56F3B43DF7BD",
+      "bytes": 1196
+    },
+    {
+      "path": "scripts/build-service-pages.py",
+      "sha256": "77E812D39EBA0F93EA3EFA942A16DC8272A98BE0444A9934290471319A4EC3D9",
+      "bytes": 15830
+    },
+    {
+      "path": "scripts/sync-service-data.mjs",
+      "sha256": "B1FE7488939FBCE979F113BF7D574F1D1B13CDA80B574D53718DF904569AA0CF",
+      "bytes": 1980
+    },
+    {
+      "path": "scripts/sector_icons.py",
+      "sha256": "F9993E48A24854EF014B5645DC648F63ABF25A9307B3324AF807BA2F61D3D1D6",
+      "bytes": 5453
+    },
+    {
+      "path": "dist/layanan-profile.html",
+      "sha256": "8FCADF39FF67246D625C4047F696E7BA67D7E4A570069B157D5F41DFC922345C",
+      "bytes": 26159
+    },
+    {
+      "path": "dist/layanan-store.html",
+      "sha256": "E421A599E6D96FD8927B7DCC658BE4BC678D0CF699277843AE4D6170C3030612",
+      "bytes": 26987
+    },
+    {
+      "path": "dist/layanan-custom.html",
+      "sha256": "46DC7A3AFE76518FE6400ED51923FBCD777F1BFFB17866CA6611F24B16D45D84",
+      "bytes": 24427
+    },
+    {
+      "path": "dist/services/styles.css",
+      "sha256": "EEAD7B4EF2EDDAC76B362C048DDC5A4A625676FE69AF8AFC9049A2F6ACC463A6",
+      "bytes": 6201
+    },
+    {
+      "path": "dist/service-refresh-v31.css",
+      "sha256": "6640D603AE66717B2945C816C6534267E1A74C710196D8FB1E3BE2567D5D9299",
+      "bytes": 5680
+    },
+    {
+      "path": "dist/service-visual-v37.css",
+      "sha256": "A47174E41BB15DF32C6E59C9D32C8CBCAF4C5A474B0A440C70E43457538A5898",
+      "bytes": 12783
+    },
+    {
+      "path": "dist/service-sectors-v29.js",
+      "sha256": "9817CAF4101E6D5A26466722A3D3B653E41FE13227E70ABAE2030463A5D9D3CA",
+      "bytes": 875
+    },
+    {
+      "path": "dist/client/layanan-profile.html",
+      "sha256": "8FCADF39FF67246D625C4047F696E7BA67D7E4A570069B157D5F41DFC922345C",
+      "bytes": 26159
+    },
+    {
+      "path": "dist/client/layanan-store.html",
+      "sha256": "E421A599E6D96FD8927B7DCC658BE4BC678D0CF699277843AE4D6170C3030612",
+      "bytes": 26987
+    },
+    {
+      "path": "dist/client/layanan-custom.html",
+      "sha256": "46DC7A3AFE76518FE6400ED51923FBCD777F1BFFB17866CA6611F24B16D45D84",
+      "bytes": 24427
+    },
+    {
+      "path": "dist/client/services/styles.css",
+      "sha256": "EEAD7B4EF2EDDAC76B362C048DDC5A4A625676FE69AF8AFC9049A2F6ACC463A6",
+      "bytes": 6201
+    },
+    {
+      "path": "dist/client/service-refresh-v31.css",
+      "sha256": "6640D603AE66717B2945C816C6534267E1A74C710196D8FB1E3BE2567D5D9299",
+      "bytes": 5680
+    },
+    {
+      "path": "dist/client/service-visual-v37.css",
+      "sha256": "A47174E41BB15DF32C6E59C9D32C8CBCAF4C5A474B0A440C70E43457538A5898",
+      "bytes": 12783
+    },
+    {
+      "path": "dist/client/service-sectors-v29.js",
+      "sha256": "9817CAF4101E6D5A26466722A3D3B653E41FE13227E70ABAE2030463A5D9D3CA",
+      "bytes": 875
+    }
+  ]
+}

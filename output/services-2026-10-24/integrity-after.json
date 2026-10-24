@@ -1,0 +1,44 @@
+{
+  "files": {
+    "server/policy-v4.mjs": "8ce75f9bcdd94a940d945e387cb6dedf63ccd2dc11ac748d7440d956b02ea892",
+    "server/template-catalog.mjs": "6f0902366315ddbbb04dffefcba718ae45762f05bc1dbb3f824c6a6213f23264",
+    "dist/checkout-v4.html": "3eca5765220e3e675816b97f375310c79fe75042c91c4637f7ab5094e4270304",
+    "dist/checkout-selection.js": "96dbf3ce8d2efbcbecc6607db84cb183a4263da3ce7c6ddc9ee94efc1eb1a98e",
+    "dist/policy-flow.js": "40e0d1fd4292c2eccdb0f35b4e7e9675e4f408306568f3a6a1897b61a4311938",
+    "BUSINESS_DECISIONS.md": "232da4d83208861dc620c393d9cc1caf6a7e13a6ba1dc69c639d1d92c5db6334",
+    "docs/policy-v4/CHAPTER-85.md": "d92763c5fee91c065c78e1b170645a484ca521acdbda61d5a7e0ada6ccbfb253",
+    "frontend/marketing/styles/tokens.css": "a40746b974c0abfa00819b972d384fb438f10f0392a3056a4cc872344b5ca366",
+    "frontend/marketing/styles/components.css": "327df64047e5455b173c5f18b33004ad1e6c67debd19cd9ff367eb579c4c75ec"
+  },
+  "sections": {
+    "hero": "a13150b4e98034e9be204f3b27aeda9d0ec2941f9d63a15c330de112a061b45d",
+    "rasio-ai": "aeab04ae3077dbb673d710a33e45c2295067e09ebb1ac98c2e92976cbe4259ad",
+    "harga": "4ea1d5322d6ec4c4df8ca1fc70b1623124dffc350d6692c15f043607ad1f21ad"
+  },
+  "protectedScopeUnchanged": true,
+  "clientMatches": [
+    "index.html",
+    "rasio-profile.html",
+    "rasio-store.html",
+    "rasio-custom.html",
+    "selection.js",
+    "checkout-selection.js",
+    "template-selection.js",
+    "template-catalog.js",
+    "policy-v4.js",
+    "policy-flow.js",
+    "checkout-v4.html",
+    "marketing/components.css",
+    "marketing/homepage.css",
+    "marketing/homepage.js",
+    "marketing/interactions.js",
+    "marketing/motion.js",
+    "marketing/policy-v4.js",
+    "marketing/pricing.js",
+    "marketing/products.css",
+    "marketing/service-links.js",
+    "marketing/service-page.js",
+    "marketing/services.css",
+    "marketing/tokens.css"
+  ]
+}

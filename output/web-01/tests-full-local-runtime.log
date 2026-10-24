@@ -1,0 +1,611 @@
+TAP version 13
+# Subtest: tarif domain hanya memakai harga tahunan valid; tarif kosong tidak menjadi gratis
+ok 1 - tarif domain hanya memakai harga tahunan valid; tarif kosong tidak menjadi gratis
+  ---
+  duration_ms: 3.6923
+  type: 'test'
+  ...
+# Subtest: kutipan domain tidak menambah biaya paket gratis atau mengubah tarif yang sudah dibayar
+ok 2 - kutipan domain tidak menambah biaya paket gratis atau mengubah tarif yang sudah dibayar
+  ---
+  duration_ms: 0.8973
+  type: 'test'
+  ...
+# Subtest: homepage preserves the one approved template destination with explicit buttons
+ok 3 - homepage preserves the one approved template destination with explicit buttons
+  ---
+  duration_ms: 3.2148
+  type: 'test'
+  ...
+# Subtest: homepage order follows revision; dashboard and interactive AI are absent
+ok 4 - homepage order follows revision; dashboard and interactive AI are absent
+  ---
+  duration_ms: 0.7156
+  type: 'test'
+  ...
+# Subtest: service panels contain product visuals and include chatbot in every service
+ok 5 - service panels contain product visuals and include chatbot in every service
+  ---
+  duration_ms: 0.5631
+  type: 'test'
+  ...
+# Subtest: displayed prices use exact approved values and correctly distinguish domain eligibility
+ok 6 - displayed prices use exact approved values and correctly distinguish domain eligibility
+  ---
+  duration_ms: 1.0627
+  type: 'test'
+  ...
+# Subtest: all homepage links, anchors, scripts, styles and images resolve locally
+ok 7 - all homepage links, anchors, scripts, styles and images resolve locally
+  ---
+  duration_ms: 13.9127
+  type: 'test'
+  ...
+# Subtest: preview maps existing template subpages and rejects sensitive/outside paths
+ok 8 - preview maps existing template subpages and rejects sensitive/outside paths
+  ---
+  duration_ms: 0.8141
+  type: 'test'
+  ...
+# Subtest: marketing policy summaries contain no internal review labels and do not open production
+ok 9 - marketing policy summaries contain no internal review labels and do not open production
+  ---
+  duration_ms: 8.2409
+  type: 'test'
+  ...
+# Subtest: animation rules include reduced-motion and no homepage dashboard code
+ok 10 - animation rules include reduced-motion and no homepage dashboard code
+  ---
+  duration_ms: 3.1725
+  type: 'test'
+  ...
+# Subtest: core text and interactive palette passes AA text contrast
+ok 11 - core text and interactive palette passes AA text contrast
+  ---
+  duration_ms: 1.1987
+  type: 'test'
+  ...
+# Subtest: angka contoh template tidak menjadi klaim di website klien baru
+ok 12 - angka contoh template tidak menjadi klaim di website klien baru
+  ---
+  duration_ms: 1.6154
+  type: 'test'
+  ...
+# Subtest: harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan
+ok 13 - harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan
+  ---
+  duration_ms: 1.9702
+  type: 'test'
+  ...
+# Subtest: checkout mewajibkan email akses login dan menormalkan data tanpa menerima harga dari klien
+ok 14 - checkout mewajibkan email akses login dan menormalkan data tanpa menerima harga dari klien
+  ---
+  duration_ms: 0.8666
+  type: 'test'
+  ...
+# Subtest: checkout menolak layanan atau template yang belum tersedia, domain rusak dan persetujuan kosong
+ok 15 - checkout menolak layanan atau template yang belum tersedia, domain rusak dan persetujuan kosong
+  ---
+  duration_ms: 0.8929
+  type: 'test'
+  ...
+# Subtest: CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tidak diterima
+ok 16 - CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tidak diterima
+  ---
+  duration_ms: 6.0693
+  type: 'test'
+  ...
+# Subtest: template Profile memakai konten dan menu sendiri tanpa mengubah harga
+ok 17 - template Profile memakai konten dan menu sendiri tanpa mengubah harga
+  ---
+  duration_ms: 3.1724
+  type: 'test'
+  ...
+# Subtest: unggahan memakai tanda tangan file, bukan nama ekstensi
+ok 18 - unggahan memakai tanda tangan file, bukan nama ekstensi
+  ---
+  duration_ms: 0.7475
+  type: 'test'
+  ...
+# Subtest: navbar lama mendapatkan default dan hanya menerima menu dari bagian yang tersedia
+ok 19 - navbar lama mendapatkan default dan hanya menerima menu dari bagian yang tersedia
+  ---
+  duration_ms: 4.8055
+  type: 'test'
+  ...
+# Subtest: Bab 85: harga eksplisit, total di muka, dan domain mengikuti durasi
+ok 20 - Bab 85: harga eksplisit, total di muka, dan domain mengikuti durasi
+  ---
+  duration_ms: 4.6612
+  type: 'test'
+  ...
+# Subtest: tarif Store, domain, badge, dan cakupan mengikuti keputusan final pemilik
+ok 21 - tarif Store, domain, badge, dan cakupan mengikuti keputusan final pemilik
+  ---
+  duration_ms: 0.5932
+  type: 'test'
+  ...
+# Subtest: tidak ada approval yang diada-adakan atau operasi finansial aktif
+ok 22 - tidak ada approval yang diada-adakan atau operasi finansial aktif
+  ---
+  duration_ms: 0.7198
+  type: 'test'
+  ...
+# Subtest: revisi tidak membatasi jumlah; perubahan besar masuk penawaran
+ok 23 - revisi tidak membatasi jumlah; perubahan besar masuk penawaran
+  ---
+  duration_ms: 0.6721
+  type: 'test'
+  ...
+# Subtest: halaman kebijakan lengkap dan semua link sebelum pembayaran tersedia
+ok 24 - halaman kebijakan lengkap dan semua link sebelum pembayaran tersedia
+  ---
+  duration_ms: 26.3291
+  type: 'test'
+  ...
+# Subtest: server menolak transaksi baru sementara kebijakan belum disetujui
+ok 25 - server menolak transaksi baru sementara kebijakan belum disetujui
+  ---
+  duration_ms: 2.0006
+  type: 'test'
+  ...
+# Subtest: pengingat domain dan kontrak terpisah, tidak mengirim atau mengarang tarif
+ok 26 - pengingat domain dan kontrak terpisah, tidak mengirim atau mengarang tarif
+  ---
+  duration_ms: 1.161
+  type: 'test'
+  ...
+# Subtest: dashboard admin tetap memuat daftar kosong setelah perubahan kebijakan
+ok 27 - dashboard admin tetap memuat daftar kosong setelah perubahan kebijakan
+  ---
+  duration_ms: 7.665
+  type: 'test'
+  ...
+# Subtest: dashboard admin tetap memuat pesanan historis setelah perubahan kebijakan
+ok 28 - dashboard admin tetap memuat pesanan historis setelah perubahan kebijakan
+  ---
+  duration_ms: 24.5583
+  type: 'test'
+  ...
+# Subtest: login klien menggunakan endpoint username dan password
+ok 29 - login klien menggunakan endpoint username dan password
+  ---
+  duration_ms: 10.8771
+  type: 'test'
+  ...
+# Subtest: sesi tersimpan diarahkan sesuai peran pada kedua halaman
+ok 30 - sesi tersimpan diarahkan sesuai peran pada kedua halaman
+  ---
+  duration_ms: 2.6038
+  type: 'test'
+  ...
+# Subtest: kode klien pada halaman admin mengarahkan ke CMS
+ok 31 - kode klien pada halaman admin mengarahkan ke CMS
+  ---
+  duration_ms: 1.6821
+  type: 'test'
+  ...
+# Subtest: tautan undangan pada halaman admin ditebus sekali dan fragment dihapus
+ok 32 - tautan undangan pada halaman admin ditebus sekali dan fragment dihapus
+  ---
+  duration_ms: 1.7578
+  type: 'test'
+  ...
+# Subtest: redirect admin hanya mempertahankan ID pesanan valid, bukan URL atau kode akses
+ok 33 - redirect admin hanya mempertahankan ID pesanan valid, bukan URL atau kode akses
+  ---
+  duration_ms: 3.3618
+  type: 'test'
+  ...
+# Subtest: kode tidak valid tetap di form login dan mempertahankan pesan API
+ok 34 - kode tidak valid tetap di form login dan mempertahankan pesan API
+  ---
+  duration_ms: 1.5984
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+ok 35 - WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+  ---
+  duration_ms: 5.4882
+  type: 'test'
+  ...
+# Subtest: WEB-01: both published homepage outputs provide complete native selection links before interaction
+ok 36 - WEB-01: both published homepage outputs provide complete native selection links before interaction
+  ---
+  duration_ms: 12.7664
+  type: 'test'
+  ...
+# Subtest: WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+ok 37 - WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+  ---
+  duration_ms: 0.6139
+  type: 'test'
+  ...
+# Subtest: WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+ok 38 - WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+  ---
+  duration_ms: 0.8202
+  type: 'test'
+  ...
+# Subtest: WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+ok 39 - WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+  ---
+  duration_ms: 0.3749
+  type: 'test'
+  ...
+# Subtest: WEB-01: malformed or duplicate selections cannot silently become another payable package
+ok 40 - WEB-01: malformed or duplicate selections cannot silently become another payable package
+  ---
+  duration_ms: 0.9404
+  type: 'test'
+  ...
+# Subtest: WEB-01: Custom remains a quotation, without a silently substituted subscription price
+ok 41 - WEB-01: Custom remains a quotation, without a silently substituted subscription price
+  ---
+  duration_ms: 0.3753
+  type: 'test'
+  ...
+# Subtest: WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+ok 42 - WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+  ---
+  duration_ms: 0.9049
+  type: 'test'
+  ...
+# Subtest: WEB-01: service-change return links use the current section and retain relevant choice
+ok 43 - WEB-01: service-change return links use the current section and retain relevant choice
+  ---
+  duration_ms: 1.3063
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection-only changes do not open a production operation
+ok 44 - WEB-01: selection-only changes do not open a production operation
+  ---
+  duration_ms: 0.4869
+  type: 'test'
+  ...
+# Subtest: WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+ok 45 - WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+  ---
+  duration_ms: 56.7516
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+ok 46 - WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+  ---
+  duration_ms: 3.7077
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection code is inert on a published client site without the preview bar
+ok 47 - WEB-01: selection code is inert on a published client site without the preview bar
+  ---
+  duration_ms: 0.3371
+  type: 'test'
+  ...
+# Subtest: generated template and client renderer contracts
+    # Subtest: every registered template page has real content, valid links, fragments, and loaded assets
+    ok 1 - every registered template page has real content, valid links, fragments, and loaded assets
+      ---
+      duration_ms: 341.649
+      type: 'test'
+      ...
+    # Subtest: navbar defaults and every CMS-approved destination resolve to real client content
+    ok 2 - navbar defaults and every CMS-approved destination resolve to real client content
+      ---
+      duration_ms: 7.3014
+      type: 'test'
+      ...
+    # Subtest: CMS-approved page navigation is validated and rendered under the client website base
+    ok 3 - CMS-approved page navigation is validated and rendered under the client website base
+      ---
+      duration_ms: 460.385
+      type: 'test'
+      ...
+    # Subtest: forms, filters, tabs, galleries and preparation tools expose usable hooks and feedback
+    ok 4 - forms, filters, tabs, galleries and preparation tools expose usable hooks and feedback
+      ---
+      duration_ms: 5.3374
+      type: 'test'
+      ...
+    # Subtest: every registered page is reachable through the family navigation or visitor journey
+    ok 5 - every registered page is reachable through the family navigation or visitor journey
+      ---
+      duration_ms: 2.7574
+      type: 'test'
+      ...
+    # Subtest: template families use distinct photography rather than recycling another sector imagery
+    ok 6 - template families use distinct photography rather than recycling another sector imagery
+      ---
+      duration_ms: 0.6853
+      type: 'test'
+      ...
+    # Subtest: client renderer rewrites all page links, navbar, contact and CMS values for every template page
+    ok 7 - client renderer rewrites all page links, navbar, contact and CMS values for every template page
+      ---
+      duration_ms: 230.6249
+      type: 'test'
+      ...
+    # Subtest: CMS only offers content fields that affect a rendered client page
+    ok 8 - CMS only offers content fields that affect a rendered client page
+      ---
+      duration_ms: 3.9136
+      type: 'test'
+      ...
+    # Subtest: editable location coordinates reject malformed values for all map-based templates
+    ok 9 - editable location coordinates reject malformed values for all map-based templates
+      ---
+      duration_ms: 3.4575
+      type: 'test'
+      ...
+    # Subtest: historical unused fields do not prevent a client from editing supported content
+    ok 10 - historical unused fields do not prevent a client from editing supported content
+      ---
+      duration_ms: 1.2035
+      type: 'test'
+      ...
+    # Subtest: renamed client rooms, menus and services stay consistent in enquiry links and topic choices
+    ok 11 - renamed client rooms, menus and services stay consistent in enquiry links and topic choices
+      ---
+      duration_ms: 88.2581
+      type: 'test'
+      ...
+    1..11
+ok 48 - generated template and client renderer contracts
+  ---
+  duration_ms: 1220.4125
+  type: 'suite'
+  ...
+# Subtest: actual navigation script opens the mobile menu and closes on Escape or chosen links
+ok 49 - actual navigation script opens the mobile menu and closes on Escape or chosen links
+  ---
+  duration_ms: 2.7373
+  type: 'test'
+  ...
+# Subtest: actual filter and tab script selects matching content and supports keyboard navigation
+ok 50 - actual filter and tab script selects matching content and supports keyboard navigation
+  ---
+  duration_ms: 3.786
+  type: 'test'
+  ...
+# Subtest: actual gallery script changes photographs, wraps navigation, and restores trigger focus
+ok 51 - actual gallery script changes photographs, wraps navigation, and restores trigger focus
+  ---
+  duration_ms: 1.1418
+  type: 'test'
+  ...
+# Subtest: actual enquiry script validates and prepares an explicit client contact link without automatically sending
+ok 52 - actual enquiry script validates and prepares an explicit client contact link without automatically sending
+  ---
+  duration_ms: 3.4034
+  type: 'test'
+  ...
+# Subtest: an enquiry link keeps its chosen room, menu or service on the client enquiry page
+ok 53 - an enquiry link keeps its chosen room, menu or service on the client enquiry page
+  ---
+  duration_ms: 1.587
+  type: 'test'
+  ...
+# Subtest: the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+ok 54 - the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+  ---
+  duration_ms: 4.0359
+  type: 'test'
+  ...
+# Subtest: the actual brief tool handles empty answers, clipboard failure and invalid continuation
+ok 55 - the actual brief tool handles empty answers, clipboard failure and invalid continuation
+  ---
+  duration_ms: 1.616
+  type: 'test'
+  ...
+# Subtest: the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+ok 56 - the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+  ---
+  duration_ms: 3.5128
+  type: 'test'
+  ...
+# Subtest: verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama
+ok 57 - verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama
+  ---
+  duration_ms: 1821.8579
+  type: 'test'
+  ...
+# Subtest: lupa password memakai respons generik dan reset membatalkan password serta sesi lama
+ok 58 - lupa password memakai respons generik dan reset membatalkan password serta sesi lama
+  ---
+  duration_ms: 479.0188
+  type: 'test'
+  ...
+# Subtest: email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran
+ok 59 - email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran
+  ---
+  duration_ms: 195.279
+  type: 'test'
+  ...
+# Subtest: aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku
+ok 60 - aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku
+  ---
+  duration_ms: 221.1165
+  type: 'test'
+  ...
+# Subtest: navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama
+ok 61 - navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama
+  ---
+  duration_ms: 405.1348
+  type: 'test'
+  ...
+# Subtest: username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin
+ok 62 - username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin
+  ---
+  duration_ms: 216.9062
+  type: 'test'
+  ...
+# Subtest: template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih
+ok 63 - template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih
+  ---
+  duration_ms: 379.4943
+  type: 'test'
+  ...
+# Subtest: statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template
+ok 64 - statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template
+  ---
+  duration_ms: 291.582
+  type: 'test'
+  ...
+# Subtest: database dan storage lokal tersedia tanpa gateway pembayaran palsu
+ok 65 - database dan storage lokal tersedia tanpa gateway pembayaran palsu
+  ---
+  duration_ms: 5.7667
+  type: 'test'
+  ...
+# Subtest: portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html
+ok 66 - portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html
+  ---
+  duration_ms: 34.7703
+  type: 'test'
+  ...
+# Subtest: sesi aman, origin dan CSRF wajib; klien tidak bisa membuka endpoint admin
+ok 67 - sesi aman, origin dan CSRF wajib; klien tidak bisa membuka endpoint admin
+  ---
+  duration_ms: 70.4763
+  type: 'test'
+  ...
+# Subtest: pesanan persisten, harga dihitung server dan retry tidak menciptakan pesanan kedua
+ok 68 - pesanan persisten, harga dihitung server dan retry tidak menciptakan pesanan kedua
+  ---
+  duration_ms: 231.988
+  type: 'test'
+  ...
+# Subtest: dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan
+ok 69 - dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan
+  ---
+  duration_ms: 40.1666
+  type: 'test'
+  ...
+# Subtest: halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat
+ok 70 - halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat
+  ---
+  duration_ms: 844.8523
+  type: 'test'
+  ...
+# Subtest: brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama
+ok 71 - brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama
+  ---
+  duration_ms: 270.2989
+  type: 'test'
+  ...
+# Subtest: enquiry memakai kontak email klien ketika WhatsApp tidak diisi
+ok 72 - enquiry memakai kontak email klien ketika WhatsApp tidak diisi
+  ---
+  duration_ms: 262.0668
+  type: 'test'
+  ...
+# Subtest: konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan
+ok 73 - konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan
+  ---
+  duration_ms: 703.7813
+  type: 'test'
+  ...
+# Subtest: CMS menyimpan seluruh halaman panjang dalam batas tiap bidang
+ok 74 - CMS menyimpan seluruh halaman panjang dalam batas tiap bidang
+  ---
+  duration_ms: 228.1547
+  type: 'test'
+  ...
+# Subtest: domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga
+ok 75 - domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga
+  ---
+  duration_ms: 247.4635
+  type: 'test'
+  ...
+# Subtest: domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang
+ok 76 - domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang
+  ---
+  duration_ms: 87.8327
+  type: 'test'
+  ...
+# Subtest: tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry
+ok 77 - tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry
+  ---
+  duration_ms: 696.5112
+  type: 'test'
+  ...
+# Subtest: draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru
+ok 78 - draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru
+  ---
+  duration_ms: 429.3239
+  type: 'test'
+  ...
+# Subtest: unggahan memeriksa isi, ukuran dan kepemilikan; gambar privat tidak bocor
+ok 79 - unggahan memeriksa isi, ukuran dan kepemilikan; gambar privat tidak bocor
+  ---
+  duration_ms: 466.8645
+  type: 'test'
+  ...
+# Subtest: pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape
+ok 80 - pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape
+  ---
+  duration_ms: 497.0705
+  type: 'test'
+  ...
+# Subtest: password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru
+ok 81 - password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru
+  ---
+  duration_ms: 590.4337
+  type: 'test'
+  ...
+# Subtest: sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai
+ok 82 - sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai
+  ---
+  duration_ms: 227.4318
+  type: 'test'
+  ...
+# Subtest: D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal
+ok 83 - D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal
+  ---
+  duration_ms: 55.654
+  type: 'test'
+  ...
+# Subtest: akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin
+ok 84 - akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin
+  ---
+  duration_ms: 168.0333
+  type: 'test'
+  ...
+# Subtest: pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya
+ok 85 - pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya
+  ---
+  duration_ms: 322.551
+  type: 'test'
+  ...
+# Subtest: percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa
+ok 86 - percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa
+  ---
+  duration_ms: 103.8207
+  type: 'test'
+  ...
+# Subtest: flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah
+ok 87 - flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah
+  ---
+  duration_ms: 140.6955
+  type: 'test'
+  ...
+# Subtest: sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan
+ok 88 - sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan
+  ---
+  duration_ms: 182.6265
+  type: 'test'
+  ...
+# Subtest: v4 non-approved checkout stops before inserting an order
+ok 89 - v4 non-approved checkout stops before inserting an order
+  ---
+  duration_ms: 24.2198
+  type: 'test'
+  ...
+1..89
+# tests 99
+# suites 1
+# pass 99
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11866.1953

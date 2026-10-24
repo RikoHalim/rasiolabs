@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: homepage preserves the one approved template destination with explicit buttons
+ok 1 - homepage preserves the one approved template destination with explicit buttons
+  ---
+  duration_ms: 1.7476
+  type: 'test'
+  ...
+# Subtest: homepage order follows revision; dashboard and interactive AI are absent
+ok 2 - homepage order follows revision; dashboard and interactive AI are absent
+  ---
+  duration_ms: 0.6159
+  type: 'test'
+  ...
+# Subtest: service panels contain product visuals and include chatbot in every service
+ok 3 - service panels contain product visuals and include chatbot in every service
+  ---
+  duration_ms: 0.4562
+  type: 'test'
+  ...
+# Subtest: displayed prices use exact approved values and correctly distinguish domain eligibility
+ok 4 - displayed prices use exact approved values and correctly distinguish domain eligibility
+  ---
+  duration_ms: 1.0535
+  type: 'test'
+  ...
+# Subtest: all homepage links, anchors, scripts, styles and images resolve locally
+ok 5 - all homepage links, anchors, scripts, styles and images resolve locally
+  ---
+  duration_ms: 14.2116
+  type: 'test'
+  ...
+# Subtest: preview maps existing template subpages and rejects sensitive/outside paths
+ok 6 - preview maps existing template subpages and rejects sensitive/outside paths
+  ---
+  duration_ms: 0.7458
+  type: 'test'
+  ...
+# Subtest: marketing policy summaries contain no internal review labels and do not open production
+ok 7 - marketing policy summaries contain no internal review labels and do not open production
+  ---
+  duration_ms: 10.6341
+  type: 'test'
+  ...
+# Subtest: animation rules include reduced-motion and no homepage dashboard code
+ok 8 - animation rules include reduced-motion and no homepage dashboard code
+  ---
+  duration_ms: 5.8908
+  type: 'test'
+  ...
+# Subtest: core text and interactive palette passes AA text contrast
+ok 9 - core text and interactive palette passes AA text contrast
+  ---
+  duration_ms: 1.0213
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+ok 10 - WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+  ---
+  duration_ms: 3.3625
+  type: 'test'
+  ...
+# Subtest: WEB-01: both published homepage outputs provide complete native selection links before interaction
+ok 11 - WEB-01: both published homepage outputs provide complete native selection links before interaction
+  ---
+  duration_ms: 17.0056
+  type: 'test'
+  ...
+# Subtest: WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+ok 12 - WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+  ---
+  duration_ms: 0.6532
+  type: 'test'
+  ...
+# Subtest: WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+ok 13 - WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+  ---
+  duration_ms: 0.5825
+  type: 'test'
+  ...
+# Subtest: WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+ok 14 - WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+  ---
+  duration_ms: 0.3124
+  type: 'test'
+  ...
+# Subtest: WEB-01: malformed or duplicate selections cannot silently become another payable package
+ok 15 - WEB-01: malformed or duplicate selections cannot silently become another payable package
+  ---
+  duration_ms: 0.4683
+  type: 'test'
+  ...
+# Subtest: WEB-01: Custom remains a quotation, without a silently substituted subscription price
+ok 16 - WEB-01: Custom remains a quotation, without a silently substituted subscription price
+  ---
+  duration_ms: 0.1429
+  type: 'test'
+  ...
+# Subtest: WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+ok 17 - WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+  ---
+  duration_ms: 1.0671
+  type: 'test'
+  ...
+# Subtest: WEB-01: service-change return links use the current section and retain relevant choice
+ok 18 - WEB-01: service-change return links use the current section and retain relevant choice
+  ---
+  duration_ms: 0.5655
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection-only changes do not open a production operation
+ok 19 - WEB-01: selection-only changes do not open a production operation
+  ---
+  duration_ms: 0.3837
+  type: 'test'
+  ...
+# Subtest: WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+ok 20 - WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+  ---
+  duration_ms: 53.4211
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+ok 21 - WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+  ---
+  duration_ms: 2.8199
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection code is inert on a published client site without the preview bar
+ok 22 - WEB-01: selection code is inert on a published client site without the preview bar
+  ---
+  duration_ms: 0.3272
+  type: 'test'
+  ...
+# Subtest: WEB-01: legacy order passes the original query to the existing summary, including missing/invalid duration
+ok 23 - WEB-01: legacy order passes the original query to the existing summary, including missing/invalid duration
+  ---
+  duration_ms: 0.7293
+  type: 'test'
+  ...
+# Subtest: WEB-01: service tabs restore URL choice and keep duration through refresh and history
+ok 24 - WEB-01: service tabs restore URL choice and keep duration through refresh and history
+  ---
+  duration_ms: 1.7624
+  type: 'test'
+  ...
+# Subtest: both published outputs contain all three complete service pages in the current visual system
+ok 25 - both published outputs contain all three complete service pages in the current visual system
+  ---
+  duration_ms: 20.842
+  type: 'test'
+  ...
+# Subtest: service page assets, local destinations, fragments, and accessibility references resolve
+ok 26 - service page assets, local destinations, fragments, and accessibility references resolve
+  ---
+  duration_ms: 86.2024
+  type: 'test'
+  ...
+# Subtest: Profile and Store present exactly the four official plans with totals and domain terms
+ok 27 - Profile and Store present exactly the four official plans with totals and domain terms
+  ---
+  duration_ms: 19.9209
+  type: 'test'
+  ...
+# Subtest: homepage service panels offer the two requested choices, three concrete benefits and legible badge hooks
+ok 28 - homepage service panels offer the two requested choices, three concrete benefits and legible badge hooks
+  ---
+  duration_ms: 1.4738
+  type: 'test'
+  ...
+# Subtest: the absent Store catalogue is explained without a Profile substitute, and fees remain qualified
+ok 29 - the absent Store catalogue is explained without a Profile substitute, and fees remain qualified
+  ---
+  duration_ms: 2.32
+  type: 'test'
+  ...
+# Subtest: Custom remains consultation and proposal based, without a template or subscription checkout
+ok 30 - Custom remains consultation and proposal based, without a template or subscription checkout
+  ---
+  duration_ms: 1.0208
+  type: 'test'
+  ...
+# Subtest: service policy navigation appears only in the footer
+ok 31 - service policy navigation appears only in the footer
+  ---
+  duration_ms: 1.2039
+  type: 'test'
+  ...
+# Subtest: native detail-page navigation retains selection for every official duration and deliberate service change
+ok 32 - native detail-page navigation retains selection for every official duration and deliberate service change
+  ---
+  duration_ms: 25.8386
+  type: 'test'
+  ...
+# Subtest: homepage updates only declared service actions and keeps template and package selection through native new tabs
+ok 33 - homepage updates only declared service actions and keeps template and package selection through native new tabs
+  ---
+  duration_ms: 3.7102
+  type: 'test'
+  ...
+# Subtest: service links refresh from URL history and selection events without sharing mutable selection storage
+ok 34 - service links refresh from URL history and selection events without sharing mutable selection storage
+  ---
+  duration_ms: 2.8714
+  type: 'test'
+  ...
+# Subtest: direct service visits do not silently choose a duration; invalid duration remains recoverable
+ok 35 - direct service visits do not silently choose a duration; invalid duration remains recoverable
+  ---
+  duration_ms: 2.2934
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 388.3414

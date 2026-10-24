@@ -1,0 +1,50 @@
+[
+  {
+    "aiColumns": "378.665px 378.665px 378.669px",
+    "brokenImages": [],
+    "documentWidth": 1275,
+    "height": 900,
+    "pricingColumns": "381.331px 381.335px 381.331px",
+    "width": 1280
+  },
+  {
+    "aiColumns": "307.698px 307.698px 307.702px",
+    "brokenImages": [],
+    "documentWidth": 1019,
+    "height": 900,
+    "pricingColumns": "310.363px 310.367px 310.363px",
+    "width": 1024
+  },
+  {
+    "aiColumns": "699.355px",
+    "brokenImages": [],
+    "documentWidth": 763,
+    "height": 900,
+    "pricingColumns": "225.117px 225.117px 225.117px",
+    "width": 768
+  },
+  {
+    "aiColumns": "385.29px",
+    "brokenImages": [],
+    "documentWidth": 425,
+    "height": 900,
+    "pricingColumns": "385.29px",
+    "width": 430
+  },
+  {
+    "aiColumns": "345.29px",
+    "brokenImages": [],
+    "documentWidth": 385,
+    "height": 900,
+    "pricingColumns": "345.29px",
+    "width": 390
+  },
+  {
+    "aiColumns": "315.097px",
+    "brokenImages": [],
+    "documentWidth": 355,
+    "height": 900,
+    "pricingColumns": "315.097px",
+    "width": 360
+  }
+]

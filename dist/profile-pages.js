@@ -1,6 +1,6 @@
 (() => {
-  const theme=['padel','creative','consulting'].find(name=>document.body.classList.contains('theme-'+name))||'architecture';
-  const filterMotion={architecture:{duration:650,delay:100,enter:'translateY(12px)'},padel:{duration:380,delay:65,enter:'translateX(24px)'},creative:{duration:700,delay:140,enter:'translateY(18px) rotate(.8deg)'},consulting:{duration:300,delay:60,enter:'none'}}[theme];
+  const theme='padel';
+  const filterMotion={duration:380,delay:65,enter:'translateX(24px)'};
   document.querySelectorAll('[data-filter-scope]').forEach(scope=>{
     const buttons=[...scope.querySelectorAll('[data-filter]')],cards=[...scope.querySelectorAll('[data-category]')];
     buttons.forEach(button=>button.addEventListener('click',()=>{

@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-20",
+  "oldStorePricesInActiveFiles": [],
+  "retiredTemplateLinks": [],
+  "padelIntegrity": {
+    "dist\\template-padel-club.html": true,
+    "dist\\template-padel-coaching.html": true,
+    "dist\\template-padel-events.html": true,
+    "dist\\template-padel-first-game.html": true,
+    "dist\\template-padel-group-play.html": true,
+    "dist\\template-padel-membership.html": true,
+    "dist\\template-padel-play.html": true,
+    "dist\\template-padel-player-guide.html": true,
+    "dist\\template-padel-visit.html": true,
+    "dist\\template-padel.html": true,
+    "dist\\assets\\profile-padel-action.jpg": true,
+    "dist\\assets\\profile-padel-community.jpg": true,
+    "dist\\assets\\profile-padel-detail.jpg": true,
+    "dist\\assets\\profile-padel-equipment.jpg": true,
+    "dist\\assets\\profile-padel-hero.jpg": true,
+    "dist\\assets\\profile-padel-racket-ball-audit.jpg": true,
+    "dist\\assets\\template-padel-preview.jpg": true
+  },
+  "heroIntegrity": {
+    "architecture": true,
+    "creative": true,
+    "padel": true
+  },
+  "activeTemplatePageCount": 10,
+  "activeTemplatePages": [
+    "template-padel-club.html",
+    "template-padel-coaching.html",
+    "template-padel-events.html",
+    "template-padel-first-game.html",
+    "template-padel-group-play.html",
+    "template-padel-membership.html",
+    "template-padel-play.html",
+    "template-padel-player-guide.html",
+    "template-padel-visit.html",
+    "template-padel.html"
+  ]
+}

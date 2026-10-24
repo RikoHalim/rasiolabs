@@ -1,0 +1,196 @@
+TAP version 13
+# Subtest: homepage preserves the one approved template destination with explicit buttons
+ok 1 - homepage preserves the one approved template destination with explicit buttons
+  ---
+  duration_ms: 1.7889
+  type: 'test'
+  ...
+# Subtest: homepage order follows revision; dashboard and interactive AI are absent
+ok 2 - homepage order follows revision; dashboard and interactive AI are absent
+  ---
+  duration_ms: 0.4378
+  type: 'test'
+  ...
+# Subtest: service panels contain product visuals and include chatbot in every service
+ok 3 - service panels contain product visuals and include chatbot in every service
+  ---
+  duration_ms: 0.3676
+  type: 'test'
+  ...
+# Subtest: displayed prices use exact approved values and correctly distinguish domain eligibility
+ok 4 - displayed prices use exact approved values and correctly distinguish domain eligibility
+  ---
+  duration_ms: 0.5864
+  type: 'test'
+  ...
+# Subtest: all homepage links, anchors, scripts, styles and images resolve locally
+ok 5 - all homepage links, anchors, scripts, styles and images resolve locally
+  ---
+  duration_ms: 10.6826
+  type: 'test'
+  ...
+# Subtest: preview maps existing template subpages and rejects sensitive/outside paths
+ok 6 - preview maps existing template subpages and rejects sensitive/outside paths
+  ---
+  duration_ms: 0.7694
+  type: 'test'
+  ...
+# Subtest: marketing policy summaries contain no internal review labels and do not open production
+ok 7 - marketing policy summaries contain no internal review labels and do not open production
+  ---
+  duration_ms: 7.7126
+  type: 'test'
+  ...
+# Subtest: animation rules include reduced-motion and no homepage dashboard code
+ok 8 - animation rules include reduced-motion and no homepage dashboard code
+  ---
+  duration_ms: 3.8851
+  type: 'test'
+  ...
+# Subtest: core text and interactive palette passes AA text contrast
+ok 9 - core text and interactive palette passes AA text contrast
+  ---
+  duration_ms: 0.7851
+  type: 'test'
+  ...
+# Subtest: Bab 85: harga eksplisit, total di muka, dan domain mengikuti durasi
+ok 10 - Bab 85: harga eksplisit, total di muka, dan domain mengikuti durasi
+  ---
+  duration_ms: 2.4269
+  type: 'test'
+  ...
+# Subtest: tarif Store, domain, badge, dan cakupan mengikuti keputusan final pemilik
+ok 11 - tarif Store, domain, badge, dan cakupan mengikuti keputusan final pemilik
+  ---
+  duration_ms: 0.2757
+  type: 'test'
+  ...
+# Subtest: tidak ada approval yang diada-adakan atau operasi finansial aktif
+ok 12 - tidak ada approval yang diada-adakan atau operasi finansial aktif
+  ---
+  duration_ms: 0.5365
+  type: 'test'
+  ...
+# Subtest: revisi tidak membatasi jumlah; perubahan besar masuk penawaran
+ok 13 - revisi tidak membatasi jumlah; perubahan besar masuk penawaran
+  ---
+  duration_ms: 0.4929
+  type: 'test'
+  ...
+# Subtest: halaman kebijakan lengkap dan semua link sebelum pembayaran tersedia
+ok 14 - halaman kebijakan lengkap dan semua link sebelum pembayaran tersedia
+  ---
+  duration_ms: 18.0689
+  type: 'test'
+  ...
+# Subtest: server menolak transaksi baru sementara kebijakan belum disetujui
+ok 15 - server menolak transaksi baru sementara kebijakan belum disetujui
+  ---
+  duration_ms: 1.4287
+  type: 'test'
+  ...
+# Subtest: pengingat domain dan kontrak terpisah, tidak mengirim atau mengarang tarif
+ok 16 - pengingat domain dan kontrak terpisah, tidak mengirim atau mengarang tarif
+  ---
+  duration_ms: 0.6032
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+ok 17 - WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+  ---
+  duration_ms: 3.2735
+  type: 'test'
+  ...
+# Subtest: WEB-01: both published homepage outputs provide complete native selection links before interaction
+ok 18 - WEB-01: both published homepage outputs provide complete native selection links before interaction
+  ---
+  duration_ms: 9.0559
+  type: 'test'
+  ...
+# Subtest: WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+ok 19 - WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+  ---
+  duration_ms: 0.421
+  type: 'test'
+  ...
+# Subtest: WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+ok 20 - WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+  ---
+  duration_ms: 0.3519
+  type: 'test'
+  ...
+# Subtest: WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+ok 21 - WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+  ---
+  duration_ms: 0.2102
+  type: 'test'
+  ...
+# Subtest: WEB-01: malformed or duplicate selections cannot silently become another payable package
+ok 22 - WEB-01: malformed or duplicate selections cannot silently become another payable package
+  ---
+  duration_ms: 0.4468
+  type: 'test'
+  ...
+# Subtest: WEB-01: Custom remains a quotation, without a silently substituted subscription price
+ok 23 - WEB-01: Custom remains a quotation, without a silently substituted subscription price
+  ---
+  duration_ms: 0.1306
+  type: 'test'
+  ...
+# Subtest: WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+ok 24 - WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+  ---
+  duration_ms: 1.1123
+  type: 'test'
+  ...
+# Subtest: WEB-01: service-change return links use the current section and retain relevant choice
+ok 25 - WEB-01: service-change return links use the current section and retain relevant choice
+  ---
+  duration_ms: 0.5693
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection-only changes do not open a production operation
+ok 26 - WEB-01: selection-only changes do not open a production operation
+  ---
+  duration_ms: 0.4066
+  type: 'test'
+  ...
+# Subtest: WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+ok 27 - WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+  ---
+  duration_ms: 36.1486
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+ok 28 - WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+  ---
+  duration_ms: 2.8908
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection code is inert on a published client site without the preview bar
+ok 29 - WEB-01: selection code is inert on a published client site without the preview bar
+  ---
+  duration_ms: 0.285
+  type: 'test'
+  ...
+# Subtest: WEB-01: legacy order passes the original query to the existing summary, including missing/invalid duration
+ok 30 - WEB-01: legacy order passes the original query to the existing summary, including missing/invalid duration
+  ---
+  duration_ms: 0.7067
+  type: 'test'
+  ...
+# Subtest: WEB-01: service tabs restore URL choice and keep duration through refresh and history
+ok 31 - WEB-01: service tabs restore URL choice and keep duration through refresh and history
+  ---
+  duration_ms: 1.0805
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 208.6708

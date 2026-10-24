@@ -1,0 +1,16 @@
+{
+  "hasCmsFAQ": true,
+  "hasRemovedHeading": false,
+  "sectionIds": [
+    "service-hero",
+    "service-why",
+    "service-features",
+    "service-sectors",
+    "service-example",
+    "service-order",
+    "service-pricing",
+    "service-faq",
+    "service-start"
+  ],
+  "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/rasio-profile.html?duration=1&type=profile"
+}

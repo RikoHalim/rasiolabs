@@ -1,0 +1,96 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "fefdabfb189ea3a613744c1cc5e0b219e2b1bbda95980b0c325640567b612e05"
+  },
+  {
+    "file": "selection.js",
+    "sha256": "ae7c53178dbf0969f0e258f155b72030ad889b52d8422ad3346b3041820a0e08"
+  },
+  {
+    "file": "checkout-selection.js",
+    "sha256": "96dbf3ce8d2efbcbecc6607db84cb183a4263da3ce7c6ddc9ee94efc1eb1a98e"
+  },
+  {
+    "file": "template-selection.js",
+    "sha256": "bb132aaacecd7376e2a6692b6a69de8ec4ce95c0581784d9ab64f752c8950072"
+  },
+  {
+    "file": "policy-flow.js",
+    "sha256": "40e0d1fd4292c2eccdb0f35b4e7e9675e4f408306568f3a6a1897b61a4311938"
+  },
+  {
+    "file": "policy-v4.js",
+    "sha256": "8ce75f9bcdd94a940d945e387cb6dedf63ccd2dc11ac748d7440d956b02ea892"
+  },
+  {
+    "file": "template-catalog.js",
+    "sha256": "6f0902366315ddbbb04dffefcba718ae45762f05bc1dbb3f824c6a6213f23264"
+  },
+  {
+    "file": "order.js",
+    "sha256": "d3d9ddc66c362a540ff5ce0e26d95d9702a683a23649a37f1a247c5796a5cdc3"
+  },
+  {
+    "file": "order.html",
+    "sha256": "73a6abd27ce93e672d7f39598ef88cea9ce5b8313af8cc9967200a8b930c650b"
+  },
+  {
+    "file": "marketing/pricing.js",
+    "sha256": "f841085e1e916caed7bc28e12b2c2dca95ac6946269d21894ef9ea469e418654"
+  },
+  {
+    "file": "marketing/interactions.js",
+    "sha256": "775beacc6b3f6243caa3077061eb78971211dfe0d145dc455e83aa2390c3a5aa"
+  },
+  {
+    "file": "template-padel-club.html",
+    "sha256": "d65bd1e1adacdf6079da358fdf2ec2140cfeb4a4a26970a89b880f9d7f0b236c"
+  },
+  {
+    "file": "template-padel-coaching.html",
+    "sha256": "647de2ea41a7112a7cbe447f0ddc334590eccf5893735abbacdf4d4ce5c4de8c"
+  },
+  {
+    "file": "template-padel-events.html",
+    "sha256": "12c7f76c4d9a1101a1d0f4d3c170c92371027afe6214d38ef14b2be657bf1ad9"
+  },
+  {
+    "file": "template-padel-first-game.html",
+    "sha256": "cfa8e499241be30fcad4e6a47ca0a3c7c4b8bec282d0632040f3b0938d97f345"
+  },
+  {
+    "file": "template-padel-group-play.html",
+    "sha256": "0c4ead6f18bc3f7430e8dddcfd5a02d85a3155e123bda08daebcad75392e2a52"
+  },
+  {
+    "file": "template-padel-membership.html",
+    "sha256": "864f29cafb5f316235b93964f9db8ad62715f97d474400f67ba2015fa5f15ffb"
+  },
+  {
+    "file": "template-padel-play.html",
+    "sha256": "2fcd7880a63ae96d2bcde8b0fc98a585752b646eeb22d37b1b30ddf4f4bc22e2"
+  },
+  {
+    "file": "template-padel-player-guide.html",
+    "sha256": "d9c4cb4b84e4af7a80eb075cc904738e5d0ea53678f1dec9258fefcd6959450f"
+  },
+  {
+    "file": "template-padel-visit.html",
+    "sha256": "00cf931603ac7da48c26f36f86f772f1e18291fadd808efaa9f74b6ce11d9ee2"
+  },
+  {
+    "file": "template-padel.html",
+    "sha256": "a83f190e430ae5beee7c2f13ff8104133240f6b5877a7bdd3ec800c64e70b539"
+  },
+  {
+    "file": "BUSINESS_DECISIONS.md",
+    "unchanged": true,
+    "sha256": "232da4d83208861dc620c393d9cc1caf6a7e13a6ba1dc69c639d1d92c5db6334"
+  },
+  {
+    "file": "docs/policy-v4/CHAPTER-85.md",
+    "unchanged": true,
+    "sha256": "d92763c5fee91c065c78e1b170645a484ca521acdbda61d5a7e0ada6ccbfb253"
+  }
+]

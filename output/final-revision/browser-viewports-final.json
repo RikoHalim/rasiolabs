@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-21",
+  "method": "DOM measurements after final CSS",
+  "results": [
+    {
+      "brokenImages": [],
+      "documentWidth": 1275,
+      "height": 900,
+      "navCenterDelta": 0,
+      "pricingColumns": "381.331px 381.335px 381.331px",
+      "width": 1280
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 1019,
+      "height": 900,
+      "navCenterDelta": 0,
+      "pricingColumns": "310.363px 310.367px 310.363px",
+      "width": 1024
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 896,
+      "height": 900,
+      "navCenterDelta": 0,
+      "pricingColumns": "520px",
+      "width": 901
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 763,
+      "height": 900,
+      "navCenterDelta": null,
+      "pricingColumns": "520px",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 425,
+      "height": 900,
+      "navCenterDelta": null,
+      "pricingColumns": "385.29px",
+      "width": 430
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 385,
+      "height": 900,
+      "navCenterDelta": null,
+      "pricingColumns": "345.29px",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 355,
+      "height": 900,
+      "navCenterDelta": null,
+      "pricingColumns": "315.097px",
+      "width": 360
+    }
+  ]
+}

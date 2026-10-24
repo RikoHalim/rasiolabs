@@ -1,61 +1,28 @@
 import {profileTemplates,isProfileTemplate,templateAssets} from './profile-templates.mjs';
 import {pageDefaults,pageFields,pageAssetPaths,mapLinks,profileExpansion,profilePages} from './profile-pages.mjs';
-import {businessTemplates,businessContentKeys} from './templates/index.mjs';
+import {templateModules} from './templates/index.mjs';
+import {getPlan} from './policy-v4.mjs';
 export const durations = [1,12,24,48];
 export const statuses = ['new','materials','building','review','active','cancelled'];
 export const statusLabels = {new:'Pesanan baru',materials:'Menunggu materi',building:'Sedang disiapkan',review:'Siap ditinjau',active:'Website aktif',cancelled:'Dibatalkan'};
 export function pricing(duration) {
   if (!durations.includes(duration)) throw new Error('Pilih durasi yang tersedia.');
-  const monthly=Math.round(109000*(1-({1:0,12:.5,24:.7,48:.75}[duration])));
-  return {monthly,total:monthly*duration,renewalMonthly:87200};
+  const plan=getPlan('profile',duration);
+  return {monthly:plan.monthlyEquivalent,total:plan.totalPrice,renewalMonthly:null};
 }
-const groups = [
-  ['brand','Identitas bisnis',[['businessName','Nama bisnis',90],['tagline','Bidang bisnis',100],['logo','Logo','image']]],
-  ['hero','Halaman utama',[['heroTitle','Judul utama',140],['heroDescription','Deskripsi utama',400],['heroImage','Foto utama','image'],['heroNote','Keterangan foto',120]]],
-  ['about','Tentang bisnis',[['aboutTitle','Judul tentang bisnis',160],['aboutLead','Paragraf pertama',800],['aboutBody','Paragraf berikutnya',1400]]],
-  ['work','Portofolio',[['workTitle','Judul portofolio',160],['workDescription','Deskripsi portofolio',400],['work1Title','Nama proyek pertama',120],['work1Category','Kategori proyek pertama',120],['work1Description','Cerita proyek pertama',1200],['work1Image','Foto proyek pertama','image'],['work2Title','Nama proyek kedua',120],['work2Category','Kategori proyek kedua',120],['work2Description','Cerita proyek kedua',1200],['work2Image','Foto proyek kedua','image']]],
-  ['services','Layanan',[['servicesTitle','Judul layanan',160],['servicesDescription','Pengantar layanan',600],...[1,2,3].flatMap(n=>[[`service${n}Title`,`Nama layanan ${n}`,100],[`service${n}Description`,`Deskripsi layanan ${n}`,800],[`service${n}Detail`,`Rincian layanan ${n}`,240]])]],
-  ['process','Cara kerja',[['processTitle','Judul cara kerja',160],['processDescription','Pengantar cara kerja',400],...[1,2,3].flatMap(n=>[[`process${n}Title`,`Judul tahap ${n}`,100],[`process${n}Description`,`Deskripsi tahap ${n}`,800]])]],
-  ['contact','Kontak',[['contactTitle','Judul ajakan menghubungi',160],['contactLabel','Teks tombol kontak',60],['whatsapp','Nomor WhatsApp',30],['email','Email bisnis',150]]]
-];
-export const navigationTargets=[{value:'top',label:'Beranda'},{value:'studio',label:'Tentang bisnis'},{value:'work',label:'Portofolio'},{value:'services',label:'Layanan'},{value:'process',label:'Cara kerja'},{value:'contact',label:'Kontak'},{value:'extra1',label:'Panduan pertama'},{value:'extra2',label:'Panduan kedua'}];
-const navigationFields=[1,2,3,4].flatMap(n=>[
-  {key:`nav${n}Visible`,label:`Tampilkan menu ${n}`,type:'boolean'},
-  {key:`nav${n}Label`,label:`Nama menu ${n}`,type:'text',max:24},
-  {key:`nav${n}Target`,label:`Tujuan menu ${n}`,type:'select',options:navigationTargets}
-]);
-navigationFields.push({key:'navCtaVisible',label:'Tampilkan tombol WhatsApp',type:'boolean'},{key:'navCtaLabel',label:'Teks tombol WhatsApp',type:'text',max:24},{key:'whatsapp',label:'Nomor WhatsApp',type:'text',max:30,placeholder:'+62 812 3456 7890'});
-export const fields=groups.map(([id,label,items])=>({id,label,items:items.filter(([key])=>key!=='whatsapp').map(([key,label,size])=>({key,label,type:size==='image'?'image':size>=240?'textarea':'text',max:size==='image'?200:size}))}));
-fields.splice(1,0,{id:'navbar',label:'Navbar',items:navigationFields});
-const navigationDefaults={nav1Visible:true,nav1Label:'Our work',nav1Target:'work',nav2Visible:true,nav2Label:'The studio',nav2Target:'studio',nav3Visible:true,nav3Label:'Services',nav3Target:'services',nav4Visible:true,nav4Label:'Our process',nav4Target:'process',navCtaVisible:true,navCtaLabel:"Let's talk"};
-export const defaults={
-  ...navigationDefaults,
-  businessName:'Architecture Studio',tagline:'Architecture & interior design',logo:'/assets/rasiolabs-logo.png',
-  heroTitle:'Designed for\nbetter living.',heroDescription:'Thoughtful spaces that bring light, purpose, and a little more possibility to everyday life.',heroImage:'/assets/architecture-exterior.jpg',heroNote:'A closer connection to the spaces we call home.',
-  aboutTitle:'Good design starts\nwith how you live.',aboutLead:'A favourite corner. The way morning light enters a room. Space to gather, and space to be yourself.',aboutBody:'We bring these everyday moments into the design process. From the first conversation to the smallest material detail, the aim is simple: create a place that feels right for the people who use it.',
-  workTitle:'A little less ordinary.\nA lot more you.',workDescription:'A look at the spaces and details that shape our design perspective.',work1Title:'A place to slow down.',work1Category:'Residential / Interior design',work1Description:'A study in natural light, comfortable proportions, and materials that feel good to live with.',work1Image:'/assets/architecture-living.jpg',work2Title:'A fresh perspective.',work2Category:'Spatial design / Material study',work2Description:'An exploration of how light and material can change the way a space feels.',work2Image:'/assets/architecture-detail.jpg',
-  servicesTitle:'From the whole space\nto the smallest detail.',servicesDescription:'One considered direction, carried through architecture, interiors, and the way everything comes together.',
-  service1Title:'Architecture',service1Description:'Buildings shaped around people, place, and the way they connect.',service1Detail:'Concept design · Space planning · Design development',service2Title:'Interior design',service2Description:'Interiors that feel comfortable from the first day and continue to work over time.',service2Detail:'Residential · Hospitality · Workspaces',service3Title:'Renovation & renewal',service3Description:'A new chapter for an existing space. We identify what deserves to stay and where thoughtful changes can make room for better everyday use.',service3Detail:'Spatial review · Adaptive layouts · Material selection',
-  processTitle:'An open conversation.\nA clear way forward.',processDescription:'Space to explore the possibilities, with a shared understanding at every stage.',process1Title:'First, we listen.',process1Description:'We talk about your routines, priorities, site, and budget to understand what your space needs to do.',process2Title:'Then, we explore.',process2Description:'Layouts, materials, and visual concepts help you see the possibilities and shape the direction together.',process3Title:'Make every detail count.',process3Description:'We develop the agreed design into a coordinated plan, ready for the next stage of your project.',contactTitle:"Let's make room\nfor your next chapter.",contactLabel:'Start a conversation',whatsapp:'',email:''
-};
-export function defaultsFor(template='Architecture') {
-  if (!isProfileTemplate(template)) throw new Error('Template tidak tersedia.');
-  return {...defaults,statisticsVisible:false,stat1Value:'',stat2Value:'',stat3Value:'',...profileTemplates[template].content,...pageDefaults[template]};
+export const defaults=templateModules.Padel.defaults;
+export const fields=templateModules.Padel.fields;
+const navigationDefaults=Object.fromEntries(Object.entries(defaults).filter(([key])=>key.startsWith('nav')));
+export const navigationTargets=fields.find(g=>g.id==='navbar').items.find(f=>f.type==='select').options;
+export function defaultsFor(template='Padel') {
+  if(!isProfileTemplate(template))throw new Error('Template tidak tersedia.');
+  return {...templateModules[template].defaults};
 }
-export function fieldsFor(template) {
-  const labels={Padel:{about:'Tentang klub',work:'Lapangan & klub',services:'Program bermain',process:'Persiapan bermain'},Creative:{work:'Karya studio'},Consulting:{work:'Bidang fokus'}};
-  const destinations={Padel:{studio:'Klub',work:'Lokasi klub',services:'Program bermain',process:'Founders',contact:'Kontak klub'},Creative:{work:'Karya studio',services:'Keahlian studio',process:'Project brief',contact:'Project brief'},Consulting:{studio:'Pendekatan',work:'Perspektif',services:'Keahlian',process:'Cara kerja'}};
-  const module=businessTemplates[template];
-  destinations[template]={...destinations[template],extra1:profileExpansion[template]?.pages[0].label,extra2:profileExpansion[template]?.pages[1].label};
-  if(module)for(const [value,page] of Object.entries(module.targets))destinations[template][value]=module.pages[page.split('#')[0]];
-  const unused={Padel:['work1Title','work1Category','work1Description','work2Title','work2Category','work2Description','work2Image','processTitle','processDescription','process1Title','process1Description','process2Title','process2Description','process3Title','process3Description'],Creative:['processTitle'],Consulting:['workTitle','workDescription','work1Title','work1Category','work1Description','work2Title','work2Category','work2Description','work2Image']};
-  const seen=new Set();
-  return [...fields,...(pageFields[template]||[])].map(g=>({...g,label:module&&g.id==='work'?(template==='Hospitality'?'Kamar & suite':'Koleksi'):labels[template]?.[g.id]||g.label,items:g.items.filter(f=>{
-    if(seen.has(f.key)||unused[template]?.includes(f.key)||module&&g.id!=='navbar'&&!businessContentKeys[template].has(f.key))return false;
-    seen.add(f.key);return true;
-  }).map(f=>f.type==='select'?{...f,options:[...f.options.map(option=>({...option,label:destinations[template]?.[option.value]||option.label})),...Object.entries(profilePages[template]).filter(([page])=>page).map(([page,label])=>({value:'page:'+page,label}))]}:module&&f.key==='navCtaVisible'?{...f,label:'Tampilkan tombol formulir'}:module&&f.key==='navCtaLabel'?{...f,label:'Teks tombol formulir'}:module&&template==='Hospitality'&&/^work[12]/.test(f.key)?{...f,label:f.label.replaceAll('proyek','kamar')}:f)})).filter(g=>g.items.length);
+export function fieldsFor(template='Padel') {
+  if(!isProfileTemplate(template))throw new Error('Template tidak tersedia.');
+  return structuredClone(templateModules[template].fields);
 }
-export const contentWithDefaults=(content,template='Architecture')=>({...defaultsFor(template),...content});
+export const contentWithDefaults=(content,template='Padel')=>({...defaultsFor(template),...content});
 export function validateOrder(b) {
   const clean=(key,min,max)=>{const s=typeof b[key]==='string'?b[key].trim():'';if(s.length<min||s.length>max)throw new Error(`Lengkapi ${key==='businessName'?'nama bisnis':key==='customerName'?'nama penanggung jawab':key}.`);return s;};
   if (b.consent!==true || b.service!=='profile' || !isProfileTemplate(b.template)) throw new Error('Periksa layanan dan template yang dipilih.');
@@ -68,7 +35,7 @@ export function validateOrder(b) {
   const duration=Number(b.duration);pricing(duration);
   return {businessName:clean('businessName',2,90),customerName:clean('customerName',2,100),whatsapp,email,domain,duration,template:b.template};
 }
-export function validateContent(input,template='Architecture') {
+export function validateContent(input,template='Padel') {
   if (!input || typeof input!=='object' || Array.isArray(input)) throw new Error('Konten tidak valid.');
   const result={};
   const templateDefaults=defaultsFor(template);

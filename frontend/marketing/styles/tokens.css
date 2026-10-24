@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('__ASSET__fonts/dm-sans-0.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+  --color-ink: #142640;
+  --color-muted: #52627a;
+  --color-primary: #1454ed;
+  --color-primary-hover: #103db2;
+  --color-navy: #101f3c;
+  --color-navy-panel: #1b2d4d;
+  --color-white: #ffffff;
+  --color-surface: #f7f9fd;
+  --color-warm: #f5f3ee;
+  --color-blue-soft: #e3edff;
+  --color-ice: #edf3ff;
+  --color-blue-tint: #dbe7ff;
+  --color-border: #d9e1ed;
+  --color-success: #13754e;
+  --color-success-bg: #e9f5ef;
+  --color-on-dark-muted: #bccbe2;
+  --radius-control: 10px;
+  --radius-card: 20px;
+  --radius-panel: 28px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 88px;
+  --content-width: 1184px;
+  --section-space: clamp(56px, 6vw, 88px);
+  --shadow-nav: 0 8px 26px #1426400b;
+  --shadow-product: 0 24px 52px -28px #1c429b65, 0 2px 5px #1426400a;
+  --ease-out: cubic-bezier(.2,.7,.2,1);
+  --duration-fast: 180ms;
+  --duration-base: 260ms;
+  --duration-reveal: 600ms;
+}

@@ -4,7 +4,7 @@ import { defaults, defaultsFor, contentWithDefaults, pricing, validateOrder, val
 import { profileTemplates } from '../server/profile-templates.mjs';
 
 const checkout = {
-  service: 'profile', template: 'Architecture', duration: 24, consent: true,
+  service: 'profile', template: 'Padel', duration: 24, consent: true,
   businessName: 'Studio Contoh', customerName: 'Pemilik Studio',
   whatsapp: '+62 812-3456-7890', email: 'owner@example.test', domain: 'studio-contoh.co.id'
 };
@@ -21,10 +21,10 @@ test('angka contoh template tidak menjadi klaim di website klien baru', () => {
 
 test('harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan', () => {
   assert.deepEqual([1, 12, 24, 48].map(pricing), [
-    { monthly: 109000, total: 109000, renewalMonthly: 87200 },
-    { monthly: 54500, total: 654000, renewalMonthly: 87200 },
-    { monthly: 32700, total: 784800, renewalMonthly: 87200 },
-    { monthly: 27250, total: 1308000, renewalMonthly: 87200 }
+    { monthly: 109000, total: 109000, renewalMonthly: null },
+    { monthly: 54500, total: 654000, renewalMonthly: null },
+    { monthly: 32000, total: 768000, renewalMonthly: null },
+    { monthly: 27750, total: 1332000, renewalMonthly: null }
   ]);
   for (const duration of [0, 2, 36, -12, NaN, '24']) {
     assert.throws(() => pricing(duration));
@@ -63,7 +63,7 @@ test('CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tid
 });
 
 test('template Profile memakai konten dan menu sendiri tanpa mengubah harga', () => {
-  assert.deepEqual(Object.keys(profileTemplates), ['Architecture', 'Padel', 'Creative', 'Consulting','Hospitality','Catering','Logistics']);
+  assert.deepEqual(Object.keys(profileTemplates), ['Padel']);
   for (const template of Object.keys(profileTemplates)) {
     const order = validateOrder({ ...checkout, template });
     assert.equal(order.template, template);
@@ -95,7 +95,7 @@ test('unggahan memakai tanda tangan file, bukan nama ekstensi', () => {
 test('navbar lama mendapatkan default dan hanya menerima menu dari bagian yang tersedia',()=>{
   const legacy={...defaults};for(const key of Object.keys(legacy))if(key.startsWith('nav'))delete legacy[key];
   const restored=validateContent(legacy);
-  assert.equal(restored.nav1Label,'Our work');assert.equal(restored.nav1Target,'work');assert.equal(restored.navCtaVisible,true);
+  assert.equal(restored.nav1Label,'The club');assert.equal(restored.nav1Target,'studio');assert.equal(restored.navCtaVisible,true);
   const edited=validateContent({...defaults,nav1Label:'Tentang Kami',nav1Target:'studio',nav2Visible:false,navCtaLabel:'Chat WhatsApp',whatsapp:'+60 142317052'});
   assert.equal(edited.nav1Target,'studio');assert.equal(edited.nav2Visible,false);assert.equal(edited.navCtaLabel,'Chat WhatsApp');
   for(const change of [{nav1Target:'https://example.com'},{nav1Target:'javascript:alert(1)'},{nav1Target:'missing'},{nav2Visible:'false'},{navCtaVisible:0},{nav1Label:''},{nav1Label:'x'.repeat(25)},{navCtaLabel:''}])assert.throws(()=>validateContent({...defaults,...change}));

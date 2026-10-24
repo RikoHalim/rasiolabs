@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-21",
+  "method": "native radio keyboard ArrowRight",
+  "results": [
+    {
+      "cards": [
+        {
+          "badge": "",
+          "domain": "Domain tidak termasuk",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=1&template=Padel",
+          "price": "Rp109.000",
+          "service": "profile",
+          "total": "Rp109.000"
+        },
+        {
+          "badge": "",
+          "domain": "Domain tidak termasuk",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1",
+          "price": "Rp299.000",
+          "service": "store",
+          "total": "Rp299.000"
+        }
+      ],
+      "custom": {
+        "badgeDisplay": "block",
+        "priceHeight": 175.99192810058594
+      },
+      "duration": "1"
+    },
+    {
+      "cards": [
+        {
+          "badge": "",
+          "domain": "Domain gratis tahun pertama",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=12&template=Padel",
+          "price": "Rp54.500",
+          "service": "profile",
+          "total": "Rp654.000"
+        },
+        {
+          "badge": "",
+          "domain": "Domain gratis tahun pertama",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12",
+          "price": "Rp179.000",
+          "service": "store",
+          "total": "Rp2.148.000"
+        }
+      ],
+      "custom": {
+        "badgeDisplay": "block",
+        "priceHeight": 175.99192810058594
+      },
+      "duration": "12"
+    },
+    {
+      "cards": [
+        {
+          "badge": "Paling Populer",
+          "domain": "Domain gratis tahun pertama",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=24&template=Padel",
+          "price": "Rp32.000",
+          "service": "profile",
+          "total": "Rp768.000"
+        },
+        {
+          "badge": "Paling Populer",
+          "domain": "Domain gratis tahun pertama",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24",
+          "price": "Rp149.000",
+          "service": "store",
+          "total": "Rp3.576.000"
+        }
+      ],
+      "custom": {
+        "badgeDisplay": "block",
+        "priceHeight": 175.99192810058594
+      },
+      "duration": "24"
+    },
+    {
+      "cards": [
+        {
+          "badge": "Harga Terbaik",
+          "domain": "Domain gratis tahun pertama",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&duration=48&template=Padel",
+          "price": "Rp27.750",
+          "service": "profile",
+          "total": "Rp1.332.000"
+        },
+        {
+          "badge": "Harga Terbaik",
+          "domain": "Domain gratis tahun pertama",
+          "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48",
+          "price": "Rp129.000",
+          "service": "store",
+          "total": "Rp6.192.000"
+        }
+      ],
+      "custom": {
+        "badgeDisplay": "block",
+        "priceHeight": 175.99192810058594
+      },
+      "duration": "48"
+    }
+  ]
+}

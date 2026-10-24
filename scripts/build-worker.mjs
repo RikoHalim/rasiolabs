@@ -1,8 +1,8 @@
 import { cp, mkdir, readdir } from 'node:fs/promises';
-import './build-profile-templates.mjs';
-await import('./build-profile-pages.mjs');
-await import('./build-business-templates.mjs');
+import './build-active-templates.mjs';
 await import('./rebrand-rasiolabs.mjs');
+await import('./build-policy-v4.mjs');
+await import('./build-homepage.mjs');
 await mkdir('dist/client',{recursive:true});
 for (const entry of await readdir('dist',{withFileTypes:true})) {
   if (['client','server','.openai'].includes(entry.name)) continue;
@@ -10,10 +10,12 @@ for (const entry of await readdir('dist',{withFileTypes:true})) {
 }
 await mkdir('dist/server',{recursive:true});
 await cp('server/worker.mjs','dist/server/index.js');
+await cp('server/policy-v4.mjs','dist/server/policy-v4.mjs');
 await cp('server/model.mjs','dist/server/model.mjs');
 await cp('server/client-auth.mjs','dist/server/client-auth.mjs');
 await cp('server/domains.mjs','dist/server/domains.mjs');
 await cp('server/profile-templates.mjs','dist/server/profile-templates.mjs');
+await cp('server/template-catalog.mjs','dist/server/template-catalog.mjs');
 await cp('server/profile-renderer.mjs','dist/server/profile-renderer.mjs');
 await cp('server/profile-pages.mjs','dist/server/profile-pages.mjs');
 await cp('server/templates','dist/server/templates',{recursive:true});

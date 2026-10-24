@@ -1,5 +1,4 @@
 import {navigationHref,pageHref,mapLinks,profilePages,profileExpansion} from './profile-pages.mjs';
-import {businessTemplates} from './templates/index.mjs';
 import {legacyExpansion} from './templates/legacy-expansion.mjs';
 export function rewriteProfileLinks(source,data,{template,base,page=''}) {
   let html=new HTMLRewriter().on('[data-site-page]',{element:e=>{
@@ -21,7 +20,7 @@ export function rewriteProfileLinks(source,data,{template,base,page=''}) {
 }
 export function renderProfileTemplate(source,data,{template,base,page=''}) {
   const extra=profileExpansion[template]?.pages.findIndex(p=>p.slug===page)??-1;
-  const titleField=extra>=0?'extra'+(extra+1)+'Title':legacyExpansion[template]?.titleFields[page]||(template==='Hospitality'?{'garden-room':'work1Title','terrace-suite':'work2Title'}:{living:'work1Title',detail:'work2Title',identity:'work1Title',digital:'work2Title',priorities:'insightTitle'})[page];
+  const titleField=extra>=0?'extra'+(extra+1)+'Title':legacyExpansion[template]?.titleFields[page];
   const pageTitle=titleField?data[titleField]:profilePages[template][page];
   let html=new HTMLRewriter().on('.template-access',{element:e=>e.remove()})
     .on('[data-business-statistics]',{element:e=>{if(data.statisticsVisible===false||![1,2,3].some(n=>data['stat'+n+'Value']?.trim()&&data['stat'+n+'Label']?.trim()))e.remove();}})
@@ -46,8 +45,7 @@ export function renderProfileTemplate(source,data,{template,base,page=''}) {
   }});
   html=html.on('[data-cms-nav-cta]',{element:e=>{
     if(!data.navCtaVisible){e.remove();return;}
-    e.setInnerContent(data.navCtaLabel);e.setAttribute('href',businessTemplates[template]?navigationHref(template,base,'contact'):contact);
-    if(template==='Architecture'&&!page)e.append(' <span aria-hidden="true">↗</span>',{html:true});
+    e.setInnerContent(data.navCtaLabel);e.setAttribute('href',contact);
   }}).on('.contact-button',{element:e=>{
     e.setInnerContent(data.contactLabel||'Hubungi kami');e.setAttribute('href',contact);
   }}).on('.footer-whatsapp',{element:e=>{

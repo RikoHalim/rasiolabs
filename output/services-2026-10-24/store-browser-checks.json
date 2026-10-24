@@ -1,0 +1,22 @@
+[
+  {
+    "months": 1,
+    "summary": "Layanan\nRasio Labs Store\nTemplate\nKatalog toko online sedang disiapkan\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp299.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=1"
+  },
+  {
+    "months": 12,
+    "summary": "Layanan\nRasio Labs Store\nTemplate\nKatalog toko online sedang disiapkan\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp2.148.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=12"
+  },
+  {
+    "months": 24,
+    "summary": "Layanan\nRasio Labs Store\nTemplate\nKatalog toko online sedang disiapkan\nDurasi\n24 bulan\nTotal paket dibayar di muka\nRp3.576.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=24"
+  },
+  {
+    "months": 48,
+    "summary": "Layanan\nRasio Labs Store\nTemplate\nKatalog toko online sedang disiapkan\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp6.192.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=store&duration=48"
+  }
+]

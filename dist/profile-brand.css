@@ -3,5 +3,4 @@
 .template-footer .studio-logo img:is([src='/assets/rasiolabs-logo.png'],[src='/assets/rasio-logo.png']){content:url('/assets/rasiolabs-logo-white.png');background:transparent;padding:0}
 .theme-padel .studio-header .studio-logo img:is([src='/assets/rasiolabs-logo.png'],[src='/assets/rasio-logo.png']){content:normal;filter:none}
 .theme-padel .studio-header .studio-logo img:not([src='/assets/rasiolabs-logo.png']):not([src='/assets/rasio-logo.png']){background:#fff;border-radius:4px;padding:5px}
-.theme-creative .studio-logo img,.theme-consulting .studio-logo img{mix-blend-mode:normal}
 @media(max-width:760px){.studio-logo img{width:138px}}

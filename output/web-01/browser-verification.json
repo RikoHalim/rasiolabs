@@ -1,0 +1,434 @@
+{
+  "testedAt": "2026-10-23T03:17:34.339Z",
+  "method": "Cua browser UI: native keyboard activation, selectOption, actual Control+Enter link; read-only DOM observations",
+  "paths": [
+    {
+      "path": "direct",
+      "months": 1,
+      "homeState": {
+        "duration": "1",
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=1&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "1",
+        "quote": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=1&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "direct",
+      "months": 12,
+      "homeState": {
+        "duration": "12",
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=12&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "12",
+        "quote": "Rp54.500/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp654.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=12&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "direct",
+      "months": 24,
+      "homeState": {
+        "duration": "24",
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=24&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "24",
+        "quote": "Rp32.000/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n24 bulan\nTotal paket dibayar di muka\nRp768.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=24&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "direct",
+      "months": 48,
+      "homeState": {
+        "duration": "48",
+        "href": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=48&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "48",
+        "quote": "Rp27.750/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp1.332.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=48&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "preview",
+      "months": 1,
+      "previewState": {
+        "href": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel",
+        "url": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=1&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "1",
+        "quote": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "preview",
+      "months": 12,
+      "previewState": {
+        "href": "http://127.0.0.1:4184/checkout-v4.html?duration=12&type=profile&template=Padel",
+        "url": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=12&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "12",
+        "quote": "Rp54.500/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp654.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?duration=12&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "preview",
+      "months": 24,
+      "previewState": {
+        "href": "http://127.0.0.1:4184/checkout-v4.html?duration=24&type=profile&template=Padel",
+        "url": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=24&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "24",
+        "quote": "Rp32.000/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n24 bulan\nTotal paket dibayar di muka\nRp768.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?duration=24&type=profile&template=Padel"
+      }
+    },
+    {
+      "path": "preview",
+      "months": 48,
+      "previewState": {
+        "href": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel",
+        "url": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=48&type=profile&template=Padel"
+      },
+      "summary": {
+        "duration": "48",
+        "quote": "Rp27.750/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp1.332.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?duration=48&type=profile&template=Padel"
+      }
+    }
+  ],
+  "historyChecks": [
+    {
+      "action": "duration-change",
+      "months": 1,
+      "state": {
+        "domain": "contoh-bisnis.test",
+        "duration": "1",
+        "summary": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=1"
+      }
+    },
+    {
+      "action": "duration-change",
+      "months": 12,
+      "state": {
+        "domain": "contoh-bisnis.test",
+        "duration": "12",
+        "summary": "Rp54.500/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp654.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=12"
+      }
+    },
+    {
+      "action": "duration-change",
+      "months": 24,
+      "state": {
+        "domain": "contoh-bisnis.test",
+        "duration": "24",
+        "summary": "Rp32.000/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n24 bulan\nTotal paket dibayar di muka\nRp768.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=24"
+      }
+    },
+    {
+      "action": "duration-change",
+      "months": 48,
+      "state": {
+        "domain": "contoh-bisnis.test",
+        "duration": "48",
+        "summary": "Rp27.750/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp1.332.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=48"
+      }
+    },
+    {
+      "action": "back",
+      "state": {
+        "duration": "24",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=24"
+      }
+    },
+    {
+      "action": "forward",
+      "state": {
+        "duration": "48",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=48"
+      }
+    },
+    {
+      "action": "refresh",
+      "state": {
+        "duration": "48",
+        "summary": "Rp27.750/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp1.332.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=48"
+      }
+    },
+    {
+      "action": "change-service-home-history",
+      "returnState": {
+        "choice": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=48",
+        "duration": "48",
+        "url": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=48#layanan"
+      },
+      "changedHome": {
+        "choice": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel",
+        "duration": "1",
+        "preview": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=1&type=profile&template=Padel",
+        "url": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=1#layanan"
+      },
+      "backHome": {
+        "duration": "48",
+        "url": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=48#layanan"
+      },
+      "forwardHome": {
+        "duration": "1",
+        "url": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=1#layanan"
+      },
+      "refreshHome": {
+        "duration": "1",
+        "preview": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=1&type=profile&template=Padel",
+        "url": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=1#layanan"
+      }
+    },
+    {
+      "action": "store-service-continuity",
+      "serviceCheck": {
+        "duration": "12",
+        "storeLink": "http://127.0.0.1:4184/checkout-v4.html?duration=12&type=store",
+        "tab": "Online store",
+        "url": "http://127.0.0.1:4184/?type=store&duration=12#layanan"
+      },
+      "storeSummary": {
+        "quote": "Rp179.000/bulan ekuivalen\n\nRp299.000/bulan\n\nLayanan\nRasio Labs Store\nTemplate\nKatalog toko online sedang disiapkan\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp2.148.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?duration=12&type=store"
+      },
+      "serviceReturn": {
+        "duration": "12",
+        "tab": "Online store",
+        "url": "http://127.0.0.1:4184/?type=store&duration=12#layanan"
+      }
+    }
+  ],
+  "newTabChecks": [
+    {
+      "action": "new-tab-native-link",
+      "state": {
+        "url": "http://127.0.0.1:4184/rasio-web/dist/template-padel.html?duration=1&type=profile&template=Padel",
+        "use": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel"
+      }
+    },
+    {
+      "action": "internal-preview-page",
+      "state": {
+        "url": "http://127.0.0.1:4184/template-padel/club?duration=1&type=profile&template=Padel",
+        "use": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel"
+      }
+    },
+    {
+      "action": "preview-refresh",
+      "state": {
+        "url": "http://127.0.0.1:4184/template-padel/club?duration=1&type=profile&template=Padel",
+        "use": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel"
+      }
+    },
+    {
+      "action": "new-tab-order",
+      "state": {
+        "duration": "1",
+        "summary": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel"
+      }
+    }
+  ],
+  "invalidChecks": [
+    {
+      "message": "Periksa pilihan Anda\n\nDurasi pada tautan tidak tersedia. Pilih 1, 12, 24, atau 48 bulan.\n\nPilih ulang paket\nPilih template yang tersedia\nGanti layanan",
+      "quoted": false,
+      "recovery": [
+        {
+          "href": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel",
+          "text": "Pilih ulang paket"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=profile&template=Padel#template",
+          "text": "Pilih template yang tersedia"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=profile&template=Padel#layanan",
+          "text": "Ganti layanan"
+        }
+      ],
+      "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=2"
+    },
+    {
+      "message": "Periksa pilihan Anda\n\nTemplate pada tautan tidak tersedia.\n\nPilih ulang paket\nPilih template yang tersedia\nGanti layanan",
+      "quoted": false,
+      "recovery": [
+        {
+          "href": "http://127.0.0.1:4184/checkout-v4.html?type=profile&duration=1",
+          "text": "Pilih ulang paket"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=profile&duration=1#template",
+          "text": "Pilih template yang tersedia"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=profile&duration=1#layanan",
+          "text": "Ganti layanan"
+        }
+      ],
+      "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Architecture&duration=1"
+    },
+    {
+      "message": "Periksa pilihan Anda\n\nLayanan pada tautan tidak tersedia.\n\nPilih template yang tersedia\nGanti layanan",
+      "quoted": false,
+      "recovery": [
+        {
+          "href": "http://127.0.0.1:4184/?template=Padel&duration=1#template",
+          "text": "Pilih template yang tersedia"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?template=Padel&duration=1#layanan",
+          "text": "Ganti layanan"
+        }
+      ],
+      "url": "http://127.0.0.1:4184/checkout-v4.html?type=other&template=Padel&duration=1"
+    },
+    {
+      "message": "Periksa pilihan Anda\n\nPilihan pada tautan berulang. Pilih kembali paket Anda.\n\nPilih ulang paket\nPilih template yang tersedia\nGanti layanan",
+      "quoted": false,
+      "recovery": [
+        {
+          "href": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=1",
+          "text": "Pilih ulang paket"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=1#template",
+          "text": "Pilih template yang tersedia"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=profile&template=Padel&duration=1#layanan",
+          "text": "Ganti layanan"
+        }
+      ],
+      "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=1&duration=48"
+    },
+    {
+      "message": "Periksa pilihan Anda\n\nTemplate tidak sesuai dengan layanan yang dipilih.\n\nPilih ulang paket\nPilih template yang tersedia\nGanti layanan",
+      "quoted": false,
+      "recovery": [
+        {
+          "href": "http://127.0.0.1:4184/checkout-v4.html?type=store&duration=1",
+          "text": "Pilih ulang paket"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=store&duration=1#template",
+          "text": "Pilih template yang tersedia"
+        },
+        {
+          "href": "http://127.0.0.1:4184/?type=store&duration=1#layanan",
+          "text": "Ganti layanan"
+        }
+      ],
+      "url": "http://127.0.0.1:4184/checkout-v4.html?type=store&template=Padel&duration=1"
+    },
+    {
+      "invalidHome": {
+        "choice": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=2&type=profile&template=Padel",
+        "overflow": false,
+        "price": "—",
+        "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?duration=2#harga",
+        "warning": "Durasi pada tautan tidak tersedia. Pilih 1, 12, 24, atau 48 bulan. Pilih ulang paket"
+      },
+      "recoveredHome": {
+        "choice": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=1&type=profile&template=Padel",
+        "duration": "1",
+        "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/index-v3.html?duration=1#harga",
+        "warningHidden": true
+      }
+    }
+  ],
+  "directChecks": [
+    {
+      "action": "direct-preview",
+      "state": {
+        "href": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel",
+        "label": "Pilih paket",
+        "url": "http://127.0.0.1:4184/template-padel"
+      }
+    },
+    {
+      "action": "no-default-duration",
+      "state": {
+        "duration": "",
+        "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\nBelum dipilih\n\nPilih durasi layanan untuk melihat total pembayaran.",
+        "template": "Padel",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel"
+      }
+    },
+    {
+      "action": "explicit-package-selection",
+      "state": {
+        "duration": "12",
+        "summary": "Rp54.500/bulan ekuivalen\n\nRp109.000/bulan\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp654.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=12"
+      }
+    },
+    {
+      "action": "legacy-order-relay",
+      "state": {
+        "duration": "1",
+        "summary": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+        "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=1"
+      }
+    }
+  ],
+  "mobileLayout": {
+    "duration": "1",
+    "height": 840,
+    "overflow": false,
+    "scrollWidth": 371,
+    "summary": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+    "width": 390
+  },
+  "consoleErrors": {
+    "home": [],
+    "previewAndSummary": []
+  },
+  "finalValidation": {
+    "validationBefore": {
+      "duration": "1",
+      "invalid": "true",
+      "message": "Isi nama domain yang valid, misalnya namabisnis.com."
+    },
+    "validationAfter": {
+      "invalid": null,
+      "message": "",
+      "summary": "Rp109.000/bulan ekuivalen\n\nLayanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan\n\nHarga renewal akan ditampilkan dalam penawaran yang Anda setujui. Tidak ada penagihan otomatis dalam draf ini.",
+      "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=1&type=profile&template=Padel"
+    },
+    "finalConsole": []
+  }
+}

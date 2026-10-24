@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:homepage": "node scripts/build-homepage.mjs",
+    "preview:homepage": "node scripts/preview-homepage.mjs",
     "build": "node scripts/build-worker.mjs",
     "dev": "wrangler dev --port 4173 --ip 127.0.0.1",
     "db:generate": "drizzle-kit generate",

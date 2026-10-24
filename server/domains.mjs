@@ -11,7 +11,7 @@ export function domainPrices(raw) {
 }
 
 export function domainFee(duration, domain, rawPrices) {
-  if (duration !== 1) return 0;
+  if (duration !== 1) return null;
   const extension = domain.slice(domain.indexOf('.') + 1);
   return domainPrices(rawPrices)[extension] ?? null;
 }

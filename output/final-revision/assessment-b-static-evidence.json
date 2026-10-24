@@ -1,0 +1,118 @@
+{
+  "recordedAt": "2026-10-19T11:41:39.231Z",
+  "target": "C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\dist\\index.html",
+  "sha256": "646e7e1db3ca09fd300c1c41fc9a01606ac2b991141342a5f98dfb970e1b17e7",
+  "sourceOnly": true,
+  "localReferences": 25,
+  "missingReferences": [],
+  "brokenFragmentLinks": [],
+  "duplicateIds": [],
+  "templateCards": 1,
+  "templateNames": [
+    "Padel Club"
+  ],
+  "heroPreviews": 3,
+  "heroAssetPaths": [
+    "assets/marketing/hero/architecture.jpg",
+    "assets/marketing/hero/creative.jpg",
+    "assets/marketing/hero/padel.jpg"
+  ],
+  "imageCount": 10,
+  "imagesMissingAlt": [],
+  "durationValues": [
+    1,
+    12,
+    24,
+    48
+  ],
+  "pricing": [
+    {
+      "months": 1,
+      "profile": {
+        "months": 1,
+        "monthly": "Rp109.000",
+        "total": "Rp109.000",
+        "saving": 0,
+        "domain": false,
+        "badge": "",
+        "period": "Total 1 bulan, dibayar di muka"
+      },
+      "store": {
+        "months": 1,
+        "monthly": "Rp299.000",
+        "total": "Rp299.000",
+        "saving": 0,
+        "domain": false,
+        "badge": "",
+        "period": "Total 1 bulan, dibayar di muka"
+      }
+    },
+    {
+      "months": 12,
+      "profile": {
+        "months": 12,
+        "monthly": "Rp54.500",
+        "total": "Rp654.000",
+        "saving": 654000,
+        "domain": true,
+        "badge": "",
+        "period": "Total 12 bulan, dibayar di muka"
+      },
+      "store": {
+        "months": 12,
+        "monthly": "Rp179.000",
+        "total": "Rp2.148.000",
+        "saving": 1440000,
+        "domain": true,
+        "badge": "",
+        "period": "Total 12 bulan, dibayar di muka"
+      }
+    },
+    {
+      "months": 24,
+      "profile": {
+        "months": 24,
+        "monthly": "Rp32.000",
+        "total": "Rp768.000",
+        "saving": 1848000,
+        "domain": true,
+        "badge": "Paling Populer",
+        "period": "Total 24 bulan, dibayar di muka"
+      },
+      "store": {
+        "months": 24,
+        "monthly": "Rp149.000",
+        "total": "Rp3.576.000",
+        "saving": 3600000,
+        "domain": true,
+        "badge": "Paling Populer",
+        "period": "Total 24 bulan, dibayar di muka"
+      }
+    },
+    {
+      "months": 48,
+      "profile": {
+        "months": 48,
+        "monthly": "Rp27.750",
+        "total": "Rp1.332.000",
+        "saving": 3900000,
+        "domain": true,
+        "badge": "Harga Terbaik",
+        "period": "Total 48 bulan, dibayar di muka"
+      },
+      "store": {
+        "months": 48,
+        "monthly": "Rp129.000",
+        "total": "Rp6.192.000",
+        "saving": 8160000,
+        "domain": true,
+        "badge": "Harga Terbaik",
+        "period": "Total 48 bulan, dibayar di muka"
+      }
+    }
+  ],
+  "storeUnlimited": true,
+  "assistance20": true,
+  "savingBasisSentenceAbsent": true,
+  "pendingOrderTextOccurrences": 2
+}

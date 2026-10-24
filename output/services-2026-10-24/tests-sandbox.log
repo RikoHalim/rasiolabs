@@ -1,0 +1,1245 @@
+TAP version 13
+# Subtest: tarif domain hanya memakai harga tahunan valid; tarif kosong tidak menjadi gratis
+ok 1 - tarif domain hanya memakai harga tahunan valid; tarif kosong tidak menjadi gratis
+  ---
+  duration_ms: 4.8875
+  type: 'test'
+  ...
+# Subtest: kutipan domain tidak menambah biaya paket gratis atau mengubah tarif yang sudah dibayar
+ok 2 - kutipan domain tidak menambah biaya paket gratis atau mengubah tarif yang sudah dibayar
+  ---
+  duration_ms: 0.6908
+  type: 'test'
+  ...
+# Subtest: homepage preserves the one approved template destination with explicit buttons
+ok 3 - homepage preserves the one approved template destination with explicit buttons
+  ---
+  duration_ms: 2.3186
+  type: 'test'
+  ...
+# Subtest: homepage order follows revision; dashboard and interactive AI are absent
+ok 4 - homepage order follows revision; dashboard and interactive AI are absent
+  ---
+  duration_ms: 1.0652
+  type: 'test'
+  ...
+# Subtest: service panels contain product visuals and include chatbot in every service
+ok 5 - service panels contain product visuals and include chatbot in every service
+  ---
+  duration_ms: 0.5471
+  type: 'test'
+  ...
+# Subtest: displayed prices use exact approved values and correctly distinguish domain eligibility
+ok 6 - displayed prices use exact approved values and correctly distinguish domain eligibility
+  ---
+  duration_ms: 0.8122
+  type: 'test'
+  ...
+# Subtest: all homepage links, anchors, scripts, styles and images resolve locally
+ok 7 - all homepage links, anchors, scripts, styles and images resolve locally
+  ---
+  duration_ms: 13.7779
+  type: 'test'
+  ...
+# Subtest: preview maps existing template subpages and rejects sensitive/outside paths
+ok 8 - preview maps existing template subpages and rejects sensitive/outside paths
+  ---
+  duration_ms: 1.1176
+  type: 'test'
+  ...
+# Subtest: marketing policy summaries contain no internal review labels and do not open production
+ok 9 - marketing policy summaries contain no internal review labels and do not open production
+  ---
+  duration_ms: 6.3761
+  type: 'test'
+  ...
+# Subtest: animation rules include reduced-motion and no homepage dashboard code
+ok 10 - animation rules include reduced-motion and no homepage dashboard code
+  ---
+  duration_ms: 3.7239
+  type: 'test'
+  ...
+# Subtest: core text and interactive palette passes AA text contrast
+ok 11 - core text and interactive palette passes AA text contrast
+  ---
+  duration_ms: 0.8161
+  type: 'test'
+  ...
+# Subtest: angka contoh template tidak menjadi klaim di website klien baru
+ok 12 - angka contoh template tidak menjadi klaim di website klien baru
+  ---
+  duration_ms: 1.4263
+  type: 'test'
+  ...
+# Subtest: harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan
+ok 13 - harga yang disepakati berlaku untuk setiap durasi dan tarif perpanjangan
+  ---
+  duration_ms: 1.605
+  type: 'test'
+  ...
+# Subtest: checkout mewajibkan email akses login dan menormalkan data tanpa menerima harga dari klien
+ok 14 - checkout mewajibkan email akses login dan menormalkan data tanpa menerima harga dari klien
+  ---
+  duration_ms: 1.1513
+  type: 'test'
+  ...
+# Subtest: checkout menolak layanan atau template yang belum tersedia, domain rusak dan persetujuan kosong
+ok 15 - checkout menolak layanan atau template yang belum tersedia, domain rusak dan persetujuan kosong
+  ---
+  duration_ms: 1.0299
+  type: 'test'
+  ...
+# Subtest: CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tidak diterima
+ok 16 - CMS hanya menerima bidang konten; URL eksternal dan perubahan struktur tidak diterima
+  ---
+  duration_ms: 6.2882
+  type: 'test'
+  ...
+# Subtest: template Profile memakai konten dan menu sendiri tanpa mengubah harga
+ok 17 - template Profile memakai konten dan menu sendiri tanpa mengubah harga
+  ---
+  duration_ms: 2.1508
+  type: 'test'
+  ...
+# Subtest: unggahan memakai tanda tangan file, bukan nama ekstensi
+ok 18 - unggahan memakai tanda tangan file, bukan nama ekstensi
+  ---
+  duration_ms: 0.5642
+  type: 'test'
+  ...
+# Subtest: navbar lama mendapatkan default dan hanya menerima menu dari bagian yang tersedia
+ok 19 - navbar lama mendapatkan default dan hanya menerima menu dari bagian yang tersedia
+  ---
+  duration_ms: 4.5859
+  type: 'test'
+  ...
+# Subtest: Bab 85: harga eksplisit, total di muka, dan domain mengikuti durasi
+ok 20 - Bab 85: harga eksplisit, total di muka, dan domain mengikuti durasi
+  ---
+  duration_ms: 4.1103
+  type: 'test'
+  ...
+# Subtest: tarif Store, domain, badge, dan cakupan mengikuti keputusan final pemilik
+ok 21 - tarif Store, domain, badge, dan cakupan mengikuti keputusan final pemilik
+  ---
+  duration_ms: 0.5017
+  type: 'test'
+  ...
+# Subtest: tidak ada approval yang diada-adakan atau operasi finansial aktif
+ok 22 - tidak ada approval yang diada-adakan atau operasi finansial aktif
+  ---
+  duration_ms: 0.9025
+  type: 'test'
+  ...
+# Subtest: revisi tidak membatasi jumlah; perubahan besar masuk penawaran
+ok 23 - revisi tidak membatasi jumlah; perubahan besar masuk penawaran
+  ---
+  duration_ms: 0.8793
+  type: 'test'
+  ...
+# Subtest: halaman kebijakan lengkap dan semua link sebelum pembayaran tersedia
+ok 24 - halaman kebijakan lengkap dan semua link sebelum pembayaran tersedia
+  ---
+  duration_ms: 52.5955
+  type: 'test'
+  ...
+# Subtest: server menolak transaksi baru sementara kebijakan belum disetujui
+ok 25 - server menolak transaksi baru sementara kebijakan belum disetujui
+  ---
+  duration_ms: 2.4121
+  type: 'test'
+  ...
+# Subtest: pengingat domain dan kontrak terpisah, tidak mengirim atau mengarang tarif
+ok 26 - pengingat domain dan kontrak terpisah, tidak mengirim atau mengarang tarif
+  ---
+  duration_ms: 0.9463
+  type: 'test'
+  ...
+# Subtest: dashboard admin tetap memuat daftar kosong setelah perubahan kebijakan
+ok 27 - dashboard admin tetap memuat daftar kosong setelah perubahan kebijakan
+  ---
+  duration_ms: 5.8587
+  type: 'test'
+  ...
+# Subtest: dashboard admin tetap memuat pesanan historis setelah perubahan kebijakan
+ok 28 - dashboard admin tetap memuat pesanan historis setelah perubahan kebijakan
+  ---
+  duration_ms: 66.1197
+  type: 'test'
+  ...
+# Subtest: login klien menggunakan endpoint username dan password
+ok 29 - login klien menggunakan endpoint username dan password
+  ---
+  duration_ms: 7.8216
+  type: 'test'
+  ...
+# Subtest: sesi tersimpan diarahkan sesuai peran pada kedua halaman
+ok 30 - sesi tersimpan diarahkan sesuai peran pada kedua halaman
+  ---
+  duration_ms: 4.0559
+  type: 'test'
+  ...
+# Subtest: kode klien pada halaman admin mengarahkan ke CMS
+ok 31 - kode klien pada halaman admin mengarahkan ke CMS
+  ---
+  duration_ms: 1.6462
+  type: 'test'
+  ...
+# Subtest: tautan undangan pada halaman admin ditebus sekali dan fragment dihapus
+ok 32 - tautan undangan pada halaman admin ditebus sekali dan fragment dihapus
+  ---
+  duration_ms: 1.8723
+  type: 'test'
+  ...
+# Subtest: redirect admin hanya mempertahankan ID pesanan valid, bukan URL atau kode akses
+ok 33 - redirect admin hanya mempertahankan ID pesanan valid, bukan URL atau kode akses
+  ---
+  duration_ms: 3.5649
+  type: 'test'
+  ...
+# Subtest: kode tidak valid tetap di form login dan mempertahankan pesan API
+ok 34 - kode tidak valid tetap di form login dan mempertahankan pesan API
+  ---
+  duration_ms: 1.7377
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+ok 35 - WEB-01: direct choice and a fresh-tab preview retain every approved Profile package
+  ---
+  duration_ms: 4.3305
+  type: 'test'
+  ...
+# Subtest: WEB-01: both published homepage outputs provide complete native selection links before interaction
+ok 36 - WEB-01: both published homepage outputs provide complete native selection links before interaction
+  ---
+  duration_ms: 9.7591
+  type: 'test'
+  ...
+# Subtest: WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+ok 37 - WEB-01: Store keeps its own explicit prices and cannot borrow a Profile template
+  ---
+  duration_ms: 0.4398
+  type: 'test'
+  ...
+# Subtest: WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+ok 38 - WEB-01: refresh and browser history can reconstruct each selection solely from its URL
+  ---
+  duration_ms: 0.3816
+  type: 'test'
+  ...
+# Subtest: WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+ok 39 - WEB-01: a direct preview without a package remains incomplete, with no implicit 24/48-month charge
+  ---
+  duration_ms: 0.2263
+  type: 'test'
+  ...
+# Subtest: WEB-01: malformed or duplicate selections cannot silently become another payable package
+ok 40 - WEB-01: malformed or duplicate selections cannot silently become another payable package
+  ---
+  duration_ms: 0.5652
+  type: 'test'
+  ...
+# Subtest: WEB-01: Custom remains a quotation, without a silently substituted subscription price
+ok 41 - WEB-01: Custom remains a quotation, without a silently substituted subscription price
+  ---
+  duration_ms: 0.2093
+  type: 'test'
+  ...
+# Subtest: WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+ok 42 - WEB-01: invalid raw state remains actionable across links instead of being silently discarded
+  ---
+  duration_ms: 1.6303
+  type: 'test'
+  ...
+# Subtest: WEB-01: service-change return links use the current section and retain relevant choice
+ok 43 - WEB-01: service-change return links use the current section and retain relevant choice
+  ---
+  duration_ms: 0.978
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection-only changes do not open a production operation
+ok 44 - WEB-01: selection-only changes do not open a production operation
+  ---
+  duration_ms: 0.6118
+  type: 'test'
+  ...
+# Subtest: WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+ok 45 - WEB-01: every built Padel page rewrites native preview navigation and order links for all durations
+  ---
+  duration_ms: 52.6602
+  type: 'test'
+  ...
+# Subtest: WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+ok 46 - WEB-01: direct preview requests a package; refresh/history events restore native action URLs
+  ---
+  duration_ms: 3.6659
+  type: 'test'
+  ...
+# Subtest: WEB-01: selection code is inert on a published client site without the preview bar
+ok 47 - WEB-01: selection code is inert on a published client site without the preview bar
+  ---
+  duration_ms: 0.284
+  type: 'test'
+  ...
+# Subtest: WEB-01: legacy order passes the original query to the existing summary, including missing/invalid duration
+ok 48 - WEB-01: legacy order passes the original query to the existing summary, including missing/invalid duration
+  ---
+  duration_ms: 0.7056
+  type: 'test'
+  ...
+# Subtest: WEB-01: service tabs restore URL choice and keep duration through refresh and history
+ok 49 - WEB-01: service tabs restore URL choice and keep duration through refresh and history
+  ---
+  duration_ms: 1.09
+  type: 'test'
+  ...
+# Subtest: both published outputs contain all three complete service pages in the current visual system
+ok 50 - both published outputs contain all three complete service pages in the current visual system
+  ---
+  duration_ms: 17.1974
+  type: 'test'
+  ...
+# Subtest: service page assets, local destinations, fragments, and accessibility references resolve
+ok 51 - service page assets, local destinations, fragments, and accessibility references resolve
+  ---
+  duration_ms: 80.0339
+  type: 'test'
+  ...
+# Subtest: Profile and Store present exactly the four official plans with totals and domain terms
+ok 52 - Profile and Store present exactly the four official plans with totals and domain terms
+  ---
+  duration_ms: 18.9981
+  type: 'test'
+  ...
+# Subtest: homepage service panels offer the two requested choices, three concrete benefits and legible badge hooks
+ok 53 - homepage service panels offer the two requested choices, three concrete benefits and legible badge hooks
+  ---
+  duration_ms: 1.5213
+  type: 'test'
+  ...
+# Subtest: the absent Store catalogue is explained without a Profile substitute, and fees remain qualified
+ok 54 - the absent Store catalogue is explained without a Profile substitute, and fees remain qualified
+  ---
+  duration_ms: 2.6362
+  type: 'test'
+  ...
+# Subtest: Custom remains consultation and proposal based, without a template or subscription checkout
+ok 55 - Custom remains consultation and proposal based, without a template or subscription checkout
+  ---
+  duration_ms: 0.8862
+  type: 'test'
+  ...
+# Subtest: service policy navigation appears only in the footer
+ok 56 - service policy navigation appears only in the footer
+  ---
+  duration_ms: 1.1763
+  type: 'test'
+  ...
+# Subtest: native detail-page navigation retains selection for every official duration and deliberate service change
+ok 57 - native detail-page navigation retains selection for every official duration and deliberate service change
+  ---
+  duration_ms: 27.2728
+  type: 'test'
+  ...
+# Subtest: homepage updates only declared service actions and keeps template and package selection through native new tabs
+ok 58 - homepage updates only declared service actions and keeps template and package selection through native new tabs
+  ---
+  duration_ms: 3.4228
+  type: 'test'
+  ...
+# Subtest: service links refresh from URL history and selection events without sharing mutable selection storage
+ok 59 - service links refresh from URL history and selection events without sharing mutable selection storage
+  ---
+  duration_ms: 3.3169
+  type: 'test'
+  ...
+# Subtest: direct service visits do not silently choose a duration; invalid duration remains recoverable
+ok 60 - direct service visits do not silently choose a duration; invalid duration remains recoverable
+  ---
+  duration_ms: 2.448
+  type: 'test'
+  ...
+# Subtest: generated template and client renderer contracts
+    # Subtest: every registered template page has real content, valid links, fragments, and loaded assets
+    ok 1 - every registered template page has real content, valid links, fragments, and loaded assets
+      ---
+      duration_ms: 1383.6579
+      type: 'test'
+      ...
+    # Subtest: navbar defaults and every CMS-approved destination resolve to real client content
+    ok 2 - navbar defaults and every CMS-approved destination resolve to real client content
+      ---
+      duration_ms: 4.0696
+      type: 'test'
+      ...
+    # Subtest: CMS-approved page navigation is validated and rendered under the client website base
+    not ok 3 - CMS-approved page navigation is validated and rendered under the client website base
+      ---
+      duration_ms: 137.7418
+      type: 'test'
+      location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\template-navigation.test.mjs:123:1'
+      failureType: 'testCodeFailure'
+      error: 'fetch failed'
+      code: 'ERR_TEST_FAILURE'
+      name: 'TypeError'
+      stack: |-
+        Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+        C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+        node:internal/process/task_queues:151:7
+        AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+        AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+        process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+        C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+        process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+        async fetch4 (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:79757:20)
+        async _Miniflare.dispatchFetch (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:124789:22)
+        async TestContext.<anonymous> (file:///C:/Users/rikoh/Documents/Rasio%20Agency/rasio-web/tests/template-navigation.test.mjs:130:22)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: forms, filters, tabs, galleries and preparation tools expose usable hooks and feedback
+    ok 4 - forms, filters, tabs, galleries and preparation tools expose usable hooks and feedback
+      ---
+      duration_ms: 5.7724
+      type: 'test'
+      ...
+    # Subtest: every registered page is reachable through the family navigation or visitor journey
+    ok 5 - every registered page is reachable through the family navigation or visitor journey
+      ---
+      duration_ms: 2.9782
+      type: 'test'
+      ...
+    # Subtest: template families use distinct photography rather than recycling another sector imagery
+    ok 6 - template families use distinct photography rather than recycling another sector imagery
+      ---
+      duration_ms: 0.7388
+      type: 'test'
+      ...
+    # Subtest: client renderer rewrites all page links, navbar, contact and CMS values for every template page
+    not ok 7 - client renderer rewrites all page links, navbar, contact and CMS values for every template page
+      ---
+      duration_ms: 5.9039
+      type: 'test'
+      location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\template-navigation.test.mjs:204:1'
+      failureType: 'testCodeFailure'
+      error: 'fetch failed'
+      code: 'ERR_TEST_FAILURE'
+      name: 'TypeError'
+      stack: |-
+        Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+        C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+        node:internal/process/task_queues:151:7
+        AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+        AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+        process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+        C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+        process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+        async fetch4 (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:79757:20)
+        async _Miniflare.dispatchFetch (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:124789:22)
+        async TestContext.<anonymous> (file:///C:/Users/rikoh/Documents/Rasio%20Agency/rasio-web/tests/template-navigation.test.mjs:209:20)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: CMS only offers content fields that affect a rendered client page
+    ok 8 - CMS only offers content fields that affect a rendered client page
+      ---
+      duration_ms: 4.2235
+      type: 'test'
+      ...
+    # Subtest: editable location coordinates reject malformed values for all map-based templates
+    ok 9 - editable location coordinates reject malformed values for all map-based templates
+      ---
+      duration_ms: 3.289
+      type: 'test'
+      ...
+    # Subtest: historical unused fields do not prevent a client from editing supported content
+    ok 10 - historical unused fields do not prevent a client from editing supported content
+      ---
+      duration_ms: 1.3896
+      type: 'test'
+      ...
+    # Subtest: renamed client rooms, menus and services stay consistent in enquiry links and topic choices
+    not ok 11 - renamed client rooms, menus and services stay consistent in enquiry links and topic choices
+      ---
+      duration_ms: 4.4425
+      type: 'test'
+      location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\template-navigation.test.mjs:265:1'
+      failureType: 'testCodeFailure'
+      error: 'fetch failed'
+      code: 'ERR_TEST_FAILURE'
+      name: 'TypeError'
+      stack: |-
+        Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+        C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+        node:internal/process/task_queues:151:7
+        AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+        AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+        process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+        C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+        process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+        async fetch4 (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:79757:20)
+        async _Miniflare.dispatchFetch (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\miniflare\dist\src\index.js:124789:22)
+        async TestContext.<anonymous> (file:///C:/Users/rikoh/Documents/Rasio%20Agency/rasio-web/tests/template-navigation.test.mjs:271:22)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    1..11
+not ok 61 - generated template and client renderer contracts
+  ---
+  duration_ms: 1634.8097
+  type: 'suite'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\template-navigation.test.mjs:39:1'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: actual navigation script opens the mobile menu and closes on Escape or chosen links
+ok 62 - actual navigation script opens the mobile menu and closes on Escape or chosen links
+  ---
+  duration_ms: 16.0885
+  type: 'test'
+  ...
+# Subtest: actual filter and tab script selects matching content and supports keyboard navigation
+ok 63 - actual filter and tab script selects matching content and supports keyboard navigation
+  ---
+  duration_ms: 20.7762
+  type: 'test'
+  ...
+# Subtest: actual gallery script changes photographs, wraps navigation, and restores trigger focus
+ok 64 - actual gallery script changes photographs, wraps navigation, and restores trigger focus
+  ---
+  duration_ms: 1.1965
+  type: 'test'
+  ...
+# Subtest: actual enquiry script validates and prepares an explicit client contact link without automatically sending
+ok 65 - actual enquiry script validates and prepares an explicit client contact link without automatically sending
+  ---
+  duration_ms: 2.9324
+  type: 'test'
+  ...
+# Subtest: an enquiry link keeps its chosen room, menu or service on the client enquiry page
+ok 66 - an enquiry link keeps its chosen room, menu or service on the client enquiry page
+  ---
+  duration_ms: 1.4852
+  type: 'test'
+  ...
+# Subtest: the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+ok 67 - the actual brief tool reviews, copies, downloads and hands off a visitor brief without sending it
+  ---
+  duration_ms: 3.7859
+  type: 'test'
+  ...
+# Subtest: the actual brief tool handles empty answers, clipboard failure and invalid continuation
+ok 68 - the actual brief tool handles empty answers, clipboard failure and invalid continuation
+  ---
+  duration_ms: 1.7779
+  type: 'test'
+  ...
+# Subtest: the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+ok 69 - the actual legacy motion script keeps the initial viewport readable and respects reduced motion
+  ---
+  duration_ms: 18.4959
+  type: 'test'
+  ...
+# Subtest: verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama
+not ok 70 - verifikasi pembayaran membuat satu akun otomatis, tetapi checkout tidak bisa melewati password pertama
+  ---
+  duration_ms: 1909.9978
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:54:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: lupa password memakai respons generik dan reset membatalkan password serta sesi lama
+not ok 71 - lupa password memakai respons generik dan reset membatalkan password serta sesi lama
+  ---
+  duration_ms: 0.7101
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:88:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran
+not ok 72 - email belum dikirim tanpa konfigurasi; adapter memakai idempotensi dan mencatat kegagalan tanpa membatalkan pembayaran
+  ---
+  duration_ms: 0.1563
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:104:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku
+not ok 73 - aktivasi pesanan lama tanpa akun hanya mengirim satu email yang masih berlaku
+  ---
+  duration_ms: 0.054
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:118:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama
+not ok 74 - navbar tersimpan, terisolasi antara draft dan publik, serta tetap aman untuk konten lama
+  ---
+  duration_ms: 0.0722
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:132:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin
+not ok 75 - username percobaan membuka CMS yang sama tanpa membuat akun pembayaran atau akses admin
+  ---
+  duration_ms: 0.0499
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:158:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih
+not ok 76 - template baru tersambung dari pesanan sampai CMS dan publikasi dengan layout terpilih
+  ---
+  duration_ms: 0.1205
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:239:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template
+not ok 77 - statistik bisnis milik klien dapat disunting, diterbitkan, dan disembunyikan pada setiap template
+  ---
+  duration_ms: 0.0509
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:277:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: database dan storage lokal tersedia tanpa gateway pembayaran palsu
+not ok 78 - database dan storage lokal tersedia tanpa gateway pembayaran palsu
+  ---
+  duration_ms: 0.2712
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:295:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html
+not ok 79 - portal dan template dikirim sebagai HTML, bukan loop redirect dari asset .html
+  ---
+  duration_ms: 0.1685
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:300:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: sesi aman, origin dan CSRF wajib; klien tidak bisa membuka endpoint admin
+not ok 80 - sesi aman, origin dan CSRF wajib; klien tidak bisa membuka endpoint admin
+  ---
+  duration_ms: 0.045
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:309:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: pesanan persisten, harga dihitung server dan retry tidak menciptakan pesanan kedua
+not ok 81 - pesanan persisten, harga dihitung server dan retry tidak menciptakan pesanan kedua
+  ---
+  duration_ms: 0.0403
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:326:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan
+not ok 82 - dua checkout bersamaan dengan idempotency key sama menghasilkan satu pesanan
+  ---
+  duration_ms: 0.0364
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:346:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat
+not ok 83 - halaman tiap sektor memakai route sendiri dan seluruh draft tetap privat
+  ---
+  duration_ms: 0.0354
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:359:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama
+not ok 84 - brief persiapan setiap sektor menuju formulir enquiry milik klien yang sama
+  ---
+  duration_ms: 0.0331
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:389:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: enquiry memakai kontak email klien ketika WhatsApp tidak diisi
+not ok 85 - enquiry memakai kontak email klien ketika WhatsApp tidak diisi
+  ---
+  duration_ms: 0.0935
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:411:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan
+not ok 86 - konten halaman tambahan aman, tersimpan, dan terpisah sampai diterbitkan
+  ---
+  duration_ms: 0.0418
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:423:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: CMS menyimpan seluruh halaman panjang dalam batas tiap bidang
+not ok 87 - CMS menyimpan seluruh halaman panjang dalam batas tiap bidang
+  ---
+  duration_ms: 0.0318
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:464:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga
+not ok 88 - domain paket 1 bulan ditagih tahunan dan tidak boleh diverifikasi tanpa kutipan harga
+  ---
+  duration_ms: 0.0328
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:477:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang
+not ok 89 - domain tetap gratis untuk durasi tahunan dan harga yang berubah perlu ditinjau ulang
+  ---
+  duration_ms: 0.0357
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:502:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry
+not ok 90 - tarif domain terkonfigurasi muncul di pencarian, dihitung server, dan tetap sama saat retry
+  ---
+  duration_ms: 0.0306
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:512:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru
+not ok 91 - draft dua klien terisolasi dan perubahan revision lama tidak menimpa draft baru
+  ---
+  duration_ms: 0.0362
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:533:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: unggahan memeriksa isi, ukuran dan kepemilikan; gambar privat tidak bocor
+not ok 92 - unggahan memeriksa isi, ukuran dan kepemilikan; gambar privat tidak bocor
+  ---
+  duration_ms: 0.0314
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:547:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape
+not ok 93 - pembayaran dan setup wajib sebelum terbit; konten HTML klien di-escape
+  ---
+  duration_ms: 0.0313
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:566:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru
+not ok 94 - password klien dapat dipakai kembali; pencabutan memutus semua sesi dan aktivasi ulang wajib password baru
+  ---
+  duration_ms: 0.0309
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:605:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai
+not ok 95 - sesi dan tautan aktivasi kedaluwarsa tidak bisa dipakai
+  ---
+  duration_ms: 0.0693
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:621:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal
+not ok 96 - D1 batch rollback tidak meninggalkan sebagian pesanan ketika pernyataan gagal
+  ---
+  duration_ms: 0.071
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:632:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin
+not ok 97 - akses percobaan bersamaan membuat satu CMS persisten tanpa menambah pesanan atau statistik admin
+  ---
+  duration_ms: 0.0467
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:641:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya
+not ok 98 - pratinjau dan unggahan percobaan privat; klien biasa tidak dapat melihat atau memakai gambarnya
+  ---
+  duration_ms: 0.0593
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:673:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa
+not ok 99 - percobaan tidak dapat diterbitkan, diubah menjadi transaksi, diberi undangan, atau dicabut seperti pesanan biasa
+  ---
+  duration_ms: 0.0353
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:707:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah
+not ok 100 - flag percobaan tetap menolak situs dan gambar publik meskipun status data berubah
+  ---
+  duration_ms: 0.037
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:730:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan
+not ok 101 - sesi percobaan memerlukan generation saat ini dan input checkout tidak memberikan hak percobaan
+  ---
+  duration_ms: 0.0312
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:761:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+# Subtest: v4 non-approved checkout stops before inserting an order
+not ok 102 - v4 non-approved checkout stops before inserting an order
+  ---
+  duration_ms: 0.0293
+  type: 'test'
+  location: 'C:\\Users\\rikoh\\Documents\\Rasio Agency\\rasio-web\\tests\\worker.test.mjs:785:1'
+  failureType: 'hookFailed'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Object.processResponse (C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:237:16)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\lib\web\fetch\index.js:1081:19
+    node:internal/process/task_queues:151:7
+    AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    C:\Users\rikoh\Documents\Rasio Agency\rasio-web\node_modules\undici\index.js:157:7
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async MessagePort.<anonymous> ([worker eval]:32:22)
+  ...
+1..102
+# tests 112
+# suites 1
+# pass 76
+# fail 36
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5565.0744

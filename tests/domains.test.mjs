@@ -7,7 +7,7 @@ test('tarif domain hanya memakai harga tahunan valid; tarif kosong tidak menjadi
   assert.deepEqual(domainPrices(fixture),{com:150000,id:240000,'co.id':310000});
   assert.equal(domainFee(1,'studio.co.id',fixture),310000);
   assert.equal(domainFee(1,'studio.com',undefined),null);
-  for(const duration of [12,24,48])assert.equal(domainFee(duration,'studio.com',undefined),0);
+  for(const duration of [12,24,48])assert.equal(domainFee(duration,'studio.com',undefined),null);
   for(const raw of [undefined,'invalid','null','{}','{"com":0,"id":-1,"co.id":"100000"}','{"com":100000001}'])assert.deepEqual(domainPrices(raw),{});
 });
 

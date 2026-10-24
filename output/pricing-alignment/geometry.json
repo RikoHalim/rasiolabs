@@ -1,0 +1,342 @@
+{
+  "date": "2026-10-21",
+  "note": "Layout offsets exclude the temporary transform used by price-change animation.",
+  "results": [
+    {
+      "cards": [
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4936,
+          "headerOffset": 4629,
+          "height": 904.681396484375,
+          "priceOffset": 4705,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 4699,
+          "headerOffset": 4389,
+          "height": 956.2297973632812,
+          "priceOffset": 4479,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "width": 1024
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 6543,
+          "headerOffset": 6249,
+          "height": 667.6854858398438,
+          "priceOffset": 6329,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 7235,
+          "headerOffset": 6941,
+          "height": 862.0806274414062,
+          "priceOffset": 7021,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 8144,
+          "headerOffset": 7870,
+          "height": 773.2540283203125,
+          "priceOffset": 7950,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "1",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 6577,
+          "headerOffset": 6249,
+          "height": 701.6854858398438,
+          "priceOffset": 6329,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 7303,
+          "headerOffset": 6975,
+          "height": 896.0806274414062,
+          "priceOffset": 7055,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 8212,
+          "headerOffset": 7938,
+          "height": 773.2540283203125,
+          "priceOffset": 8018,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "12",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 6621,
+          "headerOffset": 6293,
+          "height": 744.883056640625,
+          "priceOffset": 6373,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 7390,
+          "headerOffset": 7061,
+          "height": 939.2781982421876,
+          "priceOffset": 7141,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 8299,
+          "headerOffset": 8025,
+          "height": 773.2540283203125,
+          "priceOffset": 8105,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "24",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "buttonOffset": 6621,
+          "headerOffset": 6293,
+          "height": 744.883056640625,
+          "priceOffset": 6373,
+          "service": "Rasio Profile"
+        },
+        {
+          "buttonOffset": 7390,
+          "headerOffset": 7061,
+          "height": 939.2781982421876,
+          "priceOffset": 7141,
+          "service": "Rasio Store"
+        },
+        {
+          "buttonOffset": 8299,
+          "headerOffset": 8025,
+          "height": 773.2540283203125,
+          "priceOffset": 8105,
+          "service": "Rasio Custom"
+        }
+      ],
+      "duration": "48",
+      "overflow": false,
+      "width": 390
+    }
+  ]
+}

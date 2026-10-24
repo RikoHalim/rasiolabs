@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-22",
+  "method": "Temporary loopback server using the actual preview handler; closed after check",
+  "absentFiles": 24,
+  "archivePresent": true,
+  "http": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/layanan-profile",
+      "status": 404
+    },
+    {
+      "path": "/layanan-profile.html",
+      "status": 404
+    },
+    {
+      "path": "/layanan-store",
+      "status": 404
+    },
+    {
+      "path": "/layanan-store.html",
+      "status": 404
+    },
+    {
+      "path": "/layanan-custom",
+      "status": 404
+    },
+    {
+      "path": "/layanan-custom.html",
+      "status": 404
+    }
+  ]
+}

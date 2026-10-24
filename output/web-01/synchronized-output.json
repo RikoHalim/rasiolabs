@@ -1,0 +1,23 @@
+[
+  "index.html",
+  "selection.js",
+  "checkout-selection.js",
+  "template-selection.js",
+  "policy-flow.js",
+  "policy-v4.js",
+  "template-catalog.js",
+  "order.js",
+  "order.html",
+  "marketing/pricing.js",
+  "marketing/interactions.js",
+  "template-padel-club.html",
+  "template-padel-coaching.html",
+  "template-padel-events.html",
+  "template-padel-first-game.html",
+  "template-padel-group-play.html",
+  "template-padel-membership.html",
+  "template-padel-play.html",
+  "template-padel-player-guide.html",
+  "template-padel-visit.html",
+  "template-padel.html"
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "path": "direct-via-detail",
+    "months": 1,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=1&type=profile&template=Padel"
+  },
+  {
+    "path": "direct-via-detail",
+    "months": 12,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp654.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=12&type=profile&template=Padel"
+  },
+  {
+    "path": "direct-via-detail",
+    "months": 24,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n24 bulan\nTotal paket dibayar di muka\nRp768.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?duration=24&type=profile&template=Padel"
+  },
+  {
+    "path": "direct-via-detail",
+    "months": 48,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp1.332.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/UI%20Concepts/2026-10-14/checkout-v4.html?type=profile&template=Padel&duration=48"
+  },
+  {
+    "path": "preview-via-detail",
+    "months": 1,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n1 bulan\nTotal paket dibayar di muka\nRp109.000\nDomain\nBiaya registrasi belum tersedia\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/checkout-v4.html?duration=1&type=profile&template=Padel"
+  },
+  {
+    "path": "preview-via-detail",
+    "months": 12,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n12 bulan\nTotal paket dibayar di muka\nRp654.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/checkout-v4.html?duration=12&type=profile&template=Padel"
+  },
+  {
+    "path": "preview-via-detail",
+    "months": 24,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n24 bulan\nTotal paket dibayar di muka\nRp768.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/checkout-v4.html?duration=24&type=profile&template=Padel"
+  },
+  {
+    "path": "preview-via-detail",
+    "months": 48,
+    "summary": "Layanan\nRasio Labs Profile\nTemplate\nPadel Club · Padel\nDurasi\n48 bulan\nTotal paket dibayar di muka\nRp1.332.000\nDomain\nTahun pertama: manfaat paket; kelayakan TLD belum final\nPajak/biaya tambahan\nBelum dikonfirmasi\nTotal checkout final\nBelum dapat ditetapkan",
+    "url": "http://127.0.0.1:4184/checkout-v4.html?type=profile&template=Padel&duration=48"
+  }
+]

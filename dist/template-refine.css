@@ -1,27 +1,4 @@
-/* Compact imagery for editorial and consulting themes; preserve the sports and architecture layouts. */
-.theme-creative .template-hero{padding-top:35px;padding-bottom:40px}
-.theme-creative .hero-photos{max-width:950px;margin:36px auto 0;gap:22px}
-.theme-creative .hero-photos figure:first-child img{height:310px}
-.theme-creative .hero-photos figure:last-child{padding-top:40px}
-.theme-creative .hero-photos figure:last-child img{height:240px}
-.theme-creative .hero-copy{max-width:760px}
-.theme-creative h1{font-size:clamp(58px,6.5vw,88px)}
-.theme-consulting .hero-photo{height:400px}
-.theme-consulting .hero-copy{padding:34px}
-.theme-consulting h1{font-size:clamp(46px,4.6vw,65px)}
-:is(.theme-creative,.theme-consulting) .case-cover,
-:is(.theme-creative,.theme-consulting) .article-cover{height:330px}
-:is(.theme-creative,.theme-consulting) :is(.studio-editorial,.architecture-editorial,.approach-layout,.editorial-split)>img{height:350px}
-:is(.theme-creative,.theme-consulting) :is(.guide-intro,.guide-cover,.guide-next)>img,
-:is(.theme-creative,.theme-consulting) .guide-cover img{height:320px}
-:is(.theme-creative,.theme-consulting) .portfolio-item figure{height:320px}
-:is(.theme-creative,.theme-consulting) .portfolio-item figure img{height:100%;aspect-ratio:auto}
-:is(.theme-creative,.theme-consulting) .gallery-open img{height:280px}
-:is(.theme-creative,.theme-consulting) .expertise-panels img{height:300px}
-:is(.theme-creative,.theme-consulting) .insight-feature img{min-height:0;height:330px}
-.theme-creative .home-capabilities>figure,.theme-consulting .home-deliverables>figure{height:380px}
-.theme-creative .home-stage-heading figure,.theme-consulting .home-stage-heading figure{height:190px}
-.theme-creative.page-work .portfolio-item{padding-top:0}
+
 .template-reading-progress{position:fixed;left:0;top:0;width:100%;height:3px;background:var(--accent,#665540);transform-origin:left;scale:0 1;z-index:110;pointer-events:none}
 .motion-word{display:inline-block}
 .business-statistics{padding:40px 0;background:var(--soft);color:var(--ink);border-block:1px solid var(--line)}
@@ -31,28 +8,19 @@
 .statistics-item{display:flex;flex-direction:column-reverse;justify-content:flex-end;padding:4px 24px;border-inline-start:1px solid var(--line);min-width:0}
 .statistics-item dt{font:400 14px/1.5 var(--body-font,Manrope,Arial,sans-serif);margin-top:8px;max-width:20ch;overflow-wrap:anywhere}
 .statistics-item dd{font:500 clamp(38px,4.2vw,58px)/1.1 var(--display-font,'Cormorant Garamond',Georgia,serif);font-variant-numeric:tabular-nums;margin:0;letter-spacing:-.03em;overflow-wrap:anywhere}
-.theme-architecture .business-statistics{background:#e9e3d8}
 .theme-padel .business-statistics{background:#1c2923;color:#eef7d8;border-color:#41513b}
 .theme-padel .statistics-item{border-color:#53623f}.theme-padel .statistics-item dd{color:#c7e566;font-weight:700}
-.theme-creative .business-statistics{background:#efe1d4}
-.theme-consulting .business-statistics{background:#132e41;color:#f8fafb;border-color:#446071}
-.theme-consulting .statistics-item{border-color:#446071}.theme-consulting .statistics-item dd{color:#d5e5f0}
 @media(max-width:1000px){.statistics-layout{gap:24px}.statistics-item{padding-inline:18px}}
 @media(max-width:760px){.business-statistics{padding:30px 0}.statistics-layout{grid-template-columns:1fr;gap:24px}.statistics-layout>h2{max-width:none;font-size:28px}.statistics-item{padding-inline:12px}.statistics-item:first-child{border-inline-start:0;padding-inline-start:0}.statistics-item dd{font-size:40px}.statistics-item dt{font-size:12px}}
 @media(max-width:360px){.statistics-item dd{font-size:34px}.statistics-item{padding-inline:9px}}
-.theme-creative .hero-photos{grid-template-columns:1fr;max-width:960px}
-.theme-creative .hero-photos figure:only-child{display:block;padding-top:0}
-.theme-creative .hero-photos figure:first-child img{width:100%;height:310px}
 .guide-preview--text{display:flex;align-items:flex-start;gap:25px;padding:28px;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius);min-height:180px}
 .guide-preview--text>div{padding:0}.guide-preview--text h3{font-size:30px;margin-bottom:20px}
 .guide-index{font:500 16px/1 var(--body-font);color:var(--muted);padding-top:6px}
 .enquiry-detail-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .enquiry-detail-row input{width:100%;min-width:0}
 .theme-padel img[data-cms-image="home2Image"]{object-position:center 65%}
-.theme-creative img[data-cms-image="work2Image"]{object-position:center 35%}
-.theme-consulting img[data-cms-image="home2Image"]{object-position:center 45%}
 @media(max-width:1000px){.enquiry-detail-row{grid-template-columns:1fr}}
-@media(max-width:760px){.guide-preview--text{min-height:0;padding:24px}.theme-creative .hero-photos figure:first-child img{height:220px}}
+@media(max-width:760px){.guide-preview--text{min-height:0;padding:24px}}
 .prep-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 .prep-layout h2{font-size:36px;line-height:1.15;margin-bottom:26px}
 .prep-form{display:grid;gap:22px}
@@ -77,10 +45,5 @@
 .prep-form .prep-submit{justify-self:start}
 .guide-module p{max-width:65ch}
 @media(max-width:760px){
- .theme-creative .hero-photos{gap:14px;margin-top:28px}.theme-creative .hero-photos figure:first-child img{height:220px}.theme-creative .hero-photos figure:last-child{padding-top:25px}.theme-creative .hero-photos figure:last-child img{height:180px}
- .theme-consulting .hero-photo{height:300px}.theme-consulting .hero-copy{padding:28px 22px}.theme-consulting h1{font-size:44px}
- :is(.theme-creative,.theme-consulting) :is(.case-cover,.article-cover),:is(.theme-creative,.theme-consulting) :is(.guide-intro,.guide-cover,.guide-next)>img,:is(.theme-creative,.theme-consulting) .guide-cover img{height:250px}
- :is(.theme-creative,.theme-consulting) .portfolio-item figure{height:270px}
- .theme-creative .home-capabilities>figure,.theme-consulting .home-deliverables>figure{height:280px}
  .prep-layout{grid-template-columns:1fr;gap:32px}.prep-summary{position:static;padding:24px}.prep-layout h2{font-size:32px}
 }

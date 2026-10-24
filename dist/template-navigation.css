@@ -1,4 +1,4 @@
-.profile-template:is(.theme-architecture,.theme-padel,.theme-creative,.theme-consulting,.theme-hospitality,.theme-catering,.theme-logistics) .studio-header {
+.profile-template:is(.theme-padel) .studio-header {
   position: sticky;
   top: 12px;
   z-index: 60;
@@ -17,7 +17,7 @@
 }
 .profile-template .studio-header .studio-menu { border-radius: 8px; }
 @media (max-width: 800px) {
-  .profile-template:is(.theme-architecture,.theme-padel,.theme-creative,.theme-consulting,.theme-hospitality,.theme-catering,.theme-logistics) .studio-header {
+  .profile-template:is(.theme-padel) .studio-header {
     top: 8px;
     width: calc(100% - 24px);
     margin: 10px auto 16px;

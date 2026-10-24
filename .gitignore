@@ -2,8 +2,12 @@ __pycache__/
 node_modules/
 .wrangler/
 .dev.vars
+.dev.vars.*
 .env*
 dist/client/
 dist/server/
 dist/.openai/
 *.tar
+/*.log
+/output/**/preview*.log
+/portable-smoke*/
